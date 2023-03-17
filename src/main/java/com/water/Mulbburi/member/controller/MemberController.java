@@ -33,18 +33,104 @@ public class MemberController {
 	}
 	
 	/* 개인회원 회원가입 페이지 이동 */
-	@GetMapping("/regist/Conmembership")
+	@GetMapping("/regist/ConMembership")
 	public String Conmembership() {
 		
-		return "/member/regist/ConMembership";
+		return "member/regist/ConMembership";
 	}
 	
 	/* 사업자회원 회원가입 페이지 이동 */
-	@GetMapping("/regist/Selmembership")
+	@GetMapping("/regist/SelMembership")
 	public String Selmembership() {
 		
-		return "/member/regist/SelMembership";
+		return "member/regist/SelMembership";
 	}
+	
+	/* 마이페이지 페이지 이동 */
+	@GetMapping("/mypage/mypageMain")
+	public String mypageMain() {
+		
+		return "member/mypage/mypageMain";
+	}
+	
+	/* 배송확인 페이지 이동 */
+	@GetMapping("/mypage/delivery")
+	public String delivery() {
+		
+		return "member/mypage/delivery";
+	}
+	
+	/* 교환신청 페이지 이동 */
+	@GetMapping("/mypage/exchange")
+	public String exchange() {
+		
+		return "member/mypage/exchange";
+	}
+	
+	/* 환불신청 페이지 이동 */
+	@GetMapping("/mypage/refund")
+	public String refund() {
+		
+		return "member/mypage/refund";
+	}
+	
+	/* 내정보수정 페이지 이동 */
+	@GetMapping("/mypage/infoModify")
+	public String infoModify() {
+		
+		return "member/mypage/infoModify";
+	}
+	
+	/* 내정보수정 접근 페이지 이동 */
+	@GetMapping("/mypage/infoModifyJoin")
+	public String infoModifyJoin() {
+		
+		return "member/mypage/infoModifyJoin";
+	}
+	
+	/* 좋아요 페이지 이동 */
+	@GetMapping("/mypage/like")
+	public String like() {
+		
+		return "member/mypage/like";
+	}
+	
+	/* 게시글내역 페이지 이동 */
+	@GetMapping("/mypage/myBoard")
+	public String myBoard() {
+		
+		return "member/mypage/myBoard";
+	}
+	
+	/* 주문상세내역 페이지 이동 */
+	@GetMapping("/mypage/orderDetail")
+	public String orderDetail() {
+		
+		return "member/mypage/orderDetail";
+	}
+	
+	/* 주문내역 페이지 이동 */
+	@GetMapping("/mypage/orderList")
+	public String orderList() {
+		
+		return "member/mypage/orderList";
+	}
+	
+	/* 회원탈퇴 페이지 이동 */
+	@GetMapping("/mypage/quit")
+	public String quit() {
+		
+		return "member/mypage/quit";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
