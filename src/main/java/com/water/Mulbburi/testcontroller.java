@@ -8,11 +8,8 @@ public class testcontroller {
 	
 	@GetMapping("/*")
 	public String test() {
-		return "/main/01.purchase";
+		return "/ask/12-1. oneAsk";
 	}
 	
-//	@GetMapping(".siren")
-//	public String test2{
-//		return 
-//	}
+	
 }
