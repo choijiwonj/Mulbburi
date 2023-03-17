@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,9 @@
     <title>Document</title>
 </head>
 <body>
+
+	<div th:replace="/common/pheader.html"></div>
+	
     <div class="totalbackground2">
         <div class="totalstory">
             <div class="totalbase">
@@ -53,5 +57,8 @@
         <button>다음</button>
         <button>&gt;&gt;</button>
     </div>
+    </div>
+    
+    <div th:replace="/common/pfooter.html"></div>
 </body>
 </html>

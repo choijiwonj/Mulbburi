@@ -156,6 +156,8 @@ body{
     border-radius: 10px;
     margin-top: 1%;
     display: flex;
+    width: 80%;
+    margin-left: 20%;
 }
 
 
@@ -193,19 +195,23 @@ body{
     margin-left: 3%;
 }
 
+.dropdown{
+	display: flex;
+}
+
 /* 답변 */
-.answer button{
-    border-radius: 30px;
-    border: none;
-    width: 80px;
-    height: 30px;
-    margin-top: 450%;
-    margin-left: 90%;
-    background-color: rgba(118, 141, 131, 0.9);
-    color: white;
+.answer{
+    display: flex;
+    margin-bottom: 30px;
     font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
     font-size : 14px;
+    color:white;
+    width: 80px;
+    height: 20px;
+    padding-top: 8px;
+    background-color: rgba(169, 197, 185);
+    padding-left: 35px;
 }
 
 /* 1대1 답변하기 */
@@ -253,7 +259,7 @@ body{
     padding-top: 8px;
     background-color: rgba(169, 197, 185);
     padding-left: 1%;
-    margin-top: 49%;
+    margin-top: 40%;
     margin-right: 3%;
     text-align: center;
 }
