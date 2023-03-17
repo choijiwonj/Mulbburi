@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html>
 <head>
 <meta charset="UTF-8" />
 <script type="text/javascript" src="/js/event.js"></script>
@@ -11,11 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1:1문의</title>
-
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">   
     <link rel="icon" type="image/x-icon" href="../resource/images/icons8-화분에-심은-식물-48 (1).png">
     <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/font.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">   
 
 
 </head>
@@ -27,7 +25,7 @@
 
     </div>
     <div class="right">
-        <div class="title" id="타이틀">물뿌리개</div>
+        <div class="title" id="타이틀"><h1>물뿌리개</h1></div>
             <div class="subtitle" id="sub타이틀"><p>반갑습니다. 식물쇼핑몰 물뿌리개입니다.</p></div>
         <nav>
             <div class="midletitle" id="midletitle">
@@ -36,8 +34,8 @@
                     <div class="midletitle-choose-2-box"></div>
                     <div class="midletitle-choose-3-box"></div>
                      
-                    <li class="midletitle-choose-2"><a href="/consumer/detail">내 문의글 확인</a></li>
-                    <li class="midletitle-choose-3"><a href="/consumer/write">문의 글 작성</a></li>
+                    <li class="midletitle-choose-2"><a href="1대1문의확인.html">내 문의글 확인</a></li>
+                    <li class="midletitle-choose-3"><a href="1대1문의하기.html">문의 글 작성</a></li>
                 </ul>
             </div>
         </nav>
