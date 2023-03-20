@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.cartMapper">
+<insert id="addCart">
+ INSERT
+   INTO PHRCHASE_BASCKET
+   (
+   MEMBER_NO,
+   SB_NO,
+   SB_AMOUNT
+   )
+   VALUES
+   (
+   #{memberNo}
+   #{sbNo},
+   #{sbAmount}
+   )
+   </insert>
+<select id="getCart" resultType="com.water.Mulbburi.shoppingcart.cartDTO">
+SELECT
+A.PC_NO,
+A.MEMBER_NO,
+A.SB_NO,
+A.SB_AMOUNT,
+B.SB_NAME,
+B.SB_PRICE
+FROM PHRCHASE_BASCKET A LEFT OUTER JOIN SHOPPINGBASCKET B ON A.SB_NO = B.SB_NO
+WHERE MEMBER_NO = #{memberNo}
+</select>
+<select id="checkCart" resultType="com.water.Mulbburi.shoppingcart.cartDTO">
+SELECT
+ * 
+ FROM PHRCHASE_BASCKET
+ WHERE MEMBER_NO #{memberNo} and SB_NO = #{sbNo}
+</select>
+</mapper>
