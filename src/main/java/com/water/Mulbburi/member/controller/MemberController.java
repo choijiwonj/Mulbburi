@@ -1,8 +1,24 @@
 package com.water.Mulbburi.member.controller;
 
+import java.util.Map;
+
+import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.exception.MemberRegistException;
+import com.water.Mulbburi.member.service.AuthenticationService;
+import com.water.Mulbburi.member.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,6 +27,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/member")
 public class MemberController {
 	
+	private final PasswordEncoder passwordEncoder;
+    private final MessageSourceAccessor messageSourceAccessor;
+    private final MemberService memberService;
+    private final AuthenticationService authenticationService;
+
+    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService) {
+        this.messageSourceAccessor = messageSourceAccessor;
+        this.memberService = memberService;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationService = authenticationService;
+    }
+	
 	/* 로그인 페이지 이동 */
 	@GetMapping("/login/login")
 	public String goLogin() {
@@ -18,11 +46,41 @@ public class MemberController {
 		return "member/login/login";
 	}
 	
+	/* 로그인 실패 시 */
+	@PostMapping("/loginfail")
+	public String loginFailed() {
+		
+		return "member/login/loginFalse";
+	}
+	
 	/* 아이디 찾기 페이지 이동 */
 	@GetMapping("/login/idSearch")
-	public String idSearch() {
+	public String showIdSearch() {
 		
 		return "member/login/idsearch";
+	}
+	
+	/* 아이디 찾기 */
+	@PostMapping("/login/idSearch")
+	public String doFindIdSearch(@ModelAttribute MemberDTO member,
+			@RequestParam String memberId, @RequestParam String phone
+			) {
+		
+		String result = "";
+		member.setMemberId(memberId);
+		member.setPhone(phone);
+		
+		
+		if(memberService.findLoginId(member.getMemberId(), member.getPhone())) {
+			
+			result = "member/login/idSuccess";
+		} else {
+			
+			result = "member/login/idFalse";
+		}
+		
+		return result;
+
 	}
 
 	/* 회원가입 접근페이지 이동 */
@@ -45,6 +103,92 @@ public class MemberController {
 		
 		return "member/regist/SelMembership";
 	}
+	
+	/* 아이디 중복체크 */
+	@PostMapping("/idDupCheck")
+	public ResponseEntity<String> checkDuplication(@RequestBody MemberDTO member) {
+		
+		String result = "사용 가능한 아이디입니다.";
+		log.info("[MemberController] Request Check ID : {}", member.getMemberId());
+		
+		if(memberService.selectMemberById(member.getMemberId())) {
+			log.info("[MemberController] Already Exist");
+    		result = "중복 된 아이디가 존재합니다.";
+		}
+		
+		return ResponseEntity.ok(result);
+	}
+	
+//	//아이디 중복검사
+//	@RequestMapping(value = "/member/idCheck", method = RequestMethod.POST)
+//	@ResponseBody
+//	public String memberIdCheck(String memberId) throws Exception {
+//		
+//		int result = memberService.idCheck(memberId);
+//		
+//		if(result != 0) {
+//			
+//			return "fail";
+//		} else {
+//			
+//			return "success";
+//		}
+//	}
+	
+	/* 구매자 회원 가입 */
+	@PostMapping("/regist/ConMembership")
+	public String registConMember(@ModelAttribute MemberDTO member,
+			@RequestParam String emailId, @RequestParam String domain,
+			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
+			RedirectAttributes rttr) throws MemberRegistException {
+		
+		String email = emailId + "$" + "@" + "$" + domain;
+		member.setEmail(email);
+		member.setPostCode(postCode);
+		member.setBsAddress(bsAddress);
+		member.setDtAddress(dtAddress);
+		
+		
+		log.info("[MemberController] registMember request Member : " + member);
+		
+		member.setMemberPwd(passwordEncoder.encode(member.getMemberPwd()));
+		
+		memberService.registConMember(member);
+		
+		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.regist"));
+		
+		
+		
+		return "redirect:/";
+	}
+	
+	/* 판매자 회원 가입 */
+	@PostMapping("/regist/SelMembership")
+	public String registSelMember(@ModelAttribute MemberDTO member,
+			@RequestParam String emailId, @RequestParam String domain,
+			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
+			RedirectAttributes rttr) throws MemberRegistException {
+		
+		String email = emailId + "$" + "@" + "$" + domain;
+		member.setEmail(email);
+		member.setPostCode(postCode);
+		member.setBsAddress(bsAddress);
+		member.setDtAddress(dtAddress);
+		
+		
+		log.info("[MemberController] registMember request Member : " + member);
+		
+		member.setMemberPwd(passwordEncoder.encode(member.getMemberPwd()));
+		
+		memberService.registSelMember(member);
+		
+		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.regist"));
+		
+		
+		
+		return "redirect:/";
+	}
+	
 	
 	/* 마이페이지 페이지 이동 */
 	@GetMapping("/mypage/mypageMain")

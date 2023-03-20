@@ -12,13 +12,19 @@ public interface MemberMapper {
 	
     String selectMemberById(String memberId);
 
-    int insertMember(MemberDTO member);
+    int insertConMember(MemberDTO member);
     
-    int insertMemberRole();
+    int insertSelMember(MemberDTO member);
+    
+    int insertConMemberRole();
+    
+    int inserSelMemberRole();
 
     int updateMember(MemberDTO member);
 
     int deleteMember(MemberDTO member);
+    
+//    int idCheck(String memberId);
 
 	
 }
