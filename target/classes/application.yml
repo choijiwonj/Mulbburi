@@ -9,7 +9,19 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: C##WATER
     password: WATER
+# file upload config
 
+<<<<<<< HEAD
+=======
+
+# image upload directory
+
+      
+# mybatis config
+
+  
+
+>>>>>>> 9738d958d9032afa2cae672a675d821e857ca262
   
   
   
