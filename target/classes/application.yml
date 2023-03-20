@@ -10,9 +10,15 @@ spring:
     username: C##WATER
     password: WATER
 
+
+# image upload directory
+
+      
 # mybatis config
-mybatis:
-  mapper-locations: mappers/**/*.xml
+
+  
+
+
   
   
   

@@ -166,7 +166,12 @@ a {
     font-weight: bold;
     font-family: 'TAEBAEKmilkyway';
     margin-bottom: 30px;
+    text-align: center;
+    background: rgba(118, 141, 131);
+    color: white;
  }
+
+ 
 
  .detailpage1{
     display: grid;
