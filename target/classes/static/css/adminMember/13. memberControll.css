@@ -24,15 +24,13 @@ body{
 }
 
 .totaltitle{
-    text-align: center;
+     text-align: center;
     font-family: 'HSBombaram21-Regular';
     font-weight: normal; 
     color: rgba(118, 141, 131, 0.9);
     font-size: 60px;
-    left: 57.56%;
-    right: 15.11%;
-    top: 3.09%;
-    bottom: 89.73%;
+    margin-top: 20%;
+    margin-bottom: -15%;
 }
 
 .tt1{
@@ -50,7 +48,6 @@ body{
     font-weight: bold;
     font-size : 14px;
     color: rgba(126, 113, 113);
-    margin: 0 0 0 5%;
 }
 
 .tt1 button:hover,
@@ -73,7 +70,6 @@ body{
     font-weight: bold;
     font-size : 14px;
     color: rgba(126, 113, 113);
-    margin: 0 0 0 5%;
 }
 
 .text{

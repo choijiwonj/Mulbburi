@@ -54,7 +54,6 @@ a {
 {
     width:1000px;
     height:450px;
-    margin-top: -500px;
 }
 
  /* New Product */
@@ -63,18 +62,20 @@ a {
     margin-top: 25%;
     font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
-    padding-top: 3%;
+    padding-top: 5%;
  }
 
  .bestProduct h1{
     color: rgba(126, 113, 113);
     opacity: 80%;
+    font-weight: bold;
  }
 
  .bestProduct h4{
     color: rgba(118, 141, 131);
     opacity: 90%;
-    font-weight: 100;
+    font-weight: bold;
+    margin-top: 1%;
  }
 
 .bestProductPicture{
@@ -114,7 +115,7 @@ a {
  {
     color: rgba(118, 141, 131);
     opacity: 90%;
-    font-weight: 100;
+    font-weight: bold;
     font-size: 16px;
  }
 

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../resources/css/12. 문의관리.css" rel="stylesheet" style type="text/css">
-    <link href="../resources/css/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="../resources/javascript/12-1. 1대1 문의.js"></script>
+    <link href="/css/ask/12. askControll.css" rel="stylesheet" style type="text/css">
+    <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
+    <script type="text/javascript" defer src="/js/ask/12-1. oneAskControll.js"></script>
     <title>Document</title>
 </head>
 <body>
+
+	<div th:replace="/common/pheader.html"></div>
+	
     <div class="totalbackground2">
         <div class="totalstory">
             <div class="totalbase">
@@ -35,12 +39,10 @@
                             <div class="postingdate">상품문의</div>
                             <div class="enddate">배송이 안와서 문의글도 남겼는데 답변이 안왔어요ㅠㅠ<br>어떻게 해야 하나요??</div>
                         </div>
-                        <div class="answer"><button>답변하기</button></div>
+                        <div class="answerd">답변하기</div>
                     </div>
                 </div>
             </div>
-
-            
         </div>
 
         <!-- 페이징 -->
@@ -55,5 +57,8 @@
         <button>다음</button>
         <button>&gt;&gt;</button>
     </div>
+    </div>
+    
+    <div th:replace="/common/pfooter.html"></div>
 </body>
 </html>

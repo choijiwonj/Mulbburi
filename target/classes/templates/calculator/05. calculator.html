@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/05. calculator.css" rel="stylesheet" style type="text/css">
+    <link href="/css/calculator/05. calculator.css" rel="stylesheet" style type="text/css">
     <link href="/css/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="/js/05. calculator.js"></script>
+    <script type="text/javascript" defer src="/js/calculator/05. calculator.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -92,5 +93,7 @@
             </div>
         
         </div>
+        
+        <div th:replace="/common/pfooter.html"></div>
 </body>
 </html>
