@@ -25,17 +25,17 @@ public class ManagementController {
 
 	/* 주문 관리 - 전체 */
 	
-	@GetMapping("/orderAll")
-	public String store(@RequestParam(defaultValue="1") int page, Model model) {	
-	
-		Map<String, Object> orderAllAndPaging = managementService.checkOrderAll(page);
-		model.addAttribute("paging", orderAllAndPaging.get("paging"));
-		model.addAttribute("orderAll", orderAllAndPaging.get("orderAll"));
-		
-		log.info("[ManagementController] page : {}", page);
-		
-		return "management/orderAll";
-	}
+//	@GetMapping("/orderAll")
+//	public String checkorderAll(@RequestParam(defaultValue="1") int page, Model model) {	
+//	
+//		Map<String, Object> orderAllAndPaging = managementService.checkOrderAll(page);
+//		model.addAttribute("paging", orderAllAndPaging.get("paging"));
+//		model.addAttribute("orderAll", orderAllAndPaging.get("orderAll"));
+//		
+//		log.info("[ManagementController] page : {}", page);
+//		
+//		return "management/orderAll";
+//	}
 	
 	/* 주문 관리 - 결제 */
 	
