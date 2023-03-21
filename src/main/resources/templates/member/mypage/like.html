@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,52 +16,7 @@
         <div class="sub"></div>
     </nav>
 
-    <!-- header -->
-    <div class="top-holder"></div>
-
-    <h1 class="main">
-        <a href="../lecture/homepage.html">
-            <span>물뿌리개</span>
-        </a>
-    </h1>
-    <div class="inner">
-
-        <div class="menu">
-            <!-- <button>홈버튼</button> -->
-            <a href="../" class="">
-                <span>홈</span>
-            </a>
-            <a href="../" class="">
-                <span>스토어</span>
-            </a>
-            <a href="../" class="">
-                <span>커뮤니티</span>
-            </a>
-            <a href="../" class="">
-                <span>고객센터</span>
-            </a>
-        </div>
-        <div class="side">
-            <a href="../" class="">
-                <span>로그아웃</span>
-            </a>
-            <a href="../" class="">
-                <span>마이페이지</span>
-            </a>
-            <a href="../" class="">
-                <span>장바구니</span>
-            </a>
-            <a href="../" class="">
-                <span>배송조회</span>
-            </a>            
-        </div>
-    </div>
-
-    <!-- search -->
-    <div class="searchCriteria">
-        <input type="text" value="" id="search" placeholder="검색">
-        <button id="rsearch">검색</button>
-    </div>
+	<div th:replace="common/pheader.html"></div>
 
     <div class="title">
         <p>좋아요 표시한 게시글</p>
@@ -92,7 +48,7 @@
     </div>
     <div class="likeProduct">
         <div class="product">
-            <img src="../../resources/images/상품사진.png" class="photo">
+            <img src="/img/yeob01.png" class="photo">
             <div class="to1">
             <span class="sell">[알랑알랑]</span>
             </div>
@@ -105,23 +61,8 @@
         </div>    
     </div>
 
-    <!-- footer -->
-    <div class="btm-holder">
-        <div class="siteinfo">
-            <div class="info">
-                <span>(주) 워터링캔 | 대표이사 박민경 | 서울특별시 종로구 인사동길 12, 15층(인사동)</span>
-            </div>
-            <div class="info">
-                <span>사업자 등록 번호 020-02930-19X82 | 통신판매업신고번호 제2023-서울종로-0X12호</span>
-            </div>
-            <div class="info">
-                <span>(주)워터링캔은 통신판매중개자로 거래 당사자가 아니므로, 판매자가 등록한 상품정보 및 거래 등에 대해 책임을 지지 않습니다. 단, (주)워터링캔이 판매자로 등록 판매한 상품은 판매자로서 책임을 부담합니다.</span>
-            </div>
-            <div class="copy">
-                <span>@Copyright 물뿌리개</span>
-            </div>
-        </div>
-    </div>
+	<div th:replace="common/pfooter.html"></div>
+
     </div>
 </body>
 </html>
