@@ -7,4 +7,6 @@ public interface cartService {
 	public int addCart(cartDTO cart);
 
 	public List<cartDTO> getCartList(int memberNo);
+	
+	public int modifyCount(cartDTO cart);
 }

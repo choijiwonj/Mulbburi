@@ -37,4 +37,9 @@ public class cartServiceImpl implements cartService {
 		return cart;
 	}
 
+	@Override
+	public int modifyCount(cartDTO cart) {
+		return cartDAO.modifyCount(cart);
+	}
+
 }

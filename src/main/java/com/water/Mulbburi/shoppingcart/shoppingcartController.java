@@ -1,7 +1,5 @@
 package com.water.Mulbburi.shoppingcart;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +16,7 @@ public class shoppingcartController {
 	
 	@PostMapping("/cart/add")
 	@ResponseBody
-	public String addCartPOST(cartDTO cart, HttpServletRequest request) {
+	public String addCartPOST(cartDTO cart) {
 		int result = cartService.addCart(cart);
 		
 		return result + "";
@@ -30,6 +28,15 @@ public class shoppingcartController {
 		model.addAttribute("cartInfo", cartService.getCartList(memberNo));
 		
 		return "/cart";
+		
+	}
+	
+	@PostMapping("/cart/update")
+	public String updateCartPost(cartDTO cart) {
+		
+		cartService.modifyCount(cart);
+		
+		return "redirect:/cart/" + cart.getMemberNo();
 		
 	}
 }

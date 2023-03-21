@@ -7,9 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface cartDAO {
 	
-	public int addCart(cartDTO cart);
+	public int addCart(cartDTO cart) throws Exception;
 	
-	public int deleteCart(int cartId);
+	public int deleteCart(int pcNo);
 	
 	public int modifyCount(cartDTO cart);
 	
