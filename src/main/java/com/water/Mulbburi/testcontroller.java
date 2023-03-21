@@ -15,10 +15,9 @@ public class testcontroller {
 	public String test() {
 		return "main/01.purchase";
 	}
-	@GetMapping("/")
-	public String test2() {
-		return "/main/01.purchase";
-	}
+	/*
+	 * @GetMapping("/") public String test2() { return "/main/01.purchase"; }
+	 */
 	
 	
 	
