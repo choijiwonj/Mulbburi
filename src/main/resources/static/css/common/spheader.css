@@ -1,4 +1,9 @@
 *{padding:0;margin:0}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
 
 a {
     text-decoration: none;  
@@ -52,7 +57,10 @@ body {
 }
 
 /* 검색 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
 .searchCriteria {
     float: right;
    /*  margin-right: 20%; */
