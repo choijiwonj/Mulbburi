@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class test {
 	
-	@GetMapping("/*")
-	public String test() {
+//	@GetMapping("/*")
+//	public String test() {
 
-		return "/store/store";
+//		return "/store/store";
 
 //		return "/management/orderAll";
 		
@@ -27,6 +27,6 @@ public class test {
 //		return "/product/modProd";
 //		return "/product/regProd";
 
-	}
+//	}
 	
 }
