@@ -1,7 +1,5 @@
 *{padding:0;margin:0}
 
-
-
 a {
     text-decoration: none;  
     /* 모든 하이퍼링크 밑줄 삭제 */
@@ -54,6 +52,7 @@ body {
 }
 
 /* 검색 */
+
 .searchCriteria {
     float: right;
     margin-right: 20%;

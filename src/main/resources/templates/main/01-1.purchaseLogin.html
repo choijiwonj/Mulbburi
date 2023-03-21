@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">n">
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,9 @@
    	<script src="/js/main/01.purchaseMain.js" defer></script>
 </head>
 <body>
+
+<div th:replace="/common/mheaderLogin.html"></div>
+
     <!-- banner -->
     <div class="wrapper">
         <div class="banner 1"><img src="/img/배너 1.png"></div>
@@ -237,7 +240,7 @@
             </div>
         </div>
     </div>
-    
+    <div th:replace="/common/spfooter.html"></div>
     
 </body>
 </html>
