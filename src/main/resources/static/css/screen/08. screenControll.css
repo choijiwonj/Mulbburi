@@ -157,13 +157,13 @@ body{
     font-weight: bold;
     font-size : 18px;
     color: rgba(126, 113, 113);
-    padding-top: 1%;
+    padding-top: 2%;
     margin-left: 3%;
     width: 80px;
 }
 
 .category2 div{
-    margin-bottom: 40%;
+    margin-bottom: 33%;
     margin-left: 3%;
 }
 
@@ -181,9 +181,32 @@ body{
 .writedate,
 .deletedate,
 .postingdate,
-.enddate{
-    margin-bottom: 16%;
+.enddate,
+.path{
+    margin-bottom: 5%;
     margin-left: 3%;
+    margin-top: 2%;
+}
+
+.bannertitle input,
+.writedate input,
+.deletedate input,
+.postingdate input,
+.enddate input,
+.path input{
+	border: none;
+    height: 30px;
+    width: 330px;
+}
+
+#submit{
+	border: none;
+    width: 70px;
+    background-color: rgba(118, 141, 131);
+    height: 30px;
+    border-radius: 30px;
+    color: white;
+    margin-left: 170%;
 }
 
 /* 페이징 */

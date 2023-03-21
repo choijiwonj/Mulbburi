@@ -1,5 +1,5 @@
-package com.water.Mulbburi.screen;
+package com.water.Mulbburi.screen.youtube;
 
-public class Service {
+public class YoutubeService {
 
 }

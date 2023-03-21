@@ -11,8 +11,8 @@
     <title>Document</title>
 </head>
 <body>
+<div th:replace="/common/mheaderLogin.html"></div>
     <div class="totalbackground2">
-        <div class="totaltitle2">물뿌리개</div>
         <div class="totalstory">
             <div class="totalbase">
                 <div class="category1">
@@ -25,18 +25,21 @@
                     <div class="mydropdown">
                         <div class="category2">
                             <div>Youtube</div>
+                            <div>주소</div>
                             <div>작성일</div>
                             <div>삭제일</div>
                             <div>게시일</div>
                             <div>종료일</div>
                         </div>
-                        <div class="story">
-                            <div class="bannertitle">Youtube Title</div>
-                            <div class="writedate">작성일</div>
-                            <div class="deletedate">삭제일</div>
-                            <div class="postingdate">게시일</div>
-                            <div class="enddate">종료일</div>
-                        </div>
+                        <form name="story" method="post">
+                            <div class="bannertitle"><input type="text"></div>
+                            <div class="path"><input type="text"></div>
+                            <div class="writedate"><input type="date"></div>
+                            <div class="deletedate"><input type="date"></div>
+                            <div class="postingdate"><input type="date"></div>
+                            <div class="enddate"><input type="date"></div>
+                            <input type="submit" id="submit">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -56,6 +59,6 @@
         <button>&gt;&gt;</button>
     </div>
     
-    <div th:replace="/common/pfooter.html"></div>
+    <div th:replace="/common/spfooter.html"></div>
 </body>
 </html>
