@@ -28,7 +28,7 @@ public class CommunityService {
 //		this.communityMapper = communityMapper;
 //	}
 	
-<<<<<<< HEAD
+
 //	public Map<String, Object> selectCommunityList(Map<String, String> searchMap, int page){
 //		
 //	/* 1. 전체 게시글 수 확인 ( 검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서*/
@@ -54,9 +54,9 @@ public class CommunityService {
 //		
 //		return communityListAndPaging;
 //	}
-=======
+
 	public CommunityService(CommunityMapper communityMapper) {
-		this.communityMapper = communityMapper;
+//		this.communityMapper = communityMapper;
 	}
 	
 	public Map<String, Object> selectCommunityList(Map<String, String> searchMap, int page){
@@ -85,8 +85,5 @@ public class CommunityService {
 //		return communityListAndPaging;
 		return null;
 	}
->>>>>>> branch '효진' of https://github.com/choijiwonj/Mulbburi.git
-	
-	
 
 }

@@ -97,7 +97,7 @@
 //		return "community/communityMain";
 //	}
 	
-<<<<<<< HEAD
+
 //>>>>>>> 050701942f800ee90f0038deb4fd3a95ff95d049
 //
 //			/* 4개의 input type=file이 서버로 전송 되어 List<MultipartFile> attachImage에 담겼다. */
@@ -175,26 +175,20 @@
 // 
 //  }
  
-=======
+
 //	private final CommunityService communityService;
 //	private final MessageSourceAccessor messageSourceAccessor;
 	
 
-	@GetMapping("/regist")
-	public String regist() {
-		return "community/comWrite";
-	}
-	
-	
-	
-	
-	
-	
-	@GetMapping("/main")
-	public String main() {
-		return "community/communityMain";
-	}
-	
+//	@GetMapping("/regist")
+//	public String regist() {
+//		return "community/comWrite";
+//	}
 
-}
->>>>>>> branch '효진' of https://github.com/choijiwonj/Mulbburi.git
+//	@GetMapping("/main")
+//	public String main() {
+//		return "community/communityMain";
+//	}
+
+//}
+

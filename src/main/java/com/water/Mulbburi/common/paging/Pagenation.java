@@ -1,14 +1,10 @@
 package com.water.Mulbburi.common.paging;
 
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
-=======
-//<<<<<<< HEAD
-public class Pagenation {}
->>>>>>> branch '효진' of https://github.com/choijiwonj/Mulbburi.git
 
-<<<<<<< HEAD
+//public class Pagenation {}
+
 public class Pagenation {
 
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
@@ -52,8 +48,9 @@ public class Pagenation {
 			
 			return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
 		}
+
 }
-=======
+
 //	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
 //		
 //        int maxPage;
@@ -104,4 +101,3 @@ public class Pagenation {
 //
 //>>>>>>> 922c4a4d8bf84a587f278b15a18c6b10a884737c
 //}
->>>>>>> branch '효진' of https://github.com/choijiwonj/Mulbburi.git
