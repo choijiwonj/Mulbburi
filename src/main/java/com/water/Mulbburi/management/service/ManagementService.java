@@ -32,12 +32,21 @@ public class ManagementService {
 		int limit = 1;
 		int buttonAmount = 3;
 		
+<<<<<<< HEAD
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
 		log.info("[ManagementService] selectCriteria : {}", selectCriteria);
 		
 //		List<ManagementDTO> orderAll = managementMapper.
+=======
+//		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+//		log.info("[ManagementService] selectCriteria : {}", selectCriteria);
+//		
+//		List<ManagementDTO> orderAll = managementMapper.checkorderAllList(selectCriteria);
+//		log.info("[ManagementService] orderAll : {}", orderAll);
+>>>>>>> branch '효진' of https://github.com/choijiwonj/Mulbburi.git
 		
 		return null;
+		
 	}
 	
 }
