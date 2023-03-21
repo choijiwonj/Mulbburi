@@ -3,9 +3,6 @@ package com.water.Mulbburi.common.paging;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-
 public class Pagenation {
 
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
@@ -39,9 +36,10 @@ public class Pagenation {
 	        startRow = (page - 1) * limit + 1;
 	        endRow = startRow + limit - 1;
 
-	        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
+//	        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
 
-	        return selectCriteria;
+//	        return selectCriteria;
+	        return null;
 	    }
 	  /* 검색어가 존재하지 않는 경우 */
 		public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {

@@ -10,7 +10,4 @@ public class MulbburiApplication {
 		SpringApplication.run(MulbburiApplication.class, args);
 	}
 	
-	
-	
-
 }
