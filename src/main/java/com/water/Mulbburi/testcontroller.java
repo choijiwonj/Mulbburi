@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class testcontroller {
 	
+<<<<<<< HEAD
+	@GetMapping("/*")
+	public String test() {
+		return "main/01.purchase";
+=======
 
 	@GetMapping("/")
 	public String test2() {
 		return "/shoppingcart/shoppingcart";
+>>>>>>> efd3576f824aba587fe8573fe1f8e29f663344f7
 	}
 	
 }
