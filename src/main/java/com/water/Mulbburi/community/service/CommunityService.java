@@ -1,4 +1,4 @@
-
+/*
   package com.water.Mulbburi.community.service;
 
 import java.util.HashMap;
@@ -56,4 +56,4 @@ public class CommunityService {
 	
 	
 
-}
+//
