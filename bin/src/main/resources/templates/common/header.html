@@ -1,50 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>고객센터틀</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">   
-        <link rel="stylesheet" type="text/css" href="/css/font.css">   
-    
-    <link rel="icon" type="image/x-icon" href="../resource/images/icons8-화분에-심은-식물-48 (1).png">
-    <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
-    
-
+    <title>header</title>
+    <link href="../css/common/header.css" rel="stylesheet" style type="text/css">
+    <link href="../css/common/font.css" rel="stylesheet" style type="text/css">
 </head>
 <body>
-    <div class="left">
-        <header>
+    <div class="top-holder"></div>
 
-        </header>
+    <h1 class="main">
+        <a href="../lecture/homepage.html">
+            <span>물뿌리개</span>
+        </a>
+    </h1>
+    <div class="inner">
 
+        <div class="menu">
+            <!-- <button>홈버튼</button> -->
+            <a href="../" class="">
+                <span>홈</span>
+            </a>
+            <a href="../" class="">
+                <span>주문 관리</span>
+            </a>
+            <a href="../" class="">
+                <span>판매현황</span>
+            </a>
+            <a href="../" class="">
+                <span>스토어</span>
+            </a>
+        </div>
+        <div class="side">
+            <a href="../" class="">
+                <span>로그인</span>
+            </a>
+            <a href="../" class="">
+                <span>회원가입</span>
+            </a>            
+        </div>
     </div>
-    <div class="right">
-        <div class="title" id="타이틀">물뿌리개</div>
-            <div class="subtitle" id="sub타이틀"><p>반갑습니다. 식물쇼핑몰 물뿌리개입니다.</p></div>
-        <nav>
-            <div class="midletitle" id="midletitle">
-                <h3 class="midle">고객센터</h3>
-                <ul class="midletitle-choose">
-                    <div class="midletitle-choose-1-box"></div>
-                    <div class="midletitle-choose-2-box"></div>
-                    <div class="midletitle-choose-3-box"></div>
-                    <li class="midletitle-choose-1"><a class="button" href="공지사항.html">공지사항</a></li>
-                    <li class="midletitle-choose-2"><a href="FAQ.html">FAQ</a></li>
-					<li class="midletitle-choose-3"><a href="1대1문의.html">1:1문의</a></li>                    
-                    
-                </ul>
-            </div>
-        </nav>
 
+    <!-- 검색 -->
 
-        <div class="etc" id="카피라이트">@Copyright 물뿌리개</div>
-            
+<!--    <div class="searchCriteria">
+        <input type="text" value="" id="search">
+        <button id="rsearch">검색</button>
+    </div>-->
 
-    </div>
-
-    
 </body>
 </html>
-
