@@ -3,8 +3,8 @@ package com.water.Mulbburi.common.paging;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data
-@AllArgsConstructor
+//@Data
+//@AllArgsConstructor
 public class SelectCriteria {
 	
     private int page;					//요청한 페이지 번호
@@ -20,4 +20,3 @@ public class SelectCriteria {
     private String searchValue;			//검색어
 
 }
-
