@@ -1,5 +1,5 @@
-package com.water.Mulbburi;
 
+<<<<<<< HEAD
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -13,3 +13,5 @@ public class testcontroller {
 	}
 	
 }
+=======
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
