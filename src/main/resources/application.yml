@@ -11,6 +11,10 @@ spring:
     password: WATER
 
   
+  # mybatis config
+mybatis:
+  mapper-locations: mappers/**/*.xml
+  
   
   
   
