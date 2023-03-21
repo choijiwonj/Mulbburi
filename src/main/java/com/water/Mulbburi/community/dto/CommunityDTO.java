@@ -15,6 +15,10 @@ public class CommunityDTO {
 	private Date communityDeleteDate;
 	private int memberNo;
 	private int custom;
+	public AttachmentDTO[] getAttachmentList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

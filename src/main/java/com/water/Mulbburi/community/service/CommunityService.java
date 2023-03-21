@@ -2,24 +2,20 @@
   package com.water.Mulbburi.community.service;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dao.CommunityMapper;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.dto.ReplyDTO;
-
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Service
+@Slf4j
 @Transactional
 
 
@@ -103,23 +99,23 @@ public class CommunityService {
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
 		log.info("[ThumbmailService] selectCriteria : {}", selectCriteria);
 		
-		List<BoardDTO> thumbnailList = boardMapper.selectThumbnailBoardList(selectCriteria);
-		log.info("[ThumbmailService] thumbnailList : {}", thumbnailList);
+		List<CommunityDTO> communityList = communityMapper.selectCommunityList(selectCriteria);
+		log.info("[CommunityService] communityList : {}", communityList);
 		
-		Map<String, Object> thumbnailListAndPaging = new HashMap<>();
-		thumbnailListAndPaging.put("paging", selectCriteria);
-		thumbnailListAndPaging.put("thumbnailList", thumbnailList);
+		Map<String, Object> communityListAndPaging = new HashMap<>();
+		communityListAndPaging.put("paging", selectCriteria);
+		communityListAndPaging.put("communityList", communityList);
 		
-		return thumbnailListAndPaging;
+		return communityListAndPaging;
 	}
 
-	public BoardDTO selectThumbnailDetail(Long no) {
+	public CommunityDTO selectThumbnailDetail(Long no) {
 		
-		int result = boardMapper.incrementBoardCount(no);
+		int result = communityMapper.incrementCommunityCount(no);
 		
 		log.info("[BoardService] result : {}", result);
 		
-		return boardMapper.selectThumbnailBoardDetail(no);
+		return communityMapper.selectCommunityDetail(no);
 	}
 	
 	

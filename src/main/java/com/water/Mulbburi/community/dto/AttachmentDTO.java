@@ -11,7 +11,7 @@ public class AttachmentDTO {
     private String savedName;
     private String savePath;
     private String fileType;
-    private String thumbnailPath;
+    private String commnuityPath;
     private String status;
 
 }
