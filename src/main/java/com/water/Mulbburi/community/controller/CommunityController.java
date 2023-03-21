@@ -18,9 +18,8 @@ public class CommunityController {
 	@Value("${image.image-dir}")
 	private String IMAGE_DTR;
 	
-	private final CommunityService communityService;
-	private final MessageSourceAccessor messageSourceAccessor;
-	
+//	private final CommunityService communityService;
+//	private final MessageSourceAccessor messageSourceAccessor;
 	
 
 	@GetMapping("/regist")

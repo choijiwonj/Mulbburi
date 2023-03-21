@@ -32,11 +32,11 @@ public class ManagementService {
 		int limit = 1;
 		int buttonAmount = 3;
 		
-		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
-		log.info("[ManagementService] selectCriteria : {}", selectCriteria);
-		
-		List<ManagementDTO> orderAll = managementMapper.checkorderAllList(selectCriteria);
-		log.info("[ManagementService] orderAll : {}", orderAll);
+//		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+//		log.info("[ManagementService] selectCriteria : {}", selectCriteria);
+//		
+//		List<ManagementDTO> orderAll = managementMapper.checkorderAllList(selectCriteria);
+//		log.info("[ManagementService] orderAll : {}", orderAll);
 		
 		return null;
 		
