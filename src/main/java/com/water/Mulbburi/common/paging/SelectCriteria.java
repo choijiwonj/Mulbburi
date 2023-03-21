@@ -1,5 +1,6 @@
 package com.water.Mulbburi.common.paging;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -16,5 +17,5 @@ public class SelectCriteria {
     private int endPage;				// 한 번에 보여줄 페이징 버튼의 마지막 페이지 수
     private int startRow;				// DB 조회 시 최신 글 부터 조회해야 하는 행의 시작 수
     private int endRow;					// DB 조회 시 최신글부터 조회해야 하는 행의 마지막 수
-	
+
 }
