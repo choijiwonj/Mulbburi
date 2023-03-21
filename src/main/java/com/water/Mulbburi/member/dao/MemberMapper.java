@@ -24,6 +24,8 @@ public interface MemberMapper {
 
     int deleteMember(MemberDTO member);
     
+    String findLoginId(MemberDTO member);
+    
 //    int idCheck(String memberId);
 
 	

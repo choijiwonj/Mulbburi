@@ -62,16 +62,11 @@ public class MemberController {
 	
 	/* 아이디 찾기 */
 	@PostMapping("/login/idSearch")
-	public String doFindIdSearch(@ModelAttribute MemberDTO member,
-			@RequestParam String memberId, @RequestParam String phone
-			) {
+	public String doFindIdSearch(@ModelAttribute MemberDTO member) {
 		
 		String result = "";
-		member.setMemberId(memberId);
-		member.setPhone(phone);
-		
-		
-		if(memberService.findLoginId(member.getMemberId(), member.getPhone())) {
+			
+		if(memberService.findLoginId(member) != null) {
 			
 			result = "member/login/idSuccess";
 		} else {

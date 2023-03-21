@@ -62,9 +62,9 @@ public class MemberService {
         }
     }
 
-	public boolean findLoginId(String memberId, String phone) {
+	public String findLoginId(MemberDTO member) {
 		
-		return false;
+		return mapper.findLoginId(member);
 	}
 
 //	public int idCheck(String memberId) {

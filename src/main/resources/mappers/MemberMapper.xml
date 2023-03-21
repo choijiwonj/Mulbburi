@@ -218,11 +218,11 @@
 	
 	<!-- 아이디 찾기 -->
 	<select id="findLoginId">
-		select 
+		SELECT 
 				MEMBER_ID
-		  from  MEMBER
-		 where  MEMBER_ID = #{ memberId }
-		   and  PHONE = #{ phone } 		
+		  FROM  MEMBER
+		 WHERE  MEMBER_ID = #{ memberId }
+		   AND  PHONE = #{ phone } 		
 	</select>
 	
 	
