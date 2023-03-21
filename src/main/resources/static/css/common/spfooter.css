@@ -1,6 +1,9 @@
 *{padding:0;margin:0}
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
 
 a {
     text-decoration: none;
@@ -11,6 +14,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
 body {
     height: 100%;
     background-color: white;

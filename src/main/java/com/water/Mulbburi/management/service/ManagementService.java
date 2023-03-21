@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 package com.water.Mulbburi.management.service;
 
 import java.util.List;
@@ -48,3 +50,4 @@ public class ManagementService {
 	}
 	
 }
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b

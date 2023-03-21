@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 package com.water.Mulbburi.common.paging;
 
 import lombok.AllArgsConstructor;
@@ -20,3 +22,4 @@ public class SelectCriteria {
     private String searchValue;			//검색어
 
 }
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
