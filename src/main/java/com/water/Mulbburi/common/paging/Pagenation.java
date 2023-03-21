@@ -1,5 +1,6 @@
 package com.water.Mulbburi.common.paging;
 
+<<<<<<< HEAD
 public class Pagenation {
 
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
@@ -39,4 +40,16 @@ public class Pagenation {
 		return selectCriteria;
 	}
 	
+=======
+import java.util.Map;
+
+public class Pagenation {
+
+	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount,
+			Map<String, String> searchMap) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+>>>>>>> 922c4a4d8bf84a587f278b15a18c6b10a884737c
 }
