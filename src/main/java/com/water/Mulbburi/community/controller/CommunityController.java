@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 package com.water.Mulbburi.community.controller;
 
 import java.io.File;
@@ -123,7 +122,7 @@ public class CommunityController {
 			for(AttachmentDTO attachment : attachmentList) {
 				
 				File deleteFile = new File(attachment.getSavePath() + "/" + attachment.getSavedName());
-				File deleteThumbnail = new File(thumbnailDir + "/thumbnail_" + attachment.getSavedName());
+				File deleteThumbnail = new File(communityDir + "/thumbnail_" + attachment.getSavedName());
 				
 				deleteFile.delete();
 				deleteThumbnail.delete();
@@ -133,8 +132,8 @@ public class CommunityController {
 		return "redirect:/thumbnail/list";
 	}
 	
-	  }
-	 
+	  
+	
 
 	@GetMapping("/main")
 	public String main() {
@@ -142,5 +141,3 @@ public class CommunityController {
 	}
 
 }
-=======
->>>>>>> 41ac649f624e75228a47e9e506a339d25199d482
