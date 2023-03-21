@@ -15,28 +15,28 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/community")
 public class CommunityController {
 	
-	@Value("${image.image-dir}")
-	private String IMAGE_DTR;
-	
-	private final CommunityService communityService;
-	private final MessageSourceAccessor messageSourceAccessor;
-	
-	
-
-	@GetMapping("/regist")
-	public String regist() {
-		return "community/comWrite";
-	}
-	
-	
-	
-	
-	
-	
-	@GetMapping("/main")
-	public String main() {
-		return "community/communityMain";
-	}
+//	@Value("${image.image-dir}")
+//	private String IMAGE_DTR;
+//	
+////	private final CommunityService communityService;
+////	private final MessageSourceAccessor messageSourceAccessor;
+//	
+//	
+//
+//	@GetMapping("/regist")
+//	public String regist() {
+//		return "community/comWrite";
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	@GetMapping("/main")
+//	public String main() {
+//		return "community/communityMain";
+//	}
 	
 
 }
