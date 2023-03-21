@@ -27,25 +27,27 @@ window.onload = function() {
     
     
 }
-/* $('.id_input').on("propertychange change keyup paste input", function() {
+
+function check() {
 	
-	console.log("keyup 테스트");
+	if(comform.memberName.value.length == 0) {
+		alert("이름을 입력해 주세요.");
+		comform.memberName.focus();
+		return false;
+	}
 	
-	var memberId = $('.id_input').val();
-	var data = {memberId : memberId}
+	var memberId = document.getElementById("memberId")
+	if(memberId < 8 && memberId > 16) {
+		alert("아이디를 8자 ~ 16자로 입력해주세요.");
+		comform.memberId.focus();
+		return false;
+	}
 	
-	$.ajax({
-		type : "post",
-		url : "/member/idCheck",
-		data : data,
-		success : function(result){
-			if(result != 'fail') {
-				$('.id_input_re_1').css("display","inline-block");
-				$('.id_input_re_2').css("display","none");
-			} else {
-				$('.id_input_re_2').css("display","inline-block");
-				$('.id_input_re_1').css("display","none");
-			}
-		}
-	}); 
-}); */
+	var memberPwd = document.getElementById("memberPwd")
+	if()
+}
+
+
+
+
+

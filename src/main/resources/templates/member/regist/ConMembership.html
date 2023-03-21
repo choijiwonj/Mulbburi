@@ -33,17 +33,17 @@
     </div>
     <hr class="line1">
     <div class="registForm">
-    <form action="/member/regist/ConMembership" method="post">
+    <form action="/member/regist/ConMembership" id="conform" method="post">
         <table >
             <tr class="memberName">
             <td>
                 <label>이름</label><br>
-                <input type="text" maxlength="13" name="memberName" class="memberNameBar" required></td>
+                <input type="text" maxlength="13" name="memberName"  id = "memberName" class="memberNameBar" required></td>
             </tr>
             <tr>
                 <td>
                     <label>아이디</label><br>
-                    <input type="text" maxlength="13" name="memberId" class="memberIdBar" id="memberId" placeholder="(한글 또는 영문, 숫자를 포함한 8자 ~ 16자의 아이디를 입력하세요)" required>
+                    <input type="text" maxlength="13" name="memberId" id="memberId" class="memberIdBar"  placeholder="(한글 또는 영문, 숫자를 포함한 8자 ~ 16자의 아이디를 입력하세요)" required>
                     <input type="button" value="중복확인" id="duplicationCheck">
                     <span class="id_input_re_1">사용 가능한 아이디입니다</span>
                     <span class="id_input_re_2">아이디가 이미 존재합니다</span>
@@ -52,19 +52,19 @@
             <tr>
                 <td>
                     <label>비밀번호</label><br>
-                    <input type="password" maxlength="13" name="memberPwd" class="memberPwdBar" placeholder="(영문,숫자를 포함한 8자~16자의 비밀번호를 입력하세요)" required>
+                    <input type="password" maxlength="13" name="memberPwd" id="memberPwd" class="memberPwdBar" placeholder="(영문,숫자를 포함한 8자~16자의 비밀번호를 입력하세요)" required>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label>비밀번호 확인</label><br>
-                    <input type="password" maxlength="13" name="memberPwd2" class="memberPwdBar2" placeholder="(영문,숫자를 포함한 8자~16자의 비밀번호를 입력하세요)" required>
+                    <input type="password" maxlength="13" name="memberPwd2" id="memberPwd" class="memberPwdBar2" placeholder="(영문,숫자를 포함한 8자~16자의 비밀번호를 입력하세요)" required>
                 </td>
             </tr>
             <tr>
                 <td>
                     <label>휴대전화</label><br>
-                    <input type="tel" name="phone" class="memberPhoneBar" placeholder="(핸드폰 번호 11자리를 입력해주세요)">
+                    <input type="tel" name="phone" class="memberPhoneBar" id="phone" placeholder="(핸드폰 번호 11자리를 입력해주세요)">
                 </td>
             </tr>
             <tr>
@@ -102,7 +102,7 @@
         <br>
         <div class="base-button">
             <a href="#none" class="btnExit">취소</a>
-            <input type="submit" value="가입하기" class="btnSubmit">
+            <input type="submit" value="가입하기" class="btnSubmit" onclick="return check();">
         </div>
     </form>
 </div>

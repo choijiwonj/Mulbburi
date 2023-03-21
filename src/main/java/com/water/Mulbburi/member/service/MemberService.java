@@ -2,6 +2,7 @@ package com.water.Mulbburi.member.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import com.water.Mulbburi.member.dao.MemberMapper;
 import com.water.Mulbburi.member.dto.MemberDTO;
@@ -63,6 +64,8 @@ public class MemberService {
     }
 
 	public String findLoginId(MemberDTO member) {
+		
+		System.out.println("memberService : " + member);
 		
 		return mapper.findLoginId(member);
 	}

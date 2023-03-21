@@ -1,18 +1,16 @@
 package com.water.Mulbburi.member.controller;
 
-import java.util.Map;
-
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
@@ -55,18 +53,30 @@ public class MemberController {
 	
 	/* 아이디 찾기 페이지 이동 */
 	@GetMapping("/login/idSearch")
-	public String showIdSearch() {
+	public String showIdSearch(@ModelAttribute MemberDTO member, Model model) {
+		
+		String memberId = member.getMemberId();
+		
+		model.addAttribute("memberId", memberId);
 		
 		return "member/login/idsearch";
 	}
 	
 	/* 아이디 찾기 */
 	@PostMapping("/login/idSearch")
-	public String doFindIdSearch(@ModelAttribute MemberDTO member) {
+	public String doFindIdSearch(@ModelAttribute MemberDTO member, Model model) {
+		
+		System.out.println("member : " + member);
+		
+		String memberId = memberService.findLoginId(member);
+		
+		model.addAttribute("memberId", memberId);
+		
+		System.out.println("model : " + model );
 		
 		String result = "";
 			
-		if(memberService.findLoginId(member) != null) {
+		if(memberId != null) {
 			
 			result = "member/login/idSuccess";
 		} else {

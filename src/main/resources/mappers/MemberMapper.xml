@@ -217,11 +217,11 @@
     </select> -->
 	
 	<!-- 아이디 찾기 -->
-	<select id="findLoginId">
+	<select id="findLoginId" resultType="String">
 		SELECT 
 				MEMBER_ID
 		  FROM  MEMBER
-		 WHERE  MEMBER_ID = #{ memberId }
+		 WHERE  MEMBER_NAME = #{ memberName }
 		   AND  PHONE = #{ phone } 		
 	</select>
 	
