@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.greedy.comprehensive.common.paging.SelectCriteria;
 import com.water.Mulbburi.management.dao.ManagementMapper;
 
 import lombok.extern.slf4j.Slf4j;
