@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.water.Mulbburi.screen.dao.YoutubeMapper">
+
+<insert id="insertYoutube">
+	INSERT
+	      INTO YOUTUBE
+	(
+		  YT_NO,
+		  YT_WRITE_DATE,
+		  YT_DELETE_DATE,
+		  YT_POST_DATE,
+		  YT_END_DATE,
+		  MEMBER_NO,
+		  YT_PATH,
+		  YT_NAME
+	)
+	VALUES
+	(
+		  SEQ_YT_NO.NEXTVAL,
+		  #{ytWriteDate},
+		  #{tyDeleteDate},
+		  #{ytPostDate},
+		  #{ytEndDate},
+		  #{memberNo},
+		  #{ytPath},
+		  #{ytName}		  
+	)
+</insert>
+
+
+
+</mapper>
