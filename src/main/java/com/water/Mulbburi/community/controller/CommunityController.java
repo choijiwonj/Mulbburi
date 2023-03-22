@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 package com.water.Mulbburi.community.controller;
 
 import java.io.File;
@@ -19,7 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
-import com.water.Mulbburi.community.service.CommunityService;
 import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -76,5 +74,4 @@ public class CommunityController {
 	}
 
 }
-=======
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+

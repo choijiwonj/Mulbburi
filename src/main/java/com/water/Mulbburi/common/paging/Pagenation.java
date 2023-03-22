@@ -3,9 +3,13 @@ package com.water.Mulbburi.common.paging;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Pagenation{
+import com.water.Mulbburi.screen.youtube.YoutubeController;
 
-	 /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+public class Pagenation {
+
+    /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
     public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
 
         int maxPage;			//전체 페이지에서 가장 마지막 페이지
@@ -36,16 +40,13 @@ public class Pagenation{
 
         /* 조회할 시작 번호와 마지막 행 번호를 계산 */
         startRow = (page - 1) * limit + 1;
-
-        endRow = startRow + limit - 1;        
-        
-        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
-
-		return selectCriteria;
-	}
-
         endRow = startRow + limit - 1;
-
+        
+        log.info("endRow : {}", endRow);
+        log.info("startRow {}", startRow);
+        log.info("page {}", page);
+        log.info("limit {}", limit);
+ 
         SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
 
         return selectCriteria;
@@ -56,6 +57,4 @@ public class Pagenation{
 		
 		return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
 	}
-
-	
 }
