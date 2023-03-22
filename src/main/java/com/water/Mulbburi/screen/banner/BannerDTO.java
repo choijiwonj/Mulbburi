@@ -1,5 +1,5 @@
-package com.water.Mulbburi.screen;
+package com.water.Mulbburi.screen.banner;
 
-public class DTO {
+public class BannerDTO {
 
 }

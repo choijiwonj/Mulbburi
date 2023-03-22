@@ -58,7 +58,7 @@
         <!-- 주문 관리 내용 -->
 
         <div class="wrap">
-            <div class="type">
+            <!-- <div class="type">
                 <ul>
                     <li>주문날짜</li>
                     <li>주문번호</li>
@@ -67,8 +67,29 @@
                     <li>상품명</li>
                     <li>주문수량</li>
                 </ul>
-            </div>
-
+            </div> -->
+            
+            <table class="content">
+				<tr id="subject">
+	            	<th>주문날짜</th>
+	            	<th>주문번호</th>
+	            	<th>고객ID</th>
+	            	<th>상품번호</th>
+	            	<th>상품명</th>
+	            	<th>상품수량</th>
+	            	<th>주문금액</th>
+				</tr>
+				<tr th:each="management : ${ orderAll }">
+					<td th:text="${ management.orderDate }"></td>
+					<td th:text="${ management.orderNo }"></td>
+					<td th:text="${ management.memberNo }"></td>
+					<td th:text="${ management.sbNo }"></td>
+					<td th:text="${ management.sbName }"></td>
+					<td th:text="${ management.orderAmount }"></td>
+					<td th:text="${ management.orderMoney }"></td>
+				</tr>
+            </table>
+            
         </div>
 
         <!-- 페이징 -->

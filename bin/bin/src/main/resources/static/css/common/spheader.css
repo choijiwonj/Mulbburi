@@ -1,0 +1,158 @@
+*{padding:0;margin:0}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
+
+
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
+=======
+​
+
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+
+a {
+    text-decoration: none;  
+    /* 모든 하이퍼링크 밑줄 삭제 */
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+body {
+    height: 100%;
+    background-color: white;
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.top-holder {
+    width: 100%;
+    height: 60px;
+    background: rgba(169, 197, 185, 0.7);
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.main {
+    text-align: center;
+    font-family: 'HSBombaram21-Regular';
+    font-weight: normal;
+    margin: 30px;
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.main span {
+    /* background-color: rgba(169, 197, 185, 0.7); */
+    color: rgba(118, 141, 131, 0.9);
+    font-size: 40px;
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.menu span {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(118, 141, 131, 0.7);
+    margin-right: 10px;
+    /* color: blue; */
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.side span {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(118, 141, 131, 0.7);
+    margin-left: 10px;
+    /* color: blue; */    
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.inner {
+    padding: 0 20%;
+    display: flex;
+    justify-content: space-between;
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+/* 검색 */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
+>>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
+.searchCriteria {
+    float: right;
+   /*  margin-right: 20%; */
+    /* border: 2px solid blue; */
+    
+}
+
+=======
+​
+/* 검색 */
+​
+.searchCriteria {
+    float: right;
+    margin-right: 20%;
+    /* border: 2px solid blue; */
+}
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+.searchCriteria button {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(118, 141, 131, 0.7);
+    font-weight: 600;
+    opacity: 80%;
+    font-size: 8px;
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+=======
+​
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css
+#search {
+    font-weight: 600;
+    font-size: 8px;
+    padding: 2px;
+    width: 80px;
+    text-align: center;
+    border: solid 2px rgba(118, 141, 131, 0.4);
+    color: rgba(118, 141, 131, 0.6);
+}
+<<<<<<< HEAD:target/classes/static/css/common/spheader.css
+
+input:focus {
+    outline: none;
+}
+=======
+​
+input:focus {
+    outline: none;
+}
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spheader.css

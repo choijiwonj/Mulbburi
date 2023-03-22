@@ -32,6 +32,7 @@ public class MemberService {
         int result1 = mapper.insertConMember(member);
         int result2 = mapper.insertConMemberRole();
 
+
         if(!(result1 > 0 && result2 > 0)){
             throw new MemberRegistException("회원 가입에 실패하였습니다.");
         }
@@ -70,6 +71,10 @@ public class MemberService {
 		return mapper.findLoginId(member);
 	}
 
+	public String findLoginPwd(MemberDTO member) {
+		
+		return mapper.findLoginPwd(member);
+	}
 //	public int idCheck(String memberId) {
 //		
 //		return mapper.idCheck(memberId);
