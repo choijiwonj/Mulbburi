@@ -71,6 +71,10 @@ public class MemberService {
 		return mapper.findLoginId(member);
 	}
 
+	public String findLoginPwd(MemberDTO member) {
+		
+		return mapper.findLoginPwd(member);
+	}
 //	public int idCheck(String memberId) {
 //		
 //		return mapper.idCheck(memberId);

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class MemberRoleDTO {
 
-	private int memberNO;
+	private int memberNo;
 	private int authorityCode;
 	
 	private AuthorityDTO authority;
