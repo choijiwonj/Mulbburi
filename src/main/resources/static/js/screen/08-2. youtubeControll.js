@@ -1,20 +1,32 @@
-    function getYouTube() {
-        $.ajax({
-             type : "GET",
-             dataType : "JSON",
-             url : "https://www.googleapis.com/youtube/v3/search?channelId=@elgarden_&part=snippet&maxResults=6&key=AIzaSyAHSGbXskEp85YLDs6MvR5g-sHo7lvh1gE",
-             contentType : "application/json",
-             success : function(jsonData) {
-                 for (var i = 0; i < jsonData.items.length; i++) {
-                     var items = jsonData.items[i];
-                     console.log(items);
-                 }
-             },
-             complete : function(data) {
+function dropdown(){
+    document.querySelector(".arrow").addEventListener("click", () => {document.querySelector(".mydropdown").classList.toggle("active")});
+}
 
-             },
-             error : function(xhr, status, error) {
-                 console.log("유튜브 요청 에러: "+error);
-             }
-        });
-    }
+dropdown();
+
+function dropdown2(){
+	document.querySelector(".arrow2").addEventListener("click", () => {document.querySelector(".mydropdown2").classList.toggle("active2")});
+}
+
+dropdown2();
+
+function click(){
+    const $t1 = document.querySelector(".t1");
+    const $t2 = document.querySelector(".t2");
+    const $background2 = document.querySelector(".totalstory");
+    const $background3 = document.querySelector(".totalstory3");
+
+    $t1.addEventListener("click", () => {
+        $background2.style.display = "flex";
+        $background3.style.display = "none";
+        console.log("t1");
+    });
+
+    $t2.addEventListener("click", () => {
+        $background3.style.display = "flex";
+        $background2.style.display = "none";
+        console.log("t2");
+    })
+}
+
+click();
