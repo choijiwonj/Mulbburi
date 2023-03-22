@@ -36,6 +36,14 @@ public class Pagenation{
 
         /* 조회할 시작 번호와 마지막 행 번호를 계산 */
         startRow = (page - 1) * limit + 1;
+
+        endRow = startRow + limit - 1;        
+        
+        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
+
+		return selectCriteria;
+	}
+
         endRow = startRow + limit - 1;
 
         SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
