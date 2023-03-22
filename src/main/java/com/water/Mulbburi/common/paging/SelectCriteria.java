@@ -1,6 +1,7 @@
 package com.water.Mulbburi.common.paging;
 
 import lombok.AllArgsConstructor;
+
 import lombok.Data;
 
 @Data

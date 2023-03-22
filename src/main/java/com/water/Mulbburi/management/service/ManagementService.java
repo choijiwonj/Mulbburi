@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+/*
+ * package com.water.Mulbburi.management.service;
+ * 
+ * import java.util.Map;
+ * 
 package com.water.Mulbburi.management.service;
 
 import java.util.HashMap;
@@ -47,3 +53,4 @@ public class ManagementService {
 
 	}
 }
+
