@@ -8,6 +8,7 @@ a {
     text-decoration: none;  /* 모든 하이퍼링크 밑줄 삭제 */
 }
 
+<<<<<<< HEAD
 .main {
     text-align: center;
     font-family: 'HSBombaram21-Regular';
@@ -76,11 +77,14 @@ a {
     justify-content: space-between;
 }
 
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 .wrapper {
     min-height: calc(100%-160px);
     position: relative;
 } 
 
+<<<<<<< HEAD
 .btm-holder {
     width: 100%;
     padding: 20px;
@@ -90,6 +94,8 @@ a {
     overflow: hidden;
 }
 
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 .info {
     font-size: 12px;
     padding-bottom: 10px;
@@ -241,6 +247,11 @@ a {
 
 hr {
     width: 63%;
+<<<<<<< HEAD
+=======
+    margin-left: 20%;
+    margin-top : 1%;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 }
 
 .productPage {

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +22,7 @@
         <div class="sub"></div>
     </nav>
 
+<<<<<<< HEAD
     <!-- header -->
     <div class="top-holder"></div>
 
@@ -63,6 +69,9 @@
         <input type="text" value="" id="search" placeholder="검색">
         <button id="rsearch">검색</button>
     </div>
+=======
+	<div th:replace="common/pheader.html"></div> 
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 
     <div class="title">
         <p>주문내역</p>
@@ -79,7 +88,11 @@
     <form>
     <div class="product">
         <input type="checkbox" class="checkbox">
+<<<<<<< HEAD
         <img src="../../resources/images/icons8-화분에-심은-식물-48 (1).png" class="photo">
+=======
+        <img src="/img/yeob01.png" class="photo">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
         <div class="productName">
         <sapn class="prName">몰랑루즈</sapn><br>
         <span class="prCode">주문번호 202313030</span>
@@ -105,6 +118,7 @@
         <button class="paging">&gt;&gt;</button>
     </div>
     
+<<<<<<< HEAD
 
     <!-- footer -->
     <div class="btm-holder">
@@ -123,6 +137,10 @@
             </div>
         </div>
     </div>
+=======
+	<div th:replace="common/pfooter.html"></div> 
+
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
     </div>
 </body>
 </html>

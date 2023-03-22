@@ -14,7 +14,11 @@
       <result property="orderMoney" column="ORDER_AMOUNT_MONEY"/>
    </resultMap>
 
+<<<<<<< HEAD
    <select id="checkTotalCount" resultType="_int" parameterType="orderAllResultMap">
+=======
+   <select id="checkTotalCount" resultMap="orderAllResultMap">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 	SELECT
 		   T.ORDER_DATE
 	     , T.ORDER_NO
@@ -27,6 +31,7 @@
 	  JOIN SHOPPINGBASCKET S ON(T.MEMBER_NO = S.MEMBER_NO)
    </select>
 
+<<<<<<< HEAD
 <!-- <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.water.Mulbburi.management.dao.ManagementMapper">
@@ -39,4 +44,6 @@
 		<collection property="" resultMap=""></collection>
 	</resultMap> -->
 
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 </mapper>

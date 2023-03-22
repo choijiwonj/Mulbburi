@@ -1,19 +1,33 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>homepage</title>
     <link href="/css/member/mypage/mypageMain.css" rel="stylesheet" style type="text/css">
     <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
     <script type="text/javascript" defer src="../../resources/js/mypageMain.js"></script>
+=======
+    <title>mypageMain</title>
+    <script type="text/javascript" defer src="../../resources/js/mypageMain.js"></script>
+    <link href="/css/member/mypage/mypageMain.css" rel="stylesheet" style type="text/css">
+    <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
+    
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 </head>
 <body>
 
     <nav class="sub-menu">
         <div class="sub"></div>
     </nav>
+<<<<<<< HEAD
 
     <!-- header -->
     <div class="top-holder"></div>
@@ -64,10 +78,18 @@
 
     <div class="mypageMenu">
             <div class="img1"><img src="../../resources/images/Group 586.png" class="profile"></div>
+=======
+	
+  	<div th:replace="common/pheader.html"></div> 
+  
+    <div class="mypageMenu">
+            <div class="img1"><img src="/img/프로필.png" class="profile"></div>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
             <div>
                 <div class="mypageName"><p class="userName">user01234</p><p class="greet">님 환영합니다.</p></div>
                 <nav class="mypageMenu">
                     <a href="#none">
+<<<<<<< HEAD
                     <img src="../../resources/images/sell.png" class="sell">
                     </a>
                     <a href="#none">
@@ -78,6 +100,18 @@
                     </a>
                     <a href="#none">
                     <img src="../../resources/images/comunity.png" class="comunity">
+=======
+                    <img src="/img/sell.png" class="sell">
+                    </a>
+                    <a href="#none">
+                    <img src="/img/myinfo.png" class="myInfo">
+                    </a>
+                    <a href="#none">
+                    <img src="/img/heart.png" class="heart">
+                    </a>
+                    <a href="#none">
+                    <img src="/img/comunity.png" class="comunity">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
                     </a>
                 </nav>
                 <div class="menuName">
@@ -90,6 +124,7 @@
 
     </div>
 
+<<<<<<< HEAD
     <!-- footer -->
     <div class="btm-holder">
         <div class="siteinfo">
@@ -107,6 +142,9 @@
             </div>
         </div>
     </div>
+=======
+    <div th:replace="common/pfooter.html"></div> 
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 
 </body>
 </html>

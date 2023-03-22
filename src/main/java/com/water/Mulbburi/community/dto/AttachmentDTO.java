@@ -13,5 +13,7 @@ public class AttachmentDTO {
     private String fileType;
     private String thumbnailPath;
     private String status;
+   
+	
 
 }

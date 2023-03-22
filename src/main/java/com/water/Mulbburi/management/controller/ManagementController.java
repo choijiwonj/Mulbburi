@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
  * package com.water.Mulbburi.management.controller;
  * 
@@ -74,6 +75,9 @@
  * }
  */
 =======
+=======
+
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 package com.water.Mulbburi.management.controller;
 
 import java.util.Map;
@@ -162,4 +166,8 @@ public class ManagementController {
 	}
 }
 
+<<<<<<< HEAD
 >>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+=======
+
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6

@@ -10,12 +10,15 @@ spring:
     username: C##WATER
     password: WATER
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   
   # mybatis config
 mybatis:
   mapper-locations: mappers/**/*.xml
 =======
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 # file upload config
 
 
@@ -25,6 +28,7 @@ mybatis:
 # mybatis config
 mybatis:
   mapper-locations: mappers/**/*.xml
+<<<<<<< HEAD
   
 
   
@@ -37,3 +41,5 @@ mybatis:
   
   
   
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6

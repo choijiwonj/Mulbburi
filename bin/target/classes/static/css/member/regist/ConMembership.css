@@ -216,6 +216,10 @@ table {
 #searchZipCode {
     width: 50px;
     height: 30px;
+<<<<<<< HEAD
+=======
+    cursor:pointer
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 }
 
 .addressBar1 {
@@ -233,6 +237,10 @@ table {
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid rgba(71, 66, 66, 0.8);
+<<<<<<< HEAD
+=======
+    cursor:pointer
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 }
 
 #searchZipCode {
@@ -246,3 +254,15 @@ label {
     margin-bottom: 0px;
 }
 
+<<<<<<< HEAD
+=======
+.id_input_re_1 {
+	color : green;
+	display : none;
+}
+
+.id_input_re_2 {
+	color : red;
+	display : none;
+}
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6

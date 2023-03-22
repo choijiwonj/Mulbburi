@@ -209,12 +209,20 @@
           AND MEMBER_ID = #{ memberId }
     </update>
     
+<<<<<<< HEAD
   <!--    <select id="idCheck" resultType="int">
+=======
+     <select id="idCheck" resultType="int">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
     	select
     			count (*)
     	  from  member
     	 where  memberId = #{ memberId } 		
+<<<<<<< HEAD
     </select> -->
+=======
+    </select>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 	
 	<!-- 아이디 찾기 -->
 	<select id="findLoginId" resultType="String">
@@ -225,6 +233,7 @@
 		   AND  PHONE = #{ phone } 		
 	</select>
 	
+<<<<<<< HEAD
 	
 	
 	
@@ -234,4 +243,6 @@
 	
 	
 	
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 </mapper>

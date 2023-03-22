@@ -1,10 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>homepage</title>
+=======
+    <title>infoModify</title>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
     <link href="/css/member/mypage/infoModify.css" rel="stylesheet" style type="text/css">
     <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
     <script type="text/javascript" defer src="../../resources/js/mypageMain.js"></script>
@@ -15,6 +24,7 @@
         <div class="sub"></div>
     </nav>
 
+<<<<<<< HEAD
     <!-- header -->
     <div class="top-holder"></div>
 
@@ -64,6 +74,12 @@
 
     <div class="topInfo">
         <img src="../../resources/images/Group 586.png" class="profile">
+=======
+	<div th:replace="common/pheader.html"></div>
+
+    <div class="topInfo">
+        <img src="/img/프로필.png" class="profile">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
         <p class="id">user012</p>
         <p class="text">님 안녕하세요</p>
     </div>
@@ -158,6 +174,7 @@
                 </div>
         </form>
     </div>
+<<<<<<< HEAD
     <!-- footer -->
     <div class="btm-holder">
         <div class="siteinfo">
@@ -175,6 +192,10 @@
             </div>
         </div>
     </div>
+=======
+
+	<div th:replace="common/pfooter.html"></div> 
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 
 </body>
 </html>
