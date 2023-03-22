@@ -209,12 +209,12 @@
           AND MEMBER_ID = #{ memberId }
     </update>
     
-  <!--    <select id="idCheck" resultType="int">
+     <select id="idCheck" resultType="int">
     	select
     			count (*)
     	  from  member
     	 where  memberId = #{ memberId } 		
-    </select> -->
+    </select>
 	
 	<!-- 아이디 찾기 -->
 	<select id="findLoginId" resultType="String">
@@ -225,13 +225,13 @@
 		   AND  PHONE = #{ phone } 		
 	</select>
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	<!-- 비밀번호 찾기 -->
+	<select id="findLoginPwd" resultType="String">
+		SELECT 
+				MEMBER_PWD
+		  FROM  MEMBER
+		 WHERE  MEMBER_NAME = #{ memberName }
+		   AND	MEMBER_ID = #{ memberId } 		
+	</select>
 	
 </mapper>
