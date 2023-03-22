@@ -21,7 +21,7 @@ public class ManagementController {
 //		this.managementService = managementService;
 //	}
 
-	/* 주문 관리 - 전체 */
+	/* 주문 관리 - 전체 ㅠ.ㅠ */
 	
 //	@GetMapping("/orderAll")
 //	public String checkorderAll(@RequestParam(defaultValue="1") int page, Model model) {	
