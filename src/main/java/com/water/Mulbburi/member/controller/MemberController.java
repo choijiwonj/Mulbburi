@@ -1,9 +1,7 @@
 package com.water.Mulbburi.member.controller;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
+import com.water.Mulbburi.member.service.MailService;
 import com.water.Mulbburi.member.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,12 +31,14 @@ public class MemberController {
     private final MessageSourceAccessor messageSourceAccessor;
     private final MemberService memberService;
     private final AuthenticationService authenticationService;
+    private final MailService mailService;
 
-    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService) {
+    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService, MailService mailService) {
         this.messageSourceAccessor = messageSourceAccessor;
         this.memberService = memberService;
         this.passwordEncoder = passwordEncoder;
         this.authenticationService = authenticationService;
+        this.mailService = mailService;
     }
 	
 	/* 로그인 페이지 이동 */
@@ -47,7 +49,7 @@ public class MemberController {
 	}
 	
 	/* 로그인 실패 시 */
-	@PostMapping("/loginfail")
+	@PostMapping("/login/loginFalse")
 	public String loginFailed() {
 		
 		return "member/login/loginFalse";
@@ -88,6 +90,53 @@ public class MemberController {
 		
 		return result;
 
+	}
+	
+	/* 비밀번호 찾기 */
+	@GetMapping("/login/pwdSearch")
+	public String showPwdSearch() {
+		
+		return "member/login/pwdSearch";
+	}
+	
+	@PostMapping("/mailsend")
+	@ResponseBody
+	String mailConfirm(@RequestParam("emailId") String emailId, @RequestParam("domain") String domain) throws Exception {
+		
+		System.out.println("emailId :" + emailId);
+		System.out.println("domain :" + domain);
+		
+		String email = emailId + "@" + domain;
+		
+		System.out.println("email :" + email);
+		
+		String code = mailService.sendSimpleMessage(email);
+		System.out.println("인증코드 : " + code);
+		
+		return "member/login/pwdSearch";
+	}
+	
+	@PostMapping("/login/pwdSearch")
+	@ResponseBody
+	public String doFindPwdSearch(@ModelAttribute MemberDTO member, Model model,
+			 @RequestParam(required=false) String cerNo) throws Exception {
+		
+		System.out.println("member : " + member);
+		
+		
+		String memberPwd = memberService.findLoginPwd(member);
+		
+		model.addAttribute("memberPwd", memberPwd);
+		
+		String result = "";
+		
+//		if(code != cerNo) {
+//			result = "member/login/pwdReset";
+//		} else  {
+//			result = "member/login/pwdFalse";
+//		}
+		
+		return result;
 	}
 
 	/* 회원가입 접근페이지 이동 */
