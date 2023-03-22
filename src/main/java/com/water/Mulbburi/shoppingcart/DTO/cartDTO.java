@@ -1,4 +1,8 @@
-package com.water.Mulbburi.shoppingcart;
+package com.water.Mulbburi.shoppingcart.DTO;
+
+import java.util.List;
+
+import com.water.Mulbburi.file.FileDTO;
 
 import lombok.Data;
 
@@ -8,7 +12,7 @@ public class cartDTO {
 	/* 장바구니 번호 */
 	private int pcNo;
 	/* 회원번호 */
-	private int memberNo;
+	private long memberNo;
 	/* 상품번호 */
 	private int sbNo;
 	/* 상품수량 */
@@ -19,6 +23,8 @@ public class cartDTO {
 	private int sbPrice;
 	/* 총가격 */
 	private int totalPrice;
+	/* 상품이미지 */
+	private List<FileDTO> imageList;
 	
 	public void initTotal() {
 		this.totalPrice = this.sbPrice * this.pcAmount;
