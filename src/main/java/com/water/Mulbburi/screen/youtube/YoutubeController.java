@@ -56,14 +56,14 @@ public class YoutubeController {
 	}
 
 	/* 저장한 유투브 목록	 가져오기 */
-	@GetMapping("select/youtube")
-	public String selectAllYoutube(Model model){
-		
-		List<YoutubeDTO> youtubeList = YoutubeService.selectAllYoutube();
-		model.addAttribute("youtubeList", youtubeList);
-		
-		return "/screen/08-2. youtubeControll";
-	}
+	/*
+	 * @GetMapping("select/youtube") public String selectAllYoutube(Model model){
+	 * 
+	 * List<YoutubeDTO> youtubeList = YoutubeService.selectAllYoutube();
+	 * model.addAttribute("youtubeList", youtubeList);
+	 * 
+	 * return "/screen/08-2. youtubeControll"; }
+	 */
 
 
 

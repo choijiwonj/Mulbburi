@@ -8,6 +8,6 @@ public class testcontroller {
 
 	@GetMapping("/*")
 	public String test() {
-		return "screen/08. screenControll";
+		return "shoppingcart/shoppingcart";
 	}
 }

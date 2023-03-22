@@ -1,4 +1,4 @@
-///*
+/*///*
 //  package com.water.Mulbburi.community.service;
 //
 //import java.util.HashMap;
@@ -86,13 +86,13 @@
 //		return null;
 //	}
 //	}
-<<<<<<< HEAD
 
-	public CommunityService(CommunityMapper communityMapper) {
+
+//	public CommunityService(CommunityMapper communityMapper) {
 //		this.communityMapper = communityMapper;
-	}
+//	}
 	
-	public Map<String, Object> selectCommunityList(Map<String, String> searchMap, int page){
+//	public Map<String, Object> selectCommunityList(Map<String, String> searchMap, int page){
 		
 //	/* 1. 전체 게시글 수 확인 ( 검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서*/
 //		int totalCount = communityMapper.selectTotalCount(searchMap);
@@ -116,9 +116,8 @@
 //		communityListAndPaging.put("communityList",communityList);
 //		
 //		return communityListAndPaging;
-		return null;
-	}
+//		return null;
+//	}
 
-	}
-=======
->>>>>>> 4b1c53f798ad3380e38e013bbab55dbbbf85fc4f
+//	}
+

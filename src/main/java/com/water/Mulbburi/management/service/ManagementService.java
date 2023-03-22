@@ -47,7 +47,4 @@ public class ManagementService {
 
 	}
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b1c53f798ad3380e38e013bbab55dbbbf85fc4f
