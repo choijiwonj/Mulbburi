@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.water.Mulbburi.management.dao.ManagementMapper">
+
+   <resultMap type="com.water.Mulbburi.management.dto.ManagementDTO" id="orderAllResultMap">
+      <id property="orderNo" column="ORDER_NO"/>
+      <result property="orderDate" column="ORDER_DATE"/>
+      <result property="memberNo" column="MEMBER_NO"/>
+      <result property="sbNo" column="SB_NO"/>
+      <result property="sbName" column="SB_NAME"/>
+      <result property="orderAmount" column="ORDER_AMOUNT"/>
+      <result property="orderMoney" column="ORDER_AMOUNT_MONEY"/>
+   </resultMap>
+
+   <select id="checkTotalCount" resultType="_int" parameterType="orderAllResultMap">
+	SELECT
+		   T.ORDER_DATE
+	     , T.ORDER_NO
+	     , T.MEMBER_NO
+	     , S.SB_NO
+	     , S.SB_NAME
+	     , T.ORDER_AMOUNT
+	     , T.ORDER_AMOUNT_MONEY
+	  FROM TBL_ORDER T
+	  JOIN SHOPPINGBASCKET S ON(T.MEMBER_NO = S.MEMBER_NO)
+   </select>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.water.Mulbburi.management.dao.ManagementMapper">
+
+	<resultMap type="com.water.Mulbburi.management.dto.ManagementDTO" id="orderAllResultMap">
+		<id property="orderNo" column="ORDER_NO"/>
+      	<result property="orderDate" column="ORDER_DATE"/>		
+	
+		<association property=""></association>
+		<collection property="" resultMap=""></collection>
+	</resultMap> -->
+
+</mapper>

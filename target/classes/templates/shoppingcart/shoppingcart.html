@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<script type="text/javascript" src=/js/shoppingcart/cart.js></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cart</title>
+<link href="/css/font.css" rel="stylesheet" type="text/css">
+<link href="/css/shoppingcart/shoppingcart.css" rel="stylesheet"
+	type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div th:replace="/common/j.header2.html"></div>
+	<div class="contentsWrap">
+		<div class="wishList">
+			<div class="pageTitle">장바구니</div>
+			<div class="formTitle">
+				<span class="checkbox"> <input type="checkbox" id="allCheck">
+					<label for="allCheck" class="chkTitle20 checkText tailCheck"></label>
+				</span> <span class="titleRL">전체선택</span> / 총 상품 <span class="greenColor">1</span>
+				개
+			</div>
+			<div id="cartList" class="wishListDivision">
+				<div class="left">
+					<table class="basketT">
+						<tbody>
+							<tr>
+								<th>일렁</th>
+							</tr>
+						</tbody>
+					</table>
+					<table class="basketT cartCell">
+						<tbody>
+							<tr th:each="ci : ${ cartInfo }">
+								<td class="contents"><span class="chkbox"> <input
+										type="checkbox" id="oneCheck" name="sbName" value=""><label for=""
+										class="chkTitle20 checkText tailCheck"></label>
+								</span> <span class="close deleteProductButton" th:data-id="${ci.pcNo}" onclick="deleteCartItem(this)"><i
+										class="xi-close-min-reClose"></i>
+								</span>
+									<div class="wishBoxArea">
+										<div class="imgBox">
+											<img src="/img/배너1.jpg">
+										</div>
+										<div class="con">
+											<span th:text="${ci.sbName}"></span><br><span th:text="${sbPrice}"> <br> 합계 : 0원 <br>
+											</span>
+										</div>
+										<div class="grayBox amountSet">
+											<div class="closeButton">
+												<i class="xi-close"></i>
+											</div>
+											<div class="quantityPrice">
+												<ul class="changeNum">
+													<li>수량변경 : <select class="qttyInputBox"
+														name="qttyInputBox">
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+													</select>
+													</li>
+												</ul>
+												<div class="priceSum">
+													<span></span> 원
+												</div>
+											</div>
+										</div>
+									</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="right">
+					<table class="priceTable">
+						<tbody>
+							<tr>
+								<th colspan="2">전체주문금액</th>
+							</tr>
+							<tr class="firstChild">
+								<td>선택 상품 수</td>
+								<td class="txtRight"><span class="quantity"></span> 개</td>
+							</tr>
+							<tr>
+								<td>총 상품금액</td>
+								<td class="txtRight"><span class="totalPrice"></span>
+									원</td>
+							</tr>
+							<tr>
+								<td>배송비</td>
+								<td class="txtRight"><span class="orderAmountSum"></span>
+									원</td>
+							</tr>
+							<tr>
+								<td class="finalPrice fl">결제 예정 금액</td>
+								<td class="txtRight finalPrice"><span class="payAmountSum"></span>
+									원</td>
+							</tr>
+						</tbody>
+					</table>
+					<a href="order/order.html"
+						class="button default full green mt10 buyButton">주문하기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="/common/j.footer2.html"></div>
+	<script>
+		let pcAmout = $("select[pcAmount=qttyInputBox]").val();
+		
+		
+	</script>
+</body>
+
+</html>
