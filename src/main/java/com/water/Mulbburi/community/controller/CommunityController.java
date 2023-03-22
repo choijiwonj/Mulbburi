@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 package com.water.Mulbburi.community.controller;
 
 import java.io.File;
@@ -75,3 +76,5 @@ public class CommunityController {
 	}
 
 }
+=======
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5

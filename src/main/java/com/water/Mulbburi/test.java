@@ -8,7 +8,7 @@ public class test {
 	
 //	@GetMapping("/*")
 //	public String test() {
-
+//
 //		return "/store/store";
 
 //		return "/management/orderAll";
@@ -30,3 +30,4 @@ public class test {
 //	}
 	
 }
+

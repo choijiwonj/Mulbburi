@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
+import com.water.Mulbburi.member.service.MailService;
 import com.water.Mulbburi.member.service.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,12 +31,14 @@ public class MemberController {
     private final MessageSourceAccessor messageSourceAccessor;
     private final MemberService memberService;
     private final AuthenticationService authenticationService;
+    private final MailService mailService;
 
-    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService) {
+    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService, MailService mailService) {
         this.messageSourceAccessor = messageSourceAccessor;
         this.memberService = memberService;
         this.passwordEncoder = passwordEncoder;
         this.authenticationService = authenticationService;
+        this.mailService = mailService;
     }
 	
 	/* 로그인 페이지 이동 */
@@ -45,7 +49,7 @@ public class MemberController {
 	}
 	
 	/* 로그인 실패 시 */
-	@PostMapping("/loginfail")
+	@PostMapping("/login/loginFalse")
 	public String loginFailed() {
 		
 		return "member/login/loginFalse";
@@ -87,6 +91,53 @@ public class MemberController {
 		return result;
 
 	}
+	
+	/* 비밀번호 찾기 */
+	@GetMapping("/login/pwdSearch")
+	public String showPwdSearch() {
+		
+		return "member/login/pwdSearch";
+	}
+	
+	@PostMapping("/mailsend")
+	@ResponseBody
+	String mailConfirm(@RequestParam("emailId") String emailId, @RequestParam("domain") String domain) throws Exception {
+		
+		System.out.println("emailId :" + emailId);
+		System.out.println("domain :" + domain);
+		
+		String email = emailId + "@" + domain;
+		
+		System.out.println("email :" + email);
+		
+		String code = mailService.sendSimpleMessage(email);
+		System.out.println("인증코드 : " + code);
+		
+		return "member/login/pwdSearch";
+	}
+	
+	@PostMapping("/login/pwdSearch")
+	@ResponseBody
+	public String doFindPwdSearch(@ModelAttribute MemberDTO member, Model model,
+			 @RequestParam(required=false) String cerNo) throws Exception {
+		
+		System.out.println("member : " + member);
+		
+		
+		String memberPwd = memberService.findLoginPwd(member);
+		
+		model.addAttribute("memberPwd", memberPwd);
+		
+		String result = "";
+		
+//		if(code != cerNo) {
+//			result = "member/login/pwdReset";
+//		} else  {
+//			result = "member/login/pwdFalse";
+//		}
+		
+		return result;
+	}
 
 	/* 회원가입 접근페이지 이동 */
 	@GetMapping("/regist/registOpen")
@@ -124,22 +175,6 @@ public class MemberController {
 		return ResponseEntity.ok(result);
 	}
 	
-//	//아이디 중복검사
-//	@RequestMapping(value = "/member/idCheck", method = RequestMethod.POST)
-//	@ResponseBody
-//	public String memberIdCheck(String memberId) throws Exception {
-//		
-//		int result = memberService.idCheck(memberId);
-//		
-//		if(result != 0) {
-//			
-//			return "fail";
-//		} else {
-//			
-//			return "success";
-//		}
-//	}
-	
 	/* 구매자 회원 가입 */
 	@PostMapping("/regist/ConMembership")
 	public String registConMember(@ModelAttribute MemberDTO member,
@@ -147,7 +182,7 @@ public class MemberController {
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
 		
-		String email = emailId + "$" + "@" + "$" + domain;
+		String email = emailId + "@" + domain;
 		member.setEmail(email);
 		member.setPostCode(postCode);
 		member.setBsAddress(bsAddress);
@@ -174,7 +209,7 @@ public class MemberController {
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
 		
-		String email = emailId + "$" + "@" + "$" + domain;
+		String email = emailId + "@" + domain;
 		member.setEmail(email);
 		member.setPostCode(postCode);
 		member.setBsAddress(bsAddress);

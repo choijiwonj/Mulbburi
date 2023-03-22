@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/screen/08. screenControll.css" rel="stylesheet" style type="text/css">
-    <link href="../resources/css/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="/js/screen/08-1. bannerControll.js"></script>
+    <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
+    <script type="text/javascript" defer src="/js/screen/08-2. youtubeControll.js"></script>
     <title>Document</title>
 </head>
 <body>
+<div th:replace="/common/mheaderLogin.html"></div>
+    
+        <div class="topground">
+            <div class="t1">저장하기</div>
+            <div class="t2">목록확인</div>
+        </div>
+        
     <div class="totalbackground2">
-        <div class="totaltitle2">물뿌리개</div>
         <div class="totalstory">
             <div class="totalbase">
                 <div class="category1">
@@ -25,23 +31,63 @@
                     <div class="mydropdown">
                         <div class="category2">
                             <div>Youtube</div>
+                            <div>주소</div>
                             <div>작성일</div>
                             <div>삭제일</div>
                             <div>게시일</div>
                             <div>종료일</div>
                         </div>
-                        <div class="story">
-                            <div class="bannertitle">Youtube Title</div>
-                            <div class="writedate">작성일</div>
-                            <div class="deletedate">삭제일</div>
-                            <div class="postingdate">게시일</div>
-                            <div class="enddate">종료일</div>
+                        <form name="story" method="post" action="screen/regist/youtube">
+                            <input type="text" class="bannertitle" name="ytName"><br>
+                            <input type="text" class="path" name="ytPath"><br>
+                            <input type="date" class="writedate" name="ytWriteDate"><br>
+                            <input type="date" class="deletedate" name="ytDeleteDate"><br>
+                            <input type="date" class="postingdate" name="ytPostDate"><br>
+                            <input type="date" class="enddate" name="ytEndDate">
+                            <input type="submit" id="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="totalstory3">
+            <div class="totalbase3">
+                <div class="category1">
+                    <div class="titlename"><span>YouTube</span></div>
+                    <div class="arrow2">▼</div>
+                    <div class="bannername">Youtube Title</div>
+                </div>
+
+                <div class="dropdown">
+                    <div class="mydropdown2">
+                        <div class="category3">
+                            <div>Youtube</div>
+                            <div>주소</div>
+                            <div>작성일</div>
+                            <div>삭제일</div>
+                            <div>게시일</div>
+                            <div>종료일</div>
+                        </div>
+                        <div class="story2">
+                            <div class="bannertitle2">타이틀</div>
+                            <div class="path2">주소</div>
+                            <div class="writedate2">작성일</div>
+                            <div class="deletedate2">삭제일</div>
+                            <div class="postingdate2">게시일</div>
+                            <div class="enddate2">종료일</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="totalbackground3">
+    	
+    </div>
+    
+    	
 
      <!-- 페이징 -->
      <div class="paging">
@@ -56,6 +102,6 @@
         <button>&gt;&gt;</button>
     </div>
     
-    <div th:replace="/common/pfooter.html"></div>
+    <div th:replace="/common/spfooter.html"></div>
 </body>
 </html>
