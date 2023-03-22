@@ -1,5 +1,5 @@
-package com.water.Mulbburi.screen;
+package com.water.Mulbburi.screen.banner;
 
-public class DAO {
+public class BannerDAO {
 
 }
