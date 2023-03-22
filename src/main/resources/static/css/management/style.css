@@ -110,10 +110,9 @@ body {
     background: rgba(126, 113, 113, 0.1);
     border-radius: 30px;
     /* margin: 0 20%; */
-    height: 840px;
 }
 
-.type ul {
+/* .type ul {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
@@ -127,6 +126,14 @@ body {
     color: rgba(118, 141, 131, 0.6);
     font-size: 14px;
     font-weight: 700;
+} */
+
+.content {
+	width: 90%;
+/* 	flex: display;
+	justify-content: center; */
+	text-align: center;
+	margin: 0 auto;
 }
 
 /* 페이징 */
