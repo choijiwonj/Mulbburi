@@ -2,13 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+<script type="text/javascript" src=/js/shoppingcart/cart.js></script>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>cart</title>
 <link href="/css/font.css" rel="stylesheet" type="text/css">
 <link href="/css/shoppingcart/shoppingcart.css" rel="stylesheet"
+<<<<<<< HEAD
+	type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+=======
 type="text/css">
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
 </head>
 <body>
 	<div th:replace="/common/j.header2.html"></div>
@@ -32,11 +38,11 @@ type="text/css">
 					</table>
 					<table class="basketT cartCell">
 						<tbody>
-							<tr>
+							<tr th:each="ci : ${ cartInfo }">
 								<td class="contents"><span class="chkbox"> <input
-										type="checkbox" id="" name="" value=""> <label for=""
+										type="checkbox" id="oneCheck" name="sbName" value=""><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
-								</span> <span class="close deleteProductButton"> <i
+								</span> <span class="close deleteProductButton" th:data-id="${ci.pcNo}" onclick="deleteCartItem(this)"><i
 										class="xi-close-min-reClose"></i>
 								</span>
 									<div class="wishBoxArea">
@@ -44,8 +50,7 @@ type="text/css">
 											<img src="/img/배너1.jpg">
 										</div>
 										<div class="con">
-											무우안우나움나이ㅓㄴ미아ㅓㄴ미아ㅓㅁㄴ이ㅏㅓㄴ미아ㅓ <br> <span> 상품기본가격 :
-												0원 <br> 합계 : 0원 <br>
+											<span th:text="${ci.sbName}"></span><br><span th:text="${sbPrice}"> <br> 합계 : 0원 <br>
 											</span>
 										</div>
 										<div class="grayBox amountSet">
@@ -68,7 +73,7 @@ type="text/css">
 													</li>
 												</ul>
 												<div class="priceSum">
-													<span>0</span> 원
+													<span></span> 원
 												</div>
 											</div>
 										</div>
@@ -85,21 +90,21 @@ type="text/css">
 							</tr>
 							<tr class="firstChild">
 								<td>선택 상품 수</td>
-								<td class="txtRight"><span class="quantity">0</span> 개</td>
+								<td class="txtRight"><span class="quantity"></span> 개</td>
 							</tr>
 							<tr>
 								<td>총 상품금액</td>
-								<td class="txtRight"><span class="orderAmountSum">0</span>
+								<td class="txtRight"><span class="totalPrice"></span>
 									원</td>
 							</tr>
 							<tr>
 								<td>배송비</td>
-								<td class="txtRight"><span class="orderAmountSum">0</span>
+								<td class="txtRight"><span class="orderAmountSum"></span>
 									원</td>
 							</tr>
 							<tr>
 								<td class="finalPrice fl">결제 예정 금액</td>
-								<td class="txtRight finalPrice"><span class="payAmountSum">0</span>
+								<td class="txtRight finalPrice"><span class="payAmountSum"></span>
 									원</td>
 							</tr>
 						</tbody>
@@ -111,6 +116,11 @@ type="text/css">
 		</div>
 	</div>
 	<div th:replace="/common/j.footer2.html"></div>
+	<script>
+		let pcAmout = $("select[pcAmount=qttyInputBox]").val();
+		
+		
+	</script>
 </body>
 
 </html>
