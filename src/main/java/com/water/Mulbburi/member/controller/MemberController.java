@@ -124,22 +124,6 @@ public class MemberController {
 		return ResponseEntity.ok(result);
 	}
 	
-//	//아이디 중복검사
-//	@RequestMapping(value = "/member/idCheck", method = RequestMethod.POST)
-//	@ResponseBody
-//	public String memberIdCheck(String memberId) throws Exception {
-//		
-//		int result = memberService.idCheck(memberId);
-//		
-//		if(result != 0) {
-//			
-//			return "fail";
-//		} else {
-//			
-//			return "success";
-//		}
-//	}
-	
 	/* 구매자 회원 가입 */
 	@PostMapping("/regist/ConMembership")
 	public String registConMember(@ModelAttribute MemberDTO member,
@@ -147,7 +131,7 @@ public class MemberController {
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
 		
-		String email = emailId + "$" + "@" + "$" + domain;
+		String email = emailId + "@" + domain;
 		member.setEmail(email);
 		member.setPostCode(postCode);
 		member.setBsAddress(bsAddress);
@@ -174,7 +158,7 @@ public class MemberController {
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
 		
-		String email = emailId + "$" + "@" + "$" + domain;
+		String email = emailId + "@" + domain;
 		member.setEmail(email);
 		member.setPostCode(postCode);
 		member.setBsAddress(bsAddress);

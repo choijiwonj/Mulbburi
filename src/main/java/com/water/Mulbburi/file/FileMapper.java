@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 public interface FileMapper {
 	
 	List<FileDTO> selectAllFile();
+
 	
 	
+
 
 }
