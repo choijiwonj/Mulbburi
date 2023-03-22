@@ -1,6 +1,13 @@
 *{padding:0;margin:0}
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
 
 
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
 
 a {
     text-decoration: none;  
@@ -54,10 +61,18 @@ body {
 }
 
 /* 검색 */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
+>>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
 .searchCriteria {
     float: right;
-    margin-right: 20%;
+   /*  margin-right: 20%; */
     /* border: 2px solid blue; */
+    
 }
 
 .searchCriteria button {

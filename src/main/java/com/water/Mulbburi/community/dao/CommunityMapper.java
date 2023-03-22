@@ -7,67 +7,54 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dto.AttachmentDTO;
+
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.dto.ReplyDTO;
 
+
 @Mapper
-public class CommunityMapper {
+public interface CommunityMapper {
 
-	public int selectTotalCount(Map<String, String> searchMap) {
 	
-		return 0;
-	}
+	List<CommunityDTO> selectCommunityList(SelectCriteria selectCriteria);
 
-	public List<CommunityDTO> selectCommunityList(SelectCriteria selectCriteria) {
-	
-		return null;
-	}
+	void insertcommunity(CommunityDTO community);
 
-	public List<ReplyDTO> selectReplyList(ReplyDTO reply) {
-	
-		return null;
-	}
+	void insertCommunityContent(CommunityDTO community);
 
-	public void insertReply(ReplyDTO reply) {
-	
-		
-	}
+	void insertAttachment(AttachmentDTO attachment);
 
-	public void deleteReply(ReplyDTO reply) {
-	
-		
-	}
+	int selectCommunityTotalCount();
 
-	public void insertcommunity(CommunityDTO community) {
-	
-		
-	}
+	int incrementCommunityCount(Long no);
 
-	public void insertCommunityContent(CommunityDTO community) {
-	
-		
-	}
+	CommunityDTO selectCommunityDetail(Long no);
 
-	public void insertAttachment(AttachmentDTO attachment) {
-	
-		
-	}
+	void insertReply(ReplyDTO reply);
 
-	public int selectCommunityTotalCount() {
-	
-		return 0;
-	}
+	List<ReplyDTO> selectReplyList(ReplyDTO reply);
 
-	public int incrementCommunityCount(Long no) {
-	
-		return 0;
-	}
+	void deleteReply(ReplyDTO reply);
 
-	public CommunityDTO selectCommunityDetail(Long no) {
+	void insertThumbnailContent(CommunityDTO community);
+
+	int selectThumbnailTotalCount();
+
+	List<CommunityDTO> selectThumbnailCommunityList(SelectCriteria selectCriteria);
+
+	int selectTotalCount(Map<String, String> searchMap);
+
+	CommunityDTO selectThumbnailCommunityDetail(Long no);
+
 	
-		return null;
-	}
+
 	
+
+
+
+
+
 	
 
 }
+

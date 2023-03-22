@@ -11,11 +11,9 @@ public class AttachmentDTO {
     private String savedName;
     private String savePath;
     private String fileType;
-    private String commnuityPath;
+    private String thumbnailPath;
     private String status;
-	public void setCommunityPath(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+   
+	
 
 }

@@ -1,7 +1,6 @@
 *{padding:0;margin:0}
 
 
-
 a {
     text-decoration: none;
     color: rgba(118, 141, 131, 0.8);
@@ -11,6 +10,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
 body {
     height: 100%;
     background-color: white;

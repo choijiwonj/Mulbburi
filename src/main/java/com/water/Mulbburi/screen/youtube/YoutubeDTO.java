@@ -2,6 +2,9 @@ package com.water.Mulbburi.screen.youtube;
 
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
 public class YoutubeDTO {
 
 	private int ytNo;

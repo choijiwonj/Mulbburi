@@ -1,15 +1,3 @@
-/*function hello(){
-    const $search = document.querySelector("#search");
-    const $rsearch = document.querySelector("#rsearch"); 
-    let value = $search.value;
-
-    console.log(value);
-
-    $rsearch.addEventListener('click', () => {window.location.replace=`https://www.naver.com`});
-};
-
-hello();*/
-
 let slideIndex = 0;
 
 function showSlides() {
@@ -20,6 +8,7 @@ function showSlides() {
        slides[i].style.display = "none";  
     }
     slideIndex++;
+    
     if (slideIndex > slides.length) {slideIndex = 1}    
     
     slides[slideIndex-1].style.display = "block";  
