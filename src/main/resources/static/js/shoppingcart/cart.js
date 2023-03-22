@@ -23,7 +23,7 @@ $("#oneCheck").on("change",function(){
 
 
 function selTotalInfo(){
-	let totalPrice = 1000;
+	let totalPrice = 2000;
 	let totalAmount = 2;
 	let deliveryPrice = 3000;
 	let totalPrice1 = 0;
