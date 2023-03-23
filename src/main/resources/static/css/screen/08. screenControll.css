@@ -207,16 +207,17 @@ body{
 }
 
 .category2 div{
-    margin-bottom: 33%;
+    margin-bottom: 38%;
     margin-left: 3%;
+    margin-top: 30%;
 }
 
 .story{
-    font-family: 'TAEBAEKmilkyway';
+      font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
-    font-size : 18px;
+    font-size: 18px;
     color: rgba(126, 113, 113);
-    padding-top: 1%;
+    /* padding-top: 6%; */
     margin-left: 3%;
     width: 200px;
 }
@@ -231,7 +232,7 @@ body{
 .path{
     margin-bottom: 1.7%;
     margin-left: 3%;
-    margin-top: 2%;
+    margin-top: 9%;
     border: none;
     height: 30px;
     width: 300px;
@@ -244,7 +245,8 @@ body{
     height: 30px;
     border-radius: 30px;
     color: white;
-    margin-left: 170%;
+    margin-left: 300%;
+    margin-top: 20%;
 }
 
 /* 페이징 */

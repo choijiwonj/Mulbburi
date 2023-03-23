@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.water.Mulbburi.screen.youtube.YoutubeMapper">
+<mapper namespace="com.water.Mulbburi.main.MainMapper">
 
 <resultMap id="youtubeResultMap" type="com.water.Mulbburi.screen.youtube.YoutubeDTO">
 	<id property="ytNo" column="YT_NO"/>
@@ -14,33 +14,7 @@
 </resultMap>
 
 
-<insert id="insertYoutube">
-	INSERT
-	      INTO YOUTUBE
-	(
-		  YT_NO,
-		  YT_WRITE_DATE,
-		  YT_DELETE_DATE,
-		  YT_POST_DATE,
-		  YT_END_DATE,
-		  MEMBER_NO,
-		  YT_PATH,
-		  YT_NAME
-	)
-	VALUES
-	(
-		  SEQ_YT_NO.NEXTVAL,
-		  #{ytWriteDate},
-		  #{ytDeleteDate},
-		  #{ytPostDate},
-		  #{ytEndDate},
-		  1,
-		  #{ytPath},
-		  #{ytName}		  
-	)
-</insert>
-
-<select id="selectAllYoutube" parameterType="com.water.Mulbburi.screen.youtube.YoutubeDTO" resultMap="youtubeResultMap">
+<select id="selectMyYoutube" parameterType="com.water.Mulbburi.screen.youtube.YoutubeDTO" resultMap="youtubeResultMap">
 	SELECT
 		  A.YT_NO,
 		  A.YT_WRITE_DATE,
@@ -67,15 +41,16 @@
 	                     C.YT_PATH,
 	                     C.YT_NAME
 	                FROM YOUTUBE C
-	         ORDER BY C.YT_POST_DATE ASC
+	         ORDER BY C.YT_NO ASC
         ) B
         <![CDATA[
                   WHERE ROWNUM <= #{ endRow }
                   ]]>
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
+	      AND TO_CHAR(YT_POST_DATE) >= TO_CHAR(SYSDATE, 'yyyy-MM-dd')
+	      AND TO_CHAR(YT_END_DATE) <![CDATA[>=]]> TO_CHAR(SYSDATE, 'yyyy-MM-dd')
         ORDER BY 1 ASC
-	         
 </select>
 
 <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
@@ -84,7 +59,10 @@
           FROM YOUTUBE
 </select>
 
-
-
+<delete id="deleteYoutube">
+	DELETE
+	  FROM YOUTUBE
+     WHERE YT_DELETE_DATE = SYSDATE;
+</delete>
 
 </mapper>
