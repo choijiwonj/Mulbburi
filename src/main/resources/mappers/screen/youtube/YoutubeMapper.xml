@@ -67,7 +67,7 @@
 	                     C.YT_PATH,
 	                     C.YT_NAME
 	                FROM YOUTUBE C
-	         ORDER BY C.YT_NO ASC
+	         ORDER BY C.YT_POST_DATE ASC
         ) B
         <![CDATA[
                   WHERE ROWNUM <= #{ endRow }

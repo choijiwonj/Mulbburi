@@ -22,7 +22,7 @@ public class MainControll {
 		this.mainService = mainService;
 	}
 	
-	
+	/* 유투브 3개 가져오기 */
 	@GetMapping("Mulbburi")
 	public String selectMyYoutube(
 			@RequestParam(defaultValue="1") int page, 
