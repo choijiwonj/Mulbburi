@@ -69,18 +69,22 @@ public class SecurityConfig {
 	}
 	
 	/* 아이디 저장 */
-	protected void configure(HttpSecurity http ) throws Exception {
+	protected void configure(HttpSecurity http, WebSecurity web) throws Exception {
 		http.authorizeRequests()
 			.and()
 			.rememberMe()
 			.rememberMeParameter("remember")
 			.tokenValiditySeconds(86400);
 		
-		
+		web.httpFirewall(defaultHttpFirewall());
 	}
 	
-	
+	@Bean
+	public HttpFirewall defaultHttpFirewall() {
+		return new DefaultHttpFirewall();
+	}
 }
+
 
 
 

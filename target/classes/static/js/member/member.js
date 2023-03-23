@@ -22,7 +22,7 @@ window.onload = function() {
 
         }
     }
-    
+ }   
     function ValidationCon() {
 		
 		var mid = document.getElementById("memberId");
@@ -181,9 +181,4 @@ function ValidationSel() {
 		dtAddress.focus();
 		return false;
 	}
-
-
-
-
-
-
+}

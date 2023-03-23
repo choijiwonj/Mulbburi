@@ -101,7 +101,7 @@ public class MemberController {
 	
 	@PostMapping("/mailsend")
 	@ResponseBody
-	String mailConfirm(@RequestParam("emailId") String emailId, @RequestParam("domain") String domain) throws Exception {
+	String mailConfirm(@RequestParam(value="emailId", required=false) String emailId, @RequestParam(value="domain", required=false) String domain) throws Exception {
 		
 		System.out.println("emailId :" + emailId);
 		System.out.println("domain :" + domain);
