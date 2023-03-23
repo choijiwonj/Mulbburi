@@ -181,23 +181,9 @@
     </div>
 
     <div class="youtubevideo">
-        <div class="y1" th:each="youtube: ${ youtubeList }>
+        <div class="y1" >
             <div class="yv1">
-                <iframe width="340" height="200" src="${youtube.path}" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="y1">
-            <div class="yv1">
-                <iframe width="340" height="200" src="${youtube.path}" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="y1">
-            <div class="yv1">
-                <iframe width="340" height="200" src="${youtube.path}" title="YouTube video player" 
+                <iframe th:each= "youtube: ${ youtubeList }" width="340" height="200" th:src='${youtube.ytPath}' title="YouTube video player" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>

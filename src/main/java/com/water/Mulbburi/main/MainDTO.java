@@ -1,5 +1,11 @@
 package com.water.Mulbburi.main;
 
-public class DTO {
+import com.water.Mulbburi.screen.youtube.YoutubeDTO;
 
+import lombok.Data;
+
+@Data
+public class MainDTO {
+	
+	private YoutubeDTO youtubeDTO;
 }
