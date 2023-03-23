@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
 package com.water.Mulbburi.management.controller;
+
 
 import java.util.Map;
 
@@ -86,3 +91,7 @@ public class ManagementController {
 		return "management/compExc";
 	}
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540

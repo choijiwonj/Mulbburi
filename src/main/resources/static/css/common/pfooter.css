@@ -2,9 +2,16 @@
 *{padding:0;margin:0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+<<<<<<< HEAD
 =======
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 a {
     text-decoration: none;
  color: rgba(118, 141, 131, 0.8);
@@ -14,10 +21,17 @@ a:hover {
     text-decoration: underline;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
 =======
 =======
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 
 a {
     text-decoration: none;  
@@ -25,19 +39,33 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
 >>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
 =======
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 body {
     height: 100%;
  background-color: white;
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+<<<<<<< HEAD
 =======
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .btm-holder {
     width: 100%;
  bottom: 0px;
@@ -110,10 +138,17 @@ body {
  color: rgba(118, 141, 131, 0.8);
  display: block;
 <<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
 =======
 =======
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 
 .top-holder {
     width: 100%;
@@ -189,8 +224,15 @@ body {
 input:focus {
     outline: none;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 69c92217921d6e5c89ba3e78eb3fcf9dff372fe0
+=======
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
 >>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
 =======
 >>>>>>> 69c92217921d6e5c89ba3e78eb3fcf9dff372fe0
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 }

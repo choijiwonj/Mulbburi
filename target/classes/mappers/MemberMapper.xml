@@ -67,7 +67,8 @@
          WHERE MEMBER_STATUS = 'Y'
            AND MEMBER_ID = #{ memberId }
     </select>
-
+	
+	<!-- 구매자 회원가입  -->
     <insert id="insertConMember">
         INSERT
           INTO MEMBER 
@@ -100,8 +101,9 @@
         )
 	</insert>
 	
+	<!-- 판매자 회원가입 -->
 	<insert id="insertSelMember">
-        INSERT
+        INSERT ALL
           INTO MEMBER 
         (
           MEMBER_NO
@@ -131,6 +133,26 @@
         , #{ dtAddress }
         , '판매자'
         , 'N'
+        )
+        INTO FILE
+        (
+          FILE_NO
+        , FILE_ORIGINAL_NAME
+        , FILE_PATH
+        , FILE_SIZE
+        , FILE_SAVED_NAME
+        , CUSTOM
+        , MEMBER_NO  
+        )
+        VALUES
+        (
+		  SEQ_FILE_NO.NEXTVAL
+		, #{ fileoriginalName }
+		, #{ filePath }
+		, #{ fileSize }
+		, #{ fileSavedName }
+		, #{ custom }
+		, #{ memberNo }  	        
         )
 	</insert>
 	
@@ -210,19 +232,27 @@
     </update>
     
 <<<<<<< HEAD
+<<<<<<< HEAD
   <!--    <select id="idCheck" resultType="int">
 =======
      <select id="idCheck" resultType="int">
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
+     <select id="idCheck" resultType="int">
+>>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
     	select
     			count (*)
     	  from  member
     	 where  memberId = #{ memberId } 		
 <<<<<<< HEAD
+<<<<<<< HEAD
     </select> -->
 =======
     </select>
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
+    </select>
+>>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
 	
 	<!-- 아이디 찾기 -->
 	<select id="findLoginId" resultType="String">
@@ -234,6 +264,7 @@
 	</select>
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 	
@@ -245,4 +276,23 @@
 	
 =======
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
+	<!-- 비밀번호 찾기 -->
+	<select id="findLoginPwd" resultType="String">
+		SELECT 
+				MEMBER_PWD
+		  FROM  MEMBER
+		 WHERE  MEMBER_NAME = #{ memberName }
+		   AND	MEMBER_ID = #{ memberId } 		
+	</select>
+	
+	<!-- 비밀번호 재설정 -->
+	<update id="pwdModifyMember">
+        UPDATE 
+              MEMBER 
+          SET MEMBER_PWD = #{ memberPwd } 
+        WHERE MEMBER_ID = #{ memberId } 
+    </update>
+    
+>>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
 </mapper>

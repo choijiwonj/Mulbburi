@@ -23,6 +23,7 @@ spring:
       location: C:/*
 
 
+
 # image upload directory
 
       
