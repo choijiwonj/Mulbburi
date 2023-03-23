@@ -27,6 +27,7 @@ public class MemberDTO implements UserDetails {
     private String businessName;
     private String businessNo;
     private String email;
+    private String cerNo;
     private List<MemberRoleDTO> memberRoleList;
 	
     @Override

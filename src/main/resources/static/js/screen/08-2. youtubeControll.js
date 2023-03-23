@@ -1,32 +1,18 @@
+function click(){
+    document.querySelector(".t2").addEventListener("click", () => {location.href = "/screen/08-3. youtubeList"});
+    document.querySelector(".t1").addEventListener("click", () => {location.href = "/youtube"});
+}
+
+click();
+
+/*function path(){
+	document.querySelector(".path2").addEventListener("click", () => {alert("embed 주소를 입력해주세요.")});
+} 
+
+path();*/
+
 function dropdown(){
     document.querySelector(".arrow").addEventListener("click", () => {document.querySelector(".mydropdown").classList.toggle("active")});
 }
 
 dropdown();
-
-function dropdown2(){
-	document.querySelector(".arrow2").addEventListener("click", () => {document.querySelector(".mydropdown2").classList.toggle("active2")});
-}
-
-dropdown2();
-
-function click(){
-    const $t1 = document.querySelector(".t1");
-    const $t2 = document.querySelector(".t2");
-    const $background2 = document.querySelector(".totalstory");
-    const $background3 = document.querySelector(".totalstory3");
-
-    $t1.addEventListener("click", () => {
-        $background2.style.display = "flex";
-        $background3.style.display = "none";
-        console.log("t1");
-    });
-
-    $t2.addEventListener("click", () => {
-        $background3.style.display = "flex";
-        $background2.style.display = "none";
-        console.log("t2");
-    })
-}
-
-click();

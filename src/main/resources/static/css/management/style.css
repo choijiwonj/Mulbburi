@@ -134,6 +134,27 @@ body {
 	justify-content: center; */
 	text-align: center;
 	margin: 0 auto;
+	border-collapse : collapse;
+}
+
+#subject {
+	border-bottom: solid 2px rgba(126, 113, 113, 0.1);
+	color: rgba(118, 141, 131, 0.6);
+	font-weight: 700;
+}
+
+.content th {
+	padding: 20px 0;
+    color: rgba(118, 141, 131, 0.6);
+    font-size: 14px;
+    font-weight: 700;	
+}
+
+.content td {
+	padding: 20px 0;
+    color: rgba(118, 141, 131, 0.6);
+    font-size: 14px;
+    font-weight: 700;	
 }
 
 /* 페이징 */
