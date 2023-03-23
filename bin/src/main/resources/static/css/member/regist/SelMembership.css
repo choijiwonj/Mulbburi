@@ -216,6 +216,7 @@ table {
 #searchZipCode {
     width: 50px;
     height: 30px;
+    cursor:pointer
 }
 
 .addressBar1 {
@@ -233,6 +234,7 @@ table {
     box-sizing: border-box;
     background: #FFFFFF;
     border: 1px solid rgba(71, 66, 66, 0.8);
+    cursor:pointer
 }
 
 #searchZipCode {
@@ -246,3 +248,12 @@ label {
     margin-bottom: 0px;
 }
 
+.id_input_re_1 {
+	color : green;
+	display : none;
+}
+
+.id_input_re_2 {
+	color : red;
+	display : none;
+}
