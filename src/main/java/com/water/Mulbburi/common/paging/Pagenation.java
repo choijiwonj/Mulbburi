@@ -1,9 +1,10 @@
 package com.water.Mulbburi.common.paging;
 
-public class Pagenation {
+import com.water.Mulbburi.screen.youtube.YoutubeController;
 
-    /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
-    public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+public class Pagenation {
 
         int maxPage;			//전체 페이지에서 가장 마지막 페이지
         int startPage;			//한번에 표시될 페이지 버튼의 시작할 페이지
@@ -36,8 +37,12 @@ public class Pagenation {
         endRow = startRow + limit - 1;
 
         SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
-
+        
+        log.info("endRow : {}", endRow);
+        log.info("startRow {}", startRow);
+        log.info("page {}", page);
+        log.info("limit {}", limit);
+ 
+        
         return selectCriteria;
     }
-
-}

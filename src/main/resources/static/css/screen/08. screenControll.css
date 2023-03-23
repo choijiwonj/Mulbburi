@@ -116,11 +116,6 @@ body{
     margin: 0 20%;
 }
 
-.totalbackground3{
-	margin: 0 20%;
-	display: none;
-}
-
 .totalstory{
     background-color: rgba(126, 113, 113, 0.1);
     height: 50vh;
@@ -128,11 +123,6 @@ body{
     margin-top: 3%;
 }
 
-.totalstory3{
-    background-color: rgba(126, 113, 113, 0.1);
-    height: 50vh;
-    border-radius: 30px;
-}
 
 .totalbase{
     width: 90%;
@@ -187,24 +177,6 @@ body{
     display: none;
 }
 
-.mydropdown2{
-    background-color: rgba(126, 113, 113, 0.1);
-    height: 250px;
-    border-radius: 10px;
-    margin-top: 1%;
-    display: none;
-}
-
-.active2{
-    background-color: rgba(126, 113, 113, 0.1);
-    height: 280px;
-    border-radius: 10px;
-    margin-top: 1%;
-    width: 80%;
-    display: flex;
-    margin-left: 20%;
-}
-
 .active{
     background-color: rgba(126, 113, 113, 0.1);
     height: 280px;
@@ -239,20 +211,6 @@ body{
     margin-left: 3%;
 }
 
-.category3{
-    font-family: 'TAEBAEKmilkyway';
-    font-weight: bold;
-    font-size: 18px;
-    color: rgba(126, 113, 113);
-    text-align: center;
-    padding-top: 1%;
-}
-
-.category3 div{
-    margin-bottom: 27px;
-    margin-left: 3%;
-}
-
 .story{
     font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
@@ -263,15 +221,7 @@ body{
     width: 200px;
 }
 
-.story2{
-    font-family: 'TAEBAEKmilkyway';
-    font-weight: bold;
-    font-size: 18px;
-    color: rgba(126, 113, 113);
-    padding-top: 1%;
-    margin-left: 3%;
-    width: 200px;
-}
+
 
 .bannertitle,
 .writedate,
@@ -287,17 +237,6 @@ body{
     width: 300px;
 }
 
-.bannertitle2,
-.writedate2,
-.deletedate2,
-.postingdate2,
-.enddate2,
-.path2{
-	 margin-bottom: 13%;
-    margin-left: 3%;
-    margin-top: 2%;
-}
-
 #submit{
 	border: none;
     width: 70px;
@@ -306,20 +245,6 @@ body{
     border-radius: 30px;
     color: white;
     margin-left: 170%;
-}
-
-.totalstory3{
-	background-color: rgba(126, 113, 113, 0.1);
-    height: 50vh;
-    border-radius: 30px;
-    margin-top: 3%;
-    display: none;
-}
-
-.totalbase3{
-	width: 90%;
-    height: 90%;
-    margin-left: 5%;
 }
 
 /* 페이징 */

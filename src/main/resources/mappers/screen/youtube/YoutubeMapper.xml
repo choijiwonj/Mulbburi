@@ -40,20 +40,24 @@
 	)
 </insert>
 
-<select id="selectAllYoutube" resultMap="youtubeResultMap">
+<select id="selectAllYoutube" parameterType="com.water.Mulbburi.screen.youtube.YoutubeDTO" resultMap="youtubeResultMap">
 	SELECT
 		  YT_NO,
-		  YT_WRTIE_DATE,
+		  YT_WRITE_DATE,
 		  YT_DELETE_DATE,
 		  YT_POST_DATE,
 		  YT_END_DATE,
-		  MEMBER_NO,
 		  YT_PATH,
 		  YT_NAME
 	 FROM YOUTUBE
-	 JOIN MEMBER USING (MEMBER_NO)
-	WHERE MEMBER_NO = 1;
 </select>
+
+<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT 
+        	   COUNT(*)
+          FROM YOUTUBE
+</select>
+
 
 
 

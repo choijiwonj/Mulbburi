@@ -2,6 +2,7 @@ package com.water.Mulbburi.member.controller;
 
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
 import com.water.Mulbburi.member.service.MailService;
 import com.water.Mulbburi.member.service.MemberService;
+import com.water.Mulbburi.member.service.RedisUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,13 +35,15 @@ public class MemberController {
     private final MemberService memberService;
     private final AuthenticationService authenticationService;
     private final MailService mailService;
+    private final RedisUtil redisUtil;
 
-    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService, MailService mailService) {
+    public MemberController(MessageSourceAccessor messageSourceAccessor, MemberService memberService, PasswordEncoder passwordEncoder, AuthenticationService authenticationService, MailService mailService,RedisUtil redisUtil) {
         this.messageSourceAccessor = messageSourceAccessor;
         this.memberService = memberService;
         this.passwordEncoder = passwordEncoder;
         this.authenticationService = authenticationService;
         this.mailService = mailService;
+        this.redisUtil = redisUtil;
     }
 	
 	/* 로그인 페이지 이동 */
@@ -70,13 +75,13 @@ public class MemberController {
 	@PostMapping("/login/idSearch")
 	public String doFindIdSearch(@ModelAttribute MemberDTO member, Model model) {
 		
-		System.out.println("member : " + member);
+//		System.out.println("member : " + member);
 		
 		String memberId = memberService.findLoginId(member);
 		
 		model.addAttribute("memberId", memberId);
 		
-		System.out.println("model : " + model );
+//		System.out.println("model : " + model );
 		
 		String result = "";
 			
@@ -96,49 +101,81 @@ public class MemberController {
 	@GetMapping("/login/pwdSearch")
 	public String showPwdSearch() {
 		
+		
+		
 		return "member/login/pwdSearch";
 	}
 	
+	/* 이메일 전송 */
 	@PostMapping("/mailsend")
 	@ResponseBody
-	String mailConfirm(@RequestParam("emailId") String emailId, @RequestParam("domain") String domain) throws Exception {
+	String mailConfirm(@RequestParam(value="emailId", required=false) String emailId, @RequestParam(value="domain", required=false) String domain) throws Exception {
 		
-		System.out.println("emailId :" + emailId);
-		System.out.println("domain :" + domain);
+//		System.out.println("emailId :" + emailId);
+//		System.out.println("domain :" + domain);
 		
 		String email = emailId + "@" + domain;
 		
-		System.out.println("email :" + email);
+//		System.out.println("email :" + email);
 		
 		String code = mailService.sendSimpleMessage(email);
-		System.out.println("인증코드 : " + code);
+//		System.out.println("인증코드 : " + code);
 		
-		return "member/login/pwdSearch";
+		
+		
+		return code;
 	}
 	
+	/* 비밀번호 찾기 구현 */
 	@PostMapping("/login/pwdSearch")
-	@ResponseBody
+//	@ResponseBody
 	public String doFindPwdSearch(@ModelAttribute MemberDTO member, Model model,
-			 @RequestParam(required=false) String cerNo) throws Exception {
+			 @RequestParam(required=false) String cerNo,
+			 @RequestParam(value="emailId", required=false) String emailId, @RequestParam(value="domain", required=false) String domain) throws Exception {
 		
-		System.out.println("member : " + member);
+//		System.out.println("member : " + member);
 		
+		String email = emailId + "@" + domain;
+		String rescode = redisUtil.getData(email);
 		
+//		System.out.println("rescode : " + rescode);
 		String memberPwd = memberService.findLoginPwd(member);
+		
+		cerNo = member.getCerNo();
+		
+//		System.out.println("cerNo : " + cerNo);
 		
 		model.addAttribute("memberPwd", memberPwd);
 		
 		String result = "";
 		
-//		if(code != cerNo) {
-//			result = "member/login/pwdReset";
-//		} else  {
-//			result = "member/login/pwdFalse";
-//		}
+		if(rescode.equals(cerNo)) {
+			result = "member/login/pwdReset";
+		} else  {
+			result = "member/login/pwdFalse";
+		}
 		
 		return result;
 	}
-
+	
+	/* 비밀번호 재설정 */
+	@GetMapping("/login/pwdReset")
+	public String pwdReset() {
+		
+		return "/member/login/pwdReset";
+	}
+	
+	@PostMapping("/login/pwdReset")
+	public String doPwdReset(@RequestParam(required=false, value="memberPwd1") String memberPwd1, @RequestParam(required=false, value="memberPwd2") String memberPwd2) throws MemberModifyException {
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
+		
+		
+		return "rediredct:/";
+	}
+	
+	
 	/* 회원가입 접근페이지 이동 */
 	@GetMapping("/regist/registOpen")
 	public String registOpen() {
