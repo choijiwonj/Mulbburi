@@ -1,6 +1,7 @@
 package com.water.Mulbburi.screen.youtube;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -67,7 +67,7 @@ public class YoutubeController {
 ) {
 		
 
-		List<YoutubeDTO> youtubeList = YoutubeService.selectAllYoutube();
+		List<YoutubeDTO> youtubeList = ytService.selectAllYoutube();
 		model.addAttribute("youtubeList", youtubeList);
 
 		Map<String, String> searchMap = new HashMap<>();
