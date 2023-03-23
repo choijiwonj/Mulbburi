@@ -32,7 +32,8 @@ public class ManagementController {
 		model.addAttribute("paging", orderAllAndPaging.get("paging"));
 		model.addAttribute("orderAll", orderAllAndPaging.get("orderAll"));
 		
-		log.info("[ManagementController] page : {}", page);
+		log.info("[ManagementController] paging : {}", orderAllAndPaging.get("paging"));
+		log.info("[ManagementController] orderAll : {}",  orderAllAndPaging.get("orderAll"));
 		
 		return "management/orderAll";
 	}

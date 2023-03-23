@@ -19,6 +19,3 @@ private int page;					//요청한 페이지 번호
     private String searchValue;			//검색어
 
 }
-
-
-
