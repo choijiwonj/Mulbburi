@@ -84,31 +84,20 @@
 					<td th:text="${ management.memberId }"></td>
 <!-- 					<td th:text="${ management.sbName }"></td> -->
 <!-- 					<td th:text="${ management.sbName[0] } + ' 외 ' + ${ management.orderAmount } + '건'"></td> -->
-					<td th:text="${ management.sbName } + ' 외 ' + ${ management.orderAmount } + '건'"></td>
+					<td th:text="${ management.sbName } + ' 외 ' + ${ management.orderAmount-1 } + '건'"></td>
 <!-- 					<td th:text="${ management.orderAmount }"></td> -->
 					<td th:text="${ management.orderMoney } + '원'"></td>
 					<td><button id="">자세히</button></td>
 				</tr>
+				<!-- 구분선 -->
+			
+				<!-- 구분선 -->
             </table>
             
         </div>
 
         <!-- 페이징 -->
-
-        <div class="paging">
-            <button>&lt;&lt;</button>
-            <button>이전</button>
-                
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-
-            <button>다음</button>
-            <button>&gt;&gt;</button>
-        </div>
-
-    </div>
-    
+    	
     <div th:replace="common/hfooter.html"></div>
 
 </body>
