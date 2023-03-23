@@ -47,7 +47,7 @@
 
 .totalstory3{
 	background-color: rgba(126, 113, 113, 0.1);
-    height: 50vh;
+    height: 57vh;
     border-radius: 30px;
     margin-top: 3%;
 }
@@ -64,9 +64,11 @@
     font-size: 14px;
     color: rgba(126, 113, 113);
     padding-top: 1%;
-    margin-left: 3%;
+    /* margin-left: 2%; */
     width: 80%;
+    width: 95%;
     display: flex;
+    /* margin-right: 2%;*/
 }
 
 .story div{
@@ -105,4 +107,19 @@
 .category1 span{
     margin-right: -1%;
     margin-left: 8%;
+}
+
+/* 페이징 */
+.paging {
+    text-align: center;
+    margin: 30px;
+}
+
+.paging button {
+    margin: 0 10px;
+    border: 0;
+    background-color: transparent;
+    color: rgba(118, 141, 131, 0.8);
+    font-size: 12px;
+    font-weight: 700;
 }

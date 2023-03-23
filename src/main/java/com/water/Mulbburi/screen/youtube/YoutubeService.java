@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
@@ -42,7 +41,7 @@ public class YoutubeService {
 		int limit = 4;
 		/* 한 번에 보여질 페이징 버튼의 수 */
 		int buttonAmount = 3;
-		
+				
 		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
 
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
@@ -50,11 +49,10 @@ public class YoutubeService {
 		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
 		List<YoutubeDTO> youtubeList = ytMapper.selectAllYoutube(selectCriteria);
 		
-		Map<String, Object> boardListAndPaging = new HashMap<>();
-		boardListAndPaging.put("paging", selectCriteria);
-		boardListAndPaging.put("youtubeList", youtubeList);
+		Map<String, Object> ytListAndPaging = new HashMap<>();
+		ytListAndPaging.put("youtubeList", youtubeList);
 		
-		return boardListAndPaging;
+		return ytListAndPaging;
 
 	}
 

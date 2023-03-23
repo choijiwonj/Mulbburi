@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,7 +34,7 @@ public class YoutubeController {
 	}
 	
 	/* 저장할 유투브 목록 삽입 */
-	@PostMapping("screen/regist/youtube")
+	@PostMapping("screen/08-2. youtubeControll")
 	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO, 
 								@RequestParam String ytWriteDate,
 								@RequestParam String ytDeleteDate,
@@ -53,8 +54,9 @@ public class YoutubeController {
 		
 		ytService.insertYoutube(youtubeDTO);
 		
-		return "redirect:screen/08. screenControll";
+		return "redirect:screen/08-2. youtubeControll";
 	}
+
 
 	/* 저장한 유투브 목록 가져오기 */
 	@GetMapping("select/youtube")
