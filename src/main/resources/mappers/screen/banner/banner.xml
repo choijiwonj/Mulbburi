@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.water.Mulbburi.screen.banner.BannerMapper">
+
+<resultMap id="bannerResultMap" type="com.water.Mulbburi.screen.banner.BannerDTO">
+	<id property="bannerNo" column="BANNNER_NO"/>
+	<result property="bannerGenDate" column="BANNER_GEN_DATE"/>
+	<result property="bannerDelDate" column="BANNER_DEL_DATE"/>
+	<result property="memberNo" column="MEMBER_NO"/>
+	<result property="bannerPostDate" column="BANNER_POST_DATE"/>
+	<result property="bannerEndDate" column="BANNER_END_DATE"/>
+</resultMap>
+
+<insert id="insertBanner">
+	INSERT
+	      INTO BANNER
+	(
+		  BANNER_NO,
+		  BANNER_GEN_DATE,
+		  BANNER_DEL_DATE,
+		  MEMBER_NO,
+		  BANNER_POST_DATE,
+		  BANNER_END_DATE
+	)
+	VALUES
+	(
+		  SEQ_BANNER_NO.NEXTVAL,
+		  #{bannerGenDate},
+		  #{bannerDelDate},
+		  1,
+		  #{bannerPostDate},
+		  #{bannerEndDate}
+	)	
+</insert>
+
+<select id="selectAllBanner" parameterType="com.water.Mulbburi.screen.banner.BannerDTO" resultMap="bannerResultMap">
+	SELECT
+		  A.BANNER_NO,
+		  A.BANNER_GEN_DATE,
+		  A.BANNER_DEL_DATE,
+		  A.BANNER_POST_DATE,
+		  A.BANNER_END_DATE,
+		  D.FIILE_ORIGINAL_NAME
+	 FROM (SELECT
+	    		  ROWNUM RNUM,
+	    		  B.BANNER_NO,
+		  		  B.BANNER_GEN_DATE,
+		  		  B.BANNER_DEL_DATE,
+		  		  B.BANNER_POST_DATE,
+		  		  B.BANNER_END_DATE
+	        FROM (SELECT
+	                     C.BANNER_NO,
+		  				 C.BANNER_GEN_DATE,
+		  				 C.BANNER_DEL_DATE,
+		  				 C.BANNER_POST_DATE,
+		  				 C.BANNER_END_DATE
+	                FROM BANNER C
+	          ORDER BY C.BANNER_POST_DATE DES
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+	     JOIN TBL_FILE D ON (A.BANNER_NO = D.BANNER_NO)
+        ORDER BY 1 ASC
+	         
+</select>
+
+<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+        SELECT 
+        	   COUNT(*)
+          FROM BANNER
+</select>
+
+</mapper>

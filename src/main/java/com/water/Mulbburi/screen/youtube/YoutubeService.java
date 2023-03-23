@@ -26,12 +26,14 @@ public class YoutubeService {
 		this.ytMapper = ytMapper;
 	}
 
+	/* 삽입 */
 	public void insertYoutube(YoutubeDTO youtubeDTO) {
 
 		ytMapper.insertYoutube(youtubeDTO);
 	}
 
 
+	/* 조회 */
 	public Map<String, Object> selectAllYoutube(Map<String, String> searchMap, int page) {	
 		
 		/* 1. 전체 게시글 수 확인 (검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서 */
@@ -51,9 +53,16 @@ public class YoutubeService {
 		
 		Map<String, Object> ytListAndPaging = new HashMap<>();
 		ytListAndPaging.put("youtubeList", youtubeList);
+	
 		
 		return ytListAndPaging;
 
+	}
+
+	/* 삭제 */
+	public void deleteYoutube(YoutubeDTO youtubeDTO) {
+		
+		ytMapper.deleteYoutube(youtubeDTO);
 	}
 
 }

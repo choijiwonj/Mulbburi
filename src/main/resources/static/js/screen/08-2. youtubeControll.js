@@ -1,6 +1,6 @@
 function click(){
     document.querySelector(".t2").addEventListener("click", () => {location.href = "/screen/08-3. youtubeList"});
-    document.querySelector(".t1").addEventListener("click", () => {location.href = "/screen/08-2. youtubeControll"});
+    document.querySelector(".t1").addEventListener("click", () => {location.href = "/youtube"});
 }
 
 click();

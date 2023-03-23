@@ -49,8 +49,8 @@
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
 	      AND TO_CHAR(YT_POST_DATE) >= TO_CHAR(SYSDATE, 'yyyy-MM-dd')
+	      AND TO_CHAR(YT_END_DATE) <![CDATA[>=]]> TO_CHAR(SYSDATE, 'yyyy-MM-dd')
         ORDER BY 1 ASC
-	         
 </select>
 
 <select id="selectTotalCount" resultType="_int" parameterType="hashmap">
@@ -58,5 +58,11 @@
         	   COUNT(*)
           FROM YOUTUBE
 </select>
+
+<delete id="deleteYoutube">
+	DELETE
+	  FROM YOUTUBE
+     WHERE YT_DELETE_DATE = SYSDATE;
+</delete>
 
 </mapper>
