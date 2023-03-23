@@ -71,19 +71,17 @@
             
             <table class="content">
 				<tr id="subject">
-	            	<th>주문날짜</th>
 	            	<th>주문번호</th>
+	            	<th>주문날짜</th>
 	            	<th>고객ID</th>
-	            	<th>상품번호</th>
-	            	<th>상품명</th>
+	            	<th>주문자명</th>
 	            	<th>상품수량</th>
 	            	<th>주문금액</th>
 				</tr>
 				<tr th:each="management : ${ orderAll }">
-					<td th:text="${ management.orderDate }"></td>
 					<td th:text="${ management.orderNo }"></td>
-					<td th:text="${ management.memberNo }"></td>
-					<td th:text="${ management.sbNo }"></td>
+					<td th:text="${ management.orderDate }"></td>
+					<td th:text="${ management.memberId }"></td>
 					<td th:text="${ management.sbName }"></td>
 					<td th:text="${ management.orderAmount }"></td>
 					<td th:text="${ management.orderMoney }"></td>
