@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Pagenation {
 
+
     /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
     public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
 
@@ -45,7 +46,7 @@ public class Pagenation {
 
     /* 검색어가 존재하지 않는 경우 */
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
-		
-		return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
