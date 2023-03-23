@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/login")             
-                    .defaultSuccessUrl("/")  
+                    .defaultSuccessUrl("/main/01-1.purchaseLogin")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
@@ -69,18 +69,22 @@ public class SecurityConfig {
 	}
 	
 	/* 아이디 저장 */
-	protected void configure(HttpSecurity http ) throws Exception {
+	protected void configure(HttpSecurity http, WebSecurity web) throws Exception {
 		http.authorizeRequests()
 			.and()
 			.rememberMe()
 			.rememberMeParameter("remember")
 			.tokenValiditySeconds(86400);
 		
-		
+		web.httpFirewall(defaultHttpFirewall());
 	}
 	
-	
+	@Bean
+	public HttpFirewall defaultHttpFirewall() {
+		return new DefaultHttpFirewall();
+	}
 }
+
 
 
 
