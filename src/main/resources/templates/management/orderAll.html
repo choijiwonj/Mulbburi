@@ -74,17 +74,20 @@
 	            	<th>주문번호</th>
 	            	<th>주문날짜</th>
 	            	<th>고객ID</th>
-	            	<th>주문자명</th>
-	            	<th>상품수량</th>
+	            	<th>상품상세</th>
 	            	<th>주문금액</th>
+	            	<th>상세내용</th>
 				</tr>
 				<tr th:each="management : ${ orderAll }">
-					<td th:text="${ management.orderNo }"></td>
+					<td th:text="${ management.orderNo }" id="orderNo"></td>
 					<td th:text="${ management.orderDate }"></td>
 					<td th:text="${ management.memberId }"></td>
-					<td th:text="${ management.sbName }"></td>
-					<td th:text="${ management.orderAmount }"></td>
-					<td th:text="${ management.orderMoney }"></td>
+<!-- 					<td th:text="${ management.sbName }"></td> -->
+<!-- 					<td th:text="${ management.sbName[0] } + ' 외 ' + ${ management.orderAmount } + '건'"></td> -->
+					<td th:text="${ management.sbName } + ' 외 ' + ${ management.orderAmount } + '건'"></td>
+<!-- 					<td th:text="${ management.orderAmount }"></td> -->
+					<td th:text="${ management.orderMoney } + '원'"></td>
+					<td><button id="">자세히</button></td>
 				</tr>
             </table>
             
