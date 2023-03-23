@@ -1,6 +1,7 @@
 package com.water.Mulbburi.screen.youtube;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,37 +34,24 @@ public class YoutubeController {
 	}
 	
 	/* 저장할 유투브 목록 삽입 */
-	@PostMapping("screen/regist/youtube")
-	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO, 
-								@RequestParam String ytWriteDate,
-								@RequestParam String ytDeleteDate,
-								@RequestParam String ytPostDate,
-								@RequestParam String ytEndDate,
-								@RequestParam String ytName,
-								@RequestParam String ytPath,
-								RedirectAttributes rttr) {
+	@PostMapping("/regist")
+	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
 		
-		
-		youtubeDTO.setYtPath(ytPath);
-		youtubeDTO.setYtWriteDate(java.sql.Date.valueOf(ytWriteDate));
-		youtubeDTO.setYtDeleteDate(java.sql.Date.valueOf(ytDeleteDate));
-		youtubeDTO.setYtPostDate(java.sql.Date.valueOf(ytPostDate));
-		youtubeDTO.setYtEndDate(java.sql.Date.valueOf(ytEndDate));
-		youtubeDTO.setYtName(ytName);
 		
 		ytService.insertYoutube(youtubeDTO);
 		
-		return "redirect:screen/08. screenControll";
+		return "redirect:/youtube";
 	}
+	
 
-	/* 저장한 유투브 목록	 가져오기 */
-	@GetMapping("select/youtube")
+	/* 저장한 유투브 목록 가져오기 */
+	@GetMapping("screen/08-3. youtubeList")
 	public String selectAllYoutube(@RequestParam(defaultValue="1") int page, 
 				                   @RequestParam(required=false) String searchCondition, 
 				                   @RequestParam(required=false) String searchValue,
 				                   Model model
 ) {
-		
+
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
 		searchMap.put("searchValue", searchValue);
@@ -75,6 +63,9 @@ public class YoutubeController {
 		return "screen/08-3. youtubeList";
 	}
 	
-	
-
+	/* 게시일이 되면 삭제하기 */
+	public void deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
+		
+	  ytService.deleteYoutube(youtubeDTO);
+	}
 }

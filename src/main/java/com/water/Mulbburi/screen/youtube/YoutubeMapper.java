@@ -17,4 +17,7 @@ public interface YoutubeMapper {
 	List<YoutubeDTO> selectAllYoutube();
 	int selectTotalCount(Map<String, String> searchMap);
 	List<YoutubeDTO> selectAllYoutube(SelectCriteria selectCriteria);
+
+	/* 삭제일이 되면 삭제하기 */
+	int deleteYoutube(YoutubeDTO youtubeDTO);
 }
