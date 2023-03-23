@@ -12,11 +12,12 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.stereotype.Component;
 
 import com.water.Mulbburi.member.service.AuthenticationService;
 
 
-
+@Component
 @EnableWebSecurity
 public class SecurityConfig {
 	
