@@ -80,5 +80,17 @@ public class MemberService {
 //		return mapper.idCheck(memberId);
 //		
 //	}
+
+	public void pwdModifyMember(String memberPwd1, String memberPwd2) throws MemberModifyException {
+		
+		int result = mapper.pwdModifyMember(memberPwd1, memberPwd2);
+		
+		if(!(result > 0)) {
+			throw new MemberModifyException("비밀번호 수정에 실패하셨습니다.");
+		}
+		
+	}
+
+
 	
 }
