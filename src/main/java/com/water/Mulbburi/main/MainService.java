@@ -1,8 +1,8 @@
 package com.water.Mulbburi.main;
 
-<<<<<<< HEAD
-public class MainService {
-=======
+
+
+
 
 
 import java.util.HashMap;
@@ -47,7 +47,6 @@ public Map<String, Object> selectMyYoutube(Map<String, String> searchMap, int pa
 		return ytListAndPaging;
 	}
 	
-	
->>>>>>> 60b21df9cb4f87911513e5372f3ff24a1e13254a
+
 
 }

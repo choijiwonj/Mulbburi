@@ -1,8 +1,7 @@
 
-<<<<<<< HEAD
-public class MainControll {
+package com.water.Mulbburi.main;
 	
-=======
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,7 +42,7 @@ public class MainControll {
 		
 		return "main/01.purchase";
 	}
->>>>>>> 60b21df9cb4f87911513e5372f3ff24a1e13254a
+
 
 }
 

@@ -9,7 +9,10 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .main {
     text-align: center;
     font-family: 'HSBombaram21-Regular';
@@ -78,14 +81,22 @@ a {
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .wrapper {
     min-height: calc(100%-160px);
     position: relative;
 } 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .btm-holder {
     width: 100%;
     padding: 20px;
@@ -95,7 +106,12 @@ a {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .info {
     font-size: 12px;
     padding-bottom: 10px;
@@ -242,20 +258,34 @@ a {
 
  .img1 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-left: 400px;
 =======
     margin-left: 500px;
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+    margin-left: 500px;
+=======
+    margin-left: 400px;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
     margin-top: 140px;
     margin-bottom: 120px;
  }
 
  .profile {
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 250px;
 =======
     width: 300px;
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+    width: 300px;
+=======
+    width: 250px;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
  }
 
  .mypageName {
@@ -264,9 +294,15 @@ a {
     margin-top: 100px;
     margin-left: 50px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-bottom : 50px;
 =======
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+    margin-bottom : 50px;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
  }
 
  .userName {
@@ -282,12 +318,21 @@ a {
     font-size: 20px;
     width: 200px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 3%;
     margin-left: 100px;
 =======
     margin-top: 60px;
     margin-left: 110px;
 >>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+    margin-top: 60px;
+    margin-left: 110px;
+=======
+    margin-top: 3%;
+    margin-left: 100px;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
  }
 
  .mypageMenu {

@@ -38,7 +38,7 @@ public class Pagenation {
         startRow = (page - 1) * limit + 1;
         endRow = startRow + limit - 1;
 
-        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
+        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 
         return selectCriteria;
     }
@@ -51,7 +51,6 @@ public class Pagenation {
 }
 
 
-<<<<<<< HEAD
 
 
 
@@ -59,5 +58,3 @@ public class Pagenation {
 
 
 
-=======
->>>>>>> 60b21df9cb4f87911513e5372f3ff24a1e13254a
