@@ -52,7 +52,7 @@ public class SecurityConfig {
                     .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
                     .deleteCookies("JSESSIONID")
                     .invalidateHttpSession(true)
-                    .logoutSuccessUrl("/")
+                    .logoutSuccessUrl("/main/01.purchase")
                 // 따라서 인가 오류 처리는 생략하였음
     			.and()
     				.build();

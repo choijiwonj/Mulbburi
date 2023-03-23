@@ -49,12 +49,3 @@ public class Pagenation {
 		return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
 	}
 }
-
-
-
-
-
-
-
-
-

@@ -34,41 +34,26 @@ public class YoutubeController {
 	}
 	
 	/* 저장할 유투브 목록 삽입 */
-	@PostMapping("screen/08-2. youtubeControll")
-	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO, 
-								@RequestParam String ytWriteDate,
-								@RequestParam String ytDeleteDate,
-								@RequestParam String ytPostDate,
-								@RequestParam String ytEndDate,
-								@RequestParam String ytName,
-								@RequestParam String ytPath,
-								RedirectAttributes rttr) {
+	@PostMapping("/regist")
+	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
 		
-		
-		youtubeDTO.setYtPath(ytPath);
-		youtubeDTO.setYtWriteDate(java.sql.Date.valueOf(ytWriteDate));
-		youtubeDTO.setYtDeleteDate(java.sql.Date.valueOf(ytDeleteDate));
-		youtubeDTO.setYtPostDate(java.sql.Date.valueOf(ytPostDate));
-		youtubeDTO.setYtEndDate(java.sql.Date.valueOf(ytEndDate));
-		youtubeDTO.setYtName(ytName);
 		
 		ytService.insertYoutube(youtubeDTO);
 		
-		return "redirect:screen/08-2. youtubeControll";
+		return "redirect:/youtube";
+
 	}
+	
 
 
 	/* 저장한 유투브 목록 가져오기 */
-	@GetMapping("select/youtube")
+	@GetMapping("screen/08-3. youtubeList")
 	public String selectAllYoutube(@RequestParam(defaultValue="1") int page, 
 				                   @RequestParam(required=false) String searchCondition, 
 				                   @RequestParam(required=false) String searchValue,
 				                   Model model
 ) {
-		
 
-		List<YoutubeDTO> youtubeList = ytService.selectAllYoutube();
-		model.addAttribute("youtubeList", youtubeList);
 
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
@@ -80,4 +65,13 @@ public class YoutubeController {
 		
 		return "screen/08-3. youtubeList";
 	}
+
+
+	
+	/* 게시일이 되면 삭제하기 */
+	public void deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
+		
+	  ytService.deleteYoutube(youtubeDTO);
+	}
 }
+

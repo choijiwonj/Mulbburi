@@ -1,7 +1,5 @@
 package com.water.Mulbburi.main;
 
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +41,4 @@ public Map<String, Object> selectMyYoutube(Map<String, String> searchMap, int pa
 		
 		return ytListAndPaging;
 	}
-	
-	
-
 }
