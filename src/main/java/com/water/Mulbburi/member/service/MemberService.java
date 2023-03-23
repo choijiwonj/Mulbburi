@@ -80,5 +80,20 @@ public class MemberService {
 //		return mapper.idCheck(memberId);
 //		
 //	}
+
+	public void pwdModifyMember(MemberDTO member) {
+		
+		int result = mapper.pwdModifyMember(member);
+		
+	}
+
+	public String findPwd(MemberDTO member) {
+		
+		
+		return mapper.findPwd(member);
+		
+	}
+
+
 	
 }

@@ -27,6 +27,12 @@ public interface MemberMapper {
     String findLoginId(MemberDTO member);
 
 	String findLoginPwd(MemberDTO member);
+
+	String findPwd(MemberDTO member);
+
+	int pwdModifyMember(MemberDTO member);
+
+	
     
 //    int idCheck(String memberId);
 

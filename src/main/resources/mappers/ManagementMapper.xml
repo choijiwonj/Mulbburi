@@ -4,11 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.water.Mulbburi.management.dao.ManagementMapper">
 
-<!--    <resultMap type="com.water.Mulbburi.management.dto.ManagementDTO" id="orderAllResultMap">
+   <resultMap type="com.water.Mulbburi.management.dto.ManagementDTO" id="orderAllResultMap">
       <id property="orderNo" column="ORDER_NO"/>
       <result property="orderDate" column="ORDER_DATE"/>
-      <result property="memberNo" column="MEMBER_NO"/>
-      <result property="sbNo" column="SB_NO"/>
+      <result property="memberId" column="MEMBER_ID" />
       <result property="sbName" column="SB_NAME"/>
       <result property="orderAmount" column="ORDER_AMOUNT"/>
       <result property="orderMoney" column="ORDER_AMOUNT_MONEY"/>
@@ -22,18 +21,16 @@
    </select>
    
    <select id="checkorderAllList" resultMap="orderAllResultMap">
-   SELECT
-		   T.ORDER_DATE 날짜
-	     , T.ORDER_NO   주문번호
-	     , M.MEMBER_ID  계정아이디
-	     , S.SB_NO      상품번호
-	     , S.SB_NAME    상품명
-	     , T.ORDER_AMOUNT       주문수량
-	     , T.ORDER_AMOUNT_MONEY 주문금액
-	  FROM TBL_ORDER T
-	  JOIN SHOPPINGBASCKET S ON (T.MEMBER_NO = S.MEMBER_NO)
-      JOIN MEMBER M ON (T.MEMBER_NO = M.MEMBER_NO)
-     WHERE CUSTOM = '구매자'
-	</select> -->
+	SELECT
+	       O.ORDER_NO
+	     , O.ORDER_DATE
+	     , MEMBER_ID
+         , (SELECT MAX(SB_NAME) FROM DETAIL_ORDER DEO JOIN SHOPPINGBASCKET USING (SB_NO) WHERE DEO.ORDER_NO = O.ORDER_NO) SB_NAME
+	     , (SELECT COUNT(*) FROM DETAIL_ORDER DEO WHERE DEO.ORDER_NO = O.ORDER_NO)-1 ORDER_AMOUNT
+	     , O.ORDER_AMOUNT_MONEY
+	  FROM TBL_ORDER O
+	  JOIN MEMBER USING (MEMBER_NO)
+	  ORDER BY O.ORDER_NO DESC
+	</select>
 
 </mapper>
