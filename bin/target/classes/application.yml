@@ -9,6 +9,16 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: C##WATER
     password: WATER
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+  
+  # mybatis config
+mybatis:
+  mapper-locations: mappers/**/*.xml
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 # file upload config
 
 
@@ -18,3 +28,18 @@ spring:
 # mybatis config
 mybatis:
   mapper-locations: mappers/**/*.xml
+<<<<<<< HEAD
+=======
+  
+
+  
+  
+>>>>>>> 050701942f800ee90f0038deb4fd3a95ff95d049
+  
+  
+  
+  
+  
+  
+  
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99

@@ -6,12 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/screen/08. screenControll.css" rel="stylesheet" style type="text/css">
-    <link href="../resources/css/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="/js/screen/08-1. bannerControll.js"></script>
+    <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
+    <script type="text/javascript" defer src="/js/screen/08-2. youtubeControll.js"></script>
     <title>Document</title>
 </head>
 <body>
 <div th:replace="/common/mheaderLogin.html"></div>
+    
+        <div class="topground">
+            <div class="t1">저장하기</div>
+            <div class="t2">목록확인</div>
+        </div>
+        
     <div class="totalbackground2">
         <div class="totalstory">
             <div class="totalbase">
@@ -31,13 +37,13 @@
                             <div>게시일</div>
                             <div>종료일</div>
                         </div>
-                        <form name="story" method="post">
-                            <div class="bannertitle"><input type="text"></div>
-                            <div class="path"><input type="text"></div>
-                            <div class="writedate"><input type="date"></div>
-                            <div class="deletedate"><input type="date"></div>
-                            <div class="postingdate"><input type="date"></div>
-                            <div class="enddate"><input type="date"></div>
+                        <form name="story" method="post" action="screen/regist/youtube">
+                            <input type="text" class="bannertitle" name="ytName"><br>
+                            <input type="text" class="path" name="ytPath"><br>
+                            <input type="date" class="writedate" name="ytWriteDate"><br>
+                            <input type="date" class="deletedate" name="ytDeleteDate"><br>
+                            <input type="date" class="postingdate" name="ytPostDate"><br>
+                            <input type="date" class="enddate" name="ytEndDate">
                             <input type="submit" id="submit">
                         </form>
                     </div>
@@ -45,9 +51,11 @@
             </div>
         </div>
     </div>
+    
+    	
 
-     <!-- 페이징 -->
-     <div class="paging">
+    <!-- 페이징 -->
+  <!-- <div class="paging">
         <button>&lt;&lt;</button>
         <button>이전</button>
             
@@ -57,7 +65,7 @@
 
         <button>다음</button>
         <button>&gt;&gt;</button>
-    </div>
+    </div> -->
     
     <div th:replace="/common/spfooter.html"></div>
 </body>

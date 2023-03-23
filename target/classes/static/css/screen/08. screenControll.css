@@ -1,5 +1,36 @@
 *{padding:0;margin:0}
 
+.topground{
+    background: rgba(169, 197, 185, 0.2);
+    height: 100px;
+    margin: 30px 20%;
+    text-align: center;
+}
+
+.t1{
+    margin-top: 40px;
+    font-family: 'TAEBAEKmilkyway';
+    font-weight: bold;
+    font-size : 20px;
+    margin-right: 500px;
+    color: rgba(118, 141, 131, 0.7);
+    display: inline-block;
+}
+
+.t2{
+    font-family: 'TAEBAEKmilkyway';
+    font-weight: bold;
+    font-size : 20px;
+    color: rgba(118, 141, 131, 0.7);
+    display: inline-block;
+}
+
+.t1:hover,
+.t2:hover{
+    color: rgba(126, 113, 113);
+}
+
+
 body{
     padding: 0;
     margin: 0;
@@ -87,25 +118,25 @@ body{
 
 .totalstory{
     background-color: rgba(126, 113, 113, 0.1);
-    height: 100vh;
+    height: 50vh;
     border-radius: 30px;
     margin-top: 3%;
 }
+
 
 .totalbase{
     width: 90%;
     height: 90%;
     margin-left: 5%;
-    margin-top: 5%;
 }
 
 .category1{
-    font-family: 'TAEBAEKmilkyway';
+   font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
-    font-size : 18px;
+    font-size: 18px;
     color: rgba(126, 113, 113);
     text-align: center;
-    padding-top: 3%;
+    padding-top: 2%;
     display: flex;
 }
 
@@ -133,6 +164,11 @@ body{
     margin-top: 0.5%;
 }
 
+.arrow2{
+    font-size: 30px;
+    margin-top: 0.5%;
+}
+
 .mydropdown{
     background-color: rgba(126, 113, 113, 0.1);
     height: 250px;
@@ -149,6 +185,14 @@ body{
     display: flex;
     width: 80%;
     margin-left: 20%;
+}
+
+.totalbase2{
+	width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    position: absolute;
 }
 
 
@@ -177,26 +221,20 @@ body{
     width: 200px;
 }
 
+
+
 .bannertitle,
 .writedate,
 .deletedate,
 .postingdate,
 .enddate,
 .path{
-    margin-bottom: 5%;
+    margin-bottom: 1.7%;
     margin-left: 3%;
     margin-top: 2%;
-}
-
-.bannertitle input,
-.writedate input,
-.deletedate input,
-.postingdate input,
-.enddate input,
-.path input{
-	border: none;
+    border: none;
     height: 30px;
-    width: 330px;
+    width: 300px;
 }
 
 #submit{

@@ -70,7 +70,25 @@
           <groupId>net.coobird</groupId>
           <artifactId>thumbnailator</artifactId>
           <version>0.4.19</version>
-      </dependency>   
+      </dependency>        
+      <!-- 이메일 인증 API  !-->
+      <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail -->
+	  <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+      <version>2.7.1</version>
+	  </dependency>      
+	  
+	  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+
+	  <dependency>
+	  	<groupId>com.greedy</groupId>
+	  	<artifactId>comprehensive</artifactId>
+	  	<version>0.0.1-SNAPSHOT</version>
+	  </dependency>
    </dependencies>
 
    <build>

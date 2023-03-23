@@ -1,5 +1,5 @@
-
 package com.water.Mulbburi.management.controller;
+
 
 import java.util.Map;
 
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.water.Mulbburi.management.service.ManagementService;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -16,25 +18,25 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/management")
 public class ManagementController {
 	
-//	private final ManagementService managementService;
-//	
-//	public ManagementController(ManagementService managementService) {
-//		this.managementService = managementService;
-//	}
+	private final ManagementService managementService;
+	
+	public ManagementController(ManagementService managementService) {
+		this.managementService = managementService;
+	}
 
 	/* 주문 관리 - 전체 */
 	
-//	@GetMapping("/orderAll")
-//	public String checkorderAll(@RequestParam(defaultValue="1") int page, Model model) {	
-//	
-//		Map<String, Object> orderAllAndPaging = managementService.checkOrderAll(page);
-//		model.addAttribute("paging", orderAllAndPaging.get("paging"));
-//		model.addAttribute("orderAll", orderAllAndPaging.get("orderAll"));
-//		
-//		log.info("[ManagementController] page : {}", page);
-//		
-//		return "management/orderAll";
-//	}
+	@GetMapping("/orderAll")
+	public String checkorderAll(@RequestParam(defaultValue="1") int page, Model model) {	
+	
+		Map<String, Object> orderAllAndPaging = managementService.checkOrderAll(page);
+		model.addAttribute("paging", orderAllAndPaging.get("paging"));
+		model.addAttribute("orderAll", orderAllAndPaging.get("orderAll"));
+		
+		log.info("[ManagementController] page : {}", page);
+		
+		return "management/orderAll";
+	}
 	
 	/* 주문 관리 - 결제 */
 	

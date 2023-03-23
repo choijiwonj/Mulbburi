@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 
 import lombok.Data;
 
+
 @Data
 @AllArgsConstructor
 public class SelectCriteria {
@@ -23,7 +24,6 @@ public class SelectCriteria {
 	    private String searchCondition;		//검색 조건
 	    private String searchValue;			//검색어
 	}
-
 
 
 

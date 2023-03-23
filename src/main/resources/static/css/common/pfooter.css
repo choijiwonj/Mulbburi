@@ -1,6 +1,10 @@
 @charset "UTF-8";
 *{padding:0;margin:0}
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 a {
     text-decoration: none;
  color: rgba(118, 141, 131, 0.8);
@@ -9,19 +13,31 @@ a {
 a:hover {
     text-decoration: underline;
 }
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 
 a {
     text-decoration: none;  
     /* 모든 하이퍼링크 밑줄 삭제 */
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 body {
     height: 100%;
  background-color: white;
 }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 .btm-holder {
     width: 100%;
  bottom: 0px;
@@ -93,7 +109,11 @@ body {
  font-size: 12px;
  color: rgba(118, 141, 131, 0.8);
  display: block;
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 
 .top-holder {
     width: 100%;
@@ -168,5 +188,9 @@ body {
 
 input:focus {
     outline: none;
+<<<<<<< HEAD
 >>>>>>> 69c92217921d6e5c89ba3e78eb3fcf9dff372fe0
+=======
+>>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
 }

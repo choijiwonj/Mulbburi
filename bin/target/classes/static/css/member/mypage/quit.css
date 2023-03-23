@@ -5,7 +5,11 @@
 }
 
 .left {
+<<<<<<< HEAD
     background-image: url("/img/왼쪽배경.png");
+=======
+    background-image: url("../../images/왼쪽배경\ \(1\).png");
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
     width: 864px;
     height: 1083px;
     display: block;

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,12 +14,12 @@
 </head>
 <body>
 	
-<div th:replace="common/header.html"></div>
+<div th:replace="common/j.header2.html"></div>
 
 
     <!-- 배너(베스트 상품) -->
     <div class="wrapper">
-        <div class="banner 1"><img src="/img/배너1.png"></div>
+        <div class="banner 1"><img src="../../img/배너1.png"></div>
         <div class="banner 2"><img src="/img/배너2.png"></div>
         <div class="banner 3"><img src="/img/배너3.png"></div>
         
@@ -30,6 +32,13 @@
        
     </div>
 
+  <!-- 카테고리 -->
+     <div id="line1"></div>
+     <div class="category">
+        <h1>Category</h1>
+        <h4>Find Your Plant</h4>
+    </div>
+
     <div class="categorypicture">
         <div class="ct">
             <div class="ctp">
@@ -40,6 +49,41 @@
             </div>
         </div>
 
+        <div class="ct">
+            <div class="ctp">
+                <img src="../resources/images/다육이.png">
+            </div>
+            <div class="ctt">
+                다육이
+            </div>
+        </div>
+
+        <div class="ct">
+            <div class="ctp">
+                <img src="../resources/images/생화.png">
+            </div>
+            <div class="ctt">
+                생화
+            </div>
+        </div>
+
+        <div class="ct">
+            <div class="ctp">
+                <img src="../resources/images/테라리움.png">
+            </div>
+            <div class="ctt">
+                테라리움
+            </div>
+        </div>
+
+        <div class="ct">
+            <div class="ctp">
+                <img src="../resources/images/허브.png">
+            </div>
+            <div class="ctt">
+                허브
+            </div>
+        </div>
 
         <div class="ct">
             <div class="ctp">
@@ -56,7 +100,7 @@
     <!-- 상세 페이지 -->
     <div class="detail">
         <div class="detailcategory">
-            홈 > 커뮤니티 <span id="dtcate">전체</span>
+            홈 > 스토어 > <span id="dtcate">전체</span>
         </div>
         
         <div class="number">
@@ -64,7 +108,9 @@
                 전체 검색 결과 <span id="scnum"></span>
             </div>
             <div class="sort">
-             <div type="button" id="sorting" onclick="location.href='regist'">글 쓰기</div>
+                <div type="button" id="sorting" onclick="location.href='글쓰기.html'">글 쓰기
+                </div>
+               
             </div>
         </div>
 
@@ -80,10 +126,29 @@
                 </div>
             </div>
 
-          
-          
-           
+            <div class="dtp">
+                <div class="dtpp">
+                    <img src="../resources/images/상품3.png">
+                </div>
+                <div class="dtt">
+                    [<span class="storename">일랑일랑</span>]
+                    <span class="productname">호멜로라니아</span><br>
+                    <span class="price">8000</span>
+                </div>
+            </div>
 
+            <div class="dtp">
+                <div class="dtpp">
+                    <img src="../resources/images/상품3.png">
+                </div>
+                <div class="dtt">
+                    [<span class="storename">일랑일랑</span>]
+                    <span class="productname">호멜로라니아</span><br>
+                    <span class="price">8000</span>
+                </div>
+            </div>
+            
+          
             <div class="dtp">
                 <div class="dtpp">
                     <img src="../resources/images/기타상품.png">
@@ -99,77 +164,11 @@
     </div>
     
     
-    <!-- 페이징 바 -->
-	<div id="paging" align="center" style="margin-top: 20px;">
-
-		<th:block
-			th:if="${ paging.searchCondition != null and paging.searchValue != null }">
-			<!-- 맨 앞으로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=1&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''">&lt;&lt;</button>
-
-			<!-- 이전 페이지로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.page - 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
-				th:disabled="${ paging.page <= 1 }">&lt;</button>
-
-			<!-- 숫자 버튼 -->
-			<th:block
-				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
-				<button
-					th:onclick="'location.href=\'/board/list?page=' + @{${page}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
-					th:text="${ page }" th:disabled="${ paging.page eq page }">
-				</button>
-			</th:block>
-
-			<!-- 다음 페이지로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.page + 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''"
-				th:disabled="${ paging.page >= paging.maxPage }">></button>
-
-			<!-- 맨 끝으로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.maxPage}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''">>></button>
-
-		</th:block>
-
-		<th:block
-			th:if="${ paging.searchCondition == null || paging.searchCondition.isEmpty() || paging.searchValue == null || paging.searchValue.isEmpty()}">
-			<!-- 맨 앞으로 이동 -->
-			<button th:onclick="'location.href=\'/board/list?page=1\''">&lt;&lt;</button>
-
-			<!-- 이전 페이지로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.page - 1}} + '\''"
-				th:disabled="${ paging.page <= 1 }">&lt;</button>
-
-			<!-- 숫자 버튼 -->
-			<th:block
-				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
-				<button
-					th:onclick="'location.href=\'/board/list?page=' + @{${page}} + '\''"
-					th:text="${ page }" th:disabled="${ paging.page eq page }">
-				</button>
-			</th:block>
-
-			<!-- 다음 페이지로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.page + 1}} + '\''"
-				th:disabled="${ paging.page >= paging.maxPage }">></button>
-
-			<!-- 맨 끝으로 이동 -->
-			<button
-				th:onclick="'location.href=\'/board/list?page=' + @{${paging.maxPage}} + '\''">>></button>
-		</th:block>
-
-	</div>
-    
-    
     
     
    
     
     
-    <div th:replace="common/footer.html"></div>
+    <div th:replace="common/j.footer2.html"></div>
 </body>
 </html>
