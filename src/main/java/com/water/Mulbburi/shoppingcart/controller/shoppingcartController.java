@@ -3,10 +3,10 @@ package com.water.Mulbburi.shoppingcart.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,20 +41,22 @@ public class shoppingcartController {
 		return result + "";
 	}
 	
-	@GetMapping("/cart/{memberNo}")
-	public String cartPageGet(@PathVariable("memberNo") long memberNo, Model model) {
+	@GetMapping("/list")
+	public String cartPageGet(@AuthenticationPrincipal MemberDTO member, Model model) {
 		
-		model.addAttribute("cartInfo", cartService.getCartList(memberNo));
 		
-		return "shoppingcart/shoppingcart";
+		model.addAttribute("cartInfo", cartService.getCartList(member.getMemberNo()));
+		System.out.println(model);
+		log.info("[] : " + model);
+		return "shoppingcart/cartList";
 	}
 	
-	@PostMapping("/delete")
-	public String deleteCartPOST(cartDTO cart) {
-		
-		cartService.deleteCart(cart.getPcNo());
-		
-		return "redirect:/cart/" + cart.getMemberNo();
-	}
+	/*
+	 * @PostMapping("/delete") public String deleteCartPOST(cartDTO cart) {
+	 * 
+	 * cartService.deleteCart(cart.getPcNo());
+	 * 
+	 * return "redirect:/cart/" + cart.getMemberNo(); }
+	 */
 	
 }

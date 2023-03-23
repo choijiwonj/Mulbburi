@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.water.Mulbburi.shoppingcart.DAO.cartDAO;
+import com.water.Mulbburi.shoppingcart.DAO.CartMapper;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class cartService {
 
-	private final cartDAO cartDAO;
+	private final CartMapper cartDAO;
 	
-	public cartService(cartDAO cartDAO) {
+	public cartService(CartMapper cartDAO) {
 		this.cartDAO = cartDAO;
 	}
 	
@@ -35,18 +35,21 @@ public class cartService {
 		}
 	}
 	
-	public List<cartDTO> getCartList(long memberNo){
+	
+	
+	public int deleteCart(int pcNo) {
+		return cartDAO.deleteCart(pcNo);
+	}
+
+	
+	public List<cartDTO> getCartList(Long memberNo){
 		List<cartDTO> cart = cartDAO.getCart(memberNo);
 		
 		for(cartDTO dto : cart) {
 			dto.initTotal();
 		}
-	
+		
 		return cart;
-	}
-	
-	public int deleteCart(int pcNo) {
-		return cartDAO.deleteCart(pcNo);
 	}
 
 	

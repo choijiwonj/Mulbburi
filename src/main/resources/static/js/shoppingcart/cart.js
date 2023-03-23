@@ -8,42 +8,36 @@ $(function(){
 			$("input[type=checked]").prop("checked",false);
 		}
 		
-		selTotalInfo($(".contents"));
+		selTotalInfo();
 	})
 })
 $(document).ready(function(){
-	selTotalInfo();
+	 $("input[type=checkbox]").change(function(){
+			selTotalInfo();
+	})
 });
 
-$("#oneCheck").on("change",function(){
-	
-	selTotalInfo($(".contents"));
-})
-
-
-
 function selTotalInfo(){
-	let totalPrice = 2000;
-	let totalAmount = 2;
-	let deliveryPrice = 3000;
-	let totalPrice1 = 0;
-	let finalTotalPrice = 0;
 	
-	$(".contents").each(function(index, element){
-		
-	if($(element).find(".chkTitle20").is(":checked") === true){
-		totalPrice += parseInt($(element).find(".payAmountSum").val());
-		
-		totalAmount += parseInt($(element).find(".quantity").val());
-		}
-	})
+	if($("input:checkbox[name='checkbox_input']").is(":checked") == true){
 	
-	finalTotalPrice += totalPrice * totalAmount + deliveryPrice;
-	totalPrice1 += totalPrice * totalAmount;
-	$(".totalPrice").text(totalPrice1)
+	const totalPrice = parseInt($(".sbtotalPrice").text());
+	const totalAmount = parseInt($(".quantity_input").val());
+	var deliveryPrice = 0;
+	var finalTotalPrice = 0;
+	
+	
+	finalTotalPrice = totalPrice * totalAmount + deliveryPrice;
+	$(".totalPrice").text(totalPrice.toLocaleString());
 	$(".orderAmountSum").text(deliveryPrice);
-	$(".quantity").text(totalAmount);
+	$(".quantity").text(totalAmount.toLocaleString());
 	$(".payAmountSum").text(finalTotalPrice.toLocaleString());
+	} else {
+	$(".totalPrice").text(0);
+	$(".orderAmountSum").text(0);
+	$(".quantity").text(0);
+	$(".payAmountSum").text(0);
+	}
 }
 
 function deleteCartItem(pcNo){
@@ -59,6 +53,7 @@ function deleteCartItem(pcNo){
 		alert("상품이 삭제되었습니다.");
 	})
 	
-} 
+}
+
 
 }

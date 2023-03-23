@@ -7,16 +7,15 @@ import org.apache.ibatis.annotations.Mapper;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
 
 @Mapper
-public interface cartDAO {
+public interface CartMapper {
 
 	public int addCart(cartDTO cart) throws Exception;
 
 	public int deleteCart(int pcNo);
-
 	
-	  public List<cartDTO> getCart(long memberNo);
-	  
-	  public cartDTO checkCart(cartDTO cart);
+	public cartDTO checkCart(cartDTO cart);
+
+	public List<cartDTO> getCart(Long memberNo);
 	  
 	 
 }
