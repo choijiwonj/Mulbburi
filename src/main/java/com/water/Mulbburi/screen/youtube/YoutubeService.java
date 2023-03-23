@@ -44,6 +44,7 @@ public class YoutubeService {
 		int buttonAmount = 3;
 		
 		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
+
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
 
 		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */

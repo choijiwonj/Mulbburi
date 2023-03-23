@@ -56,7 +56,7 @@ public class YoutubeController {
 		return "redirect:screen/08. screenControll";
 	}
 
-	/* 저장한 유투브 목록	 가져오기 */
+	/* 저장한 유투브 목록 가져오기 */
 	@GetMapping("select/youtube")
 	public String selectAllYoutube(@RequestParam(defaultValue="1") int page, 
 				                   @RequestParam(required=false) String searchCondition, 
@@ -64,6 +64,10 @@ public class YoutubeController {
 				                   Model model
 ) {
 		
+
+		List<YoutubeDTO> youtubeList = YoutubeService.selectAllYoutube();
+		model.addAttribute("youtubeList", youtubeList);
+
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
 		searchMap.put("searchValue", searchValue);
@@ -74,7 +78,4 @@ public class YoutubeController {
 		
 		return "screen/08-3. youtubeList";
 	}
-	
-	
-
 }
