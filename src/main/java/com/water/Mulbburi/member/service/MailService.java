@@ -21,6 +21,9 @@ public class MailService implements MailServiceInter {
 	@Autowired
 	JavaMailSender emailsender;
 	
+	@Autowired
+	RedisUtil redisUtil;
+	
 	/* 인증번호 */
 	private String ePw;
 	
@@ -95,8 +98,11 @@ public class MailService implements MailServiceInter {
 			es.printStackTrace();
 			throw new IllegalArgumentException();
 		}
-
-
+		
+		redisUtil.setDataExpire(to, ePw, 120 * 5L);
+		
+		System.out.println("redisUtil + " + redisUtil.getData(to));
+		
 		return ePw; // 메일로 보냈던 인증 코드를 서버로 반환
 	}
 }

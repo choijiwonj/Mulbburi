@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/login")             
-                    .defaultSuccessUrl("/")  
+                    .defaultSuccessUrl("/main/01-1.purchaseLogin")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정

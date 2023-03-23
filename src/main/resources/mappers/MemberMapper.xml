@@ -234,4 +234,11 @@
 		   AND	MEMBER_ID = #{ memberId } 		
 	</select>
 	
+	<!-- 비밀번호 재설정 -->
+	<update id="pwdModifyMember">
+        UPDATE 
+              MEMBER 
+          SET MEMBER_PWD = #{ memberPwd } 
+        WHERE MEMBER_STATUS = 'Y'
+    </update>
 </mapper>
