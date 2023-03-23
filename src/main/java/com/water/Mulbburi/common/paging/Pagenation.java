@@ -43,12 +43,6 @@ public class Pagenation {
 
 		return selectCriteria;
 	}
-
-        SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
-
-        return selectCriteria;
-    }
-
     /* 검색어가 존재하지 않는 경우 */
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
 		
