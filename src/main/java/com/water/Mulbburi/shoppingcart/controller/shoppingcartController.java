@@ -3,11 +3,13 @@ package com.water.Mulbburi.shoppingcart.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -51,12 +53,15 @@ public class shoppingcartController {
 		return "shoppingcart/cartList";
 	}
 	
-	/*
-	 * @PostMapping("/delete") public String deleteCartPOST(cartDTO cart) {
-	 * 
-	 * cartService.deleteCart(cart.getPcNo());
-	 * 
-	 * return "redirect:/cart/" + cart.getMemberNo(); }
-	 */
+	
+	 @PostMapping("/deletesbNo") public ResponseEntity<String>
+	 deletesbNo(@RequestBody cartDTO deletesbNo){
+	 
+	 log.info("[cartController] deletesbNo : {}", deletesbNo);
+	 
+	 cartService.deleteCart(deletesbNo);
+	 
+	 return ResponseEntity.ok("상품 삭제 완료"); }
+	 
 	
 }

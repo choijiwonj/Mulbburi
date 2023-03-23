@@ -40,20 +40,6 @@ function selTotalInfo(){
 	}
 }
 
-function deleteCartItem(pcNo){
-	
-	fetch("/cart/deleteCartItem", {
-		method : 'POST',
-		headers : {
-			'Content-Type' : 'application/json; charset=UTF-8'
-		},
-		body : JSON.stringify({pcNo : pcNo})
-	})
-	.then(result =>{
-		alert("상품이 삭제되었습니다.");
-	})
-	
-}
 
 
 }

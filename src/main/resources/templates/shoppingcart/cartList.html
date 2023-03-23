@@ -37,7 +37,7 @@
 								<td class="contents"><span class="chkbox"> <input
 										type="checkbox" id="oneCheck" name="checkbox_input"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
-								</span> <span class="close deleteProductButton" onclick="deleteCartItem(this)"><i
+								</span> <span class="close deleteProductButton"><i
 										class="xi-close-min-reClose"></i>
 								</span>
 									<div class="wishBoxArea">
@@ -97,7 +97,21 @@
 	</div>
 	<div th:replace="/common/j.footer2.html"></div>
 	<script>
-		let pcAmout = $("select[pcAmount=qttyInputBox]").val();
+	function deletesbNo(sbNo){
+		
+		fetch("/cart/deleteCartItem", {
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json; charset=UTF-8'
+			},
+			body : JSON.stringify({sbNo : sbNo})
+		})
+		.then(result =>{
+			selTotalInfo();
+			alert("상품이 삭제되었습니다.");
+		})
+		
+	}
 		
 		
 	</script>
