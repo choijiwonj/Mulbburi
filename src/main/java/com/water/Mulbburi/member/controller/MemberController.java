@@ -2,7 +2,6 @@ package com.water.Mulbburi.member.controller;
 
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
-import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
 import com.water.Mulbburi.member.service.MailService;
@@ -166,13 +164,26 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login/pwdReset")
-	public String doPwdReset(@RequestParam(required=false, value="memberPwd1") String memberPwd1, @RequestParam(required=false, value="memberPwd2") String memberPwd2) throws MemberModifyException {
+//	@ResponseBody
+	public String doPwdReset(@ModelAttribute MemberDTO member,@RequestParam(required=false, value="memberId") String memberId, 
+			@RequestParam(required=false, value="memberPwd") String memberPwd,
+			RedirectAttributes rttr) {
 		
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		System.out.println("memberID :" + memberId);
+		System.out.println("memberPwd :" + memberPwd);
 		
+		String rememberPwd = passwordEncoder.encode(memberPwd);
 		
+		System.out.println("바뀐memberPwd :" + memberPwd);
 		
-		return "rediredct:/";
+		member.setMemberId(memberId);
+		member.setMemberPwd(rememberPwd);
+		
+		memberService.pwdModifyMember(member);
+		
+		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.modify"));
+		
+		return "member/login/login";
 	}
 	
 	

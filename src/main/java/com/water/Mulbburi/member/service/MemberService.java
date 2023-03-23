@@ -81,13 +81,16 @@ public class MemberService {
 //		
 //	}
 
-	public void pwdModifyMember(String memberPwd1, String memberPwd2) throws MemberModifyException {
+	public void pwdModifyMember(MemberDTO member) {
 		
-		int result = mapper.pwdModifyMember(memberPwd1, memberPwd2);
+		int result = mapper.pwdModifyMember(member);
 		
-		if(!(result > 0)) {
-			throw new MemberModifyException("비밀번호 수정에 실패하셨습니다.");
-		}
+	}
+
+	public String findPwd(MemberDTO member) {
+		
+		
+		return mapper.findPwd(member);
 		
 	}
 
