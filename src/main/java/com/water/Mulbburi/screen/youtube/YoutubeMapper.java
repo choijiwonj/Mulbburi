@@ -14,6 +14,10 @@ public interface YoutubeMapper {
 	int insertYoutube(YoutubeDTO youtubeDTO);
 
 	/* 유투브 목록 가져오기 */
+	List<YoutubeDTO> selectAllYoutube();
 	int selectTotalCount(Map<String, String> searchMap);
-	List<YoutubeDTO> selectBoardList(SelectCriteria selectCriteria);
+	List<YoutubeDTO> selectAllYoutube(SelectCriteria selectCriteria);
+
+	/* 삭제일이 되면 삭제하기 */
+	int deleteYoutube(YoutubeDTO youtubeDTO);
 }

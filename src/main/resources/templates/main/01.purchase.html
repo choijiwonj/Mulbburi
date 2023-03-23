@@ -10,6 +10,7 @@
     <link href="/css/font.css" rel="stylesheet" style type="text/css">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    	
 =======
  	<script src="/js/main/01.purchaseMain.js" defer></script>
@@ -19,6 +20,10 @@
  	<script src="/js/main/01.purchaseMain.js" defer></script>
 
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
+ 	<script src="/js/main/01.purchaseMain.js" defer></script>
+
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73
 </head>
 <body>
 	 <div th:replace="/common/mheader.html"></div>
@@ -190,23 +195,9 @@
     </div>
 
     <div class="youtubevideo">
-        <div class="y1">
+        <div class="y1" >
             <div class="yv1">
-                <iframe width="340" height="200" src="https://www.youtube.com/embed/_JB2gOxNdXw" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="y1">
-            <div class="yv1">
-                <iframe width="340" height="200" src="https://www.youtube.com/embed/7bAZNyxpf0w" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="y1">
-            <div class="yv1">
-                <iframe width="340" height="200" src="https://www.youtube.com/embed/LetSsQxVwK8" title="YouTube video player" 
+                <iframe th:each= "youtube: ${ youtubeList }" width="340" height="200" th:src='${youtube.ytPath}' title="YouTube video player" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>

@@ -27,7 +27,7 @@ public class cartDTO {
 	private List<FileDTO> imageList;
 	
 	public void initTotal() {
-		this.totalPrice = this.sbPrice * this.pcAmount;
+		this.totalPrice = this.sbPrice*this.pcAmount;
 	}
 	
 	

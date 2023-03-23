@@ -1,8 +1,11 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73
 package com.water.Mulbburi.community.controller;
 
 import java.io.File;
@@ -148,10 +151,6 @@ public class CommunityController {
 
 	}
 
-<<<<<<< HEAD
-}
-=======
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5
-=======
 
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+}
+

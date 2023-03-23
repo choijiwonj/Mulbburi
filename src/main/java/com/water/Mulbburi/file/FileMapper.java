@@ -9,8 +9,5 @@ public interface FileMapper {
 	
 	List<FileDTO> selectAllFile();
 
-	
-	
-
 
 }

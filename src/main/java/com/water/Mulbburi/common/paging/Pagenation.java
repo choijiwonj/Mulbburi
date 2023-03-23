@@ -1,13 +1,11 @@
 package com.water.Mulbburi.common.paging;
 
-<<<<<<< HEAD
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Pagenation{
+public class Pagenation {
 
-	 /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
-=======
 package com.water.Mulbburi.common.paging;
 
 import java.util.HashMap;
@@ -15,8 +13,9 @@ import java.util.Map;
 
 public class Pagenation {
 
+
     /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+
     public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
 
         int maxPage;			//전체 페이지에서 가장 마지막 페이지
@@ -47,8 +46,6 @@ public class Pagenation {
 
         /* 조회할 시작 번호와 마지막 행 번호를 계산 */
         startRow = (page - 1) * limit + 1;
-<<<<<<< HEAD
-
         endRow = startRow + limit - 1;        
         
         SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
@@ -56,33 +53,11 @@ public class Pagenation {
 		return selectCriteria;
 	}
 
-=======
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
-        endRow = startRow + limit - 1;
-
         SelectCriteria selectCriteria = new SelectCriteria(page, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow, searchMap.get("searchCondition"), searchMap.get("searchValue"));
 
         return selectCriteria;
     }
 
-    /* 검색어가 존재하지 않는 경우 */
-	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
-		
-		return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
-	}
-<<<<<<< HEAD
-
-	
-}
-=======
+   
 }
 
-
-
-
-
-
-
-
-
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6

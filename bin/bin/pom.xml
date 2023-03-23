@@ -16,7 +16,16 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+<<<<<<< HEAD:target/classes/META-INF/maven/com.exmaple/Mulbburi/pom.xml
+	
+	 
+  
+  <dependencies>
+    
+
+=======
 	<dependencies>
+>>>>>>> 4b1c53f798ad3380e38e013bbab55dbbbf85fc4f:bin/bin/pom.xml
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
