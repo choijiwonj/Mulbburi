@@ -1,6 +1,7 @@
 package com.water.Mulbburi.screen.youtube;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class YoutubeController {
 	}
 	
 	/* 저장할 유투브 목록 삽입 */
-	@PostMapping("screen/regist/youtube")
+	@PostMapping("screen/08-2. youtubeControll")
 	public String insertYoutube(@ModelAttribute YoutubeDTO youtubeDTO, 
 								@RequestParam String ytWriteDate,
 								@RequestParam String ytDeleteDate,
@@ -53,8 +54,9 @@ public class YoutubeController {
 		
 		ytService.insertYoutube(youtubeDTO);
 		
-		return "redirect:screen/08. screenControll";
+		return "redirect:screen/08-2. youtubeControll";
 	}
+
 
 	/* 저장한 유투브 목록 가져오기 */
 	@GetMapping("select/youtube")
@@ -65,7 +67,7 @@ public class YoutubeController {
 ) {
 		
 
-		List<YoutubeDTO> youtubeList = YoutubeService.selectAllYoutube();
+		List<YoutubeDTO> youtubeList = ytService.selectAllYoutube();
 		model.addAttribute("youtubeList", youtubeList);
 
 		Map<String, String> searchMap = new HashMap<>();
