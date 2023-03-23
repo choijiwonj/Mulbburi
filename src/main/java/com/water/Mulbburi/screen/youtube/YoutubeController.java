@@ -57,13 +57,9 @@ public class YoutubeController {
 		return "redirect:screen/08-2. youtubeControll";
 	}
 
-<<<<<<< HEAD
-	/* 저장한 유투브 목록	 가져오기 */
-	@GetMapping("screen/08-3. youtubeList")
-=======
+
 	/* 저장한 유투브 목록 가져오기 */
 	@GetMapping("select/youtube")
->>>>>>> 4fbfddbac109813eadcfbeda94a4384d6b877864
 	public String selectAllYoutube(@RequestParam(defaultValue="1") int page, 
 				                   @RequestParam(required=false) String searchCondition, 
 				                   @RequestParam(required=false) String searchValue,
