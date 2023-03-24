@@ -58,6 +58,15 @@ public Map<String, Object> selectConsumerList(Map<String, String> searchMap, int
 		
 		return consumerListAndPaging;
 	}
+
+public ConsumerDTO selectConsumerDetail(Long no) {
+	/* 1. 조회수 증가 로직 */
+	int result = consumerMapper.incrementConsumerCount(no);
+	
+	/* 2. 게시글 상세 내용 조회 후 리턴 */
+	return consumerMapper.selectConsumerDetail(no);
+
+}
 	
 	
 	

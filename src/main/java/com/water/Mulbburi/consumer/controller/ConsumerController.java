@@ -1,6 +1,7 @@
 package com.water.Mulbburi.consumer.controller;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.context.support.MessageSourceAccessor;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
+import com.water.Mulbburi.consumer.dto.ConsumerDTO;
 import com.water.Mulbburi.consumer.service.ConsumerService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,9 +46,15 @@ public class ConsumerController {
 	}
 	
 	@GetMapping("/detail")
-	public String detail() {
+	public String detail(@RequestParam Long no, Model model) {
 		
-		return "consumer/consumerDetail";
+		ConsumerDTO consumerDetail = consumerService.selectConsumerDetail(no);
+		log.info("[ConsumerController] gongiDetail : {}", consumerDetail);
+		
+		model.addAttribute("conusmer", consumerDetail);
+		
+		
+		return "consumer/gongiDetail";
 	}
 
 	@GetMapping("/write")

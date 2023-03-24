@@ -19,4 +19,8 @@ public interface ConsumerMapper {
 
 	public List<ConsumerDTO> selectConsumerList(SelectCriteria selectCriteria);
 
+	public int incrementConsumerCount(Long no);
+
+	public ConsumerDTO selectConsumerDetail(Long no);
+
 }

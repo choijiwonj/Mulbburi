@@ -51,9 +51,41 @@ FROM
     WHERE ROWNUM <=  #{ endRow })
     ]]>
 WHERE RNUM >= #{ startRow }
-	
-
 </select>
+
+ <update id="incrementConsumerCount">
+        UPDATE 
+            ANNOUNCEMENT
+        SET ANNOUNCEMENT_COUNT = ANNOUNCEMENT_COUNT + 1
+        WHERE ANNOUNCEMENT_NO = #{ no }
+    </update>
+
+    <select id="selectGongiDetail" resultMap="orderAllResultMap">
+        SELECT 
+        ANNOUNCEMENT_NO
+	  , ANNOUNCEMENT_TITLE
+	  , ANNOUNCEMENT_ST
+	  , ADMINISTRATOR_NO
+	  , AN_WRITE_TIMEE
+        FROM ANNOUNCEMENT 
+       WHERE AN_DELETE_TIME IS NULL
+              </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </mapper>
