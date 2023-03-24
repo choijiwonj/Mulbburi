@@ -14,8 +14,8 @@
 	 <div th:replace="/common/mheader.html"></div>
 	 
 	 <!-- banner -->
-    <div class="wrapper">
-        <div class="banner 1" th:each="banners : ${ fileList }"><img th:src="${banners.fileList.filePath}"></div>
+    <div class="wrapper" th:each="banners : ${ fileList }">
+        <div class="banner 1"><img th:src="${banners.fileList.filePath}"></div>
     </div>
 
     <!-- 카테고리 -->

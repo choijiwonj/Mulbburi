@@ -65,12 +65,9 @@ public class BannerController {
 					if (attachImage.get(i).getSize() > 0) {
 
 						String originalFileName = attachImage.get(i).getOriginalFilename();
-						log.info("[ThumbnailController] originalFileName : {}", originalFileName);
-
+						
 						String ext = originalFileName.substring(originalFileName.lastIndexOf("."));
 						String savedFileName = UUID.randomUUID().toString() + ext;
-
-						log.info("[ThumbnailController] savedFileName : {}", savedFileName);
 
 						/* 서버의 설정 디렉토리에 파일 저장하기 */
 						attachImage.get(i).transferTo(new File(fileUploadDir + "/" + savedFileName));
@@ -79,13 +76,12 @@ public class BannerController {
 						FileDTO fileInfo = new FileDTO();
 						fileInfo.setFileOriginalName(originalFileName);
 						fileInfo.setFileSavedName(savedFileName);
-						fileInfo.setFilePath("/common/upload/original");
+						fileInfo.setFilePath("/upload/original");
 						
 						attachmentList.add(fileInfo);
 					}
 				}
 				
-				log.info("[ThumbnailController] attachmentList : {}", attachmentList);
 				
 				bannerDTO.setFileList(attachmentList);
 				
