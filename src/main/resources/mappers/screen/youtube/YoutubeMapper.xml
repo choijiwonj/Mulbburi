@@ -84,6 +84,12 @@
           FROM YOUTUBE
 </select>
 
+<delete id="deleteYoutube">
+	DELETE 
+	  FROM YOUTUBE
+	 WHERE YT_DELETE_DATE = TO_CHAR(SYSDATE, 'yyyy-MM-dd')
+</delete>
+
 
 
 

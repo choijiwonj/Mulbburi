@@ -1,7 +1,6 @@
 
 package com.water.Mulbburi.file;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -26,5 +25,14 @@ public class FileService {
 
         
     }
+
+	public void registFile(FileDTO fileDTO) {
+		
+		fileMapper.insertBanner(fileDTO);
+		
+	}
+	
+	
+	
 
 }

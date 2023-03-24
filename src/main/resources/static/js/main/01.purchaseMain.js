@@ -17,3 +17,11 @@ function showSlides() {
 }
 
 showSlides();
+
+function deleteYoutube(){
+		
+		addEventListener("mousemove", () => {location.href="delete/youtube"});
+		
+}
+
+deleteYoutube();

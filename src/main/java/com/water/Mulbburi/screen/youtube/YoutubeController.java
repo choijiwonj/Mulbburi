@@ -68,9 +68,11 @@ public class YoutubeController {
 	}
 	
 	/* 게시일이 되면 삭제하기 */
+	@GetMapping("delete/youtube")
 	public void deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
 		
 	  ytService.deleteYoutube(youtubeDTO);
+	  
 	}
 }
 

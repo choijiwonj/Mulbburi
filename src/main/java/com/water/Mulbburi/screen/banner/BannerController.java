@@ -39,10 +39,10 @@ public class BannerController {
 		return "redirect:/banner";
 	}
 	
-	@PostMapping("regist/file")
-	public String insertFile(@ModelAttribute FileDTO fileDTO) {
-		return null;
-	}
+//	@PostMapping("regist/file")
+//	public String insertFile(@ModelAttribute FileDTO fileDTO) {
+//		return null;
+//	}
 	
 	/* 배너 목록 조회 */
 	/* 저장한 유투브 목록 가져오기 */
