@@ -16,6 +16,10 @@ public interface CartMapper {
 	public cartDTO checkCart(cartDTO cart);
 
 	public List<cartDTO> getCart(Long memberNo);
+
+	public void modifyCount(cartDTO updateCartPost);
+
+
 	  
 	 
 }

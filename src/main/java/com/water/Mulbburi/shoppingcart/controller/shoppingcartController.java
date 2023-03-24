@@ -1,5 +1,7 @@
 package com.water.Mulbburi.shoppingcart.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
@@ -53,15 +56,35 @@ public class shoppingcartController {
 		return "shoppingcart/cartList";
 	}
 	
+	@PostMapping("/checkout")
+	public String checkoutPost(@AuthenticationPrincipal MemberDTO member, RedirectAttributes redirectAttributes) {
+		List<cartDTO> cartList = cartService.getCartList(member.getMemberNo());
+		redirectAttributes.addFlashAttribute("cartList", cartList);
+		System.out.println("cartList : " + cartList);
+		return "redirect:/order/order.html";
+	}
 	
-	 @PostMapping("/deletesbNo") public ResponseEntity<String>
-	 deletesbNo(@RequestBody cartDTO deletesbNo){
+	 @PostMapping("/list/deletesbNo")
+	 public ResponseEntity<String> deletesbNo(@RequestBody cartDTO deletesbNo){
 	 
 	 log.info("[cartController] deletesbNo : {}", deletesbNo);
 	 
 	 cartService.deleteCart(deletesbNo);
 	 
-	 return ResponseEntity.ok("상품 삭제 완료"); }
+	 return ResponseEntity.ok("상품 삭제 완료");
 	 
+	 }
+	 
+	@PostMapping("/list/updateCart")
+	public ResponseEntity<String> updateCartPost(@RequestBody cartDTO updateCartPost) {
+		
+		log.info("[cartController] updateCart : {}", updateCartPost);
+		
+		cartService.modifyCount(updateCartPost);
+		
+		return ResponseEntity.ok("수량 변경 완료");
+	}
+	
+	
 	
 }

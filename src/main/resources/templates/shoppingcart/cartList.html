@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div th:replace="/common/j.header2.html"></div>
+	<form action="/cart/checkout" method="post">
 	<div class="contentsWrap">
 		<div class="wishList">
 			<div class="pageTitle">장바구니</div>
@@ -35,10 +36,12 @@
 						<tbody>
 							<tr th:each="ci : ${cartInfo}">
 								<td class="contents"><span class="chkbox"> <input
-										type="checkbox" id="oneCheck" name="checkbox_input"><label for=""
+										type="checkbox" id="oneCheck" name="checkbox_input" th:value="${ci.totalPrice}"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
+										<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
+								<input type="hidden" class="individual_sbAmount_input" th:value="${ci.pcAmount}">
 								</span> <span class="close deleteProductButton"><i
-										class="xi-close-min-reClose"></i>
+										class="xi-close-min-reClose" th:onclick="deletesbNo([[${ci.pcNo}]])"></i>
 								</span>
 									<div class="wishBoxArea">
 										<div class="imgBox">
@@ -53,14 +56,14 @@
 												<i class="xi-close"></i>
 											</div>
 											<div class="quantityPrice">수량 : 
-												<input type="text" th:value="${ci.pcAmount}" class="quantity_input"> 개
-												<a class="quantity_modify_btn">변경</a>
+												<input type="number" th:value="${ci.pcAmount}" class="quantity_input" name="pcAmount" min="0"> 개
+												<a class="quantity_modify_btn" th:attr="data-sbno=${ci.sbNo}">변경</a>
 												<div class="priceSum">
 													<span class="sbtotalPrice" th:text="${ci.totalPrice}"></span>원
 												</div>
 											</div>
 										</div>
-									</div></td>
+								</div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -89,31 +92,59 @@
 							</tr>
 						</tbody>
 					</table>
-					<a href="order/order.html"
-						class="button default full green mt10 buyButton">주문하기</a>
+					<button class="button default full green mt10 buyButton" type="submit">주문하기</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 	<div th:replace="/common/j.footer2.html"></div>
 	<script>
-	function deletesbNo(sbNo){
+function deletesbNo(pcNo){
 		
-		fetch("/cart/deleteCartItem", {
+		fetch("/cart/list/deletesbNo", {
 			method : 'POST',
 			headers : {
 				'Content-Type' : 'application/json; charset=UTF-8'
 			},
-			body : JSON.stringify({sbNo : sbNo})
+			body : JSON.stringify({pcNo : pcNo})
 		})
 		.then(result =>{
-			selTotalInfo();
 			alert("상품이 삭제되었습니다.");
+			location.href = '/cart/list';
 		})
-		
-	}
-		
-		
+};
+
+function updateCount(pcAmount,sbNo){
+   
+		if(pcAmount < 0){
+			alert("수량은 음수로 변경할 수 없습니다.")
+			return;
+		}
+        fetch("/cart/list/updateCart", {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json; charset=UTF-8'
+            },
+            body : JSON.stringify({
+				pcAmount : pcAmount,
+            	sbNo : sbNo
+            	})
+        })
+        .then(result => {
+        	alert("수량변경이 완료되었습니다.");
+        	location.href='/cart/list';
+        })
+};
+
+document.querySelectorAll('.quantity_modify_btn').forEach(function(btn) {
+	  btn.addEventListener('click', function(e) {
+	    e.preventDefault();
+	    const sbNo = e.target.getAttribute('data-sbno');
+	    const pcAmount = e.target.parentNode.querySelector('.quantity_input').value;
+	    updateCount(pcAmount, sbNo);
+	  });
+});
 	</script>
 </body>
 

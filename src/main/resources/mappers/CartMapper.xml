@@ -29,12 +29,12 @@
 <delete id="deleteCart">
 	DELETE
 	  FROM PURCHASE_BASCKET
-	  WHERE SB_NO = #{sbNo}
+	  WHERE PC_NO = #{pcNo}
 </delete>
 <update id="modifyCount">
 	UPDATE
-	 PURCHASE_BASCKET SET PC_AMOUNT = #{pcAmout}
-	 WHERE PC_NO = #{pcNo}
+	 PURCHASE_BASCKET SET PC_AMOUNT = #{pcAmount}
+	 WHERE SB_NO = #{sbNo}
 </update>
 <select id="getCart" resultMap="cartInfoMap">
 	SELECT
