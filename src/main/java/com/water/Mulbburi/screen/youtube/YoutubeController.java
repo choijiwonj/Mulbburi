@@ -42,6 +42,7 @@ public class YoutubeController {
 		
 		return "redirect:/youtube";
 
+
 	}
 	
 
@@ -65,8 +66,6 @@ public class YoutubeController {
 		
 		return "screen/08-3. youtubeList";
 	}
-
-
 	
 	/* 게시일이 되면 삭제하기 */
 	public void deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {

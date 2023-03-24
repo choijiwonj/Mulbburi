@@ -1,5 +1,6 @@
 package com.water.Mulbburi.management.service;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,9 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Transactional
 public class ManagementService {
-
-	private final ManagementMapper managementMapper;
-
+	
 	public ManagementService(ManagementMapper managementMapper) {
 		this.managementMapper = managementMapper;
 	}
@@ -46,5 +45,22 @@ public class ManagementService {
 		return orderAllAndPaging;
 
 	}
+
+		
+		int totalCount = managementMapper.checkTotalCount();
+		log.info("[ManagementService] totalCount : {}", totalCount);
+		
+		int limit = 1;
+		int buttonAmount = 3;
+		
+//		SelectCriteria selectCriteria =
+		
+		return null;
+	}
+	
+
 }
+
+  
+  
 

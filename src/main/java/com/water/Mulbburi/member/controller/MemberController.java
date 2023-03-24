@@ -1,5 +1,7 @@
 package com.water.Mulbburi.member.controller;
 
+import java.util.List;
+
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
@@ -167,7 +171,7 @@ public class MemberController {
 //	@ResponseBody
 	public String doPwdReset(@ModelAttribute MemberDTO member,@RequestParam(required=false, value="memberId") String memberId, 
 			@RequestParam(required=false, value="memberPwd") String memberPwd,
-			RedirectAttributes rttr) {
+			RedirectAttributes rttr, FileDTO fileDTO, List<MultipartFile> fileList) {
 		
 		System.out.println("memberID :" + memberId);
 		System.out.println("memberPwd :" + memberPwd);
