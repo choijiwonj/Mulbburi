@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/screen/08-2. bannerList.css" rel="stylesheet" style type="text/css">
     <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="/js/screen/08-2. youtubeControll.js"></script>
+    <script type="text/javascript" defer src="/js/screen/08-1. bannerControll.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -22,20 +22,21 @@
         <div class="totalstory3">
             <div class="totalbase3">
                 <div class="category1">
-                    <div class="titlename"><span>Title</span> <span>Path</span>
+                    <div class="titlename">
+                    <!-- <span>Title</span> --> 
                     					   <span>Write Date</span>
                     					   <span>Delete Date</span>
                     					   <span>Post Date</span>
                     					   <span>End Date</span></div>
                 </div>
 
-                        <div class="story" th:each="youtube: ${ youtubeList }">
-                            <div class="bannertitle2" th:text="${ youtube.ytName }"></div>
-                            <div class="path2" th:text="${ youtube.ytPath }"></div>
-                            <div class="writedate2" th:text="${ youtube.ytWriteDate }"></div>
-                            <div class="deletedate2" th:text="${ youtube.ytDeleteDate }"></div>
-                            <div class="postingdate2" th:text="${ youtube.ytPostDate }"></div>
-                            <div class="enddate2" th:text="${ youtube.ytEndDate }"></div>
+                        <div class="story" th:each="banner: ${ bannerList }">
+                            <!-- <div class="bannertitle2" th:text="${ banner.fileDTO.fileOriginalName }"></div> -->
+                            <div class="path2" th:text="${ banner.bannerGenDate }"></div>
+                            <div class="writedate2" th:text="${ banner.bannerDelDate }"></div>
+                            <div class="deletedate2" th:text="${ banner.bannerPostDate }"></div>
+                            <div class="postingdate2" th:text="${ banner.bannerEndDate }"></div>
+                            <!-- <div class="enddate2" th:text="${ youtube.ytEndDate }"></div> -->
                         </div>
                     </div>
                 </div>

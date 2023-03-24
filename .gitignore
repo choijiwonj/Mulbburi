@@ -1,18 +1,6 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
 
+<<<<<<< HEAD
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -31,4 +19,7 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+/target/
+>>>>>>> c8afdadb4dd72a56aafe69d3e6751f0924450b94
 /pom.xml

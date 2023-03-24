@@ -87,4 +87,3 @@ public class ManagementController {
 		return "management/compExc";
 	}
 }
-
