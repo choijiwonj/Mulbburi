@@ -74,6 +74,7 @@
                   ]]>
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
+	      AND A.YT_DELETE_DATE > TO_CHAR(SYSDATE, 'yyyy-MM-dd')
         ORDER BY 1 ASC
 	         
 </select>

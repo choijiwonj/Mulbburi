@@ -1,10 +1,17 @@
 package com.water.Mulbburi.file;
 
+import java.io.IOException;
+import java.util.UUID;
+
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,9 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class FileController {
 	
-//	@Value("${image.image-dir}")
-//	private String IMAGE_DIR;
-
 	private final FileService fileService;
 	
 	@Autowired
@@ -29,6 +33,7 @@ public class FileController {
 		
 		return "redirect:screen/08-1. bannerControll";
 	}
+	
 	
 	
 

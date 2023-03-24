@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
+import com.water.Mulbburi.file.FileDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,10 +27,11 @@ public class BannerService {
 		this.bnMapper = bnMapper;
 	}
 
-	public void insertBanner(BannerDTO bannerDTO) {
+	public void insertBanner(BannerDTO bannerDTO, FileDTO fileDTO) {
 		
 		bnMapper.insertBanner(bannerDTO);
-		bnMapper.insertFile(bannerDTO.getFileDTO());
+		bnMapper.insertFile(fileDTO);
+		
 	}
 	
 	public Map<String, Object> selectAllBanner(Map<String, String> searchMap, int page) {

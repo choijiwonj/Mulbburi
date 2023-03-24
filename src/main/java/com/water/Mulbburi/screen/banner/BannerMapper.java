@@ -18,6 +18,7 @@ public interface BannerMapper {
 	List<BannerDTO> selectAllBanner(SelectCriteria selectCriteria);
 	int selectTotalCount(Map<String, String> searchMap);
 
-	void insertFile(FileDTO fileDTO);
+	/* 파일 목록 삽입 */
+	int insertFile(FileDTO fileDTO);
 
 }
