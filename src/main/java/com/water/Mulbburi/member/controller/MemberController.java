@@ -1,6 +1,10 @@
 package com.water.Mulbburi.member.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -229,7 +234,7 @@ public class MemberController {
 	
 	/* 구매자 회원 가입 */
 	@PostMapping("/regist/ConMembership")
-	public String registConMember(@ModelAttribute MemberDTO member,
+	public String registConMember(@ModelAttribute MemberDTO member, FileDTO file,
 			@RequestParam String emailId, @RequestParam String domain,
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
@@ -259,7 +264,13 @@ public class MemberController {
 	public String registSelMember(@ModelAttribute MemberDTO member,
 			@RequestParam String emailId, @RequestParam String domain,
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
-			RedirectAttributes rttr) throws MemberRegistException {
+			RedirectAttributes rttr, @RequestParam(value="file", required=false) ArrayList<MultipartFile> files, Model model
+			) throws MemberRegistException {
+		
+		System.out.println("member : " + member);
+		System.out.println("files : " + files);
+		
+		FileDTO fileDTO = new FileDTO();
 		
 		String email = emailId + "@" + domain;
 		member.setEmail(email);
@@ -268,17 +279,59 @@ public class MemberController {
 		member.setDtAddress(dtAddress);
 		
 		
+		String savedFileName ="";
+		
+		String uploadPath = "C:/Lecture/dev/10_spring/Mulbburi/Mulbburi/src/main/resources/static/files";
+		
+		ArrayList<String> originalFileNameList = new ArrayList<String>();
+		
+		
+		try {
+		
+		for(MultipartFile file : files) {
+			
+			String originalFileName = file.getOriginalFilename();
+			
+			originalFileNameList.add(originalFileName);
+			
+			UUID uuid = UUID.randomUUID();
+			savedFileName = uuid.toString() + "_" + originalFileName;
+			
+			File file1 = new File(uploadPath + savedFileName);
+			
+			file.transferTo(file1);
+			
+			fileDTO.setFileoriginalName(originalFileName);
+			fileDTO.setFilePath(uploadPath);
+			fileDTO.setFileSavedName(savedFileName);
+			
+		}
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+				
+				for(MultipartFile file : files ) {
+					
+					File deleteFile = new File(uploadPath + "/" + savedFileName);
+					
+					deleteFile.delete();
+				}
+			}
+			
+		
+		
 		log.info("[MemberController] registMember request Member : " + member);
 		
 		member.setMemberPwd(passwordEncoder.encode(member.getMemberPwd()));
 		
-		memberService.registSelMember(member);
+		memberService.registSelMember(member, fileDTO);
 		
 		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.regist"));
 		
 		
 		
 		return "redirect:/";
+	
+	
 	}
 	
 	

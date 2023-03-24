@@ -9,6 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.water.Mulbburi.file.FileDTO;
+
 import lombok.Data;
 
 @Data
@@ -29,6 +31,7 @@ public class MemberDTO implements UserDetails {
     private String email;
     private String cerNo;
     private List<MemberRoleDTO> memberRoleList;
+    private List<FileDTO> fileList;
 	
     @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

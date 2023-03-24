@@ -19,12 +19,22 @@
 		<result property="businessNo" column="BUSINESS_NO"/>
 		<result property="email" column="EMAIL"/>
 		<collection property="memberRoleList" resultMap="memberRoleResultMap"/>
+		<collection property="fileList" resultMap="fileListResultMap"/>
 	</resultMap>
 	
 	<resultMap type="com.water.Mulbburi.member.dto.MemberRoleDTO" id="memberRoleResultMap">
 		<id property="memberNo" column="REF_MEMBER_NO"/>
 		<id property="authorityCode" column="REF_AUTHORITY_CODE"/>
 		<association property="authority" resultMap="authorityResultMap"/>
+	</resultMap>
+	
+	<resultMap type="com.water.Mulbburi.file.FileDTO" id="fileListResultMap">
+		<id property="fileNo" column="FILE_NO"/>
+		<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileSavedName" column="FILE_SAVED_NAME"/>
+		<result property="custom" column="CUSTOM"/>
+		<result property="memberNo" column="MEMBER_NO"/>
 	</resultMap>
 	
 		<resultMap type="com.water.Mulbburi.member.dto.AuthorityDTO" id="authorityResultMap">
@@ -103,12 +113,13 @@
 	
 	<!-- 판매자 회원가입 -->
 	<insert id="insertSelMember">
-        INSERT ALL
+        INSERT 
           INTO MEMBER 
         (
           MEMBER_NO
         , BUSINESS_NAME
-        , BUSINESS_NO  
+        , BUSINESS_NO 
+        , MEMBER_NAME 
         , MEMBER_ID
         , MEMBER_PWD
         , PHONE
@@ -124,6 +135,7 @@
           SEQ_MEMBER_NO.NEXTVAL
         , #{ businessName }
         , #{ businessNo }  
+        , #{ memberName }
         , #{ memberId }
         , #{ memberPwd }
         , #{ phone }
@@ -134,12 +146,15 @@
         , '판매자'
         , 'N'
         )
-        INTO FILE
+	</insert>
+	
+	<insert id="insertFile">
+	  INSERT	
+		INTO TBL_FILE
         (
           FILE_NO
         , FILE_ORIGINAL_NAME
         , FILE_PATH
-        , FILE_SIZE
         , FILE_SAVED_NAME
         , CUSTOM
         , MEMBER_NO  
@@ -149,10 +164,9 @@
 		  SEQ_FILE_NO.NEXTVAL
 		, #{ fileoriginalName }
 		, #{ filePath }
-		, #{ fileSize }
 		, #{ fileSavedName }
-		, #{ custom }
-		, #{ memberNo }  	        
+		, '1'
+		, SEQ_MEMBER_NO.CURRVAL 	        
         )
 	</insert>
 	
