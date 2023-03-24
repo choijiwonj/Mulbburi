@@ -53,6 +53,7 @@ public class YoutubeService {
 		
 		Map<String, Object> ytListAndPaging = new HashMap<>();
 		ytListAndPaging.put("youtubeList", youtubeList);
+		ytListAndPaging.put("paging", selectCriteria);
 	
 		
 		return ytListAndPaging;

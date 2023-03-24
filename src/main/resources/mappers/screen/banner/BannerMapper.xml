@@ -39,30 +39,26 @@
 		   FILE_NO,
 		   FILE_ORIGINAL_NAME,
 		   FILE_PATH,
-		   FILE_SIZE,
 		   FILE_SAVED_NAME,
 		   CUSTOM,
 		   SB_NO,
 		   MEMBER_NO,
 		   COMMUNITY_NO,
 		   REVIEW_NO,
-		   BANNER_NO,
-		   YT_NO
+		   BANNER_NO
 	)
 	VALUES
 	(
 		   SEQ_FILE_NO.NEXTVAL,
 		   #{fileOriginalName},
 		   #{filePath},
-		   #{fileSize},
 		   #{fileSavedName},
-		   #{custom},
-		   ,
-		   ,
-		   ,
-		   ,
-		   SEQ_BANNER_NO.CURRVAL,
-		   ,
+		   4,
+		   1,
+		   1,
+		   1,
+		   1,
+		   SEQ_BANNER_NO.CURRVAL   
 	)
 </insert>
 

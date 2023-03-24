@@ -10,3 +10,7 @@ function dropdown(){
 }
 
 dropdown();
+
+function upload(){
+	document.querySelector("#submit").addeaddEventListener("click", () => {location.href = "regist/banner"});
+}

@@ -15,9 +15,7 @@
 	 
 	 <!-- banner -->
     <div class="wrapper">
-        <div class="banner 1"><img src="/img/배너 1.png"></div>
-        <div class="banner 2"><img src="/img/배너 2.png"></div>
-        <div class="banner 3"><img src="/img/배너 3.png"></div>
+        <div class="banner 1" th:each="banners : ${ fileList }"><img th:src="${banners.fileList.filePath}"></div>
     </div>
 
     <!-- 카테고리 -->

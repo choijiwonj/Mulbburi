@@ -55,7 +55,9 @@ public class YoutubeController {
 
 		Map<String, Object> ytListAndPaging = ytService.selectAllYoutube(page);
 		model.addAttribute("paging", ytListAndPaging.get("paging"));
-		model.addAttribute("youtubeList", ytListAndPaging.get("youtubeList"));		
+		model.addAttribute("youtubeList", ytListAndPaging.get("youtubeList"));	
+		
+		log.info("paging {}", ytListAndPaging.get("paging"));
 			
 		return "screen/08-3. youtubeList";
 	}

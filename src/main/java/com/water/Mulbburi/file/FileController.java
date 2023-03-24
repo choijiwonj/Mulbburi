@@ -1,40 +1,31 @@
 package com.water.Mulbburi.file;
 
-import java.io.IOException;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.water.Mulbburi.screen.banner.BannerDTO;
+import com.water.Mulbburi.screen.banner.BannerService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 public class FileController {
+
 	
-	private final FileService fileService;
-	
+	private final BannerService bnService;
+
 	@Autowired
-	public FileController(FileService fileService) {
-		this.fileService = fileService;
+	public FileController(BannerService bnService) {
+		this.bnService = bnService;
 	}
-	
-	@PostMapping("regist/file")
-	public String registFile(@ModelAttribute FileDTO fileDTO ) {
-		
-		fileService.registFile(fileDTO);
-		
-		return "redirect:screen/08-1. bannerControll";
-	}
-	
-	
-	
 
 }
