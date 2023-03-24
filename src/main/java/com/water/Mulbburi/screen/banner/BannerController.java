@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.water.Mulbburi.screen.youtube.YoutubeController;
+import com.water.Mulbburi.file.FileDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,7 +28,7 @@ public class BannerController {
 
 	@GetMapping("/banner")
 	public String banner() {
-		return "/screen/08-1. bannerControll";
+		return "screen/08-1. bannerControll";
 	}
 
 	/* 저장할 배너 목록 삽입 */
@@ -36,10 +36,12 @@ public class BannerController {
 	public String insertYoutube(@ModelAttribute BannerDTO bannerDTO) {
 
 		bnService.insertBanner(bannerDTO);
-		
-		log.info("bannerDTO", bannerDTO);
-
 		return "redirect:/banner";
+	}
+	
+	@PostMapping("regist/file")
+	public String insertFile(@ModelAttribute FileDTO fileDTO) {
+		return null;
 	}
 	
 	/* 배너 목록 조회 */

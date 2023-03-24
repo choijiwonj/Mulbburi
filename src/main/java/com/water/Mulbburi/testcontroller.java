@@ -1,7 +1,4 @@
-
-<<<<<<< HEAD
-=======
-  package com.water.Mulbburi;
+package com.water.Mulbburi;
   
   import org.springframework.stereotype.Controller;
 
@@ -43,8 +40,4 @@ public class testcontroller {
 	 * }
 	 */
   }
-  
-  
 
-
->>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540

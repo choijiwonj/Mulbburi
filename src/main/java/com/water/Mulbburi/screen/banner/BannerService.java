@@ -29,7 +29,7 @@ public class BannerService {
 	public void insertBanner(BannerDTO bannerDTO) {
 		
 		bnMapper.insertBanner(bannerDTO);
-		
+		bnMapper.insertFile(bannerDTO.getFileDTO());
 	}
 	
 	public Map<String, Object> selectAllBanner(Map<String, String> searchMap, int page) {

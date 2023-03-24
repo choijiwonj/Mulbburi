@@ -231,28 +231,12 @@
           AND MEMBER_ID = #{ memberId }
     </update>
     
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <!--    <select id="idCheck" resultType="int">
-=======
      <select id="idCheck" resultType="int">
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
-=======
-     <select id="idCheck" resultType="int">
->>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
     	select
     			count (*)
     	  from  member
     	 where  memberId = #{ memberId } 		
-<<<<<<< HEAD
-<<<<<<< HEAD
-    </select> -->
-=======
     </select>
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
-=======
-    </select>
->>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
 	
 	<!-- 아이디 찾기 -->
 	<select id="findLoginId" resultType="String">
@@ -263,20 +247,6 @@
 		   AND  PHONE = #{ phone } 		
 	</select>
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-	
-	
-	
-	
-	
-	
-	
-	
-=======
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
-=======
 	<!-- 비밀번호 찾기 -->
 	<select id="findLoginPwd" resultType="String">
 		SELECT 
@@ -294,5 +264,4 @@
         WHERE MEMBER_ID = #{ memberId } 
     </update>
     
->>>>>>> 278d0fc39f054a6e31dfb3866283a674e67d1540
 </mapper>

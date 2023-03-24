@@ -33,36 +33,34 @@
 	)	
 </insert>
 
+<insert id="insertFile">
+</insert>
+
 <select id="selectAllBanner" parameterType="com.water.Mulbburi.screen.banner.BannerDTO" resultMap="bannerResultMap">
 	SELECT
-		  A.BANNER_NO,
 		  A.BANNER_GEN_DATE,
 		  A.BANNER_DEL_DATE,
 		  A.BANNER_POST_DATE,
-		  A.BANNER_END_DATE,
-		  D.FIILE_ORIGINAL_NAME
+		  A.BANNER_END_DATE
 	 FROM (SELECT
 	    		  ROWNUM RNUM,
-	    		  B.BANNER_NO,
 		  		  B.BANNER_GEN_DATE,
 		  		  B.BANNER_DEL_DATE,
 		  		  B.BANNER_POST_DATE,
 		  		  B.BANNER_END_DATE
 	        FROM (SELECT
-	                     C.BANNER_NO,
 		  				 C.BANNER_GEN_DATE,
 		  				 C.BANNER_DEL_DATE,
 		  				 C.BANNER_POST_DATE,
 		  				 C.BANNER_END_DATE
 	                FROM BANNER C
-	          ORDER BY C.BANNER_POST_DATE DES
+	          ORDER BY C.BANNER_POST_DATE ASC
         ) B
         <![CDATA[
                   WHERE ROWNUM <= #{ endRow }
                   ]]>
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
-	     JOIN TBL_FILE D ON (A.BANNER_NO = D.BANNER_NO)
         ORDER BY 1 ASC
 	         
 </select>
