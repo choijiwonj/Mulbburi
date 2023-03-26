@@ -14,10 +14,8 @@
 	 <div th:replace="/common/mheader.html"></div>
 	 
 	 <!-- banner -->
-    <div class="wrapper">
-        <div class="banner 1"><img src="/img/배너 1.png"></div>
-        <div class="banner 2"><img src="/img/배너 2.png"></div>
-        <div class="banner 3"><img src="/img/배너 3.png"></div>
+    <div class="wrapper" th:each="banners : ${ fileList }">
+        <div class="banner 1"><img th:src="${banners.fileList.filePath}"></div>
     </div>
 
     <!-- 카테고리 -->
@@ -164,7 +162,7 @@
 
         <div class="p1">
             <div class="p1c">
-                <img src="/img/배너1.jpg">
+                <img src=" ">
             </div>
             <div class="p1t">
                 <span class="writer">winter0123</span><br><br>

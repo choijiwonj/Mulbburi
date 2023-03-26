@@ -1,8 +1,10 @@
-let slideIndex = 0;
+/*let slideIndex = 0;
 
 function showSlides() {
     let i;
     const slides = document.getElementsByClassName("banner");
+    
+
 
     for (i = 0; i < slides.length; i++) {
        slides[i].style.display = "none";  
@@ -16,4 +18,4 @@ function showSlides() {
     setTimeout(showSlides, 2000);
 }
 
-showSlides();
+showSlides();*/

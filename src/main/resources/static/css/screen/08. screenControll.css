@@ -212,6 +212,22 @@ body{
     margin-top: 30%;
 }
 
+.category3{
+    font-family: 'TAEBAEKmilkyway';
+    font-weight: bold;
+    font-size : 18px;
+    color: rgba(126, 113, 113);
+    padding-top: 2%;
+    margin-left: 3%;
+    width: 80px;
+}
+
+.category3 div{
+    margin-bottom: 33%;
+    margin-left: 3%;
+    margin-top: 10%;
+}
+
 .story{
       font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
@@ -229,10 +245,25 @@ body{
 .deletedate,
 .postingdate,
 .enddate,
-.path{
-    margin-bottom: 1.7%;
+.path,
+.file{
+    margin-bottom: -10.3%;
     margin-left: 3%;
-    margin-top: 9%;
+    margin-top: 13%;
+    border: none;
+    height: 30px;
+    width: 300px;
+}
+
+.bannertitle3,
+.writedate3,
+.deletedate3,
+.postingdate3,
+.enddate3,
+.path3{
+    margin-bottom: -1.3%;
+    margin-left: 3%;
+    margin-top: 5%;
     border: none;
     height: 30px;
     width: 300px;
@@ -245,8 +276,8 @@ body{
     height: 30px;
     border-radius: 30px;
     color: white;
-    margin-left: 300%;
-    margin-top: 20%;
+    margin-left: 150%;
+    margin-top: 5%;
 }
 
 /* 페이징 */

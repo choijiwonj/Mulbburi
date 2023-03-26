@@ -36,8 +36,8 @@
                             <div>게시일</div>
                             <div>종료일</div>
                         </div>
-                        <form class="story" method="post" action="regist/banner">
-                        	<input type="file" name="files">
+						<form class="story" method="post" action="regist/banner" enctype="multipart/form-data">
+                        	<input type="file" class="file" name="attachImage">
                             <input type="date" class="writedate" name="bannerGenDate">
                             <input type="date" class="deletedate" name="bannerDelDate">
                             <input type="date" class="postingdate" name="bannerPostDate">
@@ -49,20 +49,6 @@
             </div>
         </div>
     </div>
-
-     <!-- 페이징 -->
-     <div class="paging">
-        <button>&lt;&lt;</button>
-        <button>이전</button>
-            
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-
-        <button>다음</button>
-        <button>&gt;&gt;</button>
-    </div>
-    
      <div th:replace="/common/spfooter.html"></div>
 </body>
 </html>

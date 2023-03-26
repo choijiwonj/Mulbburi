@@ -13,11 +13,13 @@ public interface BannerMapper {
 
 	/* 배너 목록 삽입 */
 	int insertBanner(BannerDTO bannerDTO);
+	/* 파일 목록 삽입 */
+	int insertFile(FileDTO attachment);
 
 	/* 배너 목록 조회 */
 	List<BannerDTO> selectAllBanner(SelectCriteria selectCriteria);
-	int selectTotalCount(Map<String, String> searchMap);
+	int selectTotalCount();
 
-	void insertFile(FileDTO fileDTO);
+	
 
 }
