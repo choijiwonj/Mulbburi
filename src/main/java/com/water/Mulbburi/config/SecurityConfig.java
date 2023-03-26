@@ -44,16 +44,16 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/login")             
-                    .defaultSuccessUrl("/main/01-1.purchaseLogin")  
+                    .defaultSuccessUrl("/Mulbburi/login")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
                 .and()
                     .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                     .deleteCookies("JSESSIONID")
                     .invalidateHttpSession(true)
-                    .logoutSuccessUrl("/main/01.purchase")
+                    .logoutSuccessUrl("/Mulbburi")
                 // 따라서 인가 오류 처리는 생략하였음
     			.and()
     				.build();
