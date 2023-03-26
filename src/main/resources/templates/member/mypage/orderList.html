@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orderList</title>
+    <link href="/css/member/mypage/orderList.css" rel="stylesheet" style type="text/css">
+    <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
+    <script type="text/javascript" defer src="../../resources/js/mypageMain.js"></script>
+</head>
+<body>  
+    <div class="wraaper">
+    <nav class="sub-menu">
+        <div class="sub"></div>
+    </nav>
+	<div th:replace="common/spheader.html"></div> 
+    <div class="title">
+        <p>주문내역</p>
+    </div>
+    <div class="btn">
+        <a href="/member/mypage/delivery" class="delivery">배송 조회</a>
+        <a href="/member/mypage/orderDetail" class="check">상세 조회</a>
+    </div>
+    <div>
+        <hr>
+    </div>   
+    <div class="productPage">
+    <form>
+    <div class="product" th:each="memberList : ${ orderList }">
+        <input type="checkbox" class="checkbox">
+        <img src="/img/yeob01.png" class="photo">
+        <div class="productName">
+        <span class="prName" id="sbName" th:text="${ memberList.sbName }"></span><br>
+        <span class="prCode" id="orderNo" th:text="${ memberList.orderNo }"></span>
+        </div>
+        <div class="productDate">
+        <span class="prName" id="orderDate" th:text="${ memberList.orderDate }"></span>
+        </div>
+        <div class="productMon">
+        <span class="prMoney" id="orderMoney" th:text="${ memberList.orderMoney }"></span>
+        </div>
+    </div>    
+    </form>
+    </div>
+   <!-- 페이징 바 -->
+	<div id="paging" align="center" class="paging" style="margin-top: 20px;">
+		<th:block
+			th:if="${ paging.searchCondition != null and paging.searchValue != null }">	
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=1&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''">&lt;&lt;</button>	
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.page - 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
+				th:disabled="${ paging.page <= 1 }">&lt;</button>
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${page}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.page eq page }">
+				</button>
+			</th:block>
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.page + 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''"
+				th:disabled="${ paging.page >= paging.maxPage }"></button>	
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.maxPage}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''">>></button>
+
+		</th:block>
+		<th:block
+			th:if="${ paging.searchCondition == null || paging.searchCondition.isEmpty() || paging.searchValue == null || paging.searchValue.isEmpty()}">
+			<button th:onclick="'location.href=\'/member/mypage/orderList/list?page=1\''">&lt;&lt;</button>			
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.page - 1}} + '\''"
+				th:disabled="${ paging.page <= 1 }">&lt;</button>
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${page}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.page eq page }">
+				</button>
+			</th:block>
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.page + 1}} + '\''"
+				th:disabled="${ paging.page >= paging.maxPage }">></button>
+			<button
+				th:onclick="'location.href=\'/member/mypage/orderList/list?page=' + @{${paging.maxPage}} + '\''">>></button>
+		</th:block>
+	</div> 
+	<div th:replace="common/spfooter.html"></div> 
+    </div>
+</body>
+</html>

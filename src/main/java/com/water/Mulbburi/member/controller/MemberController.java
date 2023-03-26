@@ -4,10 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +23,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.service.AuthenticationService;
 import com.water.Mulbburi.member.service.MailService;
@@ -341,33 +347,39 @@ public class MemberController {
 		
 		return "member/mypage/mypageMain";
 	}
-	
-	/* 배송확인 페이지 이동 */
-	@GetMapping("/mypage/delivery")
-	public String delivery() {
 		
-		return "member/mypage/delivery";
-	}
-	
-	/* 교환신청 페이지 이동 */
-	@GetMapping("/mypage/exchange")
-	public String exchange() {
-		
-		return "member/mypage/exchange";
-	}
-	
-	/* 환불신청 페이지 이동 */
-	@GetMapping("/mypage/refund")
-	public String refund() {
-		
-		return "member/mypage/refund";
-	}
-	
 	/* 내정보수정 페이지 이동 */
 	@GetMapping("/mypage/infoModify")
 	public String infoModify() {
 		
 		return "member/mypage/infoModify";
+	}
+	
+	@PostMapping("/mypage/infoModify")
+	public String modifyMember(@ModelAttribute MemberDTO updateMember, @RequestParam String emailId,
+			@RequestParam String domain, @AuthenticationPrincipal MemberDTO loginMember,
+			RedirectAttributes rttr) throws MemberModifyException {
+		
+			String email = emailId + "@" + domain;
+			updateMember.setEmail(email);
+			
+			updateMember.setMemberNo(loginMember.getMemberNo());
+			
+			memberService.modifyMember(updateMember);
+			
+			SecurityContextHolder.getContext().setAuthentication(createNewAuthentication(loginMember.getMemberId()));
+	    	
+	    	rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.modify"));
+	    	
+	    	return "redirect:/";
+	}
+	
+	protected Authentication createNewAuthentication(String memberId) {
+		
+		UserDetails newPrincipal = authenticationService.loadUserByUsername(memberId);
+    	UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(newPrincipal, newPrincipal.getPassword(), newPrincipal.getAuthorities());
+
+        return newAuth;
 	}
 	
 	/* 내정보수정 접근 페이지 이동 */
@@ -377,41 +389,33 @@ public class MemberController {
 		return "member/mypage/infoModifyJoin";
 	}
 	
-	/* 좋아요 페이지 이동 */
-	@GetMapping("/mypage/like")
-	public String like() {
+	@PostMapping("/mypage/infoModifyJoin")
+	public String checkinfoModifyJoin(@AuthenticationPrincipal MemberDTO loginMember, @RequestParam String modifyPwd,
+			RedirectAttributes rttr) {
 		
-		return "member/mypage/like";
-	}
-	
-	/* 게시글내역 페이지 이동 */
-	@GetMapping("/mypage/myBoard")
-	public String myBoard() {
+		String memberPwd = loginMember.getMemberPwd();
 		
-		return "member/mypage/myBoard";
-	}
-	
-	/* 주문상세내역 페이지 이동 */
-	@GetMapping("/mypage/orderDetail")
-	public String orderDetail() {
+		String result = "";
 		
-		return "member/mypage/orderDetail";
-	}
-	
-	/* 주문내역 페이지 이동 */
-	@GetMapping("/mypage/orderList")
-	public String orderList() {
+		if(passwordEncoder.matches(modifyPwd, memberPwd)) {
+			
+			result = "member/mypage/infoModify";
+		} else {
+			
+			rttr.addAttribute("msg", "비밀번호를 다시 확인해주세요");
+			result = "member/mypage/infoModifyJoin";
+		}
 		
-		return "member/mypage/orderList";
+		
+		return result;
 	}
-	
+		
 	/* 회원탈퇴 페이지 이동 */
 	@GetMapping("/mypage/quit")
 	public String quit() {
 		
 		return "member/mypage/quit";
 	}
-	
 	
 	
 	

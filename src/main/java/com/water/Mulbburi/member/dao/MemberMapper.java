@@ -1,8 +1,12 @@
 package com.water.Mulbburi.member.dao;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
+import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.dto.MemberOrderDTO;
 
 
 
@@ -34,6 +38,10 @@ public interface MemberMapper {
 	String findPwd(MemberDTO member);
 
 	int pwdModifyMember(MemberDTO member);
+
+	int selectTotalCount();
+
+	List<MemberOrderDTO> selectOrderList(SelectCriteria selectCriteria);
 
 
 	

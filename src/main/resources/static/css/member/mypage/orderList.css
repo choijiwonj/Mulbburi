@@ -262,3 +262,17 @@ hr {
 .checkbox {
     accent-color: #768D83;
 }
+
+.paging {
+    text-align: center;
+    margin: 30px;
+}
+
+.paging button {
+    margin: 0 10px;
+    border: 0;
+    background-color: transparent;
+    color: rgba(118, 141, 131, 0.8);
+    font-size: 12px;
+    font-weight: 700;
+}

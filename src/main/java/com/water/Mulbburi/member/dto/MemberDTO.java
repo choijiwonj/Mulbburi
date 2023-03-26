@@ -25,7 +25,7 @@ public class MemberDTO implements UserDetails {
     private String dtAddress;
     private String bsAddress;
     private String memberStatus;
-    private String custom;
+    private String memberCustom;
     private String businessName;
     private String businessNo;
     private String email;
