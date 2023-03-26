@@ -158,13 +158,13 @@ a {
  }
 
  .img1 {
-    margin-left: 500px;
+    margin-left: 400px;
     margin-top: 140px;
     margin-bottom: 120px;
  }
 
  .profile {
-    width: 300px;
+    width: 250px;
  }
 
  .mypageName {
@@ -172,6 +172,7 @@ a {
     /* width: 200px; */
     margin-top: 100px;
     margin-left: 50px;
+    margin-bottom : 50px;
  }
 
  .userName {
@@ -186,8 +187,8 @@ a {
     font-weight: 800;
     font-size: 20px;
     width: 200px;
-    margin-top: 60px;
-    margin-left: 110px;
+    margin-top: 3%;
+    margin-left: 100px;
  }
 
  .mypageMenu {
