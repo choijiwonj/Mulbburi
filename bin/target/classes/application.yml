@@ -9,24 +9,6 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: C##WATER
     password: WATER
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
-<<<<<<< HEAD
-
-  
-  # mybatis config
-mybatis:
-  mapper-locations: mappers/**/*.xml
-=======
-<<<<<<< HEAD
->>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
-=======
-=======
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
->>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 # file upload config
 
 
@@ -36,26 +18,3 @@ mybatis:
 # mybatis config
 mybatis:
   mapper-locations: mappers/**/*.xml
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
-  
-
-  
-  
->>>>>>> 050701942f800ee90f0038deb4fd3a95ff95d049
-  
-  
-  
-  
-  
-  
-  
-<<<<<<< HEAD
->>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
-=======
-=======
->>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
->>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc

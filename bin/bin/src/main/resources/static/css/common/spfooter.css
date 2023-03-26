@@ -1,52 +1,22 @@
 *{padding:0;margin:0}
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
-
-
->>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
-=======
 ​
 
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 
 a {
     text-decoration: none;
     color: rgba(118, 141, 131, 0.8);
     /* border: 2px solid red;s */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-a:hover {
-    text-decoration: underline;
-}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> f190d67148c8716da2abe067e476aa2adb22ec5b
->>>>>>> 813f13b2860fa12e9c68dafe9db21d4b5b78086c
-=======
 ​
 a:hover {
     text-decoration: underline;
 }
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 body {
     height: 100%;
     background-color: white;
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .btm-holder {
     width: 100%;
     bottom: 0px;
@@ -54,55 +24,28 @@ body {
     background: rgba(169, 197, 185, 0.7);
     overflow: hidden;
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .wrap-ft {
     display: flex;
     justify-content: center;
     /* margin: 0 20%; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .service {
     color: rgba(118, 141, 131, 0.8);
     margin-bottom: 10px;
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .service span {
     font-size: 12px;
     font-weight: 700;
     /* margin-left: 4px; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .service a {
     font-size: 1px;
     font-weight: 600;
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-.c1 {
-    padding: 10px 0;
-}
-
-#customer {
-    font-size: 20px;
-}
-
-=======
 ​
 .c1 {
     padding: 10px 0;
@@ -112,7 +55,6 @@ body {
     font-size: 20px;
 }
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .company {
     /* display: flex; */
     width: 30%;
@@ -120,11 +62,7 @@ body {
     padding-right: 20px;
     /* border: 2px solid red; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .config{
     /* margin-left: 900px; */
     width: 30%;
@@ -135,11 +73,7 @@ body {
     /* border: 2px solid blue; */
     /* padding-left: 20px; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .co1,.co2,.co3,.co4 {
     font-size: 14px;
     font-weight: 700;
@@ -148,11 +82,7 @@ body {
     color: rgba(118, 141, 131, 0.8);
     /* height: 20px; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-=======
 ​
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
 .info {
     font-size: 12px;
     padding: 10px 0;
@@ -162,14 +92,9 @@ body {
     /* display: inline-block; */
     /* position: absolute; */
 }
-<<<<<<< HEAD:target/classes/static/css/common/spfooter.css
-
-.copy {
-=======
 ​
 .copy {
 	border: blue 2px solid;
->>>>>>> a7c0fc094262de0c8c17300c32766b27b1990ec5:bin/bin/src/main/resources/static/css/common/spfooter.css
     margin: 20px;
     text-align: center;
     font-size: 12px;
