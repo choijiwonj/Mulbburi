@@ -11,11 +11,15 @@ public interface CartMapper {
 
 	public int addCart(cartDTO cart) throws Exception;
 
-	public int deleteCart(int pcNo);
+	public void deleteCart(cartDTO deletesbNo);
 	
 	public cartDTO checkCart(cartDTO cart);
 
 	public List<cartDTO> getCart(Long memberNo);
+
+	public void modifyCount(cartDTO updateCartPost);
+
+
 	  
 	 
 }
