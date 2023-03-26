@@ -8,6 +8,11 @@ a {
     text-decoration: none;  /* 모든 하이퍼링크 밑줄 삭제 */
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .main {
     text-align: center;
     font-family: 'HSBombaram21-Regular';
@@ -76,11 +81,22 @@ a {
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .wrapper {
     min-height: calc(100%-160px);
     position: relative;
 } 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .btm-holder {
     width: 100%;
     padding: 20px;
@@ -90,6 +106,12 @@ a {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 .info {
     font-size: 12px;
     padding-bottom: 10px;
@@ -245,6 +267,20 @@ a {
 
 hr {
     width: 63%;
+<<<<<<< HEAD
+<<<<<<< HEAD
+    margin-left : 20%;
+    margin-top : 1%;
+    margin-bottom : 3%;
+=======
+>>>>>>> 76a3d1acd4b9f6f555106d0380709526899dbf99
+=======
+=======
+    margin-left : 20%;
+    margin-top : 1%;
+    margin-bottom : 3%;
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+>>>>>>> 53d817adef0e038d50f1d883e0b92f122d7a60cc
 }
 .delivery {
     background-color: #7E7171;

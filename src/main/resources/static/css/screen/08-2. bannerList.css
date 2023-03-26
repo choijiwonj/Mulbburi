@@ -110,7 +110,7 @@
 }
 
 /* 페이징 */
-/* .paging {
+.paging {
     text-align: center;
     margin: 30px;
 }
@@ -122,4 +122,4 @@
     color: rgba(118, 141, 131, 0.8);
     font-size: 12px;
     font-weight: 700;
-} */
+}

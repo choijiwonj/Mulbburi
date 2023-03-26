@@ -25,15 +25,15 @@ public class ManagementService {
 		this.managementMapper = managementMapper;
 	}
 
-	public Map<String, Object> checkOrderAll(int page) {
+	public Map<String, Object> checkOrderAll(Map<String, String> searchMap, int page) {
 
-		int totalCount = managementMapper.checkTotalCount();
+		int totalCount = managementMapper.checkTotalCount(searchMap);
 		log.info("[ManagementService] totalCount : {}", totalCount);
 
-		int limit = 1;
+		int limit = 2;
 		int buttonAmount = 3;
 
-		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
 		log.info("[ManagementService] selectCriteria : {}", selectCriteria);
 
 		List<ManagementDTO> orderAll = managementMapper.checkorderAllList(selectCriteria);
@@ -46,5 +46,11 @@ public class ManagementService {
 		return orderAllAndPaging;
 
 	}
+
+	public ManagementDTO checkOrderDetail(Long orderNo) {
+		
+		return managementMapper.checkOrderDetail(orderNo);
+	}
+	
 }
 

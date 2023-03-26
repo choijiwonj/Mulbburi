@@ -20,7 +20,8 @@ spring:
       enabled: true
       max-file-size: 10MB
       max-request-size: 10MB
-      location: C:/*
+      location: C:/Users/hi/Desktop/Spring framework/project/sub-project/Mulbburi(src)
+
 
 
 # image upload directory
