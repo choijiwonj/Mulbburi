@@ -29,17 +29,36 @@ body {
     font-size: 40px;
 }
 
-.menu span {
-    font-size: 18px;
+.menu {
+   display: flex;
+}
+
+.home,
+.store,
+.community,
+.customer{
+	 font-size: 18px;
     font-weight: 700;
     color: rgba(118, 141, 131, 0.7);
     margin-right: 10px;
     /* color: blue; */
 }
 
+.adminhome,
+.memberAdmin,
+.sellerAdmin,
+.askAdmin,
+.screenAdmin{
+	 font-size: 18px;
+    font-weight: 700;
+    color: rgba(118, 141, 131, 0.7);
+    margin-right: 10px;
+}
+
+
 .side span {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: bold;
     color: rgba(118, 141, 131, 0.7);
     margin-left: 10px;
     /* color: blue; */    

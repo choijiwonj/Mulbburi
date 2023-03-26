@@ -54,7 +54,8 @@ a {
 {
     width:1000px;
     height:450px;
-    margin-top: -50%;
+    margin-top:5%
+
 }
 
 /* 카테고리 */
@@ -72,6 +73,7 @@ a {
     color: rgba(126, 113, 113);
     font-weight: bold;
     font-family: 'TAEBAEKmilkyway';
+    margin-top: 10%;
  }
 
  .category h4{
@@ -80,6 +82,7 @@ a {
     font-weight: 100;
     font-weight: bold;
     font-family: 'TAEBAEKmilkyway';
+    margin-top: 1%;
  }
 
  .categorypicture{

@@ -2,7 +2,7 @@
 
 a {
     text-decoration: none;  
-    /* 모든 하이퍼링크 밑줄 삭제 */
+    /* 紐⑤뱺 �븯�씠�띁留곹겕 諛묒쨪 �궘�젣 */
 }
 
 body {
@@ -37,6 +37,10 @@ body {
     /* color: blue; */
 }
 
+.menu{
+	display: flex;
+}
+
 .side span {
     font-size: 12px;
     font-weight: 700;
@@ -51,7 +55,7 @@ body {
     justify-content: space-between;
 }
 
-/* 검색 */
+/* 寃��깋 */
 
 .searchCriteria {
     float: right;

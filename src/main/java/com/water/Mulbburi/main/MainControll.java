@@ -42,6 +42,63 @@ public class MainControll {
 		
 		return "main/01.purchase";
 	}
-
+	
+	/* 스토어 */
+	@GetMapping("/store")
+	public String store() {
+		return "store/04. store";
+	}
+	
+	/* 구매자 로그인 */
+	@GetMapping("Mulbburi/login")
+	public String loginPurchase(@RequestParam(defaultValue="1") int page, 
+            @RequestParam(required=false) String searchCondition, 
+            @RequestParam(required=false) String searchValue,
+            Model model) {
+		
+		Map<String, String> searchMap = new HashMap<>();
+		searchMap.put("searchCondition", searchCondition);
+		searchMap.put("searchValue", searchValue);
+		
+		Map<String, Object> ytListAndPaging = mainService.selectMyYoutube(searchMap, page);
+		model.addAttribute("paging", ytListAndPaging.get("paging"));
+		model.addAttribute("youtubeList", ytListAndPaging.get("youtubeList"));		
+		
+		return "main/01-1.purchaseLogin";
+	}
+	
+	/*판매자*/
+	
+	
+	
+	/*관리자*/
+	/* 판매자 신고 관리 */
+	@GetMapping("sellerAdmin")
+	public String sellerAdmin() {
+		return "seller/06. sellerControll";
+	}
+	
+	/* 회원 신고 관리 */
+	@GetMapping("memberAdmin")
+	public String memberAdmin() {
+		return "adminMember/13. memberControll";
+	}
+	
+	/* 문의 관리 */
+	@GetMapping("askAdmin")
+	public String askAdmin() {
+		return "ask/12. askControll";
+	}
+	
+	/* 화면 관리 */
+	@GetMapping("screenAdmin")
+	public String screenAdmin() {
+		return "screen/08. screenControll";
+	}
+	
+	@GetMapping("MulbburiAdminMain")
+	public String adminLogin() {
+		return "main/03-1. adminMainLogin";
+	}
 
 }

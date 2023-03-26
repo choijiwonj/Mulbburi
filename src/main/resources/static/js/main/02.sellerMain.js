@@ -15,12 +15,5 @@ function showSlides() {
     setTimeout(showSlides, 2000);
 }
 
-window.onload = showSlides;
+showSlides();
 
-function deleteYoutube(){
-		
-		addEventListener("mousemove", () => {location.href="delete/youtube"});
-		
-}
-
-deleteYoutube();
