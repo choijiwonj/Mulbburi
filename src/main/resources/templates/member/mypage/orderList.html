@@ -21,8 +21,8 @@
     </div>
     <form name="form" method="post">
     <div class="btn">
-        <input type="submit" class="delivery" id="delivery" value="배송 조회" onclick="javascript: form.action='/member/mypage/delivery';"></input>   
-        <input type="submit" class="check" id="check" value="상세 조회" onclick="javascript: form.action='/member/mypage/orderDetail';"></input>
+        <button type="submit" class="delivery" id="delivery" value="배송 조회" onclick="javascript: form.action='/member/mypage/delivery';">배송 조회</button>   
+        <button type="submit" class="check" id="check" value="상세 조회" onclick="javascript: form.action='/member/mypage/orderDetail';">상세 조회</butoon>
     </div>
     <div>
         <hr>
@@ -40,7 +40,7 @@
 	        </tr>
             <tr th:each="order : ${ orderList }" class="orderMenu">
                 <td class="omenu1">
-                    <span><input type="checkbox" class="checkbox"></input></span>
+                    <span><input type="checkbox" class="checkbox" name="orderNo" th:value="${ order.orderNo }"></input></span>
                 </td>
                 <td>    
                     <span class="omenu2" th:text="${ order.sbName}"></span>

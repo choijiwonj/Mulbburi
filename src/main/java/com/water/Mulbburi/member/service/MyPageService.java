@@ -49,5 +49,11 @@ public class MyPageService {
 		
 		return orderListAndPaging;
 	}
+
+	public MemberOrderDTO selectOrderDetail(Long orderNo) {
+		
+		
+		 return mapper.selectOrderDetail(orderNo);
+	}
 	
 }

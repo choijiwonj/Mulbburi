@@ -16,6 +16,10 @@ public interface MyPageMapper {
 	int selectTotalCount(Map<String, String> searchMap);
 
 	List<MemberOrderDTO> selectOrderList(Long memberNo);
+
+	MemberOrderDTO selectOrderDetail(Long orderNo);
+	
+	
 	
 	
 }

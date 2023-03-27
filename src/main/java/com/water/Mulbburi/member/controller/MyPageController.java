@@ -1,7 +1,6 @@
 package com.water.Mulbburi.member.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -79,9 +78,13 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/mypage/orderDetail")
-	public String orderDetail(@RequestParam("selectOrder") List<String> selectOrders) {
+	public String orderDetail(@RequestParam("orderNo") Long orderNo, Model model) {
 		
-		System.out.println(selectOrders);
+		System.out.println(orderNo);
+		
+		MemberOrderDTO orderDetail = myPageService.selectOrderDetail(orderNo);
+		
+		model.addAttribute("order", orderDetail);
 		
 		return "member/mypage/orderDetail";
 	}

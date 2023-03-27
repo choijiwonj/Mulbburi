@@ -173,7 +173,7 @@ a {
     width: 60%;
     height: 800px;
     border-top: 1px solid black;
-    display: flex;
+    /* display: flex; */
 }
 
 .page2 {
@@ -292,4 +292,24 @@ img {
     font-weight: 700;
     color: #7E7171;
     opacity: 0.8;
+}
+
+.menu1 {
+	width:100px;
+}
+
+.menu2 {
+	width:200px;
+}
+
+.menu3 {
+	width:200px;
+}
+
+.menu4 {
+	width:100px;
+}
+
+.menu5 {
+	width:200px;
 }

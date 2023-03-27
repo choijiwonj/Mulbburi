@@ -10,7 +10,8 @@
       <result property="sbName" column="SB_NAME"/>
       <result property="orderAmount" column="ORDER_AMOUNT"/>      
       <result property="orderAmountMoney" column="ORDER_AMOUNT_MONEY"/>
-      <result property="memberNo" column="MEMBER_NO"/>         
+      <result property="memberNo" column="MEMBER_NO"/>
+      <result property="memberId" column="MEMBER_ID"/>         
     </resultMap>
     
 	<select id="selectTotalCount" resultType="_int">
@@ -33,6 +34,18 @@
 	  WHERE T.MEMBER_NO = #{memberNo}
 	</select>
 	
+	<select id="selectOrderDetail" resultMap="orderListResultMap">
+	SELECT
+		   M.MEMBER_ID
+		 , S.SB_NAME
+		 , T.ORDER_AMOUNT
+		 , T.ORDER_AMOUNT_MONEY
+	  FROM TBL_ORDER T 
+	  JOIN DETAIL_ORDER D ON (D.ORDER_NO = T.ORDER_NO)
+      JOIN SHOPPINGBASCKET S ON (S.SB_NO = D.SB_NO) 
+      JOIN MEMBER M ON (T.MEMBER_NO = M.MEMBER_NO)
+	  WHERE T.ORDER_NO = #{orderNo}
+	</select>
 		   	
 
 
