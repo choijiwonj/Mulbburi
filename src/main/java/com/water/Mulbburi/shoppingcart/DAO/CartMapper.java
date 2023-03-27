@@ -19,6 +19,10 @@ public interface CartMapper {
 
 	public void modifyCount(cartDTO updateCartPost);
 
+	public List<cartDTO> getSelectedCart(Long memberNo, List<String> selectedItems);
+
+	
+
 
 
 	  

@@ -1,5 +1,6 @@
 package com.water.Mulbburi.shoppingcart.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -54,5 +55,14 @@ public class cartService {
 
 	public void modifyCount(cartDTO updateCartPost) {
 		cartDAO.modifyCount(updateCartPost);
+	}
+	
+
+
+	public List<cartDTO> getSelectedCartList(Long memberNo, List<String> selectedItems) {
+		List<cartDTO> cartList = cartDAO.getSelectedCart(memberNo, selectedItems);
+	    System.out.println(cartList);
+
+	    return cartList;
 	}
 }
