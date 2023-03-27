@@ -32,9 +32,15 @@ public class MyPageService {
 		int limit = 5;
 		int buttonAmount = 3;
 		
+		MemberOrderDTO memberDTO = new MemberOrderDTO();
+		
+		memberDTO.setMemberNo(member.getMemberNo());
+		
+		System.out.println(memberDTO);
+		
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
 		
-		List<MemberOrderDTO> orderList = mapper.selectOrderList(selectCriteria, member);
+		List<MemberOrderDTO> orderList = mapper.selectOrderList(selectCriteria, memberDTO);
 		
 		Map<String, Object> orderListAndPaging = new HashMap<>();
 		orderListAndPaging.put("paging", selectCriteria);

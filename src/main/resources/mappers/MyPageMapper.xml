@@ -8,9 +8,25 @@
       <id property="orderNo" column="ORDER_NO"/>
       <result property="orderDate" column="ORDER_DATE"/>
       <result property="sbName" column="SB_NAME"/>
-      <result property="orderMoney" column="ORDER_AMOUNT_MONEY"/>
-      <result property="memberNo" column="MEMBER_NO"/>      
+      <result property="orderAmountMoney" column="ORDER_AMOUNT_MONEY"/>
+      <association property="memberNo" resultMap="memberResultMap"/>   
     </resultMap>
+    
+    <resultMap id="memberResultMap" type="com.water.Mulbburi.member.dto.MemberDTO">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="memberPwd" column="MEMBER_PWD"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="postCode" column="POSTCODE"/>
+		<result property="dtAddress" column="DT_ADDRESS"/>
+		<result property="bsAddress" column="BS_ADDRESS"/>
+		<result property="memberStatus" column="MEMBER_STATUS"/>
+		<result property="memberCustom" column="MEMBER_CUSTOM"/>
+		<result property="businessName" column="BUSINESS_NAME"/>
+		<result property="businessNo" column="BUSINESS_NO"/>
+		<result property="email" column="EMAIL"/>
+	</resultMap>
 
 	<select id="selectTotalCount" resultType="_int">
 	SELECT
@@ -19,11 +35,11 @@
     </select>
     
     <select id="selectOrderList" resultMap="orderListResultMap">
-	SELELCT
+	SELECT
 		   T.ORDER_NO
-		   T.ORDER_DATE
-		   S.SB_NAME
-		   T.ORDER_MONEY
+		 , T.ORDER_DATE
+		 , S.SB_NAME
+		 , T.ORDER_AMOUNT_MONEY
 	  FROM TBL_ORDER T
 	  JOIN DETAIL_ORDER D ON (T.ORDER_NO = D.ORDER_NO)
 	  JOIN SHOPPINGBASCKET S ON (D.SB_NO = S.SB_NO)

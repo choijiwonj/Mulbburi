@@ -77,6 +77,8 @@ public class MyPageController {
 			@AuthenticationPrincipal MemberDTO member, 
 			Model model) {
 		
+		System.out.println("orderList :" + member);
+		
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
 		searchMap.put("searchValue", searchValue);

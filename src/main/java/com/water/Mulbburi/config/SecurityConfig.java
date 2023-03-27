@@ -84,6 +84,7 @@ public class SecurityConfig {
 	public HttpFirewall defaultHttpFirewall() {
 		return new DefaultHttpFirewall();
 	}
+	
 }
 
 

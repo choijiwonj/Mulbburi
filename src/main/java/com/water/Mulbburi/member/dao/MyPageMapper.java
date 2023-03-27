@@ -14,7 +14,7 @@ public interface MyPageMapper {
 
 	int selectTotalCount(Map<String, String> searchMap);
 
-	List<MemberOrderDTO> selectOrderList(SelectCriteria selectCriteria, MemberDTO member);
-
+	List<MemberOrderDTO> selectOrderList(SelectCriteria selectCriteria, MemberOrderDTO memberDTO);
+	
 	
 }

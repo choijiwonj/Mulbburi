@@ -343,14 +343,17 @@ public class MemberController {
 	
 	/* 마이페이지 페이지 이동 */
 	@GetMapping("/mypage/mypageMain")
-	public String mypageMain() {
+	public String mypageMain(@AuthenticationPrincipal MemberDTO member) {	
+		System.out.println(member);
 		
 		return "member/mypage/mypageMain";
 	}
 		
 	/* 내정보수정 페이지 이동 */
 	@GetMapping("/mypage/infoModify")
-	public String infoModify() {
+	public String infoModify(@AuthenticationPrincipal MemberDTO member) {
+			
+		
 		
 		return "member/mypage/infoModify";
 	}
@@ -384,9 +387,11 @@ public class MemberController {
 	
 	/* 내정보수정 접근 페이지 이동 */
 	@GetMapping("/mypage/infoModifyJoin")
-	public String infoModifyJoin() {
+	public String infoModifyJoin(@AuthenticationPrincipal MemberDTO member) {
 		
-		return "member/mypage/infoModifyJoin";
+		
+		
+		return "member/mypage/infoModify";
 	}
 	
 	@PostMapping("/mypage/infoModifyJoin")
@@ -397,22 +402,24 @@ public class MemberController {
 		
 		String result = "";
 		
-		if(passwordEncoder.matches(modifyPwd, memberPwd)) {
-			
-			result = "member/mypage/infoModify";
-		} else {
-			
-			rttr.addAttribute("msg", "비밀번호를 다시 확인해주세요");
-			result = "member/mypage/infoModifyJoin";
-		}
+//		if(passwordEncoder.matches(memberPwd, modifyPwd)) {
+//			
+//			result = "member/mypage/infoModify";
+//		} else {
+//			
+//			rttr.addAttribute("msg", "비밀번호를 다시 확인해주세요");
+//			result = "member/mypage/infoModifyJoin";
+//		}
+//		
+//		
+//		return result;
 		
-		
-		return result;
+		return "member/mypage/infoModifyJoin";
 	}
 		
 	/* 회원탈퇴 페이지 이동 */
 	@GetMapping("/mypage/quit")
-	public String quit() {
+	public String quit(@AuthenticationPrincipal MemberDTO member) {
 		
 		return "member/mypage/quit";
 	}

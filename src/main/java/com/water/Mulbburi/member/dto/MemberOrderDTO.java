@@ -13,6 +13,6 @@ public class MemberOrderDTO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date orderDate;
 	private String sbName;
-	private Long orderMoney;
-	private int memberName;
+	private Long orderAmountMoney;
+	private Long memberNo;
 }
