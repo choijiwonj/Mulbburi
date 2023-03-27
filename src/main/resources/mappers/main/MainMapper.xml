@@ -13,6 +13,21 @@
 	<result property="ytName" column="YT_NAME"/>
 </resultMap>
 
+<resultMap id="fileResultMap" type="com.water.Mulbburi.file.FileDTO">
+	<id property="fileNo" column="FILE_NO"/>
+	<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+	<result property="filePath" column="FILE_PATH"/>
+	<result property="fileSize" column="FILE_SIZE"/>
+	<result property="fileSavedName" column="FILE_SAVED_NAME"/>
+	<result property="custom" column="CUSTOM"/>
+	<result property="sbNo" column="SB_NO"/>
+	<result property="memberNo" column="memberNo"/>
+	<result property="communityNo" column="COMMUNITY_NO"/>
+	<result property="reviewNo" column="REVIEW_NO"/>
+	<result property="bannerNo" column="BANNER_NO"/>
+	<result property="ytNo" column="YT_NO"/>
+</resultMap>
+
 
 <select id="selectMyYoutube" parameterType="com.water.Mulbburi.screen.youtube.YoutubeDTO" resultMap="youtubeResultMap">
 	SELECT
@@ -64,5 +79,28 @@
 	  FROM YOUTUBE
      WHERE YT_DELETE_DATE = SYSDATE;
 </delete>
+
+<select id="selectMyFile" parameterType="com.water.Mulbburi.file.FileDTO" resultMap="fileResultMap">
+	SELECT
+		  A.FILE_NO,
+		  A.FILE_ORIGINAL_PATH
+	 FROM (SELECT
+	    		  ROWNUM RNUM,
+		  		  B.FILE_NO,
+		  		  B.FILE_ORIGINAL_PATH
+	        FROM (SELECT
+		  				 C.FILE_NO,
+		  				 C.FILE_ORIGINAL_PATH
+	                FROM TBL_FILE C
+	          ORDER BY C.FILE_NO DESC
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+	         
+</select>
 
 </mapper>

@@ -15,16 +15,16 @@
 	 
 	 <!-- banner -->
     <div class="wrapper" th:each="banners : ${ fileList }">
-        <div class="banner 1"><img th:src="${banners.fileList.filePath}"></div>
+        <div class="banner 1"><img th:src="${banners.fileOriginalPath}"></div>
     </div>
 
     <!-- 카테고리 -->
-    <div class="category">
+    <!--<div class="category">
         <h1>Category</h1>
         <h4>Find Your Plant</h4>
     </div>
 
-    <div class="categorypicture">
+     <div class="categorypicture">
         <div class="ct">
             <div class="ctp">
                 <img src="/img/전체.png">
@@ -78,7 +78,7 @@
                 기타
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- new product -->
     <div class="newProduct">

@@ -5,10 +5,10 @@ body {
 }
 
 a {
-    text-decoration: none;  /* 모든 하이퍼링크 밑줄 삭제 */
+    text-decoration: none;  /* 紐⑤뱺 �븯�씠�띁留곹겕 諛묒쨪 �궘�젣 */
 }
 
-/* 배너 */
+/* 諛곕꼫 */
 .wrapper
 {
     max-width: 1000px;
@@ -54,6 +54,7 @@ a {
 {
     width:1000px;
     height:450px;
+    margin-top: 3%;
 }
 
  /* New Product */
@@ -69,6 +70,7 @@ a {
     color: rgba(126, 113, 113);
     opacity: 80%;
     font-weight: bold;
+    margin-top: 10%;
  }
 
  .bestProduct h4{

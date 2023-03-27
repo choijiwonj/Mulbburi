@@ -26,7 +26,5 @@ public class SelectCriteria {
 	    private String searchCondition;		//검색 조건
 	    private String searchValue;			//검색어
 
-
-
 }
 

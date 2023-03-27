@@ -11,6 +11,8 @@
     <title>Document</title>
 </head>
 <body>
+
+<div th:replace="/common/mheaderLogin.html"></div>
     <!-- 배너(베스트 상품) -->
     <div class="wrapper">
         <div class="banner 1"><img src="/img/배너 1.png"></div>
@@ -27,16 +29,7 @@
 
     <div class="categorypicture">
         <div class="ct">
-            <div class="ctp">
-                <img src="/img/전체.png">
-            </div>
-            <div class="ctt">
-                전체
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
+            <div class="ctp1">
                 <img src="/img/다육.png">
             </div>
             <div class="ctt">
@@ -45,7 +38,7 @@
         </div>
 
         <div class="ct">
-            <div class="ctp">
+            <div class="ctp2">
                 <img src="/img/생화.png">
             </div>
             <div class="ctt">
@@ -54,7 +47,7 @@
         </div>
 
         <div class="ct">
-            <div class="ctp">
+            <div class="ctp3">
                 <img src="/img/테라리움.png">
             </div>
             <div class="ctt">
@@ -63,7 +56,7 @@
         </div>
 
         <div class="ct">
-            <div class="ctp">
+            <div class="ctp4">
                 <img src="/img/허브.png">
             </div>
             <div class="ctt">
@@ -72,7 +65,7 @@
         </div>
 
         <div class="ct">
-            <div class="ctp">
+            <div class="ctp5">
                 <img src="/img/기타.png">
             </div>
             <div class="ctt">
@@ -80,836 +73,111 @@
             </div>
         </div>
     </div>
-
-    <div id="line"></div>
-
-    <!-- 상세 페이지 -->
-    <div class="detail">
-        <div class="detailcategory">
-            홈 > 스토어 > <span id="dtcate">전체</span>
-        </div>
-        
-        <div class="number">
-            <div class="searchnumber">
-                전체 검색 결과 <span id="scnum"></span>
-            </div>
-            <div class="sort">
-                <select name="sorting" id="sorting">
-                    <option value="인기순">인기순</option>
-                    <option value="이름순">이름순</option>
-                    <option value="가격 높은 순">가격 높은 순</option>
-                    <option value="가격 낮은 순">가격 낮은 순</option>
-                </select>
-            </div>
-        </div>
-
         <div class="detailpage1">
-            <div class="dtp">
-                <div class="dtpp">
+            <div class="dtp"  th:each="dayuk : ${storeList}">
+            <div class="arrow">
+                <div class="dtpp" >
                     <img src="/img/상품3.png">
                 </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
+                <div class="dtt" >
+                    [<span class="storename" th:text="${dayuk.memberName}"></span>]
+                    <span class="productname" th:text="${dayuk.sbName}"></span><br>
+                    <span class="price" th:text="${dayuk.sbPrice}"></span>
                 </div>
             </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="detailpage2">
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/상품3.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="detailpage3">
-            <div class="dtp">
-                <div class="dtpp">
+          </div>
+          </div>
+          
+          
+          
+          <div class="detailpage2">
+            <div class="dtp"  th:each="flower : ${storeList2}">
+                <div class="dtpp" >
                     <img src="/img/생화상품.png">
                 </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
+                <div class="dtt" >
+                    [<span class="storename" th:text="${flower.memberName}"></span>]
+                    <span class="productname" th:text="${flower.sbName}"></span><br>
+                    <span class="price" th:text="${flower.sbPrice}"></span>
                 </div>
             </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/생화상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="detailpage4">
-            <div class="dtp">
-                <div class="dtpp">
+          </div>
+          
+          <div class="detailpage3">
+            <div class="dtp"  th:each="terrarium : ${storeList3}">
+                <div class="dtpp" >
                     <img src="/img/테라리움상품.png">
                 </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
+                <div class="dtt" >
+                    [<span class="storename" th:text="${terrarium.memberName}"></span>]
+                    <span class="productname" th:text="${terrarium.sbName}"></span><br>
+                    <span class="price" th:text="${terrarium.sbPrice}"></span>
                 </div>
             </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/테라리움상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="detailpage5">
-            <div class="dtp">
-                <div class="dtpp">
+          </div>
+          
+          <div class="detailpage4">
+            <div class="dtp"  th:each="herb : ${storeList4}">
+                <div class="dtpp" >
                     <img src="/img/허브상품.png">
                 </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
+                <div class="dtt" >
+                    [<span class="storename" th:text="${herb.memberName}"></span>]
+                    <span class="productname" th:text="${herb.sbName}"></span><br>
+                    <span class="price" th:text="${herb.sbPrice}"></span>
                 </div>
             </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/허브상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="detailpage6">
-            <div class="dtp">
-                <div class="dtpp">
+          </div>
+          
+          <div class="detailpage5">
+            <div class="dtp"  th:each="etc : ${storeList5}">
+                <div class="dtpp" >
                     <img src="/img/기타상품.png">
                 </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
+                <div class="dtt" >
+                    [<span class="storename" th:text="${etc.memberName}"></span>]
+                    <span class="productname" th:text="${etc.sbName}"></span><br>
+                    <span class="price" th:text="${etc.sbPrice}"></span>
                 </div>
             </div>
+          </div>
 
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-            
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-            <div class="dtp">
-                <div class="dtpp">
-                    <img src="/img/기타상품.png">
-                </div>
-                <div class="dtt">
-                    [<span class="storename">일랑일랑</span>]
-                    <span class="productname">호멜로라니아</span><br>
-                    <span class="price">8000</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
+        <!-- 페이징 바 -->
+		<div class="paging" align="center" style="margin-top: 20px;">
+		<th:block
+			th:if="${ paging.searchCondition == null || paging.searchCondition.isEmpty() || paging.searchValue == null || paging.searchValue.isEmpty()}">
+			<!-- 맨 앞으로 이동 -->
+			<button
+					th:onclick="'location.href=\'/select/${category}?page=1\''">&lt;&lt;</button>
+​
+			<!-- 이전 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/select/[[${category}]]?page=' + @{${paging.page - 1}} + '\''"
+				th:disabled="${ paging.page <= 1 }">&lt;</button>
+​
+			<!-- 숫자 버튼 -->
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/select/[[${category}]]?page=' + @{${page}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.page eq page }">
+				</button>
+			</th:block>
+​
+			<!-- 다음 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/select/[[${category}]]?page=' + @{${paging.page + 1}} + '\''"
+				th:disabled="${ paging.page >= paging.maxPage }">></button>
+​
+			<!-- 맨 끝으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/select/$[[{category}]]?page=' + @{${paging.maxPage}} + '\''">>></button>
+		</th:block>
+		
+		
+		</div>
+        
+    
+       <div th:replace="/common/spfooter.html"></div>
 </body>
 </html>
