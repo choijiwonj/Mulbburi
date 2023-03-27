@@ -23,8 +23,9 @@ spring:
       location: C:/Users/hi/Desktop/Spring framework/project/sub-project/Mulbburi(src)
 
 
-
 # image upload directory
+image: 
+  image-dir: src/main/resources/upload/    
 
       
 # mybatis config
