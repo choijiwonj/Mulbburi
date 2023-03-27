@@ -42,4 +42,15 @@ function selTotalInfo(){
 
 
 }
+
+$(".buyButton").click(function(){
+	
+	$("input:checkbox[name='checkbox_input']").each(function(){
+		
+		console.log(this);
+		if($(this).is(":checked") ===true){
+			console.log(this);
+		}
+	})
+})
 }

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div th:replace="/common/j.header2.html"></div>
-	<form action="/cart/checkout" method="post">
+	<form action="/cart/list/checkout" method="post">
 	<div class="contentsWrap">
 		<div class="wishList">
 			<div class="pageTitle">장바구니</div>
@@ -38,7 +38,7 @@
 								<td class="contents"><span class="chkbox"> <input
 										type="checkbox" id="oneCheck" name="checkbox_input" th:value="${ci.totalPrice}"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
-										<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
+								<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
 								<input type="hidden" class="individual_sbAmount_input" th:value="${ci.pcAmount}">
 								</span> <span class="close deleteProductButton"><i
 										class="xi-close-min-reClose" th:onclick="deletesbNo([[${ci.pcNo}]])"></i>
@@ -92,7 +92,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<button class="button default full green mt10 buyButton" type="submit">주문하기</button>
+					<button class="button default full green mt10 buyButton">주문하기</button>
 				</div>
 			</div>
 		</div>
@@ -145,6 +145,7 @@ document.querySelectorAll('.quantity_modify_btn').forEach(function(btn) {
 	    updateCount(pcAmount, sbNo);
 	  });
 });
+
 	</script>
 </body>
 

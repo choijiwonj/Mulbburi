@@ -56,12 +56,12 @@ public class shoppingcartController {
 		return "shoppingcart/cartList";
 	}
 	
-	@PostMapping("/checkout")
+	@PostMapping("/list/checkout")
 	public String checkoutPost(@AuthenticationPrincipal MemberDTO member, RedirectAttributes redirectAttributes) {
 		List<cartDTO> cartList = cartService.getCartList(member.getMemberNo());
 		redirectAttributes.addFlashAttribute("cartList", cartList);
 		System.out.println("cartList : " + cartList);
-		return "redirect:/order/order.html";
+		return "redirect:/order/order";
 	}
 	
 	 @PostMapping("/list/deletesbNo")
