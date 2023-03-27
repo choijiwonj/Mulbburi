@@ -14,7 +14,11 @@
 		<result property="dtAddress" column="DT_ADDRESS"/>
 		<result property="bsAddress" column="BS_ADDRESS"/>
 		<result property="memberStatus" column="MEMBER_STATUS"/>
+<<<<<<< HEAD
 		<result property="custom" column="MEMBER_CUSTOM"/>
+=======
+		<result property="custom" column="CUSTOM"/>
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
 		<result property="businessName" column="BUSINESS_NAME"/>
 		<result property="businessNo" column="BUSINESS_NO"/>
 		<result property="email" column="EMAIL"/>
@@ -44,7 +48,11 @@
 		     , A.DT_ADDRESS
 		     , A.BS_ADDRESS
 		     , A.MEMBER_STATUS
+<<<<<<< HEAD
 		     , A.MEMBER_CUSTOM
+=======
+		     , A.CUSTOM
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
 		     , A.BUSINESS_NAME
 		     , A.BUSINESS_NO
 		     , A.EMAIL
@@ -82,7 +90,11 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
+<<<<<<< HEAD
         , MEMBER_CUSTOM
+=======
+        , CUSTOM
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
         , MEMBER_STATUS
         )
         VALUES
@@ -116,7 +128,11 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
+<<<<<<< HEAD
         , MEMBER_CUSTOM
+=======
+        , CUSTOM
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
         , MEMBER_STATUS
         )
         VALUES
@@ -141,7 +157,11 @@
         , FILE_PATH
         , FILE_SIZE
         , FILE_SAVED_NAME
+<<<<<<< HEAD
         , MEMBER_CUSTOM
+=======
+        , CUSTOM
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
         , MEMBER_NO  
         )
         VALUES
@@ -203,7 +223,11 @@
 		     , BS_ADDRESS
 		     , DT_ADDRESS
 		     , MEMBER_STATUS
+<<<<<<< HEAD
 		     , MEMBER_CUSTOM
+=======
+		     , CUSTOM
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
 		     , BUSINESS_NAME
 		     , BUSINESS_NO
 		     , EMAIL

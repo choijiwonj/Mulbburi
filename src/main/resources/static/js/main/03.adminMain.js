@@ -16,4 +16,3 @@ function showSlides() {
 }
 
 window.onload = showSlides;
-

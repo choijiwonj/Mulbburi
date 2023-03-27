@@ -6,9 +6,8 @@ import lombok.Data;
 public class FileDTO {
 
 	private int fileNo;
-	private String fileoriginalName;
+	private String fileOriginalName;
 	private String filePath;
-	private String fileSize;
 	private String fileSavedName;
 	private int custom;
 	private int sbNo;
@@ -16,5 +15,4 @@ public class FileDTO {
 	private int communityNo;
 	private int reviewNo;
 	private int bannerNo;
-	private int ytNo;
 }

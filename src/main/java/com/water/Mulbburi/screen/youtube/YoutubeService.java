@@ -34,10 +34,10 @@ public class YoutubeService {
 
 
 	/* 조회 */
-	public Map<String, Object> selectAllYoutube(Map<String, String> searchMap, int page) {	
+	public Map<String, Object> selectAllYoutube(int page) {	
 		
 		/* 1. 전체 게시글 수 확인 (검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서 */
-		int totalCount = ytMapper.selectTotalCount(searchMap);
+		int totalCount = ytMapper.selectTotalCount();
 		
 		/* 한 페이지에 보여줄 게시물의 수 */
 		int limit = 4;
@@ -46,13 +46,14 @@ public class YoutubeService {
 				
 		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
 
-		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
 
 		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
 		List<YoutubeDTO> youtubeList = ytMapper.selectAllYoutube(selectCriteria);
 		
 		Map<String, Object> ytListAndPaging = new HashMap<>();
 		ytListAndPaging.put("youtubeList", youtubeList);
+		ytListAndPaging.put("paging", selectCriteria);
 	
 		
 		return ytListAndPaging;
@@ -64,6 +65,8 @@ public class YoutubeService {
 		
 		ytMapper.deleteYoutube(youtubeDTO);
 	}
+
+
 
 
 }

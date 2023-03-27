@@ -48,29 +48,28 @@ public class YoutubeController {
 
 
 	/* 저장한 유투브 목록 가져오기 */
-	@GetMapping("screen/08-3. youtubeList")
+	@GetMapping("select/youtube")
 	public String selectAllYoutube(@RequestParam(defaultValue="1") int page, 
-				                   @RequestParam(required=false) String searchCondition, 
-				                   @RequestParam(required=false) String searchValue,
 				                   Model model
 ) {
 
-
-		Map<String, String> searchMap = new HashMap<>();
-		searchMap.put("searchCondition", searchCondition);
-		searchMap.put("searchValue", searchValue);
-		
-		Map<String, Object> ytListAndPaging = ytService.selectAllYoutube(searchMap, page);
+		Map<String, Object> ytListAndPaging = ytService.selectAllYoutube(page);
 		model.addAttribute("paging", ytListAndPaging.get("paging"));
-		model.addAttribute("youtubeList", ytListAndPaging.get("youtubeList"));		
+		model.addAttribute("youtubeList", ytListAndPaging.get("youtubeList"));	
 		
+		log.info("paging {}", ytListAndPaging.get("paging"));
+			
 		return "screen/08-3. youtubeList";
 	}
 	
 	/* 게시일이 되면 삭제하기 */
-	public void deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
+	@GetMapping("delete/youtube")
+	public String deleteYoutube(@ModelAttribute YoutubeDTO youtubeDTO) {
 		
 	  ytService.deleteYoutube(youtubeDTO);
+	  
+	  return "redirect:/youtube";
+	  
 	}
 }
 

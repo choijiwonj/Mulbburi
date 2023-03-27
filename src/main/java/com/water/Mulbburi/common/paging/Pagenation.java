@@ -6,7 +6,7 @@ import java.util.Map;
 public class Pagenation {
 
 
-    /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
+	 /* 검색어가 존재하는 경우 검색 조건으로 select 후 페이징 처리를 하기 위한 용도 */
     public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount, Map<String, String> searchMap) {
 
         int maxPage;			//전체 페이지에서 가장 마지막 페이지
@@ -44,9 +44,18 @@ public class Pagenation {
         return selectCriteria;
     }
 
+
     /* 검색어가 존재하지 않는 경우 */
 	public static SelectCriteria getSelectCriteria(int page, int totalCount, int limit, int buttonAmount) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getSelectCriteria(page, totalCount, limit, buttonAmount, new HashMap<>());
 	}
+
 }
+
+
+
+
+
+
+

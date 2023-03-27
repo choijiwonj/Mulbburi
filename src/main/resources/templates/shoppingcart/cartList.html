@@ -38,17 +38,34 @@
 								<td class="contents"><span class="chkbox"> <input
 										type="checkbox" id="oneCheck" name="checkbox_input" th:value="${ci.pcNo}"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
+<<<<<<< HEAD
 								<input type="hidden" name="checkbox_pcNo" data-id="${ci.pcNo}">			
 								<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
+=======
+
+										<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
 								<input type="hidden" class="individual_sbAmount_input" th:value="${ci.pcAmount}">
 								</span> <span class="close deleteProductButton"><i
 										class="xi-close-min-reClose" th:onclick="deletesbNo([[${ci.pcNo}]])"></i>
+                    
+								</span> <span class="close deleteProductButton" th:data-id="${ci.pcNo}" onclick="deleteCartItem(this)"><i
+							<tr>
+								<td class="contents"><span class="chkbox"> <input
+										type="checkbox" id="" name="" value=""> <label for=""
+										class="chkTitle20 checkText tailCheck"></label>
+								</span> <span class="close deleteProductButton" onclick="deleteCartItem(this)"><i
+										class="xi-close-min-reClose"></i>
 								</span>
 									<div class="wishBoxArea">
 										<div class="imgBox">
 											<img src="/img/배너1.jpg">
 										</div>
 										<div class="con">
+											<span th:text="${ci.sbName}"></span><br><span th:text="${sbPrice}"> <br> 합계 : 0원 <br>
+											무우안우나움나이ㅓㄴ미아ㅓㄴ미아ㅓㅁㄴ이ㅏㅓㄴ미아ㅓ <br> <span> 상품기본가격 :
+												0원 <br> 합계 : 0원 <br>
+											</span>
 											<span th:text="${ci.sbName}"></span><br><span class="sbPrice" th:text="${ci.sbPrice}"><br><br>											
 											</span>원
 										</div>
@@ -60,7 +77,9 @@
 												<input type="number" th:value="${ci.pcAmount}" class="quantity_input" name="pcAmount" min="0"> 개
 												<a class="quantity_modify_btn" th:attr="data-sbno=${ci.sbNo}">변경</a>
 												<div class="priceSum">
+													<span></span> 원
 													<span class="sbtotalPrice" th:text="${ci.totalPrice}"></span>원
+
 												</div>
 											</div>
 										</div>
@@ -77,19 +96,23 @@
 							</tr>
 							<tr class="firstChild">
 								<td>선택 상품 수</td>
-								<td class="txtRight"><span class="quantity"></span> 개</td>
+
+								<td class="txtRight"><span class="quantity">0</span> 개</td>
 							</tr>
 							<tr>
 								<td>총 상품금액</td>
-								<td class="txtRight"><span class="totalPrice"></span> 원</td>
+								<td class="txtRight"><span class="orderAmountSum">0</span>
+									원</td>
 							</tr>
 							<tr>
 								<td>배송비</td>
-								<td class="txtRight"><span class="orderAmountSum"></span> 원</td>
+								<td class="txtRight"><span class="orderAmountSum">0</span>
+									원</td>
 							</tr>
 							<tr>
 								<td class="finalPrice fl">결제 예정 금액</td>
-								<td class="txtRight finalPrice"><span class="payAmountSum"></span> 원</td>
+								<td class="txtRight finalPrice"><span class="payAmountSum">0</span>
+									원</td>
 							</tr>
 						</tbody>
 					</table>

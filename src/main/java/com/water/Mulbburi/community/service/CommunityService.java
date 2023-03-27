@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*///*
 //  package com.water.Mulbburi.community.service;
 //
@@ -54,3 +55,5 @@ public class CommunityService {
 		return communityListAndPaging;
 	}*/
 //}
+=======
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e

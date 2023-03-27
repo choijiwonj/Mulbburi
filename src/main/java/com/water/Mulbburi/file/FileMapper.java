@@ -8,6 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 public interface FileMapper {
 	
 	List<FileDTO> selectAllFile();
+	
+	/* 파일 업로드 */
+	void insertBanner(FileDTO fileDTO);
 
 
 }

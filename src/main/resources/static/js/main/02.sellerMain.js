@@ -15,5 +15,5 @@ function showSlides() {
     setTimeout(showSlides, 2000);
 }
 
-window.onload = showSlides;
+showSlides();
 

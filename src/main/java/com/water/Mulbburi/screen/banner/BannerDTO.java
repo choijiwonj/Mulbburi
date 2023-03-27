@@ -1,6 +1,7 @@
 package com.water.Mulbburi.screen.banner;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +22,6 @@ public class BannerDTO {
 	private Date bannerPostDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date bannerEndDate;
-	private FileDTO fileDTO;
+	private List<FileDTO> fileList;
 
 }

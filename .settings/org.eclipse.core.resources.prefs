@@ -1,5 +1,15 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+<<<<<<< HEAD
+=======
+encoding//src/main/resources/static/css/common/hheader.css=UTF-8
+encoding//src/main/resources/static/css/common/mheader.css=UTF-8
+encoding//src/main/resources/static/css/main/01.purchaseMain.css=UTF-8
+encoding//src/main/resources/static/css/main/02.sellerMain.css=UTF-8
+encoding//src/main/resources/static/css/screen/08-2.\ bannerList.css=UTF-8
+encoding//src/main/resources/static/css/screen/08.\ screenControll.css=UTF-8
+encoding//src/main/resources/static/css/store/04.\ store.css=UTF-8
+>>>>>>> 0822f007817c5acffdf1b7a0b8a0b8fd96dfed1e
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
