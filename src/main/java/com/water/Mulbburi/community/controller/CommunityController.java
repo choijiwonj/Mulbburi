@@ -28,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/community")
 public class CommunityController {
 	
+
 	private final CommunityService communityService;
 	private final MessageSourceAccessor messageSourceAccessor;
 	

@@ -25,6 +25,8 @@ spring:
 
 
 # image upload directory
+image: 
+  image-dir: src/main/resources/upload/ 
 
       
 # mybatis config

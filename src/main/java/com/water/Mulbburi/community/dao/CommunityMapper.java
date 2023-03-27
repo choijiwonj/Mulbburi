@@ -24,7 +24,7 @@ public interface CommunityMapper {
 
 	void insertContent(CommunityDTO community);
 
-	void insertFile(FileDTO file);
+	void insertAttachment(AttachmentDTO attachment);
 
 	int selectThumbnailTotalCount();
 
@@ -34,8 +34,13 @@ public interface CommunityMapper {
 
 	CommunityDTO selectThumbnailCommunityDetail(Long no);
 
-	void insertAttachment(AttachmentDTO attachment);
+	int selectTotalCount(Map<String, String> searchMap);
 
+	CommunityDTO selectCommunityDetail(Long no);
+
+	List<CommunityDTO> selectCommunityList(SelectCriteria selectCriteria);
+
+	
 
 	
 	

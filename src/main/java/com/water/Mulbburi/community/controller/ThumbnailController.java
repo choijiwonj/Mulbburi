@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -21,7 +22,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.service.CommunityService;
-import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +31,8 @@ import net.coobird.thumbnailator.Thumbnails;
 @Controller
 @RequestMapping("/thumbnail")
 public class ThumbnailController {
+	
+	
 	
 	@Value("${image.image-dir}")
 	private String IMAGE_DIR;
@@ -111,7 +113,7 @@ public class ThumbnailController {
 				}
 			}
 			
-			log.info("[AttachmentThumbnailController] attachmentList : {}", attachmentList);
+			log.info("[ThumbnailController] attachmentList : {}", attachmentList);
 			
 			community.setAttachmentList(attachmentList);
 			community.setWriter(member);
