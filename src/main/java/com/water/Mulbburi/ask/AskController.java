@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.water.Mulbburi.main.MainControll;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class AskController {
 	
@@ -44,7 +49,9 @@ public class AskController {
 		Map<String, Object> askListAndPaging = askService.selectAllAsk(page);
 		model.addAttribute("askList", askListAndPaging.get("askList"));
 		
-		return "ask/12-4. oneAskAnswer";
+		log.info("askList {}", askListAndPaging.get("askList"));
+		
+		return "redirect:/askone";
 	}
 	
 	@GetMapping("notice")
@@ -62,6 +69,6 @@ public class AskController {
 		
 		askService.registAnswer(askDTO);
 		
-		return "redirect:askone";
+		return "redirect:/askone";
 	}
 }

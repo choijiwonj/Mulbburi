@@ -367,3 +367,8 @@ input:focus {
     background-color: rgba(118, 141, 131, 0.8);
     color:white;
 }
+
+#check{
+	margin-left: 1%;
+	margin-bottom: 10%;
+}
