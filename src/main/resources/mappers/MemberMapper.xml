@@ -14,7 +14,7 @@
 		<result property="dtAddress" column="DT_ADDRESS"/>
 		<result property="bsAddress" column="BS_ADDRESS"/>
 		<result property="memberStatus" column="MEMBER_STATUS"/>
-		<result property="custom" column="CUSTOM"/>
+		<result property="custom" column="MEMBER_CUSTOM"/>
 		<result property="businessName" column="BUSINESS_NAME"/>
 		<result property="businessNo" column="BUSINESS_NO"/>
 		<result property="email" column="EMAIL"/>
@@ -44,7 +44,7 @@
 		     , A.DT_ADDRESS
 		     , A.BS_ADDRESS
 		     , A.MEMBER_STATUS
-		     , A.CUSTOM
+		     , A.MEMBER_CUSTOM
 		     , A.BUSINESS_NAME
 		     , A.BUSINESS_NO
 		     , A.EMAIL
@@ -82,7 +82,7 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
-        , CUSTOM
+        , MEMBER_CUSTOM
         , MEMBER_STATUS
         )
         VALUES
@@ -116,7 +116,7 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
-        , CUSTOM
+        , MEMBER_CUSTOM
         , MEMBER_STATUS
         )
         VALUES
@@ -141,7 +141,7 @@
         , FILE_PATH
         , FILE_SIZE
         , FILE_SAVED_NAME
-        , CUSTOM
+        , MEMBER_CUSTOM
         , MEMBER_NO  
         )
         VALUES
@@ -203,7 +203,7 @@
 		     , BS_ADDRESS
 		     , DT_ADDRESS
 		     , MEMBER_STATUS
-		     , CUSTOM
+		     , MEMBER_CUSTOM
 		     , BUSINESS_NAME
 		     , BUSINESS_NO
 		     , EMAIL

@@ -38,6 +38,7 @@
 								<td class="contents"><span class="chkbox"> <input
 										type="checkbox" id="oneCheck" name="checkbox_input" th:value="${ci.totalPrice}"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
+								<input type="hidden" name="checkbox_pcNo" data-id="${ci.pcNo}">			
 								<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
 								<input type="hidden" class="individual_sbAmount_input" th:value="${ci.pcAmount}">
 								</span> <span class="close deleteProductButton"><i

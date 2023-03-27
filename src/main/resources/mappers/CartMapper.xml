@@ -54,4 +54,5 @@
 	WHERE MEMBER_NO = #{memberNo} and #{sbNo}
 </select>
 
+
 </mapper>

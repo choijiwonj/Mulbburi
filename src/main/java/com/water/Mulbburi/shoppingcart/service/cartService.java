@@ -55,8 +55,4 @@ public class cartService {
 	public void modifyCount(cartDTO updateCartPost) {
 		cartDAO.modifyCount(updateCartPost);
 	}
-	
-	
-
-	
 }
