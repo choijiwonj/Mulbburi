@@ -1,16 +1,19 @@
 package com.water.Mulbburi.member.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.dto.MemberOrderDTO;
 import com.water.Mulbburi.member.service.MyPageService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +32,12 @@ public class MyPageController {
 		
 	/* 배송확인 페이지 이동 */
 	@GetMapping("/mypage/delivery")
+	public String goDelivery() {
+		
+		return "member/mypage/delivery";
+	}
+	
+	@PostMapping("/mypage/delivery")
 	public String delivery() {
 		
 		return "member/mypage/delivery";
@@ -64,7 +73,15 @@ public class MyPageController {
 	
 	/* 주문상세내역 페이지 이동 */
 	@GetMapping("/mypage/orderDetail")
-	public String orderDetail() {
+	public String goOrderDetail() {
+		
+		return "member/mypage/orderDetail";
+	}
+	
+	@PostMapping("/mypage/orderDetail")
+	public String orderDetail(@RequestParam("selectOrder") List<String> selectOrders) {
+		
+		System.out.println(selectOrders);
 		
 		return "member/mypage/orderDetail";
 	}
@@ -74,19 +91,20 @@ public class MyPageController {
 	public String orderList(@RequestParam(defaultValue="1") int page, 
 			@RequestParam(required=false) String searchCondition,
 			@RequestParam(required=false) String searchValue,
-			@AuthenticationPrincipal MemberDTO member, 
+			@AuthenticationPrincipal MemberDTO member,
+			MemberOrderDTO orderDTO,
 			Model model) {
-		
-		System.out.println("orderList :" + member);
-		
+			
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
 		searchMap.put("searchValue", searchValue);
 		
-		Map<String, Object> orderListAndPaging = myPageService.selectOrderList(searchMap, page, member);
+		Long memberNo = member.getMemberNo();
+		
+		
+		Map<String, Object> orderListAndPaging = myPageService.selectOrderList(searchMap, page, memberNo);
 		model.addAttribute("paging", orderListAndPaging.get("paging"));
 		model.addAttribute("orderList", orderListAndPaging.get("orderList"));
-		
 		
 		return "member/mypage/orderList";
 	}

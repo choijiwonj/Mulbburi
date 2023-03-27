@@ -8,7 +8,7 @@
     <title>orderList</title>
     <link href="/css/member/mypage/orderList.css" rel="stylesheet" style type="text/css">
     <link href="/css/common/font.css" rel="stylesheet" style type="text/css">
-    <script type="text/javascript" defer src="../../resources/js/mypageMain.js"></script>
+    <!-- <script type="text/javascript" defer src="/js/member/mypage.js"></script> -->
 </head>
 <body>  
     <div class="wraaper">
@@ -19,31 +19,49 @@
     <div class="title">
         <p>주문내역</p>
     </div>
+    <form name="form" method="post">
     <div class="btn">
-        <a href="/member/mypage/delivery" class="delivery">배송 조회</a>
-        <a href="/member/mypage/orderDetail" class="check">상세 조회</a>
+        <input type="submit" class="delivery" id="delivery" value="배송 조회" onclick="javascript: form.action='/member/mypage/delivery';"></input>   
+        <input type="submit" class="check" id="check" value="상세 조회" onclick="javascript: form.action='/member/mypage/orderDetail';"></input>
     </div>
     <div>
         <hr>
-    </div>   
-    <div class="productPage">
-    <form>
-    <div class="product" th:each="memberList : ${ orderList }">
-        <input type="checkbox" class="checkbox">
-        <img src="/img/yeob01.png" class="photo">
-        <div class="productName">
-        <span class="prName" id="sbName" th:text="${ memberList.sbName }"></span><br>
-        <span class="prCode" id="orderNo" th:text="${ memberList.orderNo }"></span>
+    </div> 
+      
+		<div class="productPage">
+        <table class="productMenu">
+        	<tr>
+        		<th class="menu1">선택</th>
+        		<th class="menu2">상품명</th>
+        		<th class="menu3">주문번호</th>
+        		<th class="menu4">주문수량</th>
+        		<th class="menu5">주문날짜</th>
+        		<th class="menu6">주문금액</th>
+	        </tr>
+            <tr th:each="order : ${ orderList }" class="orderMenu">
+                <td class="omenu1">
+                    <span><input type="checkbox" class="checkbox"></input></span>
+                </td>
+                <td>    
+                    <span class="omenu2" th:text="${ order.sbName}"></span>
+                </td>
+                <td>    
+                    <span class="omenu3" th:text="${ order.orderNo}"></span>
+                </td>
+                <td>    
+                    <span class="omenu4" th:text="${ order.orderAmount}"></span>
+                </td>
+                <td>    
+                    <span class="omenu5" th:text="${ order.orderDate }"></span>
+                </td>
+                <td>    
+                    <span class="omenu6" th:text="${ order.orderAmountMoney}"></span>
+                </td>
+            </tr>
+        </table>    
+        </form>
         </div>
-        <div class="productDate">
-        <span class="prName" id="orderDate" th:text="${ memberList.orderDate }"></span>
-        </div>
-        <div class="productMon">
-        <span class="prMoney" id="orderMoney" th:text="${ memberList.orderMoney }"></span>
-        </div>
-    </div>    
-    </form>
-    </div>
+    
    <!-- 페이징 바 -->
 	<div id="paging" align="center" class="paging" style="margin-top: 20px;">
 		<th:block
@@ -89,5 +107,30 @@
 	</div> 
 	<div th:replace="common/spfooter.html"></div> 
     </div>
+    
+    <script>
+    if(document.getElementById("orderDetail")) {
+        
+        const form = document.getElementById('orderDetail');
+
+       form.addEventListener('submit', (e) => {
+         e.preventDefault();
+
+         const formData = new FormData(form);
+
+         fetch('/member/mypage/orderDetail', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json;charset=UTF-8'
+           },
+           body: formData,
+         })
+         .then(res => res.json())
+         .then(data => console.log(data));
+       })
+       
+       
+    };   
+    </script>
 </body>
 </html>

@@ -177,7 +177,7 @@ hr {
     opacity: 0.6;
     border: none;
     color: white;
-    padding: 10px 30px;
+    padding: 20px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -193,7 +193,7 @@ hr {
     opacity: 0.6;
     border: none;
     color: white;
-    padding: 10px 30px;
+    padding: 20px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -215,42 +215,9 @@ hr {
     width: 80px;
 }
 
-.prName {
-    margin-left: 2%;
-}
-
-.prCode {
-    margin-left: 2%;
-}
-
-.prDate {
-    margin-left: 10%;
-}
-
-.prMoney {
-    margin-left: 10%;
-}
-
-.productName {
-    width: 200px;
-    margin-left: 4%;
-    margin-top: 1%;
-}
-
-.productDate {
-    width: 200px;
-    margin-left: 30%;
-    margin-top: 2%;
-}
-
-.productMon {
-    width: 200px;
-    margin-left: 4%;
-    margin-top: 2%;
-}
-
 .productPage {
     height: 840px;
+    margin-left: 18%;
 }
 
 .paging {
@@ -258,21 +225,91 @@ hr {
     background-color: white;
     font-size: 18px;
 }
-
-.checkbox {
-    accent-color: #768D83;
+/* 
+.prName {
+    padding-left: 2%;
+    font-size: 20px;
+    font-weight: 700px;
 }
 
-.paging {
+.prCode {
+    padding-left: 5%;
+}
+
+.productAccount {
+    padding-left: 25%;
+}
+
+.productDate {
+    padding-left: 20%;
+}
+
+.productMon {
+    padding-left: 10%;
+    font-size: 20px;
+    font-weight: 700px;
+}
+
+
+.orderMenu {
+	padding-top : 5%;
+}
+ */
+
+.menu1 {
+	width : 150px;
+}
+
+.menu2 {
+	width : 300px;
+}
+
+.menu3 {
+	width : 150px;
+}
+
+.menu4 {
+	width : 100px;
+}
+
+.menu5 {
+	width : 400px;
+}
+
+.menu6 {
+	width : 150px;
+}
+
+.omenu1 {
+	text-align: center;
+}
+
+.omenu2 {
+	text-align: center;
+	font-size : 20px
+}
+
+.omenu3 {
+	text-align: center;
+}
+
+.omenu4 {
+	text-align: center;
+}
+
+.omenu5 {
+	text-align: center;
+}
+
+.omenu6 {
+	text-align: center;
+	font-size : 20px
+}
+
+.productMenu {
     text-align: center;
-    margin: 30px;
 }
 
-.paging button {
-    margin: 0 10px;
-    border: 0;
-    background-color: transparent;
-    color: rgba(118, 141, 131, 0.8);
-    font-size: 12px;
-    font-weight: 700;
+td {
+	padding-top : 4%;
 }

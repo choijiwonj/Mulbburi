@@ -1,6 +1,7 @@
 package com.water.Mulbburi.member.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,6 +14,7 @@ public class MemberOrderDTO {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date orderDate;
 	private String sbName;
+	private Long orderAmount;
 	private Long orderAmountMoney;
 	private Long memberNo;
 }
