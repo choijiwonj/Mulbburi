@@ -24,6 +24,30 @@ public class FileDTO {
 		// TODO Auto-generated method stub
 		
 	}
+	public void setOriginalName(String originalFileName) {
+		// TODO Auto-generated method stub
 		
+	}
+	public void setSavedName(String savedFileName) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setSavePath(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setFileType(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public String getSavePath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getSavedName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	}
 
