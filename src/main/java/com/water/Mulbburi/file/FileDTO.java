@@ -1,5 +1,7 @@
 package com.water.Mulbburi.file;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -17,4 +19,11 @@ public class FileDTO {
 	private int reviewNo;
 	private int bannerNo;
 	private int ytNo;
-}
+	private List<FileDTO> fileList;
+	public void setThumbnailPath(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+		
+	}
+

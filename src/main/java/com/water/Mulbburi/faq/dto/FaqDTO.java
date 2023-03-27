@@ -1,6 +1,8 @@
-package com.water.Mulbburi.consumer.dto;
+package com.water.Mulbburi.faq.dto;
 
 import java.util.Date;
+
+import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.Data;
 
@@ -12,6 +14,10 @@ public class FaqDTO {
 	private String faqSt;
 	private int memberNo;
 	private Date faqWriteTime;
+	public void setWriter(MemberDTO member) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

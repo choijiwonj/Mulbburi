@@ -103,7 +103,7 @@ public class ConsumerController {
 		
 		consumerService.registConsumer(consumer);
 		
-		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("consumer.regist"));
+		rttr.addFlashAttribute("messages", messageSourceAccessor.getMessage("consumer.regist"));
 		
 		return "redirect:/consumer/googi";
 		

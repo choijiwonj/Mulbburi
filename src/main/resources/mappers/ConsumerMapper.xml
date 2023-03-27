@@ -10,14 +10,6 @@
       <result property="anWriteTime" column="AN_WRITE_TIME"/>
    </resultMap>
 
- <resultMap type="com.water.Mulbburi.consumer.dto.FaqDTO" id="faqAllResultMap">
-      <id property="faqNo" column="FAQ_NO"/>
-      <result property="faqCategory" column="FAQ_CATEGORY"/>
-      <result property="faqSt" column="FAQ_ST"/>
-      <result property="memberNo" column="MEMBER_NO"/>
-      <result property="faqWriteTime" column="FAQ_WRITE_TIME"/>
-   </resultMap>
-
 
 
 
@@ -81,19 +73,19 @@ WHERE RNUM >= #{ startRow }
     <insert id="insertConsumer">
         INSERT 
         INTO ANNOUNCEMENT 
-        (	   A.ANNOUNCEMENT_NO
-             , A.ANNOUNCEMENT_TITLE
-             , A.ANNOUNCEMENT_ST
-             , A.ADMINISTRATOR_NO                              
-             , A.AN_WRITE_TIME                             
+        (	   ANNOUNCEMENT_NO
+             , ANNOUNCEMENT_TITLE
+             , ANNOUNCEMENT_ST
+             , ADMINISTRATOR_NO                              
+             , AN_WRITE_TIME                             
         )
         VALUES
         (
         SEQ_ANNOUNCEMENT_NO.NEXTVAL
         , #{ announcementTitle }
         , #{ announcementSt }
-        , #{ administratorNo } 
-        , "23/03/17" 
+        , 1
+        , SYSDATE 
         )
     </insert>
     
@@ -103,38 +95,6 @@ WHERE RNUM >= #{ startRow }
    
 
 
-<!-- 게시물 목록 -->
-<select id="selectFAQList" resultMap="faqAllResultMap">
-SELECT 
-FAQ_NO
-	  , FAQ_CATEGORY
-	  , FAQ_ST
-	  , MEMBER_NO
-	  , FAQ_WRITE_TIME
-FROM (SELECT
-    ROWNUM RNUM
-      ,		FAQ_NO
-	  , FAQ_CATEGORY
-	  , FAQ_ST
-	  , MEMBER_NO
-	  , FAQ_WRITE_TIME
-FROM
-
-(SELECT 
-		FAQ_NO
-	  , FAQ_CATEGORY
-	  , FAQ_ST
-	  , MEMBER_NO
-	  , FAQ_WRITE_TIME
-	
-	FROM ANNOUNCEMENT
-    WHERE FAQ_DELETE_TIME IS NULL
-    ORDER BY FAQ_NO DESC)
-     <![CDATA[
-    WHERE ROWNUM <=  #{ endRow })
-    ]]>
-WHERE RNUM >= #{ startRow }
-</select>
 
 
 
