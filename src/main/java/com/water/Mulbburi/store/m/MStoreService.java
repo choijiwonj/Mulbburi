@@ -143,7 +143,6 @@ public class MStoreService {
 		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
 
 		List<MStoreDTO> storeList5 = stMapper.selectMyETC(selectCriteria);
-		List<String> categoryList = new ArrayList<>();
 
 		Map<String, Object> stListAndPaging = new HashMap<>();
 

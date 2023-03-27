@@ -9,7 +9,7 @@
 	<result property="memberNo" column="MEMBER_NO"/>
 	<result property="prodCategoryNo" column="PROD_CATEGORY_NO"/>
 	<result property="sbInventory" column="SB_INVENTORY"/>
-	<result property="memberName" column="MEMBER_NAME"/>
+	<result property="memberID" column="MEMBER_ID"/>
 </resultMap>
 
 <select id="selectMyDayuk" parameterType="com.water.Mulbburi.store.m.MStoreDTO" resultMap="storeResultMap">
