@@ -54,14 +54,20 @@ public class AskController {
 	   }
 	   
 	   @PostMapping("/update/answer")
-	   public String updateAnswer(@RequestParam int inquiryNo, @RequestParam String inquiryAnswer) {
+	   public String updateAnswer(@RequestParam int inquiryNo, @RequestParam String inquiryAnswer, Model model) {
 		   
 		   
 		   log.info("inquiryAnswer {}", inquiryAnswer);
 		   log.info("inquiryNo {}", inquiryNo);
 		   
+		   AskDTO askList = askService.getEmail(inquiryNo);
+		   model.addAttribute("askList", askList);
 		   
 	        askService.updateAnswer(inquiryNo, inquiryAnswer);
+	        
+	        Map<String, Object> askListAndPaging = askService.updateAnswer(inquiryNo, inquiryAnswer);
+	        model.addAttribute("inquiryNo", askListAndPaging.get("inquiryNo"));
+	        model.addAttribute("inquiryAnswer", askListAndPaging.get("inquiryAnswer"));
 			   
 		   return "redirect:/main/01.purchaseMain";
 	   }

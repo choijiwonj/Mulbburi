@@ -54,9 +54,21 @@ public class AskService {
 		return email;
 	}
 
-	public void updateAnswer(int inquiryNo, String inquiryAnswer) {
+	public Map<String, Object> updateAnswer(int inquiryNo, String inquiryAnswer) {
 		
 		askMapper.updateAnswer(inquiryNo, inquiryAnswer);
+		
+		AskDTO askList = askMapper.selectMyEmail(inquiryNo);
+		
+		Map<String, Object> askListAndPaging = new HashMap<>();
+		
+		askListAndPaging.put("inquiryNo", inquiryNo);
+		askListAndPaging.put("inquiryAnswer", inquiryAnswer);
+		
+		log.info("inquiryNo {}", inquiryNo);
+		log.info("inquiryAnswer {}", inquiryAnswer);
+		
+		return askListAndPaging;
 		
 	}	
 

@@ -14,7 +14,8 @@
     <div class="topground2"></div>
     <div class="imgback2">
         <div class="dbbase2">
-            <form id="update/answer" method="post" action="/update/answer">
+            <form id="update/answer" method="POST" action="/update/answer">
+            	<!-- <input type="hidden" name="orderNo" th:value="${ order.orderNo }"> -->
                 <div class="answerid"><input type="text" id="inputanswer" placeholder="답변을 입력해주세요." name="inquiryAnswer"></div>
                 <input type="submit" value="전송하기"></button></form>
             </div>
