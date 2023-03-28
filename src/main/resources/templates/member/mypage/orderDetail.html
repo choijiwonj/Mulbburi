@@ -25,23 +25,23 @@
         <span th:text="${ order.orderNo }">주문번호 20231B419</span>
     </div>
      
-    <form>
+    <form name="form" id="" method="get">
     <div class="flex">
         <div class="page1">
-        	<table>
+        	<table >
         	<tr>
         		<th class="menu1">선택</th>
-        		<th class="menu2">판매자ID</th>
+        		<th class="menu2">판매업체명</th>
         		<th class="menu3">상품명</th>
         		<th class="menu4">주문수량</th>
         		<th class="menu5">주문금액</th>
         	</tr>
         	<tr>
         	<td>
-            <span><input type="checkbox" class="omenu1"></span>
+            <span><input type="checkbox" class="omenu1" name="orderNo" th:value="${ order.orderNo }"></span>
             </td>
             <td>
-            <span class="omenu2" th:text="${ order.memberId }">[판매자이름]</span>
+            <span class="omenu2" th:text="${ order.businessName }">[판매자이름]</span>
             </td>
             <td>
             <span class="omenu3" th:text="${ order.sbName }">상품명</span>
@@ -61,13 +61,14 @@
         </div>
     </div> 
     <div class="pwdBtn">
-        <button type="submit" class="access">환불 신청</button>
-        <a href="#none" class="exit">교환 신청</a>
+        <button type="submit" class="refund" id="refund" value="환불 신청" onclick="javascript: form.action='/member/mypage/refund';">환불 신청</button>   
+        <button type="submit" class="exchange" id="exchange" value="교환 신청" onclick="javascript: form.action='/member/mypage/exchange';">교환 신청</butoon>
     </div>
     </form>
 
 	<div th:replace="common/spfooter.html"></div>
 
     </div>
+    
 </body>
 </html>

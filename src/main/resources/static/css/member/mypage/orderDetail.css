@@ -197,7 +197,7 @@ a {
     margin-top: 10px;
 }
 
-.access {
+.refund {
     background-color: #7E7171;
     opacity: 0.6;
     border: none;
@@ -213,7 +213,7 @@ a {
 
 }
 
-.exit {
+.exchange {
     background-color: #7E7171;
     opacity: 0.6;
     border: none;
@@ -312,4 +312,9 @@ img {
 
 .menu5 {
 	width:200px;
+}
+
+td {
+	text-align: center;
+	padding-top : 5%;
 }

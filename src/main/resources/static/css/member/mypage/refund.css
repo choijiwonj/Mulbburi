@@ -292,7 +292,7 @@ img {
     margin-left: 63%;
 }
 
-#refundText {
+#refundReas {
     width: 650px;
     height: 150px;
     background-color: rgba(126, 117, 113, 0.1);
@@ -302,7 +302,7 @@ img {
     border-left: none;
 }
 
-#refundAccount {
+#reasonAccount {
     width: 650px;
     height: 30px;
     background-color: rgba(126, 117, 113, 0.1);

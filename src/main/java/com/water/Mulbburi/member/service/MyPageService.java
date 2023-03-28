@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.member.dao.MyPageMapper;
-import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.dto.MemberExchangeDTO;
 import com.water.Mulbburi.member.dto.MemberOrderDTO;
+import com.water.Mulbburi.member.dto.MemberRefundDTO;
 
 
 
@@ -55,5 +55,50 @@ public class MyPageService {
 		
 		 return mapper.selectOrderDetail(orderNo);
 	}
+
+	public void insertRefund(MemberRefundDTO refund) {
+		
+		int result = mapper.insertRefund(refund);
+			
+	}
+
+	public void insertExchange(MemberExchangeDTO exchange) {
+		
+		System.out.println("exchange : " + exchange);
+		
+		int result = mapper.insertExchange(exchange);
+	}
+
+	public Long selectSbNo(Long orderNo) {
+		
+		System.out.println("orderNo : " + orderNo);
+		
+		return mapper.selectSbNo(orderNo);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

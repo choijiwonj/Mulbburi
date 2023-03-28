@@ -17,5 +17,5 @@ public class MemberOrderDTO {
 	private Long orderAmount;
 	private Long orderAmountMoney;
 	private Long memberNo;
-	private String memberId;
+	private String businessName;
 }
