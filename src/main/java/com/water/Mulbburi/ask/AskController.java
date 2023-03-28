@@ -63,6 +63,7 @@ public class AskController {
 		   AskDTO askList = askService.getEmail(inquiryNo);
 		   model.addAttribute("askList", askList);
 		   
+		   
 	        askService.updateAnswer(inquiryNo, inquiryAnswer);
 	        
 	        Map<String, Object> askListAndPaging = askService.updateAnswer(inquiryNo, inquiryAnswer);
