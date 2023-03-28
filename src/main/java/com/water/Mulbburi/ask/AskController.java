@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,23 +41,31 @@ public class AskController {
 		return "ask/12-1. oneAsk";
 	}
 
-	@PostMapping("/askone")
-	public String getEmail(@RequestParam String askNo, Model model) {
-			
-			model.addAttribute("askNo", askNo);
-					
-			return "forward:/regist/answer";
-	}
-	
-	@GetMapping("regist/answer")
-	public String registAnswer(Model model) {
-		
-		String askNo = model.getAttribute("askNo").toString();
-		
-		log.info("askNo {}", askNo);
-		
-		return "redirect:/askone";
-	}
+	   
+	   @PostMapping("getEmail")
+	   public String getEmail(Model model, @RequestParam int inquiryNo) {
+		   
+		   AskDTO askList = askService.getEmail(inquiryNo);
+		   model.addAttribute("askList", askList);
+		   
+		   model.addAttribute("inquiryNo", inquiryNo);
+		   
+	      return "redirect:ask/12-1. oneAsk";
+	   }
+	   
+	   @PostMapping("/update/answer")
+	   public String updateAnswer(@RequestParam int inquiryNo, @RequestParam String inquiryAnswer) {
+		   
+		   
+		   log.info("inquiryAnswer {}", inquiryAnswer);
+		   log.info("inquiryNo {}", inquiryNo);
+		   
+		   
+	        askService.updateAnswer(inquiryNo, inquiryAnswer);
+			   
+		   return "redirect:/main/01.purchaseMain";
+	   }
+	   
 
 	@GetMapping("notice")
 	public String notice() {

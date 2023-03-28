@@ -169,10 +169,6 @@ body{
     margin-right: 6%;
 }
 
-.category5 div{
-	
-}
-
 .story{
     font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
@@ -209,7 +205,7 @@ body{
 
 /* 답변 */
 .answer{
-        display: flex;
+    display: flex;
     /* margin-bottom: 30px; */
     font-family: 'TAEBAEKmilkyway';
     font-weight: bold;
@@ -219,8 +215,11 @@ body{
     height: 20px;
     padding-top: 8px;
     background-color: rgba(169, 197, 185);
-    padding-left: 35px;
-    margin-top: 32%;
+    padding-left: 3%;
+    margin-top: 91%;
+    margin-left: 65%;
+    padding-right: 3%;
+    justify-content: center;
 }
 
 /* 1대1 답변하기 */
@@ -231,9 +230,10 @@ body{
 }
 
 .topground3{
-    background: rgba(169, 197, 185);
-    height: 73px;
+   background: rgba(169, 197, 185);
+    height: 75px;
     width: 100%;
+    margin-top: 30%;
 }
 
 .imgback2{
@@ -301,9 +301,14 @@ input:focus {
     font-size: 14px;
     color: rgba(126, 113, 113);
     margin-top: 5%;
-    /* width: 80%; */
+    /* width: 83%; */
     height: 100%;
     text-align: center;
+    margin-left: 9%;
+}
+
+.submitted{
+	margin-left: 88%;
 }
 
 .dbbase2 div{

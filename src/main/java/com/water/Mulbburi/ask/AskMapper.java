@@ -12,7 +12,8 @@ public interface AskMapper {
 	int selectTotalCount();
 	List<AskDTO> selectAllAsk(SelectCriteria selectCriteria);
 	
-	
-	String insertAnswer(String askNo);
+	AskDTO selectMyEmail(int inquiryNo);
+
+	void updateAnswer(int inquiryNo, String inquiryAnswer);
 
 }

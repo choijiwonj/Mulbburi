@@ -24,17 +24,16 @@
 
                 <div class="dropdown">
                 <div class="mydropdown">
-                <form action="getEmail">
                            <div class="story" th:each="ask : ${askList}">
-                           <input type="checkbox" th:name="askNo" th:value="${ask.inquiryNo}">
+                           <input type="radio" th:name="inquiryNo" th:value="${ask.inquiryNo}">
                             <div class="bannertitle" th:text="${ask.inquiryTitle}"></div>
                             <div class="writedate" th:text="${ask.memberID}"></div>
                             <div class="deletedate" th:text="${ask.email}"></div>
                             <div class="postingdate" th:text="${ask.inquiryCategory}"></div>
                             <div class="enddate" th:text="${ask.inquirySt}"></div>
+                       
                         </div>
-                        <input type="submit" class="answerd">
-                    </form>
+                       <button class="answerd"></button>
                     </div>
                     
                     

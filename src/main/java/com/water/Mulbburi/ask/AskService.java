@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AskService {
 	
@@ -44,14 +47,17 @@ public class AskService {
 	}
 
 
-	public void registAnswer(String askNo) {
+	public AskDTO getEmail(int inquiryNo) {
 		
-		askMapper.insertAnswer(askNo);
+		AskDTO email = askMapper.selectMyEmail(inquiryNo);
 		
-		
-		
+		return email;
 	}
-	
-	
+
+	public void updateAnswer(int inquiryNo, String inquiryAnswer) {
+		
+		askMapper.updateAnswer(inquiryNo, inquiryAnswer);
+		
+	}	
 
 }

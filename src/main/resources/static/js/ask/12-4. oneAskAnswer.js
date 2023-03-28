@@ -1,5 +1,3 @@
 function click(){
-	document.querySelector(".submit").addEventListener("click", () => {location.href = "/regist/answer"});
+	document.querySelector(".submitted").addEventListener("click", () => {location.herf="/update/answer"})
 }
-
-click();

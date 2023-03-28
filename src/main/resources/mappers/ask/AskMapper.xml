@@ -58,11 +58,18 @@
 </select>
 
 
-<update id="insertAnswer">
+<update id="updateAnswer">
  UPDATE INQUIRY
-    SET INQUIRY_ANSWER = #{inquiryAnswer}
-    AND INQUIRY_ANSWER_TIME = SYSDATE
+    SET INQUIRY_ANSWER = #{inquiryAnswer},
+        INQUIRY_ANSWER_TIME = TO_CHAR(SYSDATE, 'yyyy-MM-dd')
   WHERE INQUIRY_NO = #{inquiryNo}
 </update>
+
+<select id="selectMyEmail" resultMap="askResultMap" parameterType="com.water.Mulbburi.ask.AskDTO">
+	SELECT
+		   INQUIRY_NO
+	  FROM INQUIRY
+	 WHERE INQUIRY_NO = #{ inquiryNo }
+</select>
 	
 </mapper>
