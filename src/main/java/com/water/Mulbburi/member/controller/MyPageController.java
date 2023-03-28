@@ -59,15 +59,14 @@ public class MyPageController {
 	@PostMapping("/mypage/exchange") 
 	  public String refund(@ModelAttribute MemberExchangeDTO exchange, 
 	  		  @RequestParam("orderNo") Long orderNo) {
-	  
-		  Long sbNo = myPageService.selectSbNo(orderNo);
+		
+		  exchange.setOrderNo(orderNo);
+		  
+		  Long sbNo = myPageService.selectSbNo(exchange);
 	      
 		  System.out.println("orderNo : "  + orderNo);
 		  System.out.println("sbNo : "  + sbNo);
-		  
-		  exchange.setOrderNo(orderNo);
-		  exchange.setSbNo(sbNo);
-		  
+		  	  
 		  myPageService.insertExchange(exchange);
 		  	 
 		  return "/member/mypage/mypageMain"; 

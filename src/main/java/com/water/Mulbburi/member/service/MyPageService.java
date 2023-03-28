@@ -69,11 +69,10 @@ public class MyPageService {
 		int result = mapper.insertExchange(exchange);
 	}
 
-	public Long selectSbNo(Long orderNo) {
+	public Long selectSbNo(MemberExchangeDTO exchange) {
 		
-		System.out.println("orderNo : " + orderNo);
 		
-		return mapper.selectSbNo(orderNo);
+		return mapper.selectSbNo(exchange);
 	}
 	
 	

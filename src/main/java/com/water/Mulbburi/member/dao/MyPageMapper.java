@@ -24,7 +24,7 @@ public interface MyPageMapper {
 
 	int insertExchange(MemberExchangeDTO exchange);
 
-	Long selectSbNo(Long orderNo);
+	Long selectSbNo(MemberExchangeDTO exchange);
 	
 	
 	
