@@ -127,11 +127,7 @@ public Map<String, Object> selectCommunityList(Map<String, String> searchMap, in
 	}
 
 	public CommunityDTO selectThumbnailDetail(Long no) {
-		
-		int result = communityMapper.incrementCommunityCount(no);
-		
-		log.info("[CommunityService] result : {}", result);
-		
+				
 		return communityMapper.selectThumbnailCommunityDetail(no);
 	}
 

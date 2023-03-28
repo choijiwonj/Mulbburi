@@ -1,6 +1,7 @@
 package com.water.Mulbburi.community.dao;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -9,8 +10,6 @@ import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.dto.ReplyDTO;
-import com.water.Mulbburi.consumer.dto.ConsumerDTO;
-import com.water.Mulbburi.file.FileDTO;
 
 @Mapper
 
@@ -28,9 +27,7 @@ public interface CommunityMapper {
 
 	int selectThumbnailTotalCount();
 
-	List<CommunityDTO> selectThumbnailCommunityList(SelectCriteria selectCriteria);
-
-	int incrementCommunityCount(Long no);
+	List<CommunityDTO> selectThumbnailCommunityList(SelectCriteria selectCriteria);	
 
 	CommunityDTO selectThumbnailCommunityDetail(Long no);
 

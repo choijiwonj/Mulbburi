@@ -5,22 +5,19 @@
 <meta charset="UTF-8" />
 </head>
 <body>
-	<div th:replace="common/header.html"></div>
+	<div th:replace="common/j.header2.html"></div>
 	<div style="margin-top: 100px;">
 
 		<h1 align="center">사진 게시판 내용</h1>
 		<table align="center">
 			<tr>
 				<td width="100px">제목</td>
-				<td colspan="5" width="900" th:text="${ thumbnail.title }"></td>
+				<td colspan="5" width="900" th:text="${ thumbnail.communityTitle }"></td>
 			</tr>
 			<tr>
-				<td>작성자</td>
-				<td th:text="${ thumbnail.writer.nickname }"></td>
-				<td>조회수</td>
-				<td th:text="${ thumbnail.count }"></td>
+		
 				<td>작성일</td>
-				<td th:text="${ thumbnail.createdDate }"></td>
+				<td th:text="${ thumbnail.communityWriteDate }"></td>
 			</tr>
 			<tr>
 				<td>대표사진</td>
@@ -46,7 +43,7 @@
 			<tr>
 				<td>사진메모</td>
 				<td colspan="5">
-					<p id="contentArea" th:text="${ thumbnail.body }"></p>
+					<p id="contentArea" th:text="${ thumbnail.communityStory }"></p>
 				</td>
 			</tr>
 		</table>
@@ -83,6 +80,6 @@
 		
 	</div>
 
-	<div th:replace="common/footer.html"></div>
+	<div th:replace="common/j.footer2.html"></div>
 </body>
 </html>

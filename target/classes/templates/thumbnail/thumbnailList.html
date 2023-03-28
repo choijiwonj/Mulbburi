@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<div th:replace="common/header.html"></div>
+	<div th:replace="common/j.header2.html"></div>
 	<div style="margin-top: 100px;">
 		<h1 align="center">사진게시판</h1>
 
@@ -19,7 +19,7 @@
 				<div 
 					align="center" 
 					style="margin: 20px; cursor:pointer;"
-				    th:onclick="|location.href='/thumbnail/detail?no=${thumbnail.no}'|"
+				    th:onclick="|location.href='/thumbnail/detail?no=${thumbnail.communityNo}'|"
 				>
 					<div>
 						<th:block th:each="attachment : ${ thumbnail.attachmentList }">
@@ -34,9 +34,9 @@
 						</th:block>
 					</div>
 					<p>
-						No. <label th:text="${ thumbnail.no }"></label> 
-						<span th:text="${ thumbnail.title }"></span><br> 
-						조회수 : <span th:text="${ thumbnail.count }"></span>
+						No. <label th:text="${ thumbnail.communityNo }"></label> 
+						<span th:text="${ thumbnail.communityTitle }"></span><br> 
+					</span>
 					</p>
 				</div>
 			</th:block>

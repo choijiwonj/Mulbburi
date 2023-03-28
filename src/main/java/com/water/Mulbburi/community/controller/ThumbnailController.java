@@ -1,12 +1,11 @@
 package com.water.Mulbburi.community.controller;
 
 import java.io.File;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

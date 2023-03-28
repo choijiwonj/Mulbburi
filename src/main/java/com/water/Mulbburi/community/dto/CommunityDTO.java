@@ -15,15 +15,14 @@ public class CommunityDTO {
 	private int communityNo;
 	private String communityTitle;
 	private String communityStory;
-	private int communityWriteDate;
+	private Date communityWriteDate;
 	private Date communityUpdateDate;
 	private Date communityDeleteDate;
-	private int memberNo;
+	private MemberDTO writer;	
 	private int custom;	
+	private int memberNo;
 	private List<ReplyDTO> replyList;
 	private List<AttachmentDTO> attachmentList;
-	public void setWriter(MemberDTO member) {		
-	}
 	
 
 	

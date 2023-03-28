@@ -8,7 +8,7 @@
       <result property="communityStory" column="COMMUNITY_STORY"/>
       <result property="communityWriteDate" column="COMMUNITY_WRITE_DATE"/>
       <result property="communityUpdateDate" column="COMMUNITY_UPDATE_DATE"/>
-      <result property="communityDeleteDate" column="COMMUNITY_DELET_DATE"/>
+      <result property="communityDeleteDate" column="COMMUNITY_DELETE_DATE"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="custom" column="CUSTOM"/>
      </resultMap>
@@ -16,12 +16,12 @@
  
     <resultMap type="com.water.Mulbburi.community.dto.AttachmentDTO" id="attachmentResultMap">
         <id property="no" column="FILE_NO"></id>
-        <result property="refBoardNo" column="REF_BOARD_NO"/>
+        <result property="refBoardNo" column="COMMUNITY_NO"/>
         <result property="originalName" column="FILE_ORIGINAL_NAME"/>
         <result property="savedName" column="FILE_SAVED_NAME"/>
         <result property="savePath" column="FILE_PATH"/>
-        <result property="fileType" column="FILE_SIZE"/>
-        <result property="thumbnailPath" column="COMMUNITY_NO"/>
+        <result property="fileType" column="FILE_TYPE"/>
+        <result property="thumbnailPath" column="THUMBNAILPATH"/>
         <result property="status" column="CUSTOM"/>
         
     </resultMap>
@@ -40,7 +40,7 @@
     
 
 
- <insert id="insertThumbnailContent" >
+ <insert id="insertContent" >
         INSERT 
         INTO COMMUNITY
         (
@@ -54,63 +54,110 @@
         VALUES
         (
         SEQ_COMMUNITY_NO.NEXTVAL
-        , #{ title }
-        , #{ story }
+        , #{ communityTitle }
+        , #{ communityStory }
         , SYSDATE
         , 1
         , 1
         )
     </insert>
-    <select id="selectThumbnailCommunityList">
+    
+    
+    <insert id="insertAttachment">
+       INSERT 
+        INTO TBL_ATTACHMENT
+            (
+          FILE_NO
+        , COMMUNITY_NO
+        , FILE_ORIGINAL_NAME
+        , FILE_SAVED_NAME
+        , FILE_PATH
+        , FILE_SIZE
+        , THUMBNAILPATH
+        , CUSTOM
+        )
+        VALUES
+        (
+        	SEQ_FILE_NO.NEXTVAL
+            , SEQ_COMMUNITY_NO.CURRVAL
+            , #{ originalName }
+            , #{ savedName }
+            , #{ savePath }
+            , #{ fileType }
+            , #{ thumbnailPath, jdbcType=VARCHAR }
+            , 1 
+        )
+    
+    </insert>
+    
+   <select id="selectThumbnailCommunityDetail" resultMap="communityAllResultMap">
+   SELECT 
+   	A.COMMUNITY_NO
+   ,	A.COMMUNITY_TITLE
+   ,	A.COMMUNITY_STORY
+   ,	A.MEMBER_NO
+   ,	A.COMMUNITY_WRITE_DATE
+   ,	C.FILE_NO
+   , 	C.FILE_ORIGINAL_NAME
+   ,	C.FILE_SAVED_NAME
+   ,	C.FILE_PATH
+   , 	C.FILE_SIZE
+   ,	C.CUSTOM
+   ,	C.THUMBNAILPATH
+   FROM COMMUNITY A
+   JOIN MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
+   JOIN TBL_ATTACHMENT C ON (A.COMMUNITY_NO = C.COMMUNITY_NO)
+   WHERE A.CUSTOM = 1
+   AND C.CUSTOM = 1
+   AND A.COMMUNITY_NO = #{ communityNo }
+   
+   </select>
+    
+    
+    
+    
+    
+    
+    <select id="selectThumbnailCommunityList" resultMap="communityAllResultMap">
         SELECT 
 	           A.COMMUNITY_NO
-	         , A.BOARD_TYPE
 	         , D.FILE_SIZE
-	         , D.COMMUNITY_NO
+	         , D.THUMBNAILPATH
 	         , A.COMMUNITY_TITLE
 	         , A.COMMUNITY_STORY
-	         , A.MEMBER_NO	        
-	         , A.BOARD_COUNT
+	         , A.MEMBER_NO
 	         , A.COMMUNITY_WRITE_DATE
 	         , A.CUSTOM
           FROM (SELECT 
                        ROWNUM RNUM
                      , B.COMMUNITY_NO
-                     , B.BOARD_TYPE
-			         , A.COMMUNITY_TITLE
-	         		 , A.COMMUNITY_STORY
+			         , B.COMMUNITY_TITLE
+			         , B.COMMUNITY_STORY
 			         , B.MEMBER_NO
-			         , B.BOARD_COUNT
 			         , B.COMMUNITY_WRITE_DATE
 			         , B.CUSTOM
                   FROM (SELECT 
                                C.COMMUNITY_NO
-					         , C.BOARD_TYPE
 					         , C.COMMUNITY_TITLE
 					         , C.COMMUNITY_STORY
 					         , C.MEMBER_NO
-					         , C.BOARD_COUNT
 					         , C.COMMUNITY_WRITE_DATE
 					         , C.CUSTOM
-                          FROM TBL_COMMUNITY C
+                          FROM COMMUNITY C
                          WHERE C.CUSTOM = 1
-				           AND C.MEMBER_NO = 2
         				 ORDER BY C.COMMUNITY_NO DESC
         				) B
         <![CDATA[
                   WHERE ROWNUM <= #{ endRow }
                   ]]>
         ) A
-        JOIN TBL_FILE D ON (A.BOARD_NO = D.REF_BOARD_NO)
-        JOIN TBL_MEMBER E ON(A.BOARD_WRITER_MEMBER_NO = E.MEMBER_NO)
+        JOIN TBL_ATTACHMENT D ON (A.COMMUNITY_NO = D.COMMUNITY_NO)
+        JOIN MEMBER E ON(A.MEMBER_NO = E.MEMBER_NO)
         WHERE A.RNUM >= #{ startRow }
         ORDER BY 1 DESC
     </select>
     
-    
-    
-    
-
+ 
 
 
 
