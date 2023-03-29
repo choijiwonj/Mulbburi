@@ -52,28 +52,31 @@ public class MyPageController {
 		
 		MemberOrderDTO orderDetail = myPageService.selectOrderDetail(orderNo);
 		
+		MemberDetailDTO detail = new MemberDetailDTO();
+        
+        detail.setOrderNo(orderNo);
+        
+        Long sbNo = myPageService.selectSbNO(detail);
+        
+        System.out.println(detail);
+		
 		model.addAttribute("order", orderDetail);
-		    	 	
+		model.addAttribute("detail", detail);
+		
 		return "member/mypage/exchange";
 	}
 	
 	@PostMapping("/mypage/exchange") 
 	  public String refund(@ModelAttribute MemberExchangeDTO exchange, 
-	  		  @RequestParam("orderNo") Long orderNo) {
+	  		  @RequestParam("orderNo") Long orderNo, @RequestParam("sbNo") Long sbNo) {
 		
 			/*
 			 * exchange.setOrderNo(orderNo);
 			 * 
 			 * Long sbNo = myPageService.selectSbNo(exchange);
 			 */
-		  
-          MemberDetailDTO detail = new MemberDetailDTO();
           
-          detail.setOrderNo(orderNo);
-          
-          myPageService.selectSbNO(detail);
-          
-          exchange.setSbNo(detail.getSbNo());
+          exchange.setSbNo(sbNo);
 		  
 		  myPageService.insertExchange(exchange);
 		  	 

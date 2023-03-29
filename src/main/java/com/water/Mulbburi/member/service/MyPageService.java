@@ -72,6 +72,8 @@ public class MyPageService {
 
 	public Long selectSbNO(MemberDetailDTO detail) {
 		
+		System.out.println(detail);
+		
 		return mapper.selectDetailOrder(detail);
 	}
 

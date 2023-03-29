@@ -1,6 +1,7 @@
 package com.water.Mulbburi.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Component;
 
 import com.water.Mulbburi.member.service.AuthenticationService;
+
 
 
 @Component
@@ -44,7 +46,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/login")             
-                    .defaultSuccessUrl("/Mulbburi/login")  
+                    .successForwardUrl("/Mulbburi/login")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
@@ -71,7 +73,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/loginSel")             
-                    .defaultSuccessUrl("/sellerMain")  
+                    .successForwardUrl("/sellerMain")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
@@ -98,7 +100,7 @@ public class SecurityConfig {
                 .and()
                     .formLogin()
                     .loginPage("/member/login/loginAdmin")             
-                    .defaultSuccessUrl("/MulbburiAdminMain")  
+                    .successForwardUrl("/MulbburiAdminMain")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
