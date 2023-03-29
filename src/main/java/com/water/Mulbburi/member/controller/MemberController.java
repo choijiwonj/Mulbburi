@@ -31,6 +31,7 @@ import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
 import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
+import com.water.Mulbburi.member.exception.MemberRemoveException;
 import com.water.Mulbburi.member.service.AuthenticationService;
 import com.water.Mulbburi.member.service.MailService;
 import com.water.Mulbburi.member.service.MemberService;
@@ -442,9 +443,17 @@ public class MemberController {
 		
 	/* 회원탈퇴 페이지 이동 */
 	@GetMapping("/mypage/quit")
-	public String quit(@AuthenticationPrincipal MemberDTO member) {
+	public String quit(@AuthenticationPrincipal MemberDTO member,
+			@RequestParam("memberPwd") String memberPwd, RedirectAttributes rttr) throws MemberRemoveException {
 		
-		return "member/mypage/quit";
+		String memberPwd2 = memberService.findLoginPwd(member);
+		
+		if(memberPwd == memberPwd2) {
+			memberService.removeMember(member);
+			SecurityContextHolder.clearContext();
+			 rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.delete"));
+		}
+		return "redirect:/";
 	}
 	
 	

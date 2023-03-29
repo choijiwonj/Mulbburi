@@ -70,25 +70,12 @@ public class MainControll {
 	     
 	      return "/main/01-1.purchaseLogin";
 	   }
-	
-	@PostMapping("Mulbburi/login")
-	public String loginCustom() {
-		
-		return "/main/01-1.purchaseLogin";
-	}
-	   
+		   
 	/*판매자*/
 	@GetMapping("sellerMain")
 	public String sellerMain() {
 		return "main/02-1. sellerMainLogin";
 	}
-	
-	/*판매자*/
-	@PostMapping("sellerMain")
-	public String sellerMain2() {
-		return "main/02-1. sellerMainLogin";
-	}
-	
 	
 	/*관리자*/
 	/* 판매자 신고 관리 */
@@ -119,9 +106,5 @@ public class MainControll {
 	public String adminLogin() {
 		return "main/03-1. adminMainLogin";
 	}
-	
-	@PostMapping("MulbburiAdminMain")
-	public String adminLogin2() {
-		return "main/03-1. adminMainLogin";
-	}
+
 }

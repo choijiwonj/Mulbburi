@@ -241,7 +241,7 @@
 
     <update id="deleteMember">
         UPDATE 
-              TBL_MEMBER 
+              MEMBER 
           SET MEMBER_STATUS = 'N'
         WHERE MEMBER_STATUS = 'Y'
           AND MEMBER_ID = #{ memberId }

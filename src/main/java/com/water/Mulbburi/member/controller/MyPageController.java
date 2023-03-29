@@ -76,6 +76,8 @@ public class MyPageController {
 			 * Long sbNo = myPageService.selectSbNo(exchange);
 			 */
           
+		  System.out.println(sbNo);	
+		
           exchange.setSbNo(sbNo);
 		  
 		  myPageService.insertExchange(exchange);
