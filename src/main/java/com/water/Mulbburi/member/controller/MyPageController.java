@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.dto.MemberDetailDTO;
 import com.water.Mulbburi.member.dto.MemberExchangeDTO;
 import com.water.Mulbburi.member.dto.MemberOrderDTO;
 import com.water.Mulbburi.member.dto.MemberRefundDTO;
@@ -60,10 +61,20 @@ public class MyPageController {
 	  public String refund(@ModelAttribute MemberExchangeDTO exchange, 
 	  		  @RequestParam("orderNo") Long orderNo) {
 		
-		  exchange.setOrderNo(orderNo);
+			/*
+			 * exchange.setOrderNo(orderNo);
+			 * 
+			 * Long sbNo = myPageService.selectSbNo(exchange);
+			 */
 		  
-		  Long sbNo = myPageService.selectSbNo(exchange);
-		  	  
+          MemberDetailDTO detail = new MemberDetailDTO();
+          
+          detail.setOrderNo(orderNo);
+          
+          myPageService.selectSbNO(detail);
+          
+          exchange.setSbNo(detail.getSbNo());
+		  
 		  myPageService.insertExchange(exchange);
 		  	 
 		  return "/member/mypage/mypageMain"; 

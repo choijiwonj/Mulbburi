@@ -139,9 +139,9 @@
 	
 	<select id="selectDetailOrder" resultMap="detailMap">
 	SELECT
-		   SB_NO
-		 , ORDER_NO
-		 , DT_ORDER_AMOUNT  	
+		   D.SB_NO
+		 , D.ORDER_NO
+		 , D.DT_ORDER_AMOUNT  	
 	  FROM DETAIL_ORDER D 
 	  JOIN TBL_ORDER T ON (D.ORDER_NO = T.ORDER_NO)
 	  WHERE T.ORDER_NO = #{orderNo}

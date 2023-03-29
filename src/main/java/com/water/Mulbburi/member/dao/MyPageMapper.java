@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.water.Mulbburi.member.dto.MemberDetailDTO;
 import com.water.Mulbburi.member.dto.MemberExchangeDTO;
 import com.water.Mulbburi.member.dto.MemberOrderDTO;
 import com.water.Mulbburi.member.dto.MemberRefundDTO;
@@ -25,6 +26,8 @@ public interface MyPageMapper {
 	int insertExchange(MemberExchangeDTO exchange);
 
 	Long selectSbNo(MemberExchangeDTO exchange);
+
+	Long selectDetailOrder(MemberDetailDTO detail);
 	
 	
 	

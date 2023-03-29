@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.member.dao.MyPageMapper;
+import com.water.Mulbburi.member.dto.MemberDetailDTO;
 import com.water.Mulbburi.member.dto.MemberExchangeDTO;
 import com.water.Mulbburi.member.dto.MemberOrderDTO;
 import com.water.Mulbburi.member.dto.MemberRefundDTO;
@@ -69,11 +70,19 @@ public class MyPageService {
 		int result = mapper.insertExchange(exchange);
 	}
 
-	public Long selectSbNo(MemberExchangeDTO exchange) {
+	public Long selectSbNO(MemberDetailDTO detail) {
 		
-		
-		return mapper.selectSbNo(exchange);
+		return mapper.selectDetailOrder(detail);
 	}
+
+
+
+	/*
+	 * public Long selectSbNo(MemberExchangeDTO exchange) {
+	 * 
+	 * 
+	 * return mapper.selectSbNo(exchange); }
+	 */
 	
 	
 	
