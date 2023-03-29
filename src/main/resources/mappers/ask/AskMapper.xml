@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.water.Mulbburi.ask.AskMapper">
 	<resultMap id="askResultMap" type="com.water.Mulbburi.ask.AskDTO">
-		<result property="inquiryNo" column="INQUIRY_NO"/>
+		<id property="inquiryNo" column="INQUIRY_NO"/>
 		<result property="inquiryCategory" column="INQUIRY_CATEGORY"/>
 		<result property="inquirySt" column="INQUIRY_ST"/>
-		<result property="inquiryAnswer" column="INQUIRY_ASWER"/>
+		<result property="inquiryAnswer" column="INQUIRY_ANSWER"/>
 		<result property="administratorNo" column="ADMINISTRATOR_NO"/>
 		<result property="memberNo" column="IMEMBER_NO"/>
 		<result property="inquiryAskTime" column="INQUIRY_ASK_TIME"/>
@@ -47,6 +47,7 @@
 		  				 C.INQUIRY_ST
 	                FROM INQUIRY C
 	                JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+	               WHERE INQUIRY_ANSWER IS NULL
 	         ORDER BY C.INQUIRY_NO DESC
         ) B
         <![CDATA[
@@ -65,7 +66,7 @@
   WHERE INQUIRY_NO = #{inquiryNo}
 </update>
 
-<select id="selectMyEmail" resultMap="askResultMap" parameterType="com.water.Mulbburi.ask.AskDTO">
+<select id="selectMyInquiry" resultMap="askResultMap" parameterType="com.water.Mulbburi.ask.AskDTO">
 	SELECT
 		   INQUIRY_NO
 	  FROM INQUIRY

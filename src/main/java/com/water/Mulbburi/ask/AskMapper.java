@@ -14,6 +14,6 @@ public interface AskMapper {
 	
 	AskDTO selectMyEmail(int inquiryNo);
 
-	void updateAnswer(int inquiryNo, String inquiryAnswer);
+	void updateAnswer(AskDTO askDTO);
 
 }

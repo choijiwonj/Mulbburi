@@ -14,15 +14,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class AskService {
-	
+
 	private final AskMapper askMapper;
-	
+
 	public AskService(AskMapper askMapper) {
 		this.askMapper = askMapper;
 	}
 
 	public Map<String, Object> selectAllAsk(int page) {
-		
+
 		/* 1. 전체 게시글 수 확인 (검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서 */
 		int totalCount = askMapper.selectTotalCount();
 
@@ -46,30 +46,20 @@ public class AskService {
 		return askListAndPaging;
 	}
 
+	public void updateAnswer(AskDTO askDTO) {
 
-	public AskDTO getEmail(int inquiryNo) {
+		askMapper.updateAnswer(askDTO);
 		
-		AskDTO email = askMapper.selectMyEmail(inquiryNo);
-		
-		return email;
 	}
 
-	public Map<String, Object> updateAnswer(int inquiryNo, String inquiryAnswer) {
-		
-		askMapper.updateAnswer(inquiryNo, inquiryAnswer);
-		
-		AskDTO askList = askMapper.selectMyEmail(inquiryNo);
-		
-		Map<String, Object> askListAndPaging = new HashMap<>();
-		
-		askListAndPaging.put("inquiryNo", inquiryNo);
-		askListAndPaging.put("inquiryAnswer", inquiryAnswer);
-		
-		log.info("inquiryNo {}", inquiryNo);
-		log.info("inquiryAnswer {}", inquiryAnswer);
-		
-		return askListAndPaging;
-		
-	}	
-
+//	public Map<String, Object> selectMyInquiry(int inquiryNo) {
+//		
+//		List<AskDTO> askList = askMapper.selectMyInquiry(inquiryNo);
+//		
+//		Map<String, Object> askListAnd = new HashMap();
+//		
+//		askListAnd.put("askList", askList);
+//		
+//		return askListAnd;	
+//	}
 }

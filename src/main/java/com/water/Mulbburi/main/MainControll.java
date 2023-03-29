@@ -47,10 +47,10 @@ public class MainControll {
 	}
 	
 	/* 스토어 */
-	@GetMapping("/store")
-	public String store() {
-		return "redirect:/select/product";
-	}
+	/*
+	 * @GetMapping("/store") public String store() { return
+	 * "redirect:/select/product"; }
+	 */
 	
 	/* 구매자 로그인 */
 	   @GetMapping("Mulbburi/login")
@@ -74,7 +74,10 @@ public class MainControll {
 	   }
 	
 	/*판매자*/
-	
+	@GetMapping("sellerMain")
+	public String sellerMain() {
+		return "main/02-1. sellerMainLogin";
+	}
 	
 	
 	/*관리자*/

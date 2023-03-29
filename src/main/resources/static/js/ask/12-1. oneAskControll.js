@@ -28,6 +28,8 @@ function click() {
       alert("라디오 버튼을 선택해주세요.");
     }
   });
+  
+  
 }
 
 click();

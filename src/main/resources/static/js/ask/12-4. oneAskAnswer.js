@@ -1,6 +1,5 @@
 function click(){
-	
-	
-	
-	document.querySelector(".submitted").addEventListener("click", () => {location.herf="/update/answer"})
+  document.querySelector(".submit").addEventListener("click", () => {location.href="/askoneAnswer?inquiryNo="});
 }
+
+click();

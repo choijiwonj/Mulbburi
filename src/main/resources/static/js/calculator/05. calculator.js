@@ -15,6 +15,13 @@ function click(){
         $background1.style.display = "none";
         console.log("t2");
     })
+    
+    document.querySelector(".submit").addEventListener("click", () => {
+			const selectDate = document.getElementById("dateSelect").value;
+            const url = "/calculator?calDate=" + selectDate;
+            window.location.href = url});
+            
+   document.querySelector(".excel").addEventListener("click", () => {location.href = "/excel"});
 }
 
 click();

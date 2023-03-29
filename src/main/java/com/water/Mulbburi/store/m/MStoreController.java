@@ -23,7 +23,7 @@ public class MStoreController {
 	}
 	
 	/* 저장한 상품 목록 가져오기 */
-	@GetMapping("select/product")
+	@GetMapping("store")
 	public String selectMyProduct(@RequestParam(defaultValue="1") int page, /*@PathVariable("category") String category, */
 				                   Model model) {
 

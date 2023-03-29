@@ -1,5 +1,6 @@
 package com.water.Mulbburi.ask;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -7,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class AskController {
 
 	@GetMapping("askcontroll")
 	public String askControll() {
-		return "12. askControll";
+		return "ask/12.askControll";
 	}
 
 	@GetMapping("askoneAnswer")
@@ -42,35 +42,13 @@ public class AskController {
 	}
 
 	   
-	   @PostMapping("getEmail")
-	   public String getEmail(Model model, @RequestParam int inquiryNo) {
+   @PostMapping("/askoneAnswer")
+	   public String updateAnswer(@RequestParam int inquiryNo, Model model, AskDTO askDTO) {
 		   
-		   AskDTO askList = askService.getEmail(inquiryNo);
-		   model.addAttribute("askList", askList);
-		   
-		   model.addAttribute("inquiryNo", inquiryNo);
-		   
-	      return "redirect:ask/12-1. oneAsk";
-	   }
-	   
-	   @PostMapping("/update/answer")
-	   public String updateAnswer(@RequestParam int inquiryNo, @RequestParam String inquiryAnswer, Model model) {
-		   
-		   
-		   log.info("inquiryAnswer {}", inquiryAnswer);
-		   log.info("inquiryNo {}", inquiryNo);
-		   
-		   AskDTO askList = askService.getEmail(inquiryNo);
-		   model.addAttribute("askList", askList);
-		   
-		   
-	        askService.updateAnswer(inquiryNo, inquiryAnswer);
+	   		askDTO.setInquiryNo(inquiryNo);
+	        askService.updateAnswer(askDTO);
 	        
-	        Map<String, Object> askListAndPaging = askService.updateAnswer(inquiryNo, inquiryAnswer);
-	        model.addAttribute("inquiryNo", askListAndPaging.get("inquiryNo"));
-	        model.addAttribute("inquiryAnswer", askListAndPaging.get("inquiryAnswer"));
-			   
-		   return "redirect:/main/01.purchaseMain";
+		   return "redirect:askoneAnswer";
 	   }
 	   
 
