@@ -14,11 +14,12 @@
 		<result property="dtAddress" column="DT_ADDRESS"/>
 		<result property="bsAddress" column="BS_ADDRESS"/>
 		<result property="memberStatus" column="MEMBER_STATUS"/>
-		<result property="custom" column="CUSTOM"/>
+		<result property="memberCustom" column="MEMBER_CUSTOM"/>
 		<result property="businessName" column="BUSINESS_NAME"/>
 		<result property="businessNo" column="BUSINESS_NO"/>
 		<result property="email" column="EMAIL"/>
 		<collection property="memberRoleList" resultMap="memberRoleResultMap"/>
+		<collection property="fileList" resultMap="fileListResultMap"/>
 	</resultMap>
 	
 	<resultMap type="com.water.Mulbburi.member.dto.MemberRoleDTO" id="memberRoleResultMap">
@@ -27,12 +28,21 @@
 		<association property="authority" resultMap="authorityResultMap"/>
 	</resultMap>
 	
+	<resultMap type="com.water.Mulbburi.file.FileDTO" id="fileListResultMap">
+		<id property="fileNo" column="FILE_NO"/>
+		<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileSavedName" column="FILE_SAVED_NAME"/>
+		<result property="custom" column="CUSTOM"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+	</resultMap>
+	
 		<resultMap type="com.water.Mulbburi.member.dto.AuthorityDTO" id="authorityResultMap">
 		<id property="code" column="REF_AUTHORITY_CODE2"/>
 		<result property="name" column="AUTHORITY_NAME"/>
 		<result property="desc" column="AUTHORITY_DESC"/>
 	</resultMap>
-	
+			
 	<select id="findByMemberId" resultMap="memberResultMap">
         SELECT
                A.MEMBER_NO
@@ -44,7 +54,7 @@
 		     , A.DT_ADDRESS
 		     , A.BS_ADDRESS
 		     , A.MEMBER_STATUS
-		     , A.CUSTOM
+		     , A.MEMBER_CUSTOM
 		     , A.BUSINESS_NAME
 		     , A.BUSINESS_NO
 		     , A.EMAIL
@@ -82,7 +92,7 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
-        , CUSTOM
+        , MEMBER_CUSTOM
         , MEMBER_STATUS
         )
         VALUES
@@ -103,12 +113,13 @@
 	
 	<!-- 판매자 회원가입 -->
 	<insert id="insertSelMember">
-        INSERT ALL
+        INSERT 
           INTO MEMBER 
         (
           MEMBER_NO
         , BUSINESS_NAME
-        , BUSINESS_NO  
+        , BUSINESS_NO 
+        , MEMBER_NAME 
         , MEMBER_ID
         , MEMBER_PWD
         , PHONE
@@ -116,7 +127,7 @@
         , POSTCODE
         , BS_ADDRESS
         , DT_ADDRESS
-        , CUSTOM
+        , MEMBER_CUSTOM
         , MEMBER_STATUS
         )
         VALUES
@@ -124,6 +135,7 @@
           SEQ_MEMBER_NO.NEXTVAL
         , #{ businessName }
         , #{ businessNo }  
+        , #{ memberName }
         , #{ memberId }
         , #{ memberPwd }
         , #{ phone }
@@ -134,12 +146,15 @@
         , '판매자'
         , 'N'
         )
-        INTO FILE
+	</insert>
+	
+	<insert id="insertFile">
+	  INSERT	
+		INTO TBL_FILE
         (
           FILE_NO
         , FILE_ORIGINAL_NAME
         , FILE_PATH
-        , FILE_SIZE
         , FILE_SAVED_NAME
         , CUSTOM
         , MEMBER_NO  
@@ -149,10 +164,9 @@
 		  SEQ_FILE_NO.NEXTVAL
 		, #{ fileoriginalName }
 		, #{ filePath }
-		, #{ fileSize }
 		, #{ fileSavedName }
-		, #{ custom }
-		, #{ memberNo }  	        
+		, '1'
+		, SEQ_MEMBER_NO.CURRVAL 	        
         )
 	</insert>
 	
@@ -203,7 +217,7 @@
 		     , BS_ADDRESS
 		     , DT_ADDRESS
 		     , MEMBER_STATUS
-		     , CUSTOM
+		     , MEMBER_CUSTOM
 		     , BUSINESS_NAME
 		     , BUSINESS_NO
 		     , EMAIL
@@ -214,11 +228,13 @@
 
     <update id="updateMember">
         UPDATE 
-              TBL_MEMBER 
-          SET NICKNAME = #{ nickname }
+              MEMBER 
+          SET MemberName = #{ memberName }
             , PHONE = #{ phone }
             , EMAIL = #{ email }
-            , ADDRESS = #{ address }
+            , POSTCODE= #{ postCode }
+            , BS_ADDRESS = #{ bsAddress }
+            , DT_ADDRESS = #{ dtAddress }
         WHERE MEMBER_STATUS = 'Y'
           AND MEMBER_NO = #{ memberNo }
     </update>
@@ -263,5 +279,5 @@
           SET MEMBER_PWD = #{ memberPwd } 
         WHERE MEMBER_ID = #{ memberId } 
     </update>
-    
+        
 </mapper>

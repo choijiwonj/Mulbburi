@@ -23,9 +23,9 @@
                 <span id="name">어니스트 플라워님</span>
                 <div class="briefing">
                     <ul>
-                        <li>- 입점기간 : 213일</li>
+<!--                         <li>- 입점기간 : 213일</li>
                         <li>- 총 상품 갯수 : 21개</li>
-                        <li>- 전체 판매 수익 : 9,500,000원</li>
+                        <li>- 전체 판매 수익 : 9,500,000원</li> -->
                     </ul>
                 </div>
             </div>
@@ -44,7 +44,8 @@
         <!-- 내 상품 -->
 
         <div class="my-prod">
-            <ul class="prod-list">
+        
+<!--             <ul class="prod-list">
                 <li>
                     <a href="">
                         <img src="/img/상품.png">
@@ -58,48 +59,30 @@
                         <button>상품 확인</button>
                     </div>
                 </li>
-                <li>
-                    <a href="">
-                        <img src="/img/상품.png">
-                    </a>
-                    <div class="data">
-                        <span>[어니스트 플라워]</span>
-                        <span>호말로메나 션샤인</span>
-                        <span class="price">8,000원</span>
-                    </div>
-                    <div class="prod-up">
-                        <button>상품 확인</button>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/img/상품.png">
-                    </a>
-                    <div class="data">
-                        <span>[어니스트 플라워]</span>
-                        <span>호말로메나 션샤인</span>
-                        <span class="price">8,000원</span>
-                    </div>
-                    <div class="prod-up">
-                        <button>상품 확인</button>
-                    </div>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="/img/상품.png">
-                    </a>
-                    <div class="data">
-                        <span>[어니스트 플라워]</span>
-                        <span>호말로메나 션샤인</span>
-                        <span class="price">8,000원</span>
-                    </div>
-                    <div class="prod-up">
-                        <button>상품 확인</button>
-                    </div>
-                </li>
+            </ul> -->
 
-            </ul>
+            <th:block th:each="product : ${ store }">
+            
         </div>
+        
+        <div id="prodArea">
+			
+			<th:block th:each="product : ${ store }">
+				
+				<div th:onclick="|location.href='/store/detail?no=${ sbNo }'|">
+					<div>
+						<th:block th:each="attachment : ${ thumbnail.attachmentList }">
+							<img th:if="${ attachment.fileType == 'TITLE' }" th:src="${ attachment.thumbnailPath }">
+						</th:block>
+					</div>
+					<p>
+						<span th:text="${ thumbnail.title }"></span><br> 
+						<span th:text="${ thumbnail.title }"></span><br> 
+						<span th:text="${ thumbnail.title }"></span><br> 
+					</p>
+				</div>
+			</th:block>
+		</div>
 
         <!-- 페이징 -->
 

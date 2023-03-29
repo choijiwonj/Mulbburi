@@ -14,7 +14,7 @@ import lombok.Data;
 public class SelectCriteria {
 
 
-	 private int page;					//요청한 페이지 번호
+	 	private int page;					//요청한 페이지 번호
 	    private int totalCount;				//전체 게시물 수
 	    private int limit;					//한 페이지에 보여줄 게시물 수
 	    private int buttonAmount;			//한 번에 보여줄 페이징 버튼의 갯수
