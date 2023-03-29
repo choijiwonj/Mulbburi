@@ -58,14 +58,34 @@ public class MemberController {
         this.mailService = mailService;
         this.redisUtil = redisUtil;
     }
+    
+    /* 로그인 접근 페이지 이동 */
+	@GetMapping("/login/loginJoin")
+	public String goLoginJoin() {
+		
+		return "member/login/loginJoin";
+	}
 	
-	/* 로그인 페이지 이동 */
+	/* 구매자 로그인 페이지 이동 */
 	@GetMapping("/login/login")
-	public String goLogin() {
+	public String goConLogin() {
 		
 		return "member/login/login";
 	}
 	
+	/* 판매자 로그인 페이지 이동 */
+	@GetMapping("/login/loginSel")
+	public String goSelLogin() {
+		
+		return "member/login/loginSel";
+	}
+	
+	/* 관리자 로그인 페이지 이동 */
+	@GetMapping("/login/loginAdmin")
+	public String goAdminLogin() {
+		
+		return "member/login/loginAdmin";
+	}
 	/* 로그인 실패 시 */
 	@PostMapping("/login/loginFalse")
 	public String loginFailed() {
@@ -264,7 +284,7 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	
+		
 	/* 판매자 회원 가입 */
 	@PostMapping("/regist/SelMembership")
 	public String registSelMember(@ModelAttribute MemberDTO member,
@@ -284,10 +304,12 @@ public class MemberController {
 		member.setBsAddress(bsAddress);
 		member.setDtAddress(dtAddress);
 		
+		String memberId = member.getMemberId();
 		
 		String savedFileName ="";
 		
-		String uploadPath = "C:/Lecture/dev/10_spring/Mulbburi/Mulbburi/src/main/resources/static/files";
+		String uploadPath = "C:/Lecture/dev/10_spring/Mulburri/Mulbburi/src/main/resources/files/";
+		
 		
 		ArrayList<String> originalFileNameList = new ArrayList<String>();
 		
@@ -301,7 +323,7 @@ public class MemberController {
 			originalFileNameList.add(originalFileName);
 			
 			UUID uuid = UUID.randomUUID();
-			savedFileName = uuid.toString() + "_" + originalFileName;
+			savedFileName = uuid.toString() + "_" + memberId + originalFileName;
 			
 			File file1 = new File(uploadPath + savedFileName);
 			
@@ -315,12 +337,12 @@ public class MemberController {
 			} catch (IllegalStateException | IOException e) {
 				e.printStackTrace();
 				
-				for(MultipartFile file : files ) {
-					
-					File deleteFile = new File(uploadPath + "/" + savedFileName);
-					
-					deleteFile.delete();
-				}
+				  for(MultipartFile file : files ) {
+				  
+				  File deleteFile = new File(uploadPath + "/" + savedFileName);
+				  
+				  deleteFile.delete(); }
+				 
 			}
 			
 		

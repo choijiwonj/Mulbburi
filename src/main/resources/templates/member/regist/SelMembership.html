@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SelMembership</title>
     <link rel="stylesheet" href="/css/member/regist/SelMembership.css" type="text/css">
-    <script type="text/javascript" src="/js/member/member.js"></script>
 </head>
 <body>
     <haeder>
@@ -33,17 +32,17 @@
     </div>
     <hr class="line1">
     <div class="registForm">
-    <form action="/member/regist/SelMembership" method="post" enctype="multipart/form-data">
+    <form action="/member/regist/SelMembership" id="selform" method="post" enctype="multipart/form-data">
         <table >
             <tr class="memberName">
             <td>
                 <label>사업명</label><br>
-                <input type="text" name="businessName" id="businessName" class="memberNameBar" required>
+                <input type="text" name="businessName" id="businessName" class="memberNameBar" placeholder="(사업명을 입력해주세요)" required>
             </td>
             </tr>
             <td>
                 <label>사업자 번호</label><br>
-                <input type="text" name="businessNo" id="businessNo" class="memberNameBar" required>
+                <input type="text" name="businessNo" id="businessNo" class="memberNameBar" placeholder="(숫자를 포함한 10자의 사업자번호를 입력하세요)" required>
             </td>
             </tr>
             <tr>
@@ -74,7 +73,7 @@
             <tr>
                 <td>
                     <label>휴대전화</label><br>
-                    <input type="tel" name="phone" id="phone" class="memberPhoneBar" placeholder="(핸드폰 번호 11자리를 입력해주세요)">
+                    <input type="tel" name="phone" id="phone" class="memberPhoneBar" placeholder="('010'을 포함한 핸드폰 번호 11자리를 '-'빼고 입력해주세요)">
                 </td>
             </tr>
             <tr>
@@ -105,7 +104,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="dtAddress" id="dtAddress" class="addressBar2" placeholder="상세주소">
+                    <input type="text" name="dtAddress" id="dtAddress" class="addressBar2" placeholder="(배송을 받을 주소를 자세히 입력해 주세요)">
                 </td>
             </tr>
             <tr>
@@ -117,7 +116,7 @@
         <br>
         <div class="base-button">
             <a href="#none" class="btnExit">취소</a>
-            <input type="submit" value="가입하기" class="btnSubmit" >
+             <button type="button" value="가입하기" class="btnSubmit" onclick="javascript:ValidationSel()">가입</button>
         </div>
     </form>
 </div>
@@ -153,6 +152,6 @@
 	</script>
 
         
-
+ <script type="text/javascript" src="/js/member/memberSel.js"></script>
 </body>
 </html>

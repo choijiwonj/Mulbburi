@@ -33,7 +33,7 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChainCon(HttpSecurity http) throws Exception {
 		
         return http
         		.csrf().disable()
@@ -45,6 +45,60 @@ public class SecurityConfig {
                     .formLogin()
                     .loginPage("/member/login/login")             
                     .defaultSuccessUrl("/Mulbburi/login")  
+                    .failureForwardUrl("/member/login/loginFalse")
+                    .usernameParameter("memberId")			// 아이디 파라미터명 설정
+                    .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
+                .and()
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .deleteCookies("JSESSIONID")
+                    .invalidateHttpSession(true)
+                    .logoutSuccessUrl("/Mulbburi")
+                // 따라서 인가 오류 처리는 생략하였음
+    			.and()
+    				.build();
+    }
+	
+	@Bean
+    public SecurityFilterChain filterChainSel(HttpSecurity http) throws Exception {
+		
+        return http
+        		.csrf().disable()
+                .authorizeRequests()
+//                .antMatchers("/board/**", "/thumbnail/**", "/member/update", "/member/delete").hasRole("MEMBER")
+                // 관리자만 사용 가능한 기능은 현재는 없음
+                .anyRequest().permitAll()
+                .and()
+                    .formLogin()
+                    .loginPage("/member/login/loginSel")             
+                    .defaultSuccessUrl("/sellerMain")  
+                    .failureForwardUrl("/member/login/loginFalse")
+                    .usernameParameter("memberId")			// 아이디 파라미터명 설정
+                    .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정
+                .and()
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .deleteCookies("JSESSIONID")
+                    .invalidateHttpSession(true)
+                    .logoutSuccessUrl("/Mulbburi")
+                // 따라서 인가 오류 처리는 생략하였음
+    			.and()
+    				.build();
+    }
+	
+	@Bean
+    public SecurityFilterChain filterChainAdmin(HttpSecurity http) throws Exception {
+		
+        return http
+        		.csrf().disable()
+                .authorizeRequests()
+//                .antMatchers("/board/**", "/thumbnail/**", "/member/update", "/member/delete").hasRole("MEMBER")
+                // 관리자만 사용 가능한 기능은 현재는 없음
+                .anyRequest().permitAll()
+                .and()
+                    .formLogin()
+                    .loginPage("/member/login/loginAdmin")             
+                    .defaultSuccessUrl("/MulbburiAdminMain")  
                     .failureForwardUrl("/member/login/loginFalse")
                     .usernameParameter("memberId")			// 아이디 파라미터명 설정
                     .passwordParameter("memberPwd")			// 패스워드 파라미터명 설정

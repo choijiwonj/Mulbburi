@@ -37,6 +37,12 @@
       <result property="excStatus" column="EXC_STATUS"/>                  
     </resultMap>
     
+    <resultMap type="com.water.Mulbburi.member.dto.MemberDetailDTO" id="detailMap">      
+      <result property="sbNo" column="SB_NO"/>
+      <result property="orderNo" column="ORDER_NO"/>
+      <result property="dtOrderAmount" column="DT_ORDER_AMOUNT"/>                 
+    </resultMap>
+    
 	<select id="selectTotalCount" resultType="_int">
 	SELECT
 	       COUNT(*)
@@ -123,14 +129,25 @@
 		  )
 	</insert>
 
-	<select id="selectSbNo" resultMap="exchangeMap">
+	<select id="selectSbNo" resultMap="exchangeMap" resultType="long">
 	SELECT
 		   D.SB_NO	
 	  FROM TBL_ORDER T 
 	  JOIN DETAIL_ORDER D ON (D.ORDER_NO = T.ORDER_NO)
-	  WHERE D.ORDER_NO = #{orderNo}
+	  WHERE T.ORDER_NO = #{orderNo}
 	</select>
-
+	
+	<select id="selectDetailOrder" resultMap="detailMap">
+	SELECT
+		   SB_NO
+		 , ORDER_NO
+		 , DT_ORDER_AMOUNT  	
+	  FROM DETAIL_ORDER D 
+	  JOIN TBL_ORDER T ON (D.ORDER_NO = T.ORDER_NO)
+	  WHERE T.ORDER_NO = #{orderNo}
+	</select>
+	
+	
 
 
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConMembership</title>
     <link rel="stylesheet" href="/css/member/regist/ConMembership.css" type="text/css">
-    <script type="text/javascript" src="/js/member/member.js"></script>
 </head>
 <body>
     <haeder>
@@ -62,7 +61,7 @@
             <tr>
                 <td>
                     <label>휴대전화</label><br>
-                    <input type="tel" name="phone" class="memberPhoneBar" id="phone" placeholder="(핸드폰 번호 11자리를 입력해주세요)">
+                    <input type="tel" name="phone" class="memberPhoneBar" id="phone" placeholder="('010'을 포함한 핸드폰 번호 11자리를 '-'빼고 입력해주세요)">
                 </td>
             </tr>
             <tr>
@@ -93,14 +92,14 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="dtAddress" id="dtAddress" class="addressBar2" placeholder="상세주소">
+                    <input type="text" name="dtAddress" id="dtAddress" class="addressBar2" placeholder="(배송을 받을 주소를 자세히 입력해 주세요)">
                 </td>
             </tr>
         </table>
         <br>
         <div class="base-button">
             <a href="#none" class="btnExit">취소</a>
-            <input type="submit" value="가입하기" class="btnSubmit" onclick="ValidationCon()">
+            <button type="button" value="가입하기" class="btnSubmit" onclick="javascript:ValidationCon()">가입</button>
         </div>
     </form>
 </div>
@@ -125,9 +124,10 @@
         }
     }).open();
 		
-	};		
+	};	
+		
 	</script>
         
-
+  <script type="text/javascript" src="/js/member/member.js"></script>
 </body>
 </html>

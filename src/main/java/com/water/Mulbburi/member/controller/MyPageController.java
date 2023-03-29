@@ -50,7 +50,7 @@ public class MyPageController {
 	public String goExchange(@RequestParam("orderNo") Long orderNo, Model model) {
 		
 		MemberOrderDTO orderDetail = myPageService.selectOrderDetail(orderNo);
-		  
+		
 		model.addAttribute("order", orderDetail);
 		    	 	
 		return "member/mypage/exchange";
@@ -63,9 +63,6 @@ public class MyPageController {
 		  exchange.setOrderNo(orderNo);
 		  
 		  Long sbNo = myPageService.selectSbNo(exchange);
-	      
-		  System.out.println("orderNo : "  + orderNo);
-		  System.out.println("sbNo : "  + sbNo);
 		  	  
 		  myPageService.insertExchange(exchange);
 		  	 
