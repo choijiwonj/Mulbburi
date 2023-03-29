@@ -113,7 +113,9 @@ public class BannerController {
 		
 		Map<String, Object> bnListAndPaging = bnService.selectAllBanner(page);
 		model.addAttribute("paging", bnListAndPaging.get("paging"));
-		model.addAttribute("bannerList", bnListAndPaging.get("bannerList"));		
+		model.addAttribute("bannerList", bnListAndPaging.get("bannerList"));
+		
+		log.info("bannerList {]", bnListAndPaging.get("bannerList"));
 		
 		return "screen/08-4. bannerList";
 	}

@@ -21,7 +21,7 @@ public class AskController {
 		this.askService = askService;
 	}
 
-	@GetMapping("askcontroll")
+	@GetMapping("ask")
 	public String askControll() {
 		return "ask/12.askControll";
 	}
