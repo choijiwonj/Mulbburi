@@ -6,6 +6,7 @@
  <resultMap type="com.water.Mulbburi.faq.dto.FaqDTO" id="faqAllResultMap">
       <id property="faqNo" column="FAQ_NO"/>
       <result property="faqCategory" column="FAQ_CATEGORY"/>
+      <result property="faqTitle" column="FAQ_TITLE"/>      
       <result property="faqSt" column="FAQ_ST"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="faqWriteTime" column="FAQ_WRITE_TIME"/>
@@ -27,6 +28,7 @@ SELECT
 <select id="selectFaqList" resultMap="faqAllResultMap">
 SELECT 
 FAQ_NO
+	  , FAQ_TITLE
 	  , FAQ_CATEGORY
 	  , FAQ_ST
 	  , MEMBER_NO
@@ -34,6 +36,7 @@ FAQ_NO
 FROM (SELECT
     ROWNUM RNUM
       ,		FAQ_NO
+      , FAQ_TITLE
 	  , FAQ_CATEGORY
 	  , FAQ_ST
 	  , MEMBER_NO
@@ -42,6 +45,7 @@ FROM
 
 (SELECT 
 		FAQ_NO
+	  , FAQ_TITLE
 	  , FAQ_CATEGORY
 	  , FAQ_ST
 	  , MEMBER_NO
@@ -62,6 +66,7 @@ WHERE RNUM >= #{ startRow }
 <select id="selectFaqDetail" resultMap="faqAllResultMap">
         SELECT 
             FAQ_NO
+      , FAQ_TITLE      
 	  , FAQ_CATEGORY
 	  , FAQ_ST
 	  , MEMBER_NO
@@ -74,6 +79,26 @@ WHERE RNUM >= #{ startRow }
   
    
 
+    <insert id="insertFaq">
+        INSERT 
+        INTO FAQ 
+        (	  FAQ_NO
+      , FAQ_TITLE
+	  , FAQ_CATEGORY
+	  , FAQ_ST
+	  , MEMBER_NO
+	  , FAQ_WRITE_TIME                         
+        )
+        VALUES
+        (
+        SEQ_FAQ_NO.NEXTVAL
+        , #{ faqTitle }
+        , #{ faqCategory }
+        , #{ faqSt }
+        , 1
+        , SYSDATE 
+        )
+    </insert>
 
 
 

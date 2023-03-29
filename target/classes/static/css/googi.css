@@ -16,10 +16,20 @@ body{
 	border: 2px ;
 	width: 60vw;
 	margin: 40px auto;
-	
+
 	
 }
 
+table{
+
+}
+
+
+th, td{
+	
+	border-bottom: solid;
+	
+}
 
 li{
     list-style-type: none;
@@ -30,7 +40,7 @@ font-weight: 700;
 font-size: 24px;
 line-height: 29px;
    color: rgba(71, 66, 66, 0.6);
-margin: 50px 40px;
+margin: 100px 40px;
 
 /*     position: absolute; */
 
@@ -61,7 +71,7 @@ font-weight: 700;
 font-size: 24px;
 line-height: 80px;
    color: rgba(71, 66, 66, 0.6);
-margin: 50px 40px;
+margin: 100px 40px;
 
 }
 

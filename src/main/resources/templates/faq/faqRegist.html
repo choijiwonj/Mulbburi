@@ -27,23 +27,33 @@
           
           
           
-          <form class="form-example1" action="/consumer/regist" method="post">
+          <form class="form-example1" action="/faq/regist" method="post">
 				<table style="margin: auto;">
-					
+					<tr><a><select name="faqCategory">         		
+                        		<option value="1">분야</option>
+                        		<option>배송지연불만</option>
+								<option>반품문의</option>
+								<option>주문결제문의</option>
+								<option>회원정보문의</option>
+								<option>취소문의</option>
+								<option>교환문의</option>
+								<option>상품정보문의</option>
+								<option>기타문의</option>
+                    </select></a></tr>
 					<tr id="textba1">
 						<td>제목</td>
-						<td colspan="3"><input type="text" name="announcementTitle"
+						<td colspan="3"><input type="text" name="faqTitle"
 							style="width: 435px;"></td>
 					</tr>
 					<tr id="textba2">
 						<td>내용</td>
-						<td colspan="3"><textarea name="body" cols="60" rows="15"
+						<td colspan="3"><textarea name="faqSt" cols="60" rows="15"
 								style="resize: none;"></textarea></td>
 					</tr>
 				</table>
 				<br>
 				<div align="center">
-					<button class="submitbox" type="button" th:onclick="'location.href=\'/consumer/googi\''">
+					<button class="submitbox" type="button" th:onclick="'location.href=\'/faq/main\''">
 						돌아가기</button>
 					
 					<button class="submitbox" type="submit">등록하기</button>

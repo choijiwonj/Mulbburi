@@ -25,8 +25,9 @@
 			
 			<tr th:each="inquiry: ${ inquiryList }"
 				th:onclick="|location.href='/inquiry/detail?no=${inquiry.inquiryNo}'|">
-				<td th:text="${ inquiry.inquiryNo }"></td>
+			
 				<td th:text="${ inquiry.inquiryCategory }"></td>
+					<td th:text="${ inquiry.inquiryTitle }"></td>
 				
 			</tr>
 		</table>

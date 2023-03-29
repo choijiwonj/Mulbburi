@@ -11,6 +11,9 @@
       <result property="communityDeleteDate" column="COMMUNITY_DELETE_DATE"/>
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="custom" column="CUSTOM"/>
+      
+      
+        <collection property="attachmentList" resultMap="attachmentResultMap"/>
      </resultMap>
 
  
@@ -20,14 +23,38 @@
         <result property="originalName" column="FILE_ORIGINAL_NAME"/>
         <result property="savedName" column="FILE_SAVED_NAME"/>
         <result property="savePath" column="FILE_PATH"/>
-        <result property="fileType" column="FILE_TYPE"/>
+        <result property="fileType" column="FILE_SIZE"/>
         <result property="thumbnailPath" column="THUMBNAILPATH"/>
         <result property="status" column="CUSTOM"/>
         
     </resultMap>
 
 
+    <resultMap type="com.water.Mulbburi.community.dto.ReplyDTO" id="replyResultMap">
+        <id property="no" column="COMMENT_NO"/>
+        <result property="refBoardNo" column="COMMUNITY_NO"/>
+        <result property="body" column="COMMENT_STORY"/>
+        <result property="status" column="CUSTOM"/>
+        <result property="createdDate" column="COMMENT_WIRTE_DATE"/>
 
+  </resultMap>
+
+<resultMap id="memberResultMap" type="com.water.Mulbburi.member.dto.MemberDTO">
+		<id property="memberNo" column="MEMBER_NO"/>
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="memberPwd" column="MEMBER_PWD"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="postCode" column="POSTCODE"/>
+		<result property="dtAddress" column="DT_ADDRESS"/>
+		<result property="bsAddress" column="BS_ADDRESS"/>
+		<result property="memberStatus" column="MEMBER_STATUS"/>
+		<result property="custom" column="CUSTOM"/>
+		<result property="businessName" column="BUSINESS_NAME"/>
+		<result property="businessNo" column="BUSINESS_NO"/>
+		<result property="email" column="EMAIL"/>
+		<collection property="memberRoleList" resultMap="memberRoleResultMap"/>
+	</resultMap>
 
 
 
@@ -65,7 +92,7 @@
     
     <insert id="insertAttachment">
        INSERT 
-        INTO TBL_ATTACHMENT
+        INTO TBL_FILE
             (
           FILE_NO
         , COMMUNITY_NO
@@ -106,7 +133,7 @@
    ,	C.THUMBNAILPATH
    FROM COMMUNITY A
    JOIN MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
-   JOIN TBL_ATTACHMENT C ON (A.COMMUNITY_NO = C.COMMUNITY_NO)
+   JOIN TBL_FILE C ON (A.COMMUNITY_NO = C.COMMUNITY_NO)
    WHERE A.CUSTOM = 1
    AND C.CUSTOM = 1
    AND A.COMMUNITY_NO = #{ communityNo }
@@ -151,7 +178,7 @@
                   WHERE ROWNUM <= #{ endRow }
                   ]]>
         ) A
-        JOIN TBL_ATTACHMENT D ON (A.COMMUNITY_NO = D.COMMUNITY_NO)
+        JOIN TBL_FILE D ON (A.COMMUNITY_NO = D.COMMUNITY_NO)
         JOIN MEMBER E ON(A.MEMBER_NO = E.MEMBER_NO)
         WHERE A.RNUM >= #{ startRow }
         ORDER BY 1 DESC
@@ -159,7 +186,48 @@
     
  
 
+<insert id="insertReply">
+        INSERT 
+        INTO CT_COMMENT A
+        (
+          A.COMMNET_NO
+        , A.COMMUNITY_NO
+        , A.COMMENT_STORY
+        , A.MEMBER_NO
+        , A.COMMET_WRITE_DATE
+        , A.CUSTOM
+        )
+        VALUES
+        (
+        SEQ_COMMENT_NO.NEXTVAL
+        , #{ refBoardNo }
+        , #{ body }
+        , #{ memberNo }
+        , SYSDATE
+        , 1
+        )
+    </insert>
 
+<select id="selectReplyList" resultMap="replyResultMap">
+        SELECT 
+               A.COMMENT_NO
+             , A.COMMUNITY_NO
+             , A.COMMENT_STORY
+             , A.MEMBER_NO
+             , A.COMMET_WRITE_DATE
+             , B.MEMBER_NO MEMBER_NO
+        FROM CT_COMMENT A
+        JOIN MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
+        WHERE A.CUSTOM = 1
+          AND A.COMMUNITY_NO = #{ refBoardNo }
+        ORDER BY A.COMMENT_NO
+    </select>
+ <delete id="deleteReply">
+        DELETE 
+        FROM CT_COMMENT A
+        WHERE A.COMMENT_NO = #{ no }
+    </delete>
+    
 
 
    

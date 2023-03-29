@@ -11,6 +11,7 @@ public class FaqDTO {
 	
 	private int faqNo;
 	private String faqCategory;
+	private String faqTitle;
 	private String faqSt;
 	private int memberNo;
 	private Date faqWriteTime;

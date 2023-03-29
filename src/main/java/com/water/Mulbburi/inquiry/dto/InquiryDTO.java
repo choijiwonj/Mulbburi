@@ -11,6 +11,7 @@ import lombok.Data;
 public class InquiryDTO{
 
 	private int inquiryNo;
+	private String inquiryTitle;
 	private String inquiryCategory;
 	private String content;
 	private String inquiryAnswer;
@@ -20,9 +21,7 @@ public class InquiryDTO{
 	private Date inquiryAnswerTime;
 	private int reasonNo;
 	private String email;
-	public void setWriter(MemberDTO member) {
-		// TODO Auto-generated method stub
-		
+	public void setWriter(MemberDTO member) {		
 	} 
 }
 

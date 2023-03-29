@@ -3,30 +3,33 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8" />
+<link href="/css/font.css" rel="stylesheet" style type="text/css">
+<link href="/css/community/communitydetail.css" rel="stylesheet" style type="text/css">
+ <link rel="stylesheet" type="text/css" href="/css/community.css">   
+        <link rel="stylesheet" type="text/css" href="/css/font.css">   
+ 
 </head>
 <body>
 	<div th:replace="common/j.header2.html"></div>
 	<div style="margin-top: 100px;">
 
-		<h1 align="center">사진 게시판 내용</h1>
-		<table align="center">
-			<tr>
-				<td width="100px">제목</td>
-				<td colspan="5" width="900" th:text="${ thumbnail.communityTitle }"></td>
-			</tr>
-			<tr>
+		  <div class="name-ba">
+	    		<div class="name-img"><img src="/img/icons8-화분에-심은-식물-48 (1).png"></div>
+			   <div class="name" colspan="5" width="900" th:text="${ thumbnail.communityTitle }"></div>			  
+		  </div>
+		  
 		
-				<td>작성일</td>
-				<td th:text="${ thumbnail.communityWriteDate }"></td>
-			</tr>
+		  <div class="wrapper">
+		<table align="center">
+		
 			<tr>
-				<td>대표사진</td>
+				<td></td>
 				<td colspan="5">
 					<div id="titleImgArea" align="center">
 						<th:block th:if="${ thumbnail.attachmentList[0].thumbnailPath != null }">
 							<img 
-								width="500" 
-								height="300"
+								width="1000" 
+								height="800"
 							    th:src="${ thumbnail.attachmentList[0].thumbnailPath }"
 							>
 							<br>
@@ -41,7 +44,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>사진메모</td>
+				<td></td>
 				<td colspan="5">
 					<p id="contentArea" th:text="${ thumbnail.communityStory }"></p>
 				</td>
@@ -73,13 +76,23 @@
 				</th:block>
 			</tr>
 		</table>
-
-		<div align="center" style="margin-top: 20px;">
-			<button type="button" onclick="location.href='/thumbnail/list'">목록으로</button>
 		</div>
-		
-	</div>
+		</div>
+	  <div class="st-ba">
+		  <div><p id="contentArea" th:text="${ thumbnail.communityStory }"></p></div>
+		  
+		  </div>
+	
+	
+	
+	
+	
 
-	<div th:replace="common/j.footer2.html"></div>
+	
+	
+	
+	
 </body>
 </html>
+
+

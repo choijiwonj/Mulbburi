@@ -24,9 +24,10 @@
 	
 			
 			<tr th:each="faq: ${ faqList }"
-				th:onclick="|location.href='/faq/detail?no=${faq.faqNo}'|">
-				<td th:text="${ faq.faqNo }"></td>
+				th:onclick="|location.href='/faq/detail?no=${faq.faqNo}'|">				
 				<td th:text="${ faq.faqCategory }"></td>
+				<td th:text="${ faq.faqTitle }"></td>
+				
 				
 			</tr>
 		</table>

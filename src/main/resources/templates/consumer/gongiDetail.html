@@ -18,24 +18,25 @@
 <body>
   
 
-    <div th:replace="common/j.header2.html"></div>
+    <div th:replace="common/mheaderLogin.html"></div>
     
-    
+
     <div class= wrapper>
-    	<div class="title-left">공지사항</div>
+    	<div class="title-left"><p th:text="${ consumer.announcementTitle }"></div>
 		    
 		    <div class="title-list">
-		            <table>
+		     <table>
+		     <hr>
+		 
+				
+			
+			
 				<tr>
-					<td class=li-st1>제목</td>
-					<td><p th:text="${ consumer.announcementTitle }"></p></td>
-				</tr>
-				<tr>
-					<td>내용</td>
-					<td colspan="3"><p th:text="${ consumer.announcementSt }"></p></td>
+					<td></td>
+					<td colspan="3" ><br th:text="${ consumer.announcementSt }"></br></td>
 				</tr>
 			</table>
-		            
+		            <hr>
 		            
 		            
 		            
