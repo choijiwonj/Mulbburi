@@ -13,10 +13,10 @@
 <body>
     <!-- 배경 -->
     <div th:replace="/common/madminLoginHeader.html"></div>
-        <div class="topground">
+        <<!-- div class="topground">
             <div class="t1">정산 확인</div>
             <div class="t2">판매량 확인</div>
-        </div>
+        </div> -->
         <div class="bbgd">
 
             <div class="background1">
@@ -25,10 +25,10 @@
                     <img src="/img/프로필.png">
                     <br><br><br><br>
                 <div><span class="c1">어니스트 플라워</span></div>
-                <form id="exelForm">
+                <form id="exelForm" action="/excel" method="POST">
             	<input type="hidden" id="calDate" name="calDate" th:value="${param.calDate}">
-            	</form>
-                <div><button id="cbutton">정산하기</button></div>
+            	
+                <div><button id="cbutton">정산하기</button></div></form>
                 </div>
 
                 <div class="cal">

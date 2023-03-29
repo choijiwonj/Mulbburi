@@ -21,19 +21,15 @@ public class CalculatorService {
 		this.calMapper = calMapper;
 	}
 	
-	public Map<String, Object> selectDate(CalculatorDTO calDTO){
+
+	public Map<String, Object> selectAllData(String calDate) {
 		
-		List<CalculatorDTO> calList = calMapper.selectAllCal(calDTO);
+		List<CalculatorDTO> calList = calMapper.selectAllCal(calDate);
 		
 		Map<String, Object> calculList = new HashMap<>();
-		calculList.put("calList", calList);		
+		calculList.put("calList", calList);
 		
 		return calculList;
-	}
-
-	public Map<String, Object[]> selectAllData(String calDate) {
-		
-		return null;
 	}
 
 }

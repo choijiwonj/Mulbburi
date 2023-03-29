@@ -3,6 +3,7 @@ package com.water.Mulbburi.shoppingcart.DTO;
 import java.util.List;
 
 import com.water.Mulbburi.file.FileDTO;
+import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.Data;
 
@@ -25,6 +26,7 @@ public class cartDTO {
 	private int totalPrice;
 	/* 상품이미지 */
 	private List<FileDTO> imageList;
+	private String memberName;
 	
 	public void initTotal() {
 		this.totalPrice = this.sbPrice*this.pcAmount;

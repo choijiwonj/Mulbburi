@@ -76,7 +76,7 @@ public class BannerController {
 						FileDTO fileInfo = new FileDTO();
 						fileInfo.setFileOriginalName(originalFileName);
 						fileInfo.setFileSavedName(savedFileName);
-						fileInfo.setFilePath("/upload/original");
+						fileInfo.setFilePath("/upload/original/" + savedFileName);
 						
 						attachmentList.add(fileInfo);
 					}

@@ -18,7 +18,7 @@ public class CalculatorDTO {
 	private OrderDTO orderAmountMoney;
 	private int allMoney;
 	private int calCharge2;
-	private int calMoney3;
+	private int calMoney2;
 	private OrderDTO orderDate;	
 
 }

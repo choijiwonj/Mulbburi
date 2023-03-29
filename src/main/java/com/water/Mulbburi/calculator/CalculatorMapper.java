@@ -10,6 +10,6 @@ import com.water.Mulbburi.order.OrderDTO;
 @Mapper
 public interface CalculatorMapper {
 
-	List<CalculatorDTO> selectAllCal(CalculatorDTO calDTO);
+	List<CalculatorDTO> selectAllCal(String calDate);
 
 }

@@ -27,7 +27,6 @@
 		  A.INQUIRY_NO,
 		  A.INQUIRY_TITLE,
 		  A.MEMBER_ID,
-		  A.EMAIL,
 		  A.INQUIRY_CATEGORY,
 		  A.INQUIRY_ST
 	 FROM (SELECT
@@ -35,14 +34,12 @@
 	    		 B.INQUIRY_NO,
 		  	  	 B.INQUIRY_TITLE,
 		  		 B.MEMBER_ID,
-		 	 	 B.EMAIL,
 		  		 B.INQUIRY_CATEGORY,
 		  		 B.INQUIRY_ST
 	        FROM (SELECT
 	                     C.INQUIRY_NO,
 		  				 C.INQUIRY_TITLE,
 		  				 M.MEMBER_ID,
-		  				 C.EMAIL,
 		  				 C.INQUIRY_CATEGORY,
 		  				 C.INQUIRY_ST
 	                FROM INQUIRY C

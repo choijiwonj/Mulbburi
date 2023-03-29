@@ -13,11 +13,20 @@
 <body>
 	 <div th:replace="/common/mheader.html"></div>
 	 
+	 <div 
+			id="thumbnailArea"
+			style="width: 1080px; margin: auto; display: flex; justify-content: center; flex-wrap: wrap;"
+		>
+	 
 	 <!-- banner -->
-    <div class="wrapper">
-        <div class="banner 1"><img th:src="@{${bannerList.filePath} + ${bannerList.fileSavedName}}"></div>
+	 <th:block th:each="banner : ${bannerList}">
+    <div>
+    <th:block th:each="attachment : ${attachmentList}">
+        <div class="banner 1"><img th:src="${banner.attachmentc.filePath}" width="100%" height="300px"></div>
+	</th:block>
     </div>
-
+    </th:block>
+	</div>
     <!-- 카테고리 -->
     <!--<div class="category">
         <h1>Category</h1>
@@ -86,41 +95,12 @@
         <h4>새로운 상품을 지금 바로 만나보세요.</h4>
     </div>
 
-    <div class="newProductPicture">
-        <div>
-            <img src="/img/상품.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
+        <div class="pictures">
+    <div class="newProductPicture" th:each="prod:${prodList}">
+            <img th:src="${filePath}"><br>
+            <div class="s1" th:text="|[${prod.memberName}]|"></div>
+            <div class="s2" th:text="${prod.sbName}"></div><br>
+            <div class="s5" th:text="${prod.sbPrice}"></div>
         </div>
     </div>
 
@@ -129,44 +109,14 @@
         <h4>새로운 게시글</h4>
     </div>
 
-    <div class="newPostPicture">
-        <div class="p1">
+    <div class="newPostPicture" >
+        <div class="p1" th:each="com : ${cmList}">
             <div class="p1c">
                 <img src="/img/배너1.jpg">
             </div>
             <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src="/img/배너1.jpg">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src="/img/배너1.jpg">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src=" ">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
+                <div class="writer" th:text="${com.memberId}"></div><br><br>
+                <div class="story"  th:text="${com.communityTitle}"></div>
             </div>
         </div>
     </div>

@@ -28,6 +28,109 @@
 	<result property="ytNo" column="YT_NO"/>
 </resultMap>
 
+<resultMap id="cartInfoMap" type="com.water.Mulbburi.shoppingcart.DTO.cartDTO">
+	<id property="pcNo" column="PC_NO"/>
+	<result property="memberNo" column="MEMBER_NO"/>	
+	<result property="sbNo" column="SB_NO"/>
+	<result property="pcAmount" column="PC_AMOUNT"/>
+	<result property="sbName" column="SB_NAME"/>
+	<result property="sbPrice" column="SB_PRICE"/>
+	<result property="memberName" column="MEMBER_NAME"/>
+</resultMap>
+
+<resultMap type="com.water.Mulbburi.community.dto.CommunityDTO" id="communityAllResultMap">
+      <id property="communityNo" column="COMMUNITY_NO"/>
+      <result property="communityTitle" column="COMMUNITY_TITLE"/>
+      <result property="communityStory" column="COMMUNITY_STORY"/>
+      <result property="communityWriteDate" column="COMMUNITY_WRITE_DATE"/>
+      <result property="communityUpdateDate" column="COMMUNITY_UPDATE_DATE"/>
+      <result property="communityDeleteDate" column="COMMUNITY_DELETE_DATE"/>
+      <result property="memberNo" column="MEMBER_NO"/>
+      <result property="custom" column="CUSTOM"/>
+      <result property="memberId" column="MEMBER_ID"/>
+</resultMap>
+
+<resultMap type="com.water.Mulbburi.faq.dto.FaqDTO" id="faqResultMap">
+	<id property="faqNo" column="FAQ_NO"/>
+	<result property="faqCategory" column="FAQ_CATEGORY"/>
+	<result property="faqTitle" column="FAQ_TITLE"/>
+	<result property="faqSt" column="FAQ_ST"/>
+	<result property="faqWriteTime" column="FAQ_WRITE_TIME"/>
+	<result property="memberId" column="MEMBER_ID"/>
+</resultMap>
+
+<select id="selectMyFAQ" parameterType="com.water.Mulbburi.faq.dto.FaqDTO" resultMap="faqResultMap">
+	SELECT
+	       A.FAQ_TITLE,
+	       A.MEMBER_ID
+	  FROM (SELECT
+	  			   ROWNUM RNUM,
+	  			   B.FAQ_TITLE,
+	  			   B.MEMBER_ID
+	  	      FROM (SELECT
+	  	                  C.FAQ_TITLE,
+	  	                  M.MEMBER_ID
+	  	             FROM FAQ C
+	  	             JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+	  	            ORDER BY C.FAQ_NO) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
+<select id="selectMyCom" parameterType="com.water.Mulbburi.community.dto.CommunityDTO" resultMap="communityAllResultMap">
+SELECT
+	 	   A.COMMUNITY_TITLE,
+	 	   A.MEMBER_ID
+	 FROM (SELECT
+	 			  ROWNUM RNUM,
+	 			  B.COMMUNITY_TITLE,
+	 			  B.MEMBER_ID
+	 	     FROM (SELECT
+	 	     			  C.COMMUNITY_TITLE,
+	 	     			  M.MEMBER_ID
+	 	     	     FROM COMMUNITY C
+	 	     	     JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+	 	     	    ORDER BY C.COMMUNITY_NO) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
+<select id="selectMyProd" parameterType="com.water.Mulbburi.shoppingcart.DTO.cartDTO" resultMap="cartInfoMap">
+	SELECT
+	 	   A.SB_NAME,
+	 	   A.SB_NO,
+	 	   A.MEMBER_NAME,
+	 	   A.SB_PRICE
+	 FROM (SELECT
+	 			  ROWNUM RNUM,
+	 			  B.SB_NAME,
+	 			  B.SB_NO,
+	 			  B.MEMBER_NAME,
+	 			  B.SB_PRICE
+	 	     FROM (SELECT
+	 	     			  C.SB_NAME,
+	 	     			  M.MEMBER_NAME,
+	 	     			  C.SB_NO,
+	 	     			  C.SB_PRICE
+	 	     	     FROM SHOPPINGBASCKET C
+	 	     	     JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+	 	     	    ORDER BY C.SB_NO) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
 
 <select id="selectMyYoutube" parameterType="com.water.Mulbburi.screen.youtube.YoutubeDTO" resultMap="youtubeResultMap">
 	SELECT
