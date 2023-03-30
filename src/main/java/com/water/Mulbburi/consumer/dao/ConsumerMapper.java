@@ -19,4 +19,10 @@ public interface ConsumerMapper {
 
 	public List<ConsumerDTO> selectConsumerList(SelectCriteria selectCriteria);
 
+	public ConsumerDTO selectConsumerDetail(int no);
+
+	public void insertConsumer(ConsumerDTO consumer);
+
+
+
 }

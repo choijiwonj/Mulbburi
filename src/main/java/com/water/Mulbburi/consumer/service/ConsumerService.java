@@ -1,6 +1,7 @@
 package com.water.Mulbburi.consumer.service;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -20,13 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 
 public class ConsumerService {
-	
-	
 
 	private final ConsumerMapper consumerMapper;
-	
-	
-	
 
 	public ConsumerService(ConsumerMapper consumerMapper) {
 		this.consumerMapper = consumerMapper;
@@ -58,7 +54,23 @@ public Map<String, Object> selectConsumerList(Map<String, String> searchMap, int
 		
 		return consumerListAndPaging;
 	}
-	
-	
-	
+
+public ConsumerDTO selectConsumerDetail(int no) {
+	/* 2. 게시글 상세 내용 조회 후 리턴 */
+	return consumerMapper.selectConsumerDetail(no);
 }
+
+public void registConsumer(ConsumerDTO consumer) {
+	
+	consumerMapper.insertConsumer(consumer);
+}
+
+
+
+
+
+}
+	
+	
+	
+
