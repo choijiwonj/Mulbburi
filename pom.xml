@@ -44,6 +44,7 @@
          <scope>runtime</scope>
          <optional>true</optional>
       </dependency>
+
       <dependency>
          <groupId>com.oracle.database.jdbc</groupId>
          <artifactId>ojdbc8</artifactId>
@@ -88,7 +89,8 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
      </dependency>
-      <dependency>
+     <!-- poi-ooxml 을 추가합니다 -->
+     <dependency>
 	   <groupId>org.apache.poi</groupId>
 	   <artifactId>poi-ooxml</artifactId>
 	   <version>4.1.2</version>
@@ -110,4 +112,5 @@
          </plugin>
       </plugins>
    </build>
+
 </project>

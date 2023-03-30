@@ -1,15 +1,15 @@
 package com.water.Mulbburi.product.dto;
-​
+
 import java.util.List;
-​
+
 import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
-​
+
 import lombok.Data;
-​
+
 @Data
 public class ProductDTO {
-​
+
 //	private MemberDTO seller;				// 판매자(번호, 이름) - seller.memberNo seller.memberName
 	private long memberNo;					// 판매자(번호, 이름) - seller.memberNo seller.memberName
 	private Long sbNo;						// 상품번호

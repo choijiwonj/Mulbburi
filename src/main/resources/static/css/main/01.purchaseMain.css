@@ -22,7 +22,7 @@ a {
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 0px;
+    left: 450px;
     flex-shrink: 0;
     transition: left 0.15s;
 }
@@ -84,10 +84,10 @@ a {
  }
 
 .newProductPicture{
-    text-align: center;
+        text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    display: felx;
+    margin-left: 6%;
 }
 
 .pictures{
