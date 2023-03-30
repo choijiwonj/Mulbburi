@@ -6,6 +6,8 @@ function click(){
     one.addEventListener("click", () => {location.href = "/askone"});
     two.addEventListener("click", () => {location.href = "/notice"});
     three.addEventListener("click", () => {location.href = "/FAQ"});
+    
+     document.querySelector(".tt1").addEventListener("click", () => {location.href="askone"});
 }
 
 click();

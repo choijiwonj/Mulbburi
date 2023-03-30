@@ -19,7 +19,12 @@ showSlides();
 
 
 function dayuk(){
-	document.querySelector(".ctp1").addEventListener("click", () => {location.href="/select/dayuk"});
+	document.querySelector(".ctp1").addEventListener("click", () => {location.href="/store"});
+	document.querySelector(".ctp2").addEventListener("click", () => {location.href="/select/flower"});
+	document.querySelector(".ctp3").addEventListener("click", () => {location.href="/select/terrarium"});
+	document.querySelector(".ctp4").addEventListener("click", () => {location.href="/select/herb"});
+	document.querySelector(".ctp5").addEventListener("click", () => {location.href="/select/etc"}
+	);
 }
 
 dayuk();

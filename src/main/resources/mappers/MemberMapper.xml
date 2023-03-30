@@ -30,7 +30,7 @@
 	
 	<resultMap type="com.water.Mulbburi.file.FileDTO" id="fileListResultMap">
 		<id property="fileNo" column="FILE_NO"/>
-		<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
 		<result property="filePath" column="FILE_PATH"/>
 		<result property="fileSavedName" column="FILE_SAVED_NAME"/>
 		<result property="custom" column="CUSTOM"/>
@@ -241,7 +241,7 @@
 
     <update id="deleteMember">
         UPDATE 
-              TBL_MEMBER 
+              MEMBER 
           SET MEMBER_STATUS = 'N'
         WHERE MEMBER_STATUS = 'Y'
           AND MEMBER_ID = #{ memberId }

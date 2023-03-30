@@ -76,6 +76,7 @@ public class FaqController {
 		return "faq/faqRegist";
 		
 	}
+	
 	/* 게시글 등록 컨트롤러 핸들러 메소드 */
 	@PostMapping("/regist")
 	public String registFaq(FaqDTO faq,@AuthenticationPrincipal MemberDTO member,

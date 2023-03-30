@@ -11,11 +11,11 @@ import com.water.Mulbburi.productpage.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
-public class ProductController {
+public class ProductPageController {
 
 	private final ProductService productService;
 	
-	public ProductController(ProductService productService) {
+	public ProductPageController(ProductService productService) {
 		this.productService = productService;
 	}
 	

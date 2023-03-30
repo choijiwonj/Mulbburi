@@ -1,7 +1,23 @@
 package com.water.Mulbburi.member.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +28,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
+import com.water.Mulbburi.member.exception.MemberRemoveException;
 import com.water.Mulbburi.member.service.AuthenticationService;
 import com.water.Mulbburi.member.service.MailService;
 import com.water.Mulbburi.member.service.MemberService;
@@ -43,14 +63,35 @@ public class MemberController {
         this.mailService = mailService;
         this.redisUtil = redisUtil;
     }
+    
+    /* 로그인 접근 페이지 이동 */
+	@GetMapping("/login/loginJoin")
+	public String goLoginJoin() {
+		
+		return "member/login/loginJoin";
+	}
 	
-	/* 로그인 페이지 이동 */
+
+	/* 구매자 로그인 페이지 이동 */
 	@GetMapping("/login/login")
-	public String goLogin() {
+	public String goConLogin() {
 		
 		return "member/login/login";
 	}
 	
+	/* 판매자 로그인 페이지 이동 */
+	@GetMapping("/login/loginSel")
+	public String goSelLogin() {
+		
+		return "member/login/loginSel";
+	}
+	
+	/* 관리자 로그인 페이지 이동 */
+	@GetMapping("/login/loginAdmin")
+	public String goAdminLogin() {
+		
+		return "member/login/loginAdmin";
+	}
 	/* 로그인 실패 시 */
 	@PostMapping("/login/loginFalse")
 	public String loginFailed() {
@@ -167,7 +208,7 @@ public class MemberController {
 //	@ResponseBody
 	public String doPwdReset(@ModelAttribute MemberDTO member,@RequestParam(required=false, value="memberId") String memberId, 
 			@RequestParam(required=false, value="memberPwd") String memberPwd,
-			RedirectAttributes rttr) {
+			RedirectAttributes rttr, FileDTO fileDTO, List<MultipartFile> fileList) {
 		
 		System.out.println("memberID :" + memberId);
 		System.out.println("memberPwd :" + memberPwd);
@@ -225,7 +266,7 @@ public class MemberController {
 	
 	/* 구매자 회원 가입 */
 	@PostMapping("/regist/ConMembership")
-	public String registConMember(@ModelAttribute MemberDTO member,
+	public String registConMember(@ModelAttribute MemberDTO member, FileDTO file,
 			@RequestParam String emailId, @RequestParam String domain,
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
 			RedirectAttributes rttr) throws MemberRegistException {
@@ -249,13 +290,19 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	
+		
 	/* 판매자 회원 가입 */
 	@PostMapping("/regist/SelMembership")
 	public String registSelMember(@ModelAttribute MemberDTO member,
 			@RequestParam String emailId, @RequestParam String domain,
 			@RequestParam String postCode, @RequestParam String bsAddress, @RequestParam String dtAddress,
-			RedirectAttributes rttr) throws MemberRegistException {
+			RedirectAttributes rttr, @RequestParam(value="file", required=false) ArrayList<MultipartFile> files, Model model
+			) throws MemberRegistException {
+		
+		System.out.println("member : " + member);
+		System.out.println("files : " + files);
+		
+		FileDTO fileDTO = new FileDTO();
 		
 		String email = emailId + "@" + domain;
 		member.setEmail(email);
@@ -263,98 +310,155 @@ public class MemberController {
 		member.setBsAddress(bsAddress);
 		member.setDtAddress(dtAddress);
 		
+		String memberId = member.getMemberId();
+		
+		String savedFileName ="";
+		
+		String uploadPath = "C:/Lecture/dev/10_spring/Mulburri/Mulbburi/src/main/resources/files/";
+		
+		
+		ArrayList<String> originalFileNameList = new ArrayList<String>();
+		
+		
+		try {
+		
+		for(MultipartFile file : files) {
+			
+			String originalFileName = file.getOriginalFilename();
+			
+			originalFileNameList.add(originalFileName);
+			
+			UUID uuid = UUID.randomUUID();
+			savedFileName = uuid.toString() + "_" + memberId + originalFileName;
+			
+			File file1 = new File(uploadPath + savedFileName);
+			
+			file.transferTo(file1);
+			
+			fileDTO.setFileoriginalName(originalFileName);
+			fileDTO.setFilePath(uploadPath);
+			fileDTO.setFileSavedName(savedFileName);
+			
+		}
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+				
+				  for(MultipartFile file : files ) {
+				  
+				  File deleteFile = new File(uploadPath + "/" + savedFileName);
+				  
+				  deleteFile.delete(); }
+				 
+			}
+			
+		
 		
 		log.info("[MemberController] registMember request Member : " + member);
 		
 		member.setMemberPwd(passwordEncoder.encode(member.getMemberPwd()));
 		
-		memberService.registSelMember(member);
+		memberService.registSelMember(member, fileDTO);
 		
 		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.regist"));
 		
 		
 		
 		return "redirect:/";
+	
+	
 	}
 	
 	
 	/* 마이페이지 페이지 이동 */
 	@GetMapping("/mypage/mypageMain")
-	public String mypageMain() {
+	public String mypageMain(@AuthenticationPrincipal MemberDTO member) {	
+		System.out.println(member);
 		
 		return "member/mypage/mypageMain";
 	}
-	
-	/* 배송확인 페이지 이동 */
-	@GetMapping("/mypage/delivery")
-	public String delivery() {
 		
-		return "member/mypage/delivery";
-	}
-	
-	/* 교환신청 페이지 이동 */
-	@GetMapping("/mypage/exchange")
-	public String exchange() {
-		
-		return "member/mypage/exchange";
-	}
-	
-	/* 환불신청 페이지 이동 */
-	@GetMapping("/mypage/refund")
-	public String refund() {
-		
-		return "member/mypage/refund";
-	}
-	
 	/* 내정보수정 페이지 이동 */
 	@GetMapping("/mypage/infoModify")
-	public String infoModify() {
+	public String infoModify(@AuthenticationPrincipal MemberDTO member) {
+			
+		
 		
 		return "member/mypage/infoModify";
 	}
 	
+	@PostMapping("/mypage/infoModify")
+	public String modifyMember(@ModelAttribute MemberDTO updateMember, @RequestParam String emailId,
+			@RequestParam String domain, @AuthenticationPrincipal MemberDTO loginMember,
+			RedirectAttributes rttr) throws MemberModifyException {
+		
+			String email = emailId + "@" + domain;
+			updateMember.setEmail(email);
+			
+			updateMember.setMemberNo(loginMember.getMemberNo());
+			
+			memberService.modifyMember(updateMember);
+			
+			SecurityContextHolder.getContext().setAuthentication(createNewAuthentication(loginMember.getMemberId()));
+	    	
+	    	rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.modify"));
+	    	
+	    	return "redirect:/";
+	}
+	
+	protected Authentication createNewAuthentication(String memberId) {
+		
+		UserDetails newPrincipal = authenticationService.loadUserByUsername(memberId);
+    	UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(newPrincipal, newPrincipal.getPassword(), newPrincipal.getAuthorities());
+
+        return newAuth;
+	}
+	
 	/* 내정보수정 접근 페이지 이동 */
 	@GetMapping("/mypage/infoModifyJoin")
-	public String infoModifyJoin() {
+	public String infoModifyJoin(@AuthenticationPrincipal MemberDTO member) {
+		
+		
+		
+		return "member/mypage/infoModify";
+	}
+	
+	@PostMapping("/mypage/infoModifyJoin")
+	public String checkinfoModifyJoin(@AuthenticationPrincipal MemberDTO loginMember, @RequestParam String modifyPwd,
+			RedirectAttributes rttr) {
+		
+		String memberPwd = loginMember.getMemberPwd();
+		
+		String result = "";
+		
+//		if(passwordEncoder.matches(memberPwd, modifyPwd)) {
+//			
+//			result = "member/mypage/infoModify";
+//		} else {
+//			
+//			rttr.addAttribute("msg", "비밀번호를 다시 확인해주세요");
+//			result = "member/mypage/infoModifyJoin";
+//		}
+//		
+//		
+//		return result;
 		
 		return "member/mypage/infoModifyJoin";
 	}
-	
-	/* 좋아요 페이지 이동 */
-	@GetMapping("/mypage/like")
-	public String like() {
 		
-		return "member/mypage/like";
-	}
-	
-	/* 게시글내역 페이지 이동 */
-	@GetMapping("/mypage/myBoard")
-	public String myBoard() {
-		
-		return "member/mypage/myBoard";
-	}
-	
-	/* 주문상세내역 페이지 이동 */
-	@GetMapping("/mypage/orderDetail")
-	public String orderDetail() {
-		
-		return "member/mypage/orderDetail";
-	}
-	
-	/* 주문내역 페이지 이동 */
-	@GetMapping("/mypage/orderList")
-	public String orderList() {
-		
-		return "member/mypage/orderList";
-	}
-	
 	/* 회원탈퇴 페이지 이동 */
 	@GetMapping("/mypage/quit")
-	public String quit() {
+	public String quit(@AuthenticationPrincipal MemberDTO member,
+			@RequestParam("memberPwd") String memberPwd, RedirectAttributes rttr) throws MemberRemoveException {
 		
-		return "member/mypage/quit";
+		String memberPwd2 = memberService.findLoginPwd(member);
+		
+		if(memberPwd == memberPwd2) {
+			memberService.removeMember(member);
+			SecurityContextHolder.clearContext();
+			 rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.delete"));
+		}
+		return "redirect:/";
 	}
-	
 	
 	
 	

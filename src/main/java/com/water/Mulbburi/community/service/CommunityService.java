@@ -1,24 +1,16 @@
 package com.water.Mulbburi.community.service;
-
 import java.util.HashMap;
-
-
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dao.CommunityMapper;
 import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.dto.ReplyDTO;
-
-
 import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 @Service
 @Transactional
@@ -29,7 +21,6 @@ public class CommunityService {
 	public CommunityService(CommunityMapper communityMapper) {
 		this.communityMapper = communityMapper;
 	}
-
 	
 	
 	
@@ -58,14 +49,12 @@ public Map<String, Object> selectCommunityList(Map<String, String> searchMap, in
 		
 		return communityListAndPaging;
 	}
-
 	public CommunityDTO selectCommunityDetail(Long no) {
 	
 		
 		/* 2. 게시글 상세 내용 조회 후 리턴 */
 		return communityMapper.selectCommunityDetail(no);
 	}
-
 	
 	
 	
@@ -81,19 +70,15 @@ public Map<String, Object> selectCommunityList(Map<String, String> searchMap, in
 		communityMapper.insertReply(reply);
 		
 	}
-
 	public List<ReplyDTO> loadReply(ReplyDTO reply) {
 		
 		return communityMapper.selectReplyList(reply);
 	}
-
 	public void removeReply(ReplyDTO reply) {
 		
 		communityMapper.deleteReply(reply);
 		
 	}
-
-
 	public void registThumbnail(CommunityDTO community) {
 		
 		/* 1. Board 테이블에 데이터 저장 */
@@ -105,7 +90,6 @@ public Map<String, Object> selectCommunityList(Map<String, String> searchMap, in
 		}
 		
 	}
-
 	public Map<String, Object> selectThumbnailList(int page) {
 		
 		int totalCount = communityMapper.selectThumbnailTotalCount();
@@ -125,23 +109,16 @@ public Map<String, Object> selectCommunityList(Map<String, String> searchMap, in
 		
 		return thumbnailListAndPaging;
 	}
-
 	public CommunityDTO selectThumbnailDetail(Long no) {
 				
 		return communityMapper.selectThumbnailCommunityDetail(no);
 	}
-
-
-
-
 	public void registCommunity(CommunityDTO community) {
 		
 		
 	}
-
 	
 	
-
 	
 	
 	
