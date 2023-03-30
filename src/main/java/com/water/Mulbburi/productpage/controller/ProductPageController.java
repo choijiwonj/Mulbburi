@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
 import com.water.Mulbburi.productpage.service.ProductPageService;
 
-
 @Controller
 @RequestMapping("/product")
 public class ProductPageController {
@@ -18,24 +17,20 @@ public class ProductPageController {
 	
 	public ProductPageController(ProductPageService productService) {
 		this.productService = productService;
-
 	}
 	
 	@GetMapping("/list")
 	public String productList(Model model) {
-
 		
 		
 		model.addAttribute("pro",productService.selectProductList());
 		System.out.println(model);
 		return "productpage/productPage";
-
 	}
 	
 	
 	@GetMapping("/productPage")
 	public String selectProductPage(@RequestParam int sbNo, Model model) {
-
 		
 		ProductPageDTO product = productService.selectProductPageDetail(sbNo);
 		
@@ -45,5 +40,4 @@ public class ProductPageController {
 		return "productpage/productpage";
 	}
 	
-
 }
