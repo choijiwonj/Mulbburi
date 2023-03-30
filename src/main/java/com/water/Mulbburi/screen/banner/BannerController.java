@@ -46,15 +46,12 @@ public class BannerController {
 
 		/*파일 업로드*/
 		String fileUploadDir = IMAGE_DIR + "original";
-		String thumbnailDir = IMAGE_DIR + "thumbnail";
 		
 		File dir1 = new File(fileUploadDir);
-		File dir2 = new File(thumbnailDir);
 		
 		/* 디렉토리가 없을 경우 생성 */
 		if(!dir1.exists()) {
 			dir1.mkdirs();
-			dir2.mkdirs();
 		}
 		
 		List<FileDTO> attachmentList = new ArrayList<>();
