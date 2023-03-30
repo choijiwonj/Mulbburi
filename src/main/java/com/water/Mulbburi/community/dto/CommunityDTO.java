@@ -3,6 +3,8 @@ package com.water.Mulbburi.community.dto;
 import java.util.Date;
 import java.util.List;
 
+import com.water.Mulbburi.community.dto.AttachmentDTO;
+import com.water.Mulbburi.community.dto.ReplyDTO;
 import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.Data;

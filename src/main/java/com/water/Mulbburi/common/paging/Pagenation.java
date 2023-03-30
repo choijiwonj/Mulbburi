@@ -3,6 +3,8 @@ package com.water.Mulbburi.common.paging;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.water.Mulbburi.common.paging.SelectCriteria;
+
 public class Pagenation {
 
 

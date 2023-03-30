@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.water.Mulbburi.ask.AskDTO;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 
 @Mapper

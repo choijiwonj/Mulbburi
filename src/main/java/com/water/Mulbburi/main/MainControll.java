@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.water.Mulbburi.main.MainService;
 import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.extern.slf4j.Slf4j;

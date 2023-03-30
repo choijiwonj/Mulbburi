@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class OrderDTO {
+public class orderDTO {
 	/* 주문 번호 */
 	private long orderNo;
 	/* 상품 이름 */

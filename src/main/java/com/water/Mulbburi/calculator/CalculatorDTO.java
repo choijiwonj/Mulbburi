@@ -1,7 +1,7 @@
 package com.water.Mulbburi.calculator;
 
 import com.water.Mulbburi.member.dto.MemberDTO;
-import com.water.Mulbburi.order.OrderDTO;
+import com.water.Mulbburi.order.orderDTO;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
 
 import lombok.Data;
@@ -15,10 +15,10 @@ public class CalculatorDTO {
 	private int memberNo; //계정번호
 	private int calCharge; //수수료
 	private int orderNo;   //주문번호
-	private OrderDTO orderAmountMoney;
+	private orderDTO orderAmountMoney;
 	private int allMoney;
 	private int calCharge2;
 	private int calMoney2;
-	private OrderDTO orderDate;	
+	private orderDTO orderDate;	
 
 }
