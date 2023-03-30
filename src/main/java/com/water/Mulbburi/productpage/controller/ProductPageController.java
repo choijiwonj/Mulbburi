@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
-import com.water.Mulbburi.productpage.service.ProductService;
+import com.water.Mulbburi.productpage.service.ProductPageService;
 
 @Controller
 @RequestMapping("/product")
 public class ProductPageController {
 
-	private final ProductService productService;
+	private final ProductPageService productService;
 	
-	public ProductPageController(ProductService productService) {
+	public ProductPageController(ProductPageService productService) {
 		this.productService = productService;
 	}
 	

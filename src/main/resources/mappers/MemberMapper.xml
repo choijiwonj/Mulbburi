@@ -30,7 +30,7 @@
 	
 	<resultMap type="com.water.Mulbburi.file.FileDTO" id="fileListResultMap">
 		<id property="fileNo" column="FILE_NO"/>
-		<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
 		<result property="filePath" column="FILE_PATH"/>
 		<result property="fileSavedName" column="FILE_SAVED_NAME"/>
 		<result property="custom" column="CUSTOM"/>
@@ -144,7 +144,7 @@
         , #{ bsAddress }
         , #{ dtAddress }
         , '판매자'
-        , 'N'
+        , 'Y'
         )
 	</insert>
 	
@@ -226,10 +226,10 @@
 		  AND  MEMBER_ID = #{ memberId }
 	</select>
 
-    <update id="updateMember">
+       <update id="updateMember">
         UPDATE 
               MEMBER 
-          SET MemberName = #{ memberName }
+          SET MEMBER_NAME = #{ memberName }
             , PHONE = #{ phone }
             , EMAIL = #{ email }
             , POSTCODE= #{ postCode }

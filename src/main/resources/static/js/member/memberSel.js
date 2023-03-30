@@ -63,7 +63,7 @@ function ValidationSel() {
 		mpwd.focus();
 		return false;	
 	} else if(!regIdPw.test(mpwd.value)) {
-		alert("비밀번호를 영소문자,대문자,숫자 8~16자로 입력해주세요.");
+		alert("아이디를 영소문자,대문자,숫자 8~16자로 입력해주세요.");
 		mpwd.focus();
 		return false;
 	} else if(mrepwd.value !== mpwd.value) {

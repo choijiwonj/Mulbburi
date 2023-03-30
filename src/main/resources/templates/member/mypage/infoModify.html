@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,16 +16,17 @@
         <div class="sub"></div>
     </nav>
 
-	<div th:replace="common/spheader.html"></div>
+   <div th:replace="common/spheader.html"></div>
 
     <div class="topInfo">
         <img src="/img/프로필.png" class="profile">
         <p class="id">user012</p>
         <p class="text">님 안녕하세요</p>
     </div>
-
+   
+   
     <div class="page">
-        <form>
+        <form action="/member/mypage/infoModify" method="post">
             <table>
                 <tr>
                     <td>
@@ -48,7 +49,7 @@
                     <label>휴대전화</label>
                     </td>
                     <td>
-                    <input type="tel" name="memberTel" th:value="${ #authentication.principal.phone}" class="telBar">
+                    <input type="text" name="phone" th:value="${ #authentication.principal.phone}" class="telBar">
                     </td>
                 </tr>
                 <tr>
@@ -99,18 +100,18 @@
         </form>
     </div>
 
-	<div th:replace="common/spfooter.html"></div>
-	
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
+   <div th:replace="common/spfooter.html"></div>
+   
+   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+   <script>
 
-	const $searchZipCode = document.getElementById("searchZipCode");
-	
-	$searchZipCode.onclick = function() {
-		
-		/* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 인자로 전달한다. */
-	
-	
+   const $searchZipCode = document.getElementById("searchZipCode");
+   
+   $searchZipCode.onclick = function() {
+      
+      /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 인자로 전달한다. */
+   
+   
 
     new daum.Postcode({
         oncomplete: function(data) {
@@ -120,9 +121,9 @@
             document.getElementById("dtAddress").focus();
         }
     }).open();
-		
-	};		
-	</script> 
+      
+   };      
+   </script> 
 
 </body>
 </html>

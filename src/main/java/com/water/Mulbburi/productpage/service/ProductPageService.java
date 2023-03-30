@@ -6,11 +6,11 @@ import com.water.Mulbburi.productpage.DAO.ProductPageMapper;
 import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
 
 @Service
-public class ProductService {
+public class ProductPageService {
 
 	private final ProductPageMapper productMapper;
 	
-	public ProductService(ProductPageMapper productMapper) {
+	public ProductPageService(ProductPageMapper productMapper) {
 		this.productMapper = productMapper;
 	}
 	

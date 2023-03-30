@@ -79,7 +79,8 @@
                     <img src="/img/상품3.png">
                 </div>
                 <div class="dtt" >
-                    [<span class="storename" th:text="${dayuk.memberName}"></span>]
+                    [<span class="storename" th:text="${dayuk.memberName}"
+                    th:onclick="|location.href='/product/productPage?sbNo=${dayuk.sbNo}'|"></span>]
                     <span class="productname" th:text="${dayuk.sbName}"></span><br>
                     <span class="price" th:text="${dayuk.sbPrice}"></span>
                 </div>
