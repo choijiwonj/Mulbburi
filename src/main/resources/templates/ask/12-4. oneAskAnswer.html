@@ -13,18 +13,16 @@
 <body>
     <div class="topground2"></div>
     <div class="imgback2">
-        <div class="categoryname2">
-            <div class="email">이메일</div>
-            <div class="answer">답변</div>
+    <form id="update/answer" method="POST" action="/askoneAnswer">
+        <div class="dbbase2">
+            	<div class="answerid">
+            	<input type="hidden" name="inquiryNo" th:value="${ param.inquiryNo }">
+            	<input type="text" id="inputanswer" placeholder="답변을 입력해주세요." name="inquiryAnswer">
+            	</div>
+                <input type="submit" value="전송하기">
+            </div></form>
         </div>
-
-            <div class="dbbase2">
-                <div class="emailid">winter0123@gmail.com</div>
-                <div class="answerid"><input type="textbox" placeholder="답변을 입력해주세요." id="inputanswer"></div>
-            </div>
-            <div class="answerbutton2"><button>전송하기</button></div>
-        </div>
-    </div>
+    
     <div class="topground3"></div>
 </body>
 </html>

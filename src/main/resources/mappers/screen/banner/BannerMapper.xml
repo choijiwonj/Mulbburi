@@ -9,6 +9,22 @@
 	<result property="memberNo" column="MEMBER_NO"/>
 	<result property="bannerPostDate" column="BANNER_POST_DATE"/>
 	<result property="bannerEndDate" column="BANNER_END_DATE"/>
+	<collection property="fileList" resultMap="fileResultMap"></collection>
+</resultMap>
+
+<resultMap id="fileResultMap" type="com.water.Mulbburi.file.FileDTO">
+	<id property="fileNo" column="FILE_NO"/>
+	<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+	<result property="filePath" column="FILE_PATH"/>
+	<result property="fileSize" column="FILE_SIZE"/>
+	<result property="fileSavedName" column="FILE_SAVED_NAME"/>
+	<result property="custom" column="CUSTOM"/>
+	<result property="sbNo" column="SB_NO"/>
+	<result property="memberNo" column="memberNo"/>
+	<result property="communityNo" column="COMMUNITY_NO"/>
+	<result property="reviewNo" column="REVIEW_NO"/>
+	<result property="bannerNo" column="BANNER_NO"/>
+	<result property="ytNo" column="YT_NO"/>
 </resultMap>
 
 <insert id="insertBanner">
@@ -67,18 +83,24 @@
 		  A.BANNER_GEN_DATE,
 		  A.BANNER_DEL_DATE,
 		  A.BANNER_POST_DATE,
-		  A.BANNER_END_DATE
+		  A.BANNER_END_DATE,
+		  A.FILE_PATH,
+		  A.FILE_SAVED_NAME
 	 FROM (SELECT
 	    		  ROWNUM RNUM,
 		  		  B.BANNER_GEN_DATE,
 		  		  B.BANNER_DEL_DATE,
 		  		  B.BANNER_POST_DATE,
-		  		  B.BANNER_END_DATE
+		  		  B.BANNER_END_DATE,
+		  		  B.FILE_PATH,
+		  		  B.FILE_ORIGINAL_PATH
 	        FROM (SELECT
 		  				 C.BANNER_GEN_DATE,
 		  				 C.BANNER_DEL_DATE,
 		  				 C.BANNER_POST_DATE,
-		  				 C.BANNER_END_DATE
+		  				 C.BANNER_END_DATE,
+		  				 C.FILE_PATH,
+		  				 C.FILE_ORIGINAL_PATH
 	                FROM BANNER C
 	          ORDER BY C.BANNER_POST_DATE ASC
         ) B
@@ -88,7 +110,6 @@
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
         ORDER BY 1 ASC
-	         
 </select>
 
 <select id="selectTotalCount" resultType="_int" parameterType="hashmap">

@@ -17,10 +17,7 @@ package com.water.Mulbburi;
 public class testcontroller {
 
 
-	@GetMapping("/*")
-	public String test() {
-		return "main/01.purchase";
-	}
+
 
 	/*
 	 * @GetMapping("/") public String test2() { return "/main/01.purchase"; }
