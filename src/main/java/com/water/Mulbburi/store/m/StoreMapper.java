@@ -11,6 +11,10 @@ import com.water.Mulbburi.screen.youtube.YoutubeDTO;
 public interface StoreMapper {
 
 	int selectTotalCount();
-	List<YoutubeDTO> selectMyDayuk(SelectCriteria selectCriteria);
+	List<MStoreDTO> selectMyDayuk(SelectCriteria selectCriteria);
+	List<MStoreDTO> selectMyFlower(SelectCriteria selectCriteria);
+	List<MStoreDTO> selectMyTerrarium(SelectCriteria selectCriteria);
+	List<MStoreDTO> selectMyHerb(SelectCriteria selectCriteria);
+	List<MStoreDTO> selectMyETC(SelectCriteria selectCriteria);
 
 }

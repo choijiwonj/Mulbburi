@@ -35,15 +35,12 @@ public class shoppingcartController {
 	
 	@PostMapping("/add")
 	@ResponseBody
-	public String addCartPOST(cartDTO cart, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		MemberDTO dto = (MemberDTO)session.getAttribute("member");
-		if(dto == null) {
-			return "5";
-		}
-		int result = cartService.addCart(cart);
+	public ResponseEntity<String> addCart(@AuthenticationPrincipal MemberDTO member,@RequestBody cartDTO addCart){
 		
-		return result + "";
+		addCart.setMemberNo(member.getMemberNo());
+		cartService.addCart(addCart);
+		
+		return ResponseEntity.ok("장바구니에 추가되었습니다.");
 	}
 	
 	@GetMapping("/list")

@@ -22,18 +22,10 @@ public class cartService {
 		this.cartDAO = cartDAO;
 	}
 	
-	public int addCart(cartDTO cart) {
-		cartDTO checkCart = cartDAO.checkCart(cart);
+	public void addCart(cartDTO addCart){
 		
-		if(checkCart != null) {
-			return 2;
-		}
-		try {
-			return cartDAO.addCart(cart);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			return 0;
-		}
+		cartDAO.addCart(addCart);
+		
 	}
 	
 	

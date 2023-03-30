@@ -9,13 +9,27 @@
 <result property="sbStatus" column="SB_STATUS"/>
 <result property="memberNo" column="MEMBER_NO"/>
 <result property="sellerName" column="BUSINESS_NAME"/>
+<result property="memberName" column="MEMBER_NAME"/>
+<result property="phone" column="PHONE"/>
+<result property="postCode" column="POSTCODE"/>
+<result property="dtAddress" column="DT_ADDRESS"/>
+<result property="bsAddress" column="BS_ADDRESS"/>
+<result property="businessNo" column="BUSINESS_NO"/>
+<result property="email" column="EMAIL"/>
 </resultMap>
 <select id="selectProductPageDetail" resultMap="productMap">
 SELECT
 	A.SB_NO,
 	A.SB_NAME,
 	A.SB_PRICE,
-	B.BUSINESS_NAME
+	B.BUSINESS_NAME,
+	B.MEMBER_NAME,
+	B.PHONE,
+	B.POSTCODE,
+	B.DT_ADDRESS,
+	B.BS_ADDRESS,
+	B.BUSINESS_NO,
+	EMAIL
 	FROM SHOPPINGBASCKET A
 	JOIN MEMBER B ON(A.MEMBER_NO = B.MEMBER_NO)
 	WHERE A.SB_NO = #{sbNo}
@@ -27,7 +41,7 @@ SELECT
 	A.SB_NAME,
 	A.SB_PRICE
 	FROM SHOPPINGBASCKET A
-	WHERE A.SB_NO = 1
+	WHERE SB_NO = 1
 </select>
 
 </mapper>

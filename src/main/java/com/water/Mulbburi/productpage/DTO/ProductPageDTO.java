@@ -25,6 +25,18 @@ public class ProductPageDTO {
 	private long memberNo;
 	/* 판매업체 이름 */
 	private String sellerName;
-	
-	
+	/* 회원 상세주소 */
+	private String dtAddress;
+	/* 회원 기본주소 */
+	private String bsAddress;
+	/* 회원 우편번호 */
+	private String postCode;
+	/* 판매자 전화번호 */
+	private String phone;
+	/* 판매자 이메일 */
+	private String email;
+	/* 판매자 이름 */
+	private String memberName;
+	/* 판매자 사업자 번호 */
+	private String businessNo;
 }

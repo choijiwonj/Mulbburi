@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="detailRight">
-            <div class="reviewTXT" th:text="${pro.sbName}"></div>
+            <div class="reviewTXT" th:text="${product.sbName}"></div>
             <div class="startBox">
                 <span>
                     <img src="/img/icon_rating.png" alt="">
@@ -36,7 +36,7 @@
                     </tr>
                     <tr>
                         <th>판매자</th>
-                        <td>판매업체명</td>
+                        <td th:text="${product.sellerName}"></td>
                     </tr>
                     <tr>
                         <th>상품설명</th>
@@ -47,13 +47,13 @@
             <div class="totalPriceNum">
                 <div class="greenColor">주문금액</div>
                 <div class="total">
-                    <span id="priceSum" th:text="${pro.sbPrice}"></span>
+                    <span id="priceSum" th:text="${product.sbPrice}"></span>
                     <span>원</span>
                 </div>
             </div>
             <div class="halfFullButton">
             <div class="halfCell">
-                <div class="button default full greenLine" id="cartButton">장바구니</div>
+                <div class="button default full greenLine" id="cartButton" th:onclick="addCart([[${product.sbNo}]])">장바구니</div>
             </div>
             <div class="halfCell">
                 <div class="button default full green" id="buyButton">바로구매</div>
@@ -136,7 +136,7 @@
                 </tr>
                 <tr>
                     <td>보내실 곳</td>
-                    <th>(주소지)</th>
+                    <th th:text="${product.bsAddress + ' ' + product.dtAddress}"></th>
                 </tr>
             </tbody>
         </table>
@@ -160,15 +160,15 @@
         <tbody>
             <tr>
                 <td>상호</td>
-                <th>물뿌리개</th>
+                <th th:text="${product.sellerName}">개</th>
             </tr>
             <tr>
                 <td>대표자명</td>
-                <th>아무개</th>
+                <th th:text="${product.memberName}"></th>
             </tr>
             <tr>
                 <td>사업자번호</td>
-                <th>976-005217-01</th>
+                <th th:text="${product.businessNo}"></th>
             </tr>
             <tr>
                 <td>통신판매업신고번호</td>
@@ -176,21 +176,39 @@
             </tr>
             <tr>
                 <td>연락처</td>
-                <th>010-1111-1111</th>
+                <th th:text="${product.phone}"></th>
             </tr>
             <tr>
                 <td>이메일</td>
-                <th>asdndn@naver.com</th>
+                <th th:text="${product.email}"></th>
             </tr>
             <tr>
                 <td>주소</td>
-                <th>ㅇㅇㅇㅇ-ㅇㅇㅇ-ㅇㅇ-ㅇ</th>
+                <th th:text="${product.bsAddress + ' ' + product.dtAddress}"></th>
             </tr>
         </tbody>
     </table>
     </div>
     </div>
 <div th:replace="/common/j.footer2.html"></div>
-    
+    <script>
+function addCart(sbNo){
+		
+		fetch("/cart/add", {
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json; charset=UTF-8'
+			},
+			body : JSON.stringify({sbNo : sbNo})
+		})
+		.then(result =>{
+			if(!confirm("장바구니에 상품을 추가하였습니다 장바구니 페이지로 이동하시겠습니까?")){
+				
+			} else{
+				location.href = '/cart/list';
+			}
+		})
+};
+    </script>
 </body>
 </html>

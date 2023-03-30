@@ -16,6 +16,6 @@ public class MStoreDTO {
 	private int prodCategoryNo;
 	private int sbInventory;
 	private String sbStatus;
-	private MemberDTO memberDTO;
+	private String memberName;
 
 }

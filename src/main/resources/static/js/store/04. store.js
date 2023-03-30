@@ -23,4 +23,3 @@ function dayuk(){
 }
 
 dayuk();
-

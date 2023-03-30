@@ -17,13 +17,15 @@
 	  (
 	  PC_NO,
 	  MEMBER_NO,
-	  SB_NO
+	  SB_NO,
+	  PC_AMOUNT
 	  )
 	  VALUES
 	  (
 	  SEQ_PC_NO.NEXTVAL,
 	  #{memberNo},
-	  #{sbNo}
+	  #{sbNo},
+	  1
 	  )
 </insert>
 <delete id="deleteCart">
