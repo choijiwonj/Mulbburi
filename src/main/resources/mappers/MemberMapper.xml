@@ -144,7 +144,7 @@
         , #{ bsAddress }
         , #{ dtAddress }
         , '판매자'
-        , 'N'
+        , 'Y'
         )
 	</insert>
 	
@@ -226,7 +226,7 @@
 		  AND  MEMBER_ID = #{ memberId }
 	</select>
 
-    <update id="updateMember">
+       <update id="updateMember">
         UPDATE 
               MEMBER 
           SET MEMBER_NAME = #{ memberName }
