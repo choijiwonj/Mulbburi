@@ -55,16 +55,20 @@ table {
     text-align: right;
 }
 
-label {
+/* label {
     color: rgba(126, 113, 113, 0.6);
     font-size: 14px;
     font-weight: 600;
     padding-right: 20px;
-}
+} */
 
 td {
     /* border: 2px solid red; */
     padding: 10px 0;
+    color: rgba(126, 113, 113, 0.6);
+    font-size: 14px;
+    font-weight: 600;
+    padding-right: 20px;
 }
 
 .category {
@@ -90,7 +94,17 @@ input {
     /* border: 2px solid blue; */
 }
 
+.image-area {
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 10px auto;
+    width: 100%;
+    color: rgba(126, 113, 113, 0.8);
+    text-align: center;
+    padding: 5px 0;
+}
+
 input[type=file] {
+	display: none;
     /* border: 2px solid black; */
     text-align: center;
 }

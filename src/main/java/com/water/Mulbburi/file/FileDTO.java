@@ -6,13 +6,17 @@ import lombok.Data;
 public class FileDTO {
 
 	private int fileNo;
-	private String fileOriginalName;
+	private String fileoriginalName;
 	private String filePath;
 	private String fileSavedName;
+	private String fileType;
 	private int custom;
 	private int sbNo;
-	private int memberNo;
+	private Long memberNo;
 	private int communityNo;
 	private int reviewNo;
 	private int bannerNo;
+
+	/* private MemberDTO seller; */
+	
 }

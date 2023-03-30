@@ -12,12 +12,37 @@ import com.water.Mulbburi.management.dto.ManagementDTO;
 @Mapper
 public interface ManagementMapper {
 
-	int checkTotalCount(Map<String, String> searchMap);
+	/* 전체관리 */
+	
+	int OcheckTotalCount(Map<String, String> searchMap);
 
-	List<ManagementDTO> checkorderAllList(SelectCriteria selectCriteria);
+	List<ManagementDTO> checkOrderAllList(SelectCriteria selectCriteria);
 
-	List<ManagementDTO> checkorderDetail();
+	List<ManagementDTO> checkOrderDetail();
 
 	ManagementDTO checkOrderDetail(Long orderNo);
+
+	/* 결제관리 */
 	
+	int PcheckTotalCount(Map<String, String> searchMap);
+	
+	List<ManagementDTO> checkWaitPayList(SelectCriteria selectCriteria);
+	
+	List<ManagementDTO> checkCompPayList(SelectCriteria selectCriteria);
+	
+	void modifyCompPay(String[] orderNo);
+
+	
+	int ScheckTotalCount(Map<String, String> searchMap);
+
+	List<ManagementDTO> checkWaitSendList(SelectCriteria selectCriteria);
+
+	List<ManagementDTO> checkWaitRefList(SelectCriteria selectCriteria);
+
+	int RcheckTotalCount(Map<String, String> searchMap);
+
+	int EcheckTotalCount(Map<String, String> searchMap);
+
+	List<ManagementDTO> checkWaitExcList(SelectCriteria selectCriteria);
+
 }
