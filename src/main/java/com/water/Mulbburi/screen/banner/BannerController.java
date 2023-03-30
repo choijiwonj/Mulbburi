@@ -74,7 +74,7 @@ public class BannerController {
 						
 						/* DB에 저장할 파일의 정보 처리 */
 						FileDTO fileInfo = new FileDTO();
-						fileInfo.setFileOriginalName(originalFileName);
+						fileInfo.setFileoriginalName(originalFileName);
 						fileInfo.setFileSavedName(savedFileName);
 						fileInfo.setFilePath("/upload/original/" + savedFileName);
 						
@@ -84,18 +84,20 @@ public class BannerController {
 				
 				
 				bannerDTO.setFileList(attachmentList);
-				
+
 				bnService.insertBanner(bannerDTO);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
-				/* 실패 시 이미 저장 된 파일을 삭제한다. */
-				for(FileDTO attachment : attachmentList) {
-					
-					File deleteFile = new File(attachment.getFilePath() + "/" + attachment.getFileSavedName());
-										
-					deleteFile.delete();
-				}
+				
+				 /* 실패 시 이미 저장 된 파일을 삭제한다. */
+				  for(FileDTO attachment : attachmentList) {
+				  
+				  File deleteFile = new File(attachment.getFilePath() + "/" +
+				  attachment.getFileSavedName());
+				  
+				  deleteFile.delete(); }
+				 
 			}
 		
 		return "redirect:/banner";

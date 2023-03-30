@@ -22,6 +22,7 @@ body {
     margin: 30px auto;
 }
 
+
 /* 메뉴바 */
 
 .menu-bar {
@@ -112,6 +113,27 @@ body {
     /* margin: 0 20%; */
 }
 
+.box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    background: rgba(126, 113, 113, 0.1);
+    border-radius: 30px;
+/* 	border: 2px solid blue; */
+	width: 38%;
+/* 	padding: 20px; */
+}
+
+.right {
+    background: rgba(126, 113, 113, 0.1);
+    border-radius: 30px;
+/* 	border: 2px solid red; */
+	width: 60%;
+/* 	padding: 20px; */
+}
+
 /* .type ul {
     display: flex;
     justify-content: center;
@@ -141,6 +163,9 @@ body {
 	border-bottom: solid 2px rgba(126, 113, 113, 0.1);
 	color: rgba(118, 141, 131, 0.6);
 	font-weight: 700;
+	width: 100%;
+	text-align: center;
+/* 	border: 2px solid blue; */
 }
 
 .content th {
@@ -148,6 +173,8 @@ body {
     color: rgba(118, 141, 131, 0.6);
     font-size: 14px;
     font-weight: 700;	
+/* 	border: 2px solid red; */
+	margin: 0 auto;
 }
 
 .content td {
@@ -198,4 +225,44 @@ body {
     font-size: 12px;
     font-weight: 700;
     padding: 8px;
+}
+
+.list {
+	border-collapse : collapse;
+}
+
+.list tr {
+/*	display: flex;*/
+	border: 1px solid red;
+}
+
+.list td {
+/*	display: flex;*/
+/*	border: 1px solid blue;*/
+}
+
+.check input[type="checkbox"] {
+	display: none; 
+}
+
+.check input[type="checkbox"] + label:before {
+	content: "✔";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	color: rgba(118, 141, 131, 0.2);
+	background-color: rgba(118, 141, 131, 0.2);
+	cursor: pointer;
+	border-radius: 6px;
+	font-size: 10px;
+}
+
+.check input[type="checkbox"]:checked + label:before {
+	content: "✔";
+	background-color: rgba(118, 141, 131, 0.6);
+	color: rgba(255, 255, 255, 0.8);
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	font-size: 10px;
 }

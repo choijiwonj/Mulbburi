@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class FileController {
 
-	
 	private final BannerService bnService;
 
 	@Autowired

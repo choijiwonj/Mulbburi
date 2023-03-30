@@ -58,27 +58,37 @@
         <!-- 주문 관리 내용 -->
 
         <div class="wrap">
-            <div class="type">
-                <ul>
-                    <li>주문날짜</li>
-                    <li>주문번호</li>
-                    <li>고객 ID</li>
-                    <li>주문자명</li>
-                    <li>상품번호</li>
-                    <li>상품명</li>
-                    <li>주문수량</li>
-                    <li>교환사유</li>
-                </ul>
-            </div>
-            
-            <div class="list">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
+        
+            <table class="content">
+                <tr id="subject">
+                	<th></th>
+                    <th>주문날짜</th>
+                    <th>주문번호</th>
+                    <th>고객ID</th>
+                    <th>교환신청일</th>
+                    <th>교환번호</th>
+                    <th>교환수량</th>
+                    <th>사유번호</th>
+                    <th>교환상세사유</th>
+                    <th>교환상태</th>
                 </tr>
-            </div>
+				<tr th:each="management : ${ waitExc }" class="check">
+					<td>
+						<input type="checkbox" id="check">
+						<label for="check"></label>
+					</td>
+					<td th:text="${ management.orderNo }"></td>
+					<td th:text="${ management.orderDate }"></td>
+					<td th:text="${ management.memberId }"></td>
+ 					<td th:text="${ management.ereptDate }"></td> 
+ 					<td th:text="${ management.excNo }"></td> 
+ 					<td th:text="${ management.excQty }"></td> 
+ 					<td th:text="${ management.reasonNo }"></td> 
+					<td th:text="${ management.excReas }"></td>
+					<td th:text="${ management.excStatus }"></td>
+					<!--<td><button class="press">자세히</button></td>-->
+				</tr>
+            </table>
             
             <div class="select">
                 <button class="comp">교환 승인</button>
