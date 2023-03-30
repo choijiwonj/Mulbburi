@@ -3,10 +3,11 @@ package com.water.Mulbburi.common.paging;
 import lombok.AllArgsConstructor;
 
 
-import lombok.Data;
 
 
 import lombok.Data;
+
+
 
 
 @Data
@@ -26,5 +27,7 @@ public class SelectCriteria {
     private String searchCondition;		//검색 조건
     private String searchValue;			//검색어
     
+    
+
 }
 
