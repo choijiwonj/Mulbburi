@@ -10,7 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-	<div th:replace="/common/j.header2.html"></div>
+	<div th:replace="/common/mheaderLogin.html"></div>
+	<form action="/cart/list/checkout" method="post">
     <div class="contentsWrap">
         <div class="detailView">
         <div class="goodsInfo">
@@ -71,7 +72,7 @@
     <div class="editorStyleWrapper detailComentSection" id="detailComentSection">
         <div class="text" id="editorContent1">
             <p style="text-align: center;">
-                <img src="" class="fr-fic fr-dii">
+                <img src="/upload/product/KakaoTalk_20230330_181302115_01.jpg" class="fr-fic fr-dii">
             </p>
             <p style="text-align: center;">
                 <img src="" class="fr-fic fr-dii">
@@ -190,6 +191,7 @@
     </table>
     </div>
     </div>
+    </form>
 <div th:replace="/common/j.footer2.html"></div>
     <script>
 function addCart(sbNo){

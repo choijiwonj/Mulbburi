@@ -11,17 +11,17 @@
 <body>
 	
 	<div th:replace="common/hheader.html"></div>
-
+​
     <div class="wrapper">
-
+​
         <div class="seller-id">
-            <!-- <span sec:authentication="principal.memberName"></span>님의 스토어입니다. -->
+            <span sec:authentication="principal.memberName"></span>님의 스토어입니다.
         </div>
         
         <div class="wrap">
             <img src="/img/프로필.png">
             <div class="my-shop">
-                <!-- <span id="name" sec:authentication="principal.memberName"></span> -->
+                <span id="name" sec:authentication="principal.memberName"></span>
                 <div class="briefing">
                     <ul>
 <!--                         <li>- 입점기간 : 213일</li>
@@ -31,9 +31,9 @@
                 </div>
             </div>
         </div>
-
+​
         <!-- 메뉴바 -->
-
+​
         <div class="sub-menu">
             <span>내 상품 페이지</span>
             <div class="">
@@ -41,9 +41,9 @@
                 <a href="/store/prodInq">문의 관리</a>
             </div>
         </div>
-
+​
         <!-- 내 상품 -->
-
+​
         <div class="my-prod">
         
 <!--             <ul class="prod-list">
@@ -64,32 +64,31 @@
             
         </div>
         
-        <div id="prodArea">
-			
-			<th:block th:each="product : ${ productList }">
-			
-				<!-- <td th:text="${ product.sbNo }"></td>번 -->
-				<td th:text="${ product.sbName }"></td>
-				<td th:text="${ product.sbPrice }"></td>원
-				<td th:text="${ product.sbIventory }"></td>개
+        <div class="my-prod">
 				
-<!-- 				<div th:onclick="|location.href='/store/detail?no=${ sbNo }'|">
-				<div>
-					<div>
-						<th:block th:each="attachment : ${ product.attachmentList }">
-							<img th:if="${ attachment.fileType == 'MAIN' }" th:src="${ attachment.filePath }">
-						</th:block>
-					</div>
-					<p>
-						<span th:text="${ product.sbNo }"></span><br>
-						<span th:text="${ thumbnail.title }"></span><br> 
-					</p>
-				</div -->
+<!-- 			<th:block th:each="product : ${ productList }">
+				
+				<th:block th:each="attachment : ${ attachment.attachmentList }">
+					<img th:if="${ attachment.fileType == 'MAIN' }"
+						th:src="${ attachment.filePath }"
+						width="300px" height="300px"
+						style="border: 2px solid blue" >
+				</th:block>
+				<p>
+					<span th:text="${ product.sbName }"></span>
+					<span th:text="${ product.sbPrice }"></span>원
+					<span th:text="${ product.sbIventory }"></span>개
+				</p>
+			</th:block> -->
+			
+			<th:block th:each="attachment : ${ attachmentList }">
+			<img th:src="${ attachment.filePath }">
 			</th:block>
-		</div>
-
+​
+        </div>
+​
         <!-- 페이징 -->
-
+​
         <div class="paging">
             <button>&lt;&lt;</button>
             <button>이전</button>
@@ -97,14 +96,14 @@
             <button>1</button>
             <button>2</button>
             <button>3</button>
-
+​
             <button>다음</button>
             <button>&gt;&gt;</button>
         </div>
-
+​
     </div>
-
+​
     <div th:replace="common/hfooter.html"></div>
-
+​
 </body>
 </html>

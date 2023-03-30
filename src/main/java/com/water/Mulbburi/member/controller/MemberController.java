@@ -288,7 +288,7 @@ public class MemberController {
 		
 		
 		
-		return "/Mulbburi/login";
+		return "/member/login/login";
 	}
 		
 	/* 판매자 회원 가입 */
@@ -363,7 +363,7 @@ public class MemberController {
 		
 		
 		
-		return "/Mulbburi/login";
+		return "/member/login/login";
 	
 	
 	}

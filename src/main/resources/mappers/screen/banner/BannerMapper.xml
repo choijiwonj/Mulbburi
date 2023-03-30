@@ -66,12 +66,12 @@
 	VALUES
 	(
 		   SEQ_FILE_NO.NEXTVAL,
-		   #{fileOriginalName},
+		   #{fileoriginalName},
 		   #{filePath},
 		   #{fileSavedName},
 		   4,
 		   1,
-		   1,
+		   17,
 		   1,
 		   1,
 		   SEQ_BANNER_NO.CURRVAL   
@@ -80,27 +80,24 @@
 
 <select id="selectAllBanner" parameterType="com.water.Mulbburi.screen.banner.BannerDTO" resultMap="bannerResultMap">
 	SELECT
+		  A.BANNER_NO,
 		  A.BANNER_GEN_DATE,
 		  A.BANNER_DEL_DATE,
 		  A.BANNER_POST_DATE,
-		  A.BANNER_END_DATE,
-		  A.FILE_PATH,
-		  A.FILE_SAVED_NAME
+		  A.BANNER_END_DATE
 	 FROM (SELECT
 	    		  ROWNUM RNUM,
+	    		  B.BANNER_NO,
 		  		  B.BANNER_GEN_DATE,
 		  		  B.BANNER_DEL_DATE,
 		  		  B.BANNER_POST_DATE,
-		  		  B.BANNER_END_DATE,
-		  		  B.FILE_PATH,
-		  		  B.FILE_ORIGINAL_PATH
+		  		  B.BANNER_END_DATE
 	        FROM (SELECT
+	        		     C.BANNER_NO,
 		  				 C.BANNER_GEN_DATE,
 		  				 C.BANNER_DEL_DATE,
 		  				 C.BANNER_POST_DATE,
-		  				 C.BANNER_END_DATE,
-		  				 C.FILE_PATH,
-		  				 C.FILE_ORIGINAL_PATH
+		  				 C.BANNER_END_DATE
 	                FROM BANNER C
 	          ORDER BY C.BANNER_POST_DATE ASC
         ) B
@@ -117,6 +114,12 @@
         	   COUNT(*)
           FROM BANNER
 </select>
+
+
+
+
+
+
 
 
 

@@ -48,6 +48,12 @@ public class MainControll {
 		model.addAttribute("paging", cmListAndPaging.get("paging"));
 		model.addAttribute("cmList", cmListAndPaging.get("cmList"));
 
+		Map<String, Object> bannerListAndPaging = mainService.selectMyBanner(searchMap, page);
+		model.addAttribute("paging", bannerListAndPaging.get("paging"));
+		model.addAttribute("fileList", bannerListAndPaging.get("fileList"));
+
+		log.info("fileList{}", bannerListAndPaging.get("fileList"));
+
 		return "main/01.purchase";
 	}
 
@@ -80,11 +86,11 @@ public class MainControll {
 		Map<String, Object> cmListAndPaging = mainService.selectMyCom(searchMap, page);
 		model.addAttribute("paging", cmListAndPaging.get("paging"));
 		model.addAttribute("cmList", cmListAndPaging.get("cmList"));
-		
+
 		Map<String, Object> faqListAndPaging = mainService.selectMyFAQ(searchMap, page);
 		model.addAttribute("paging", faqListAndPaging.get("paging"));
 		model.addAttribute("faqList", faqListAndPaging.get("faqList"));
-		
+
 		Map<String, Object> noticeListAndPaging = mainService.selectMyNotice(searchMap, page);
 		model.addAttribute("paging", noticeListAndPaging.get("paging"));
 		model.addAttribute("noticeList", noticeListAndPaging.get("noticeList"));

@@ -91,7 +91,8 @@
           
           
           <div class="detailpage2">
-            <div class="dtp"  th:each="flower : ${storeList2}">
+            <div class="dtp"  th:each="flower : ${storeList2}"
+            th:onclick="|location.href='/product/productPage?sbNo=${flower.sbNo}'|">
                 <div class="dtpp" >
                     <img src="/img/생화상품.png">
                 </div>
@@ -104,7 +105,8 @@
           </div>
           
           <div class="detailpage3">
-            <div class="dtp"  th:each="terrarium : ${storeList3}">
+            <div class="dtp"  th:each="terrarium : ${storeList3}"
+            th:onclick="|location.href='/product/productPage?sbNo=${terrarium.sbNo}'|">
                 <div class="dtpp" >
                     <img src="/img/테라리움상품.png">
                 </div>
@@ -117,7 +119,8 @@
           </div>
           
           <div class="detailpage4">
-            <div class="dtp"  th:each="herb : ${storeList4}">
+            <div class="dtp"  th:each="herb : ${storeList4}"
+            th:onclick="|location.href='/product/productPage?sbNo=${herb.sbNo}'|">
                 <div class="dtpp" >
                     <img src="/img/허브상품.png">
                 </div>
@@ -130,7 +133,8 @@
           </div>
           
           <div class="detailpage5">
-            <div class="dtp"  th:each="etc : ${storeList5}">
+            <div class="dtp"  th:each="etc : ${storeList5}"
+            th:onclick="|location.href='/product/productPage?sbNo=${etc.sbNo}'|">
                 <div class="dtpp" >
                     <img src="/img/기타상품.png">
                 </div>

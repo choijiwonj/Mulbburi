@@ -3,7 +3,6 @@ package com.water.Mulbburi.product.dao;
 import java.util.List;
 import java.util.Map;
 
-
 import org.apache.ibatis.annotations.Mapper;
 
 import com.water.Mulbburi.common.paging.SelectCriteria;
@@ -23,5 +22,8 @@ public interface ProductMapper {
 	  /* 전체 목록 조회 */
 	  int checkProdTotalCount();
 	  List<ProductDTO> checkAllproduct(SelectCriteria selectCriteria);
+
+	  /* 파일 사진 조회 */
+	  List<FileDTO> checkAllFile(SelectCriteria selectCriteria);
 
 }

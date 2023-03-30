@@ -60,3 +60,4 @@ $(".buyButton").click(function(){
 		return false;
 	}
 })
+}

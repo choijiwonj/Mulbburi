@@ -48,7 +48,8 @@ body {
 .memberAdmin,
 .sellerAdmin,
 .askAdmin,
-.screenAdmin{
+.screenAdmin,
+.calAdmin{
 	 font-size: 18px;
     font-weight: 700;
     color: rgba(118, 141, 131, 0.7);

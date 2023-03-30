@@ -157,9 +157,12 @@ public class ProductController {
 		  log.info("[ProductController] member plz : {}", member);
 		  log.info("[ProductController] product plz 1 : {}", product);
 		  
-		  Map<String, Object> StoreAndPaging = productService.checkProductList(page);
+		  Map<String, Object> StoreAndPaging = productService.attachmentList(page);
 		  model.addAttribute("paging", StoreAndPaging.get("paging"));
 		  model.addAttribute("productList", StoreAndPaging.get("productList"));
+		  model.addAttribute("attachmentList", StoreAndPaging.get("attachmentList"));
+		  
+		  log.info("[ProductController] model : {}", model);
 		  
 		  product.setMemberNo(member.getMemberNo());
 		  
