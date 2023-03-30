@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 public class ProductDTO {
-
+	
 
 //	private MemberDTO seller;				// 판매자(번호, 이름) - seller.memberNo seller.memberName
 	private Long memberNo;					// 판매자(번호, 이름) - seller.memberNo seller.memberName

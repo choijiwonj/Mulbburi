@@ -9,10 +9,10 @@ import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
 public class ProductPageService {
 
 
-	private final ProductPageMapper productPageMapper;
+	private final ProductPageMapper productMapper;
 	
-	public ProductPageService(ProductPageMapper productPageMapper) {
-		this.productPageMapper = productPageMapper;
+	public ProductPageService(ProductPageMapper productMapper) {
+		this.productMapper = productMapper;
 
 	}
 	

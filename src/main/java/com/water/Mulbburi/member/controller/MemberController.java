@@ -288,7 +288,7 @@ public class MemberController {
 		
 		
 		
-		return "redirect:/";
+		return "/Mulbburi/login";
 	}
 		
 	/* 판매자 회원 가입 */
@@ -363,7 +363,7 @@ public class MemberController {
 		
 		
 		
-		return "redirect:/";
+		return "/Mulbburi/login";
 	
 	
 	}
@@ -402,7 +402,7 @@ public class MemberController {
 	    	
 	    	rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.modify"));
 	    	
-	    	return "redirect:/";
+	    	return "member/mypage/mypageMain";
 	}
 	
 	protected Authentication createNewAuthentication(String memberId) {
