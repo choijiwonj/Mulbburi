@@ -16,7 +16,7 @@
     <div class="wrapper">
 
         <div class="seller-id">
-            <!-- <span sec:authentication="principal.seller.memberName"></span>님의 스토어입니다. -->
+            <span sec:authentication="principal.memberName"></span>님의 스토어입니다.
         </div>
 
         <div class="wrap">
@@ -32,11 +32,11 @@
                 <table>
 <!--                     <tr>
                         <td>판매자번호</td>
-                        <td><input type="number" name="memberNo" class="seller-name"></td>
+                        <td><input type="number" name="memberNo" class="seller-name" readonly></td>
                     </tr> -->
                     <tr>
                         <td>상품번호</td>
-                        <td><input type="number" name="sbName" readonly></td>
+                        <td><input type="number" name="sbNo" readonly></td>
                     </tr>
                     <tr>
                         <td>상품명</td>
