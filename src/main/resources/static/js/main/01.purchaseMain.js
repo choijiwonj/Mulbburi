@@ -1,16 +1,13 @@
-/*let slideIndex = 0;
+var slideIndex = 0;
 
 function showSlides() {
-    let i;
-    const slides = document.getElementsByClassName("banner");
-    
-
+    var i;
+    var slides = document.getElementsByClassName("banner");
 
     for (i = 0; i < slides.length; i++) {
        slides[i].style.display = "none";  
     }
     slideIndex++;
-    
     if (slideIndex > slides.length) {slideIndex = 1}    
     
     slides[slideIndex-1].style.display = "block";  
@@ -18,7 +15,8 @@ function showSlides() {
     setTimeout(showSlides, 2000);
 }
 
-showSlides();*/
+showSlides();
+
 
 function home(){
 	document.querySelector(".store").addEventListener("click", () => {location.href="/store"});

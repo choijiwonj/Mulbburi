@@ -59,10 +59,8 @@ public class ProductController {
 	public String registprod(@ModelAttribute ProductDTO product, List<MultipartFile> attachImage,
 			@AuthenticationPrincipal MemberDTO member) {
 		
-		System.out.println(member);
-		
-		log.info("[ProductController] product request : {}", product);
-		log.info("[ProductController] attachImage request : {}", attachImage);
+//		log.info("[ProductController] product request : {}", product);
+//		log.info("[ProductController] attachImage request : {}", attachImage);
 		
 		/* 파일 사진 업로드 */
 		String fileUploadDir = IMAGE_DIR + "original";
@@ -71,8 +69,8 @@ public class ProductController {
 		File dir1 = new File(fileUploadDir);
 		File dir2 = new File(productDir);
 		
-		log.info("[ProductController] dir1 : {}", dir1);
-		log.info("[ProductController] dir2 : {}", dir2);
+//		log.info("[ProductController] dir1 : {}", dir1);
+//		log.info("[ProductController] dir2 : {}", dir2);
 		
 		/* 디렉토리가 없을 경우 생성한다. */
 		if(!dir1.exists() || !dir2.exists()) {
@@ -82,8 +80,6 @@ public class ProductController {
 	
 		/* 업로드 파일에 대한 정보를 담을 리스트 */
 		List<FileDTO> attachmentList = new ArrayList<>();
-		
-		log.info("[ProductController] attachmentList : {}", attachmentList);
 		
 		try {
 		
@@ -128,7 +124,7 @@ public class ProductController {
 			
 			productService.registProduct(product);
 			
-			/*rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("board.regist"));*/
+			System.out.println(member);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,18 +154,16 @@ public class ProductController {
 			  @AuthenticationPrincipal MemberDTO member,
 			  Model model) {
 	  
-		  System.out.println(member);
-			
-		  log.info("[ProductController] product request : {}", product);
+		  log.info("[ProductController] member plz : {}", member);
+		  log.info("[ProductController] product plz 1 : {}", product);
 		  
-		  Map<String, Object> StoreAndPaging = productService.checkProducList(page);
+		  Map<String, Object> StoreAndPaging = productService.checkProductList(page);
 		  model.addAttribute("paging", StoreAndPaging.get("paging"));
 		  model.addAttribute("productList", StoreAndPaging.get("productList"));
-
-		  product.setMemberNo(member.getMemberNo());
-		  System.out.println(product);
 		  
-		  log.info("[ProductController] product request : {}", product);
+		  product.setMemberNo(member.getMemberNo());
+		  
+		  log.info("[ProductController] product plz 2 : {}", product);
 			
 	  return "store/store"; 
 	  

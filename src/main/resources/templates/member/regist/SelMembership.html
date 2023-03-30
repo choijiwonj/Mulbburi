@@ -120,10 +120,23 @@
     </form>
 </div>
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<<<<<<< HEAD
 <script>
 const $searchZipCode = document.getElementById("searchZipCode");
 $searchZipCode.onclick = function() {
 /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 인자로 전달한다. */
+=======
+	<script>
+
+	const $searchZipCode = document.getElementById("searchZipCode");
+	
+	$searchZipCode.onclick = function() {
+		
+		/* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 인자로 전달한다. */
+	
+	
+
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
     new daum.Postcode({
         oncomplete: function(data) {
             /* 팝업에서 검색결과 항목을 클릭 했을 시 실행할 코드를 작성하는 부분 */
@@ -136,8 +149,17 @@ $searchZipCode.onclick = function() {
     const fileCheck = document.getElementById("file").value;
     if(!fileCheck){
         alert("파일을 첨부해 주세요");
+<<<<<<< HEAD
 };
 </script>
+=======
+        
+    };
+
+	</script>
+
+        
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
  <script type="text/javascript" src="/js/member/memberSel.js"></script>
 </body>
 </html>
