@@ -17,44 +17,39 @@ import lombok.extern.slf4j.Slf4j;
 public class cartService {
 
 	private final CartMapper cartDAO;
-	
+
 	public cartService(CartMapper cartDAO) {
 		this.cartDAO = cartDAO;
 	}
-	
-	public void addCart(cartDTO addCart){
-		
+
+	public void addCart(cartDTO addCart) {
+
 		cartDAO.addCart(addCart);
-		
+
 	}
-	
-	
-	
+
 	public void deleteCart(cartDTO deletesbNo) {
 		cartDAO.deleteCart(deletesbNo);
 	}
 
-	
-	public List<cartDTO> getCartList(Long memberNo){
+	public List<cartDTO> getCartList(Long memberNo) {
 		List<cartDTO> cart = cartDAO.getCart(memberNo);
-		
-		for(cartDTO dto : cart) {
+
+		for (cartDTO dto : cart) {
 			dto.initTotal();
 		}
-		
+
 		return cart;
 	}
 
 	public void modifyCount(cartDTO updateCartPost) {
 		cartDAO.modifyCount(updateCartPost);
 	}
-	
-
 
 	public List<cartDTO> getSelectedCartList(Long memberNo, List<String> selectedItems) {
 		List<cartDTO> cartList = cartDAO.getSelectedCart(memberNo, selectedItems);
-	    System.out.println(cartList);
+		System.out.println(cartList);
 
-	    return cartList;
+		return cartList;
 	}
 }
