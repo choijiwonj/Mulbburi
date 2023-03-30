@@ -9,10 +9,24 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521:xe
     username: C##WATER
     password: WATER
+    
+  redis:
+    host: 127.0.0.1
+    port: 6379
+   
 # file upload config
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+      location: C:\Users\hi\Desktop\서브프로젝트\Mulbburi (2)
+
 
 
 # image upload directory
+image: 
+  image-dir: src/main/resources/upload/
 
       
 # mybatis config
