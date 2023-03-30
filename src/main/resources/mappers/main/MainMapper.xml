@@ -59,6 +59,37 @@
 	<result property="memberId" column="MEMBER_ID"/>
 </resultMap>
 
+<resultMap type="com.water.Mulbburi.consumer.dto.ConsumerDTO" id="noticeResultMap">
+	<id property="announcementNo" column="ANNOUNCEMENT_NO"/>
+	<result property="announcementTitle" column="ANNOUNCEMENT_TITLE"/>	
+	<result property="announcementSt" column="ANNOUNCEMENT_ST"/>	
+	<result property="administratorNo" column="ADMINISTRATOR_NO"/>	
+	<result property="anWriteTime" column="AN_WRITE_TIME"/>	
+	<result property="memberId" column="MEMBER_ID"/>	
+</resultMap>
+
+<select id="selectMyNotice" parameterType="com.water.Mulbburi.consumer.dto.ConsumerDTO" resultMap="noticeResultMap">
+	SELECT
+	       A.ANNOUNCEMENT_TITLE,
+	       A.MEMBER_ID
+	  FROM (SELECT
+	  			   ROWNUM RNUM,
+	  			   B.ANNOUNCEMENT_TITLE,
+	  			   B.MEMBER_ID
+	  		  FROM (SELECT
+	  		  			  C.ANNOUNCEMENT_TITLE,
+	  		  			  M.MEMBER_ID
+	  		  		 FROM ANNOUNCEMENT C
+	  		  		 JOIN MEMBER M ON (M.MEMBER_NO = C.ADMINISTRATOR_NO)
+	  		  		ORDER BY C.ADMINISTRATOR_NO) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
 <select id="selectMyFAQ" parameterType="com.water.Mulbburi.faq.dto.FaqDTO" resultMap="faqResultMap">
 	SELECT
 	       A.FAQ_TITLE,

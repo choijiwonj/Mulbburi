@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dto.CommunityDTO;
+import com.water.Mulbburi.consumer.dto.ConsumerDTO;
 import com.water.Mulbburi.faq.dto.FaqDTO;
 import com.water.Mulbburi.screen.youtube.YoutubeDTO;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
@@ -93,7 +94,7 @@ public class MainService {
 		int totalCount = mainMapper.selectTotalCount(searchMap);
 
 		/* 한 페이지에 보여줄 게시물의 수 */
-		int limit = 5;
+		int limit = 7;
 		
 		/* 한 번에 보여질 페이징 버튼의 수 */
 		int buttonAmount = 3;
@@ -102,12 +103,12 @@ public class MainService {
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
 
 		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
-		List<CommunityDTO> cmList = mainMapper.selectMyCom(selectCriteria);
+		List<ConsumerDTO> noticeList = mainMapper.selectMyNotice(selectCriteria);
 
-		Map<String, Object> cmListAndPaging = new HashMap<>();
-		cmListAndPaging.put("cmList", cmList);
+		Map<String, Object> noticeListAndPaging = new HashMap<>();
+		noticeListAndPaging.put("noticeList", noticeList);
 
-		return cmListAndPaging;
+		return noticeListAndPaging;
 	}
 
 	public Map<String, Object> selectMyFAQ(Map<String, String> searchMap, int page) {
@@ -115,7 +116,7 @@ public class MainService {
 		int totalCount = mainMapper.selectTotalCount(searchMap);
 
 		/* 한 페이지에 보여줄 게시물의 수 */
-		int limit = 5;
+		int limit = 7;
 		
 		/* 한 번에 보여질 페이징 버튼의 수 */
 		int buttonAmount = 3;

@@ -13,7 +13,7 @@ public class ConsumerDTO {
 	private String announcementSt;
 	private int administratorNo;
 	private Date anWriteTime;
-	
+	private String memberId;
 	
 	
 	

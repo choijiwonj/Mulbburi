@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dto.CommunityDTO;
+import com.water.Mulbburi.consumer.dto.ConsumerDTO;
 import com.water.Mulbburi.faq.dto.FaqDTO;
 import com.water.Mulbburi.screen.youtube.YoutubeDTO;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
@@ -19,5 +20,6 @@ public interface MainMapper {
 	List<cartDTO> selectMyProd(SelectCriteria selectCriteria);
 	List<CommunityDTO> selectMyCom(SelectCriteria selectCriteria);
 	List<FaqDTO> selectMyFAQ(SelectCriteria selectCriteria);
+	List<ConsumerDTO> selectMyNotice(SelectCriteria selectCriteria);
 
 }

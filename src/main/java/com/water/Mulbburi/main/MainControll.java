@@ -83,6 +83,10 @@ public class MainControll {
 		Map<String, Object> faqListAndPaging = mainService.selectMyFAQ(searchMap, page);
 		model.addAttribute("paging", faqListAndPaging.get("paging"));
 		model.addAttribute("faqList", faqListAndPaging.get("faqList"));
+		
+		Map<String, Object> noticeListAndPaging = mainService.selectMyNotice(searchMap, page);
+		model.addAttribute("paging", noticeListAndPaging.get("paging"));
+		model.addAttribute("noticeList", noticeListAndPaging.get("noticeList"));
 
 		return "/main/01-1.purchaseLogin";
 	}
