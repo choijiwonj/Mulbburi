@@ -1,147 +1,131 @@
-package com.water.Mulbburi.community.service;
+package com.water.Mulbburi.community.controller;
 
 import java.util.HashMap;
-
-
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.water.Mulbburi.common.paging.Pagenation;
-import com.water.Mulbburi.common.paging.SelectCriteria;
-import com.water.Mulbburi.community.dao.CommunityMapper;
-import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.community.dto.ReplyDTO;
-
+import com.water.Mulbburi.community.service.CommunityService;
+import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service
-@Transactional
-public class CommunityService {
+@Controller
+@RequestMapping("/community")
+public class CommunityController {
 	
-	private final CommunityMapper communityMapper;
+
+	private final CommunityService communityService;
+	private final MessageSourceAccessor messageSourceAccessor;
 	
-	public CommunityService(CommunityMapper communityMapper) {
-		this.communityMapper = communityMapper;
+	public CommunityController(CommunityService communityService, MessageSourceAccessor messageSourceAccessor) {
+		this.communityService = communityService;
+		this.messageSourceAccessor = messageSourceAccessor;
 	}
 
-	
-	
-	
-public Map<String, Object> selectCommunityList(Map<String, String> searchMap, int page) {
+	@GetMapping("/list")
+	public String communityList(@RequestParam(defaultValue="1") int page, 
+			@RequestParam(required=false) String searchCondition, 
+			@RequestParam(required=false) String searchValue,
+			Model model) {
 		
-		/* 1. 전체 게시글 수 확인 (검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서 */
-		int totalCount = communityMapper.selectTotalCount(searchMap);
-		log.info("[CommunityService] totalCount : {}", totalCount);
+		log.info("[CommunityController] page : {}", page);
 		
-		/* 한 페이지에 보여줄 게시물의 수 */
-		int limit = 10;
-		/* 한 번에 보여질 페이징 버튼의 수 */
-		int buttonAmount = 5;
+		Map<String, String> searchMap = new HashMap<>();
+		searchMap.put("searchCondition", searchCondition);
+		searchMap.put("searchValue", searchValue);
 		
-		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
-		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
-		log.info("[CommunityService] selectCriteria : {}", selectCriteria);
+		log.info("[CommunityController] searchMap : {}", searchMap);
 		
-		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
-		List<CommunityDTO> communityList = communityMapper.selectCommunityList(selectCriteria);
-		log.info("[CommunityService] communityList : {}", communityList);
+		Map<String, Object> communityListAndPaging = communityService.selectCommunityList(searchMap, page);
+		model.addAttribute("paging", communityListAndPaging.get("paging"));
+		model.addAttribute("communityList", communityListAndPaging.get("communityList"));
 		
-		Map<String, Object> communityListAndPaging = new HashMap<>();
-		communityListAndPaging.put("paging", selectCriteria);
-		communityListAndPaging.put("communityList", communityList);
-		
-		return communityListAndPaging;
+		return "community/communityList";
 	}
-
-	public CommunityDTO selectCommunityDetail(Long no) {
 	
+	@GetMapping("/detail")
+	public String selectCommunityDetail(@RequestParam Long no, Model model) {
 		
-		/* 2. 게시글 상세 내용 조회 후 리턴 */
-		return communityMapper.selectCommunityDetail(no);
+		CommunityDTO communityDetail = communityService.selectCommunityDetail(no);
+		log.info("[CommunityController] communityDetail : {}", communityDetail);
+		
+		model.addAttribute("community", communityDetail);
+		
+		return "community/communityDetail";
 	}
-
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void registReply(ReplyDTO reply) {
+	@PostMapping("/registReply")
+	public ResponseEntity<String> registReply(@RequestBody ReplyDTO registReply,
+			@AuthenticationPrincipal MemberDTO member) {
 		
-		communityMapper.insertReply(reply);
+		registReply.setWriter(member);	// 댓글 작성자는 로그인 유저이므로 설정
+		log.info("[communityController] registReply : {}", registReply);
 		
+		communityService.registReply(registReply);		
+		
+		return ResponseEntity.ok("댓글 등록 완료");
 	}
-
-	public List<ReplyDTO> loadReply(ReplyDTO reply) {
+	
+	@GetMapping("/loadReply")
+	public ResponseEntity<List<ReplyDTO>> loadReply(ReplyDTO loadReply) {
 		
-		return communityMapper.selectReplyList(reply);
+		log.info("[CommunityController] loadReply : {}", loadReply);
+		
+		List<ReplyDTO> replyList = communityService.loadReply(loadReply);
+		
+		log.info("[CommunityController] replyList : {}", replyList);
+		
+		return ResponseEntity.ok(replyList);
 	}
-
-	public void removeReply(ReplyDTO reply) {
+	
+	@PostMapping("/removeReply")
+	public ResponseEntity<String> removeReply(@RequestBody ReplyDTO removeReply) {
 		
-		communityMapper.deleteReply(reply);
+		log.info("[CommunityController] removeReply : {}", removeReply);
 		
-	}
-
-
-	public void registThumbnail(CommunityDTO community) {
+		communityService.removeReply(removeReply);
 		
-		/* 1. Board 테이블에 데이터 저장 */
-		communityMapper.insertContent(community);
-		
-		/* 2. Attachment 테이블에 데이터 저장(첨부된 파일만큼) */
-		for(AttachmentDTO attachment : community.getAttachmentList()) {
-			communityMapper.insertAttachment(attachment);
-		}
+		return ResponseEntity.ok("댓글 삭제 완료");
 		
 	}
-
-	public Map<String, Object> selectThumbnailList(int page) {
+	
+	@GetMapping("/regist")
+	public String goRegist() {
 		
-		int totalCount = communityMapper.selectThumbnailTotalCount();
-		log.info("[ThumbmailService] totalCount : {}", totalCount);
-		
-		int limit = 9;
-		int buttonAmount = 5;
-		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
-		log.info("[ThumbmailService] selectCriteria : {}", selectCriteria);
-		
-		List<CommunityDTO> thumbnailList = communityMapper.selectThumbnailCommunityList(selectCriteria);
-		log.info("[ThumbmailService] thumbnailList : {}", thumbnailList);
-		
-		Map<String, Object> thumbnailListAndPaging = new HashMap<>();
-		thumbnailListAndPaging.put("paging", selectCriteria);
-		thumbnailListAndPaging.put("thumbnailList", thumbnailList);
-		
-		return thumbnailListAndPaging;
+		return "community/communityRegist";
 	}
-
-	public CommunityDTO selectThumbnailDetail(Long no) {
-				
-		return communityMapper.selectThumbnailCommunityDetail(no);
-	}
-
-
-
-
-	public void registCommunity(CommunityDTO community) {
+	
+	/* 게시글 등록 컨트롤러 핸들러 메소드 */
+	@PostMapping("/regist")
+	public String registCommunity(CommunityDTO community, @AuthenticationPrincipal MemberDTO member,
+			RedirectAttributes rttr) {
 		
+		community.setWriter(member);
+		log.info("[communityController] community : {}", community);
 		
+		communityService.registCommunity(community);
+		
+		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("community.regist"));
+		
+		return "redirect:/community/list";
 	}
-
 	
 	
-
 	
 	
 	
