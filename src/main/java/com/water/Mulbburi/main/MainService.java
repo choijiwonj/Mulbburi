@@ -11,10 +11,13 @@ import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.community.dto.CommunityDTO;
 import com.water.Mulbburi.consumer.dto.ConsumerDTO;
 import com.water.Mulbburi.faq.dto.FaqDTO;
-import com.water.Mulbburi.main.MainMapper;
+import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.screen.youtube.YoutubeDTO;
 import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class MainService {
 
@@ -132,5 +135,29 @@ public class MainService {
 		faqListAndPaging.put("faqList", faqList);
 
 		return faqListAndPaging;
+	}
+
+	public Map<String, Object> selectMyBanner(Map<String, String> searchMap, int page) {
+		/* 1. 전체 게시글 수 확인 (검색어가 있는 경우 포함) => 페이징 처리 계산을 위해서 */
+		int totalCount = mainMapper.selectTotalCount(searchMap);
+
+		/* 한 페이지에 보여줄 게시물의 수 */
+		int limit = 3;
+		
+		/* 한 번에 보여질 페이징 버튼의 수 */
+		int buttonAmount = 3;
+
+		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
+
+		/* 3. 요청 페이지와 검색 기준에 맞는 게시글을 조회해온다. */
+		List<FileDTO> fileList = mainMapper.selectMyFile(selectCriteria);
+
+		Map<String, Object> bannerListAndPaging = new HashMap<>();
+		bannerListAndPaging.put("fileList", fileList);
+		
+		log.info("fileList", fileList);
+
+		return bannerListAndPaging;
 	}
 }
