@@ -23,9 +23,10 @@
         <p class="id">user012</p>
         <p class="text">님 안녕하세요</p>
     </div>
-
+	
+	
     <div class="page">
-        <form>
+        <form action="/member/mypage/infoModify" method="post">
             <table>
                 <tr>
                     <td>
@@ -48,7 +49,7 @@
                     <label>휴대전화</label>
                     </td>
                     <td>
-                    <input type="tel" name="memberTel" th:value="${ #authentication.principal.phone}" class="telBar">
+                    <input type="text" name="phone" th:value="${ #authentication.principal.phone}" class="telBar">
                     </td>
                 </tr>
                 <tr>
