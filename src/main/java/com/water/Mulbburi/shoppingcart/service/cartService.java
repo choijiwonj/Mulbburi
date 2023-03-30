@@ -1,5 +1,6 @@
 package com.water.Mulbburi.shoppingcart.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -21,18 +22,10 @@ public class cartService {
 		this.cartDAO = cartDAO;
 	}
 	
-	public int addCart(cartDTO cart) {
-		cartDTO checkCart = cartDAO.checkCart(cart);
+	public void addCart(cartDTO addCart){
 		
-		if(checkCart != null) {
-			return 2;
-		}
-		try {
-			return cartDAO.addCart(cart);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			return 0;
-		}
+		cartDAO.addCart(addCart);
+		
 	}
 	
 	
@@ -56,7 +49,12 @@ public class cartService {
 		cartDAO.modifyCount(updateCartPost);
 	}
 	
-	
 
-	
+
+	public List<cartDTO> getSelectedCartList(Long memberNo, List<String> selectedItems) {
+		List<cartDTO> cartList = cartDAO.getSelectedCart(memberNo, selectedItems);
+	    System.out.println(cartList);
+
+	    return cartList;
+	}
 }
