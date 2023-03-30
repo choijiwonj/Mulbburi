@@ -9,22 +9,13 @@ import com.water.Mulbburi.shoppingcart.DTO.cartDTO;
 @Mapper
 public interface CartMapper {
 
-	public void addCart(cartDTO addCart);
+	public int addCart(cartDTO cart) throws Exception;
 
-	public void deleteCart(cartDTO deletesbNo);
+	public int deleteCart(int pcNo);
 	
 	public cartDTO checkCart(cartDTO cart);
 
 	public List<cartDTO> getCart(Long memberNo);
-
-	public void modifyCount(cartDTO updateCartPost);
-
-	public List<cartDTO> getSelectedCart(Long memberNo, List<String> selectedItems);
-
-	
-
-
-
 	  
 	 
 }
