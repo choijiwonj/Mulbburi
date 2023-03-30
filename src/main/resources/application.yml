@@ -21,13 +21,13 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
-      location: C:/Users/hi/git/Mulbburi
+      location: C:/Users/hi/git/Mulbburi3
 
 
 
 # image upload directory
 image: 
-  image-dir: src/main/resources/upload/
+ image-dir: src/main/resources/upload/
 
       
 # mybatis config

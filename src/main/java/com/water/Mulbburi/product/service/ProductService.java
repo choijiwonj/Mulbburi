@@ -39,7 +39,7 @@ public class ProductService {
 	}
 
 	
-	public Map<String, Object> checkProducList(int page) {
+	public Map<String, Object> checkProductList(int page) {
 
 		
 		int totalCount = productMapper.checkProdTotalCount();
@@ -59,5 +59,7 @@ public class ProductService {
 		
 		return StoreAndPaging;
 	}
+
+	
 
 }

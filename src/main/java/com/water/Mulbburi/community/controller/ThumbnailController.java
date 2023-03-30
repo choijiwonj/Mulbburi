@@ -8,11 +8,13 @@ import java.util.Map;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.water.Mulbburi.community.dto.AttachmentDTO;
 import com.water.Mulbburi.community.dto.CommunityDTO;
+import com.water.Mulbburi.community.dto.ReplyDTO;
 import com.water.Mulbburi.community.service.CommunityService;
 import com.water.Mulbburi.member.dto.MemberDTO;
 
@@ -53,6 +56,8 @@ public class ThumbnailController {
 	@PostMapping("/regist")
 	public String registThumbnail(CommunityDTO community, List<MultipartFile> attachImage, 
 			@AuthenticationPrincipal MemberDTO member, RedirectAttributes rttr) {
+		
+		
 		
 		log.info("[ThumbnailController] community request : {}", community);
 		log.info("[ThumbnailController] attachImage request : {}", attachImage);
@@ -138,7 +143,7 @@ public class ThumbnailController {
 	}
 	
 	@GetMapping("/list")
-	public String selectAllThumbnailList(@RequestParam(defaultValue="1") int page, Model model) {
+	public String selectAllThumbnailList(@AuthenticationPrincipal MemberDTO member, @RequestParam(defaultValue="1") int page, Model model) {
 		
 		Map<String, Object> thumbnailListAndPaging = communityService.selectThumbnailList(page);
 		model.addAttribute("paging", thumbnailListAndPaging.get("paging"));
@@ -161,6 +166,45 @@ public class ThumbnailController {
 		return "thumbnail/thumbnailDetail";
 	}
 	
+	
+	
+	
+	
+	
+	@PostMapping("/registReply")
+	public ResponseEntity<String> registReply(@RequestBody ReplyDTO registReply,
+			@AuthenticationPrincipal MemberDTO member) {
+		
+		registReply.setWriter(member);	// 댓글 작성자는 로그인 유저이므로 설정
+		log.info("[communityController] registReply : {}", registReply);
+		
+		communityService.registReply(registReply);		
+		
+		return ResponseEntity.ok("댓글 등록 완료");
+	}
+	
+	@GetMapping("/loadReply")
+	public ResponseEntity<List<ReplyDTO>> loadReply(ReplyDTO loadReply) {
+		
+		log.info("[CommunityController] loadReply : {}", loadReply);
+		
+		List<ReplyDTO> replyList = communityService.loadReply(loadReply);
+		
+		log.info("[CommunityController] replyList : {}", replyList);
+		
+		return ResponseEntity.ok(replyList);
+	}
+	
+	@PostMapping("/removeReply")
+	public ResponseEntity<String> removeReply(@RequestBody ReplyDTO removeReply) {
+		
+		log.info("[CommunityController] removeReply : {}", removeReply);
+		
+		communityService.removeReply(removeReply);
+		
+		return ResponseEntity.ok("댓글 삭제 완료");
+		
+	}
 	
 	
 	

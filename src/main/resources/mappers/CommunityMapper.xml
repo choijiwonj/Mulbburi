@@ -12,8 +12,10 @@
       <result property="memberNo" column="MEMBER_NO"/>
       <result property="custom" column="CUSTOM"/>
       
-      
+      <association property="writer" resultMap="memberResultMap"/>
         <collection property="attachmentList" resultMap="attachmentResultMap"/>
+        <collection property="replyList" resultMap="replyResultMap"/>
+        
      </resultMap>
 
  
@@ -36,25 +38,39 @@
         <result property="body" column="COMMENT_STORY"/>
         <result property="status" column="CUSTOM"/>
         <result property="createdDate" column="COMMENT_WIRTE_DATE"/>
+        
+        
+        
+         <association property="writer" javaType="com.water.Mulbburi.member.dto.MemberDTO">
+        	<id property="memberNo" column="MEMBER_NO"/>
+	        <result property="memberId" column="MEMBER_ID"/>
+	        <result property="memberPwd" column="MEMBER_PWD"/>
+	        <result property="phone" column="PHONE"/>
+	        <result property="email" column="EMAIL"/>
+	        <result property="address" column="ADDRESS"/>
+	        <result property="enrollDate" column="ENROLL_DATE"/>
+	        <result property="memberRole" column="MEMBER_ROLE"/>
+	        <result property="memberStatus" column="MEMBER_STATUS"/>
+        </association>
+        
 
   </resultMap>
 
-<resultMap id="memberResultMap" type="com.water.Mulbburi.member.dto.MemberDTO">
-		<id property="memberNo" column="MEMBER_NO"/>
-		<result property="memberId" column="MEMBER_ID"/>
-		<result property="memberPwd" column="MEMBER_PWD"/>
-		<result property="memberName" column="MEMBER_NAME"/>
-		<result property="phone" column="PHONE"/>
-		<result property="postCode" column="POSTCODE"/>
-		<result property="dtAddress" column="DT_ADDRESS"/>
-		<result property="bsAddress" column="BS_ADDRESS"/>
-		<result property="memberStatus" column="MEMBER_STATUS"/>
-		<result property="custom" column="CUSTOM"/>
-		<result property="businessName" column="BUSINESS_NAME"/>
-		<result property="businessNo" column="BUSINESS_NO"/>
-		<result property="email" column="EMAIL"/>
-		<collection property="memberRoleList" resultMap="memberRoleResultMap"/>
-	</resultMap>
+
+
+
+ <resultMap type="com.water.Mulbburi.member.dto.MemberDTO" id="memberResultMap">
+<id property="memberNo" column="MEMBER_NO"/>
+	        <result property="memberId" column="MEMBER_ID"/>
+	        <result property="memberPwd" column="MEMBER_PWD"/>
+	        <result property="phone" column="PHONE"/>
+	        <result property="email" column="EMAIL"/>
+	        <result property="address" column="ADDRESS"/>
+	        <result property="enrollDate" column="ENROLL_DATE"/>
+	        <result property="memberRole" column="MEMBER_ROLE"/>
+	        <result property="memberStatus" column="MEMBER_STATUS"/>
+
+  </resultMap>
 
 
 
@@ -116,6 +132,8 @@
         )
     
     </insert>
+   
+    
     
    <select id="selectThumbnailCommunityDetail" resultMap="communityAllResultMap">
    SELECT 
@@ -131,13 +149,18 @@
    , 	C.FILE_SIZE
    ,	C.CUSTOM
    ,	C.THUMBNAILPATH
+   , 	D.REPLY_NO
+   , 	D.REPLY_STORY
+   , 	D.REPLY_UPDATE_DATE
    FROM COMMUNITY A
    JOIN MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
    JOIN TBL_FILE C ON (A.COMMUNITY_NO = C.COMMUNITY_NO)
+    LEFT JOIN TBL_REPLY D ON (A.COMMUNITY_NO = D.COMMUNITY_NO AND D.CUSTOM = 1)
+    LEFT JOIN MEMBER E ON (D.MEMBER_NO = E.MEMBER_NO)
    WHERE A.CUSTOM = 1
-   AND C.CUSTOM = 1
+
    AND A.COMMUNITY_NO = #{ communityNo }
-   
+    ORDER BY D.REPLY_NO
    </select>
     
     
@@ -186,16 +209,16 @@
     
  
 
-<insert id="insertReply">
+<insert id="replyWrite">
         INSERT 
-        INTO CT_COMMENT A
+        INTO CT_COMMENT 
         (
-          A.COMMNET_NO
-        , A.COMMUNITY_NO
-        , A.COMMENT_STORY
-        , A.MEMBER_NO
-        , A.COMMET_WRITE_DATE
-        , A.CUSTOM
+          COMMENT_NO
+        , COMMUNITY_NO
+        , COMMENT_STORY
+        , MEMBER_NO
+        , COMMET_WRITE_DATE
+        , CUSTOM
         )
         VALUES
         (
@@ -208,14 +231,14 @@
         )
     </insert>
 
-<select id="selectReplyList" resultMap="replyResultMap">
+<select id="replyResult" resultMap="replyResultMap">
         SELECT 
                A.COMMENT_NO
              , A.COMMUNITY_NO
              , A.COMMENT_STORY
              , A.MEMBER_NO
              , A.COMMET_WRITE_DATE
-             , B.MEMBER_NO MEMBER_NO
+             , B.MEMBER_NO
         FROM CT_COMMENT A
         JOIN MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
         WHERE A.CUSTOM = 1

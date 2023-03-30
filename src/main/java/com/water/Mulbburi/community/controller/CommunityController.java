@@ -69,46 +69,7 @@ public class CommunityController {
 		return "community/communityDetail";
 	}
 	
-	@PostMapping("/registReply")
-	public ResponseEntity<String> registReply(@RequestBody ReplyDTO registReply,
-			@AuthenticationPrincipal MemberDTO member) {
-		
-		registReply.setWriter(member);	// 댓글 작성자는 로그인 유저이므로 설정
-		log.info("[communityController] registReply : {}", registReply);
-		
-		communityService.registReply(registReply);		
-		
-		return ResponseEntity.ok("댓글 등록 완료");
-	}
 	
-	@GetMapping("/loadReply")
-	public ResponseEntity<List<ReplyDTO>> loadReply(ReplyDTO loadReply) {
-		
-		log.info("[CommunityController] loadReply : {}", loadReply);
-		
-		List<ReplyDTO> replyList = communityService.loadReply(loadReply);
-		
-		log.info("[CommunityController] replyList : {}", replyList);
-		
-		return ResponseEntity.ok(replyList);
-	}
-	
-	@PostMapping("/removeReply")
-	public ResponseEntity<String> removeReply(@RequestBody ReplyDTO removeReply) {
-		
-		log.info("[CommunityController] removeReply : {}", removeReply);
-		
-		communityService.removeReply(removeReply);
-		
-		return ResponseEntity.ok("댓글 삭제 완료");
-		
-	}
-	
-	@GetMapping("/regist")
-	public String goRegist() {
-		
-		return "community/communityRegist";
-	}
 	
 	/* 게시글 등록 컨트롤러 핸들러 메소드 */
 	@PostMapping("/regist")

@@ -104,4 +104,4 @@
 		ORDER BY SB_NO DESC
 	</select>
 	
-
+</mapper>
