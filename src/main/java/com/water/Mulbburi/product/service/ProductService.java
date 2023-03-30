@@ -1,10 +1,11 @@
 package com.water.Mulbburi.product.service;
 
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,7 +37,9 @@ public class ProductService {
 		} 
 	}
 
-	public Map<String, Object> checkProducList(int page) {
+
+	public Map<String, Object> checkProductList(int page) {
+
 		
 		int totalCount = productMapper.checkProdTotalCount();
 		log.info("[ProductService] totalCount : {}", totalCount);

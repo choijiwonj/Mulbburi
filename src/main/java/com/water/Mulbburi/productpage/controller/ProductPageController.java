@@ -36,5 +36,5 @@ public class ProductPageController {
  return "productpage/productpage";
 	}
 	
-}
 
+}
