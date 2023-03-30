@@ -6,22 +6,22 @@ import com.water.Mulbburi.productpage.DAO.ProductPageMapper;
 import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
 
 @Service
-public class ProductService {
+public class ProductPageService {
 
-	private final ProductPageMapper productMapper;
+	private final ProductPageMapper productPageMapper;
 	
-	public ProductService(ProductPageMapper productMapper) {
-		this.productMapper = productMapper;
+	public ProductPageService(ProductPageMapper productPageMapper) {
+		this.productPageMapper = productPageMapper;
 	}
 	
 	public ProductPageDTO selectProductPageDetail(int sbNo) {
 		
-		return productMapper.selectProductPageDetail(sbNo);
+		return productPageMapper.selectProductPageDetail(sbNo);
 	}
 
 	public ProductPageDTO selectProductList() {
 		
-		return productMapper.selectProductPageList();
+		return productPageMapper.selectProductPageList();
 	}
 
 
