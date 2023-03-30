@@ -42,4 +42,21 @@ function selTotalInfo(){
 
 
 }
-}
+
+$(".buyButton").click(function(){
+	
+	var checkedItems = [];
+	
+	$("input:checkbox[name='checkbox_input']").each(function(){
+		
+		console.log(this);
+		if($(this).is(":checked") ===true){
+			checkedItems.push($(this).val());
+		}
+	})
+	
+	if(checkedItems.length === 0){
+		alert("상품을 선택해주세요");
+		return false;
+	}
+})

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SelMembership</title>
     <link rel="stylesheet" href="/css/member/regist/SelMembership.css" type="text/css">
+<<<<<<< HEAD
+=======
+    <script type="text/javascript" src="/js/member/member.js"></script>
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 </head>
 <body>
     <haeder>
@@ -32,7 +36,11 @@
     </div>
     <hr class="line1">
     <div class="registForm">
+<<<<<<< HEAD
     <form action="/member/regist/SelMembership" id="selform" method="post" enctype="multipart/form-data">
+=======
+    <form action="/member/regist/SelMembership" method="post" enctype="multipart/form-data">
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
         <table >
             <tr class="memberName">
             <td>
@@ -116,12 +124,17 @@
         <br>
         <div class="base-button">
             <a href="#none" class="btnExit">취소</a>
+<<<<<<< HEAD
              <button type="button" value="가입하기" class="btnSubmit" onclick="javascript:ValidationSel()">가입</button>
+=======
+            <input type="submit" value="가입하기" class="btnSubmit" >
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
         </div>
     </form>
 </div>
 
  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<<<<<<< HEAD
 	<script>
 
 	const $searchZipCode = document.getElementById("searchZipCode");
@@ -150,6 +163,36 @@
     };
 
 	</script>
+=======
+   <script>
+
+   const $searchZipCode = document.getElementById("searchZipCode");
+   
+   $searchZipCode.onclick = function() {
+      
+      /* 다음 우편번호 검색 창을 오픈하면서 동작할 콜백 메소드를 포함한 객체를 인자로 전달한다. */
+   
+   
+
+    new daum.Postcode({
+        oncomplete: function(data) {
+            /* 팝업에서 검색결과 항목을 클릭 했을 시 실행할 코드를 작성하는 부분 */
+            document.getElementById("postCode").value = data.zonecode;
+            document.getElementById("bsAddress").value = data.address;
+            document.getElementById("dtAddress").focus();
+        }
+    }).open();
+      
+   };   
+   
+    const fileCheck = document.getElementById("file").value;
+    if(!fileCheck){
+        alert("파일을 첨부해 주세요");
+        
+    };
+
+   </script>
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 
         
  <script type="text/javascript" src="/js/member/memberSel.js"></script>

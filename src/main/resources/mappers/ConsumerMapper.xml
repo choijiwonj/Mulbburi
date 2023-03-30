@@ -12,8 +12,6 @@
 
 
 
-
-
 <select id="selectTotalCount" resultType="_int">
 SELECT 
     COUNT(*)
@@ -53,61 +51,9 @@ FROM
     WHERE ROWNUM <=  #{ endRow })
     ]]>
 WHERE RNUM >= #{ startRow }
+	
+
 </select>
-
-
-
-<select id="selectConsumerDetail" resultMap="orderAllResultMap">
-        SELECT 
-               A.ANNOUNCEMENT_NO
-             , A.ANNOUNCEMENT_TITLE
-             , A.ANNOUNCEMENT_ST
-             , A.ADMINISTRATOR_NO                              
-             , A.AN_WRITE_TIME   
-        FROM ANNOUNCEMENT A
-       
-         WHERE AN_DELETE_TIME IS NULL
-          AND  A.ANNOUNCEMENT_NO = #{ no }                      
-    </select>
-    
-    <insert id="insertConsumer">
-        INSERT 
-        INTO ANNOUNCEMENT 
-        (	   ANNOUNCEMENT_NO
-             , ANNOUNCEMENT_TITLE
-             , ANNOUNCEMENT_ST
-             , ADMINISTRATOR_NO                              
-             , AN_WRITE_TIME                             
-        )
-        VALUES
-        (
-        SEQ_ANNOUNCEMENT_NO.NEXTVAL
-        , #{ announcementTitle }
-        , #{ announcementSt }
-        , 1
-        , SYSDATE 
-        )
-    </insert>
-    
-    
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </mapper>

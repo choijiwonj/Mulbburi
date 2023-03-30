@@ -8,6 +8,8 @@
 <result property="pcAmount" column="PC_AMOUNT"/>
 <result property="sbName" column="SB_NAME"/>
 <result property="sbPrice" column="SB_PRICE"/>
+<result property="sbInventory" column="SB_INVENTORY"/>
+<result property="sbStatus" column="SB_STATUS"/>
 </resultMap>
 <insert id="addCart">
 	INSERT
@@ -23,7 +25,7 @@
 	  SEQ_PC_NO.NEXTVAL,
 	  #{memberNo},
 	  #{sbNo},
-	  #{pcAmount}
+	  1
 	  )
 </insert>
 <delete id="deleteCart">
@@ -33,8 +35,8 @@
 </delete>
 <update id="modifyCount">
 	UPDATE
-	 PURCHASE_BASCKET SET PC_AMOUNT = #{pcAmount}
-	 WHERE SB_NO = #{sbNo}
+	 PURCHASE_BASCKET SET PC_AMOUNT = #{pcAmout}
+	 WHERE PC_NO = #{pcNo}
 </update>
 <select id="getCart" resultMap="cartInfoMap">
 	SELECT
@@ -53,5 +55,23 @@
 	FROM PURCHASE_BASCKET
 	WHERE MEMBER_NO = #{memberNo} and #{sbNo}
 </select>
-
+<select id="getSelectedCart" resultMap="cartInfoMap">
+    SELECT
+        A.PC_NO,
+        B.SB_NO,
+        B.SB_NAME,
+        A.MEMBER_NO,
+        B.SB_PRICE,
+        A.PC_AMOUNT
+    FROM PURCHASE_BASCKET A
+    LEFT OUTER JOIN SHOPPINGBASCKET B ON A.SB_NO = B.SB_NO
+    WHERE A.MEMBER_NO = #{memberNo}
+    <if test="selectedItems != null and selectedItems.size() > 0">
+        AND A.PC_NO IN
+        <foreach collection="selectedItems" item="selectedItem" open="(" separator="," close=")">
+            #{selectedItem}
+        </foreach>
+    </if>
+    GROUP BY A.PC_NO, B.SB_NO, B.SB_NAME, A.MEMBER_NO, B.SB_PRICE, A.PC_AMOUNT
+</select>
 </mapper>

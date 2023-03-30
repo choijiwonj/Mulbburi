@@ -15,12 +15,10 @@ public class FaqDTO {
 	private String faqSt;
 	private int memberNo;
 	private Date faqWriteTime;
+	private String memberId;
 	public void setWriter(MemberDTO member) {
-		// TODO Auto-generated method stub
 		
 	}
 	
 
 }
-
-
