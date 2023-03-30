@@ -60,10 +60,10 @@ window.onload = function() {
 
 	/* ------------------------------------------------------------- */
 
-    if(document.getElementById("writeConsumer")) {
-        const $writeConsumer = document.getElementById("writeConsumer");
+    if(document.getElementById("writeBoard")) {
+        const $writeBoard = document.getElementById("writeBoard");
         $writeBoard.onclick = function() {
-            location.href = "/consumer/regist";
+            location.href = "/board/regist";
         }
     }
 

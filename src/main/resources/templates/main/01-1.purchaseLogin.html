@@ -21,109 +21,18 @@
         <div class="banner 3"><img src="/img/배너 3.png"></div>
     </div>
 
-    <!-- 카테고리 -->
-    <div class="category">
-        <h1>Category</h1>
-        <h4>Find Your Plant</h4>
-    </div>
-
-    <div class="categorypicture">
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/전체.png">
-            </div>
-            <div class="ctt">
-                전체
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/다육.png">
-            </div>
-            <div class="ctt">
-                다육이
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/생화.png">
-            </div>
-            <div class="ctt">
-                생화
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/테라리움.png">
-            </div>
-            <div class="ctt">
-                테라리움
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/허브.png">
-            </div>
-            <div class="ctt">
-                허브
-            </div>
-        </div>
-
-        <div class="ct">
-            <div class="ctp">
-                <img src="/img/기타.png">
-            </div>
-            <div class="ctt">
-                기타
-            </div>
-        </div>
-    </div>
-
     <!-- new product -->
     <div class="newProduct">
         <h1>New Product</h1>
         <h4>새로운 상품을 지금 바로 만나보세요.</h4>
     </div>
 
-    <div class="newProductPicture">
-        <div>
-            <img src="/img/상품3.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품3.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품3.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
-        </div>
-
-        <div>
-            <img src="/img/상품3.png"><br>
-            <span class="s1">[일랑일랑]</span>
-            <span class="s2">호말로메나선샤인</span><br>
-            <span class="s3">12000</span>
-            <span class="s4"> → </span>
-            <span class="s5">8000</span>
+        <div class="pictures">
+    <div class="newProductPicture" th:each="prod:${prodList}">
+            <img th:src="${filePath}"><br>
+            <div class="s1" th:text="|[${prod.memberName}]|"></div>
+            <div class="s2" th:text="${prod.sbName}"></div><br>
+            <div class="s5" th:text="${prod.sbPrice}"></div>
         </div>
     </div>
 
@@ -132,44 +41,14 @@
         <h4>새로운 게시글</h4>
     </div>
 
-    <div class="newPostPicture">
-        <div class="p1">
+    <div class="newPostPicture" >
+        <div class="p1" th:each="com : ${cmList}">
             <div class="p1c">
                 <img src="/img/배너1.jpg">
             </div>
             <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src="/img/배너1.jpg">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src="/img/배너1.jpg">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용</span>
-            </div>
-        </div>
-
-        <div class="p1">
-            <div class="p1c">
-                <img src="/img/배너1.jpg">
-            </div>
-            <div class="p1t">
-                <span class="writer">winter0123</span><br><br>
-                <span class="story">예쁜 다육이 보세용~~</span>
+                <div class="writer" th:text="${com.memberId}"></div><br><br>
+                <div class="story"  th:text="${com.communityTitle}"></div>
             </div>
         </div>
     </div>
@@ -189,16 +68,6 @@
         </div>
     </div>
 
-        <div class="y1">
-            <div class="yv1">
-                <iframe width="340" height="200" src="https://www.youtube.com/embed/LetSsQxVwK8" title="YouTube video player" 
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <div class="yt1">
-                hi
-            </div>
-        </div>
-    </div>
 
     <!-- 공지사항 -->
     <div class="yell">
@@ -208,22 +77,18 @@
             <h4>Notice</h4>
         
             <div class="notice">
-                <div class="n1"><span>이것은 공지사항입니다. 이것은 공지사항입니다. 이것은 공지사항입니다. 이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                    이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.이것은 공지사항입니다.
-                </span></div>
+                <div class="n1" th:each="notice : ${noticeList}" th:text="${notice.announcementTitle}"></div>
             </div>
             </div>
-    
+    		
+    		
             <div class="all">
             <h1>자주 묻는 질문</h1>
             <h4>FAQ</h4>
             <div class="faq">
-                <div class="f1"><span>이것은 공지사항입니다. 이것은 공지사항입니다. 이것은 공지사항입니다. 이것은 공지사항입니다.</span></div>
+            <div>
+                <div class="f1"  th:each="faq : ${faqList}" th:text="${faq.faqTitle}"></div>
+            </div>
             </div>
             </div>
         </div>

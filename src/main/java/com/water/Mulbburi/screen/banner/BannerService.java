@@ -46,6 +46,8 @@ public class BannerService {
 		Map<String, Object> bnListAndPaging = new HashMap<>();
 		bnListAndPaging.put("bannerList", bannerList);
 		bnListAndPaging.put("paging", selectCriteria);
+		
+		log.info("bannerList {]", bnListAndPaging.get("bannerList"));
 	
 		
 		return bnListAndPaging;

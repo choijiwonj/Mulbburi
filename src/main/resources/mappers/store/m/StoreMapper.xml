@@ -32,6 +32,7 @@
 	                FROM SHOPPINGBASCKET C
 					JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
                     WHERE PROD_CATEGORY_NO = 1
+                     AND SB_STATUS = '판매중'
 	                ORDER BY C.SB_NO DESC
         ) B
         <![CDATA[
@@ -40,7 +41,130 @@
 	    )A
 	    WHERE A.RNUM >= #{ startRow }
         ORDER BY 1 ASC
-	         
+</select>
+
+<select id="selectMyFlower" parameterType="com.water.Mulbburi.store.m.MStoreDTO" resultMap="storeResultMap">
+	SELECT
+		  A.SB_NO,
+          A.SB_NAME,
+		  A.SB_PRICE,
+          A.MEMBER_NAME
+	 FROM (SELECT
+	    		  ROWNUM RNUM
+	    		 ,B.SB_NO
+                 ,B.SB_NAME
+	    		 ,B.SB_PRICE
+                 ,B.MEMBER_NAME
+	        FROM (SELECT
+	                     C.SB_NO,
+                         C.SB_NAME,
+	                     C.SB_PRICE,
+	                     M.MEMBER_NAME
+	                FROM SHOPPINGBASCKET C
+					JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+                    WHERE PROD_CATEGORY_NO = 4
+                     AND SB_STATUS = '판매중'
+	                ORDER BY C.SB_NO DESC
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
+<select id="selectMyTerrarium" parameterType="com.water.Mulbburi.store.m.MStoreDTO" resultMap="storeResultMap">
+	SELECT
+		  A.SB_NO,
+          A.SB_NAME,
+		  A.SB_PRICE,
+          A.MEMBER_NAME
+	 FROM (SELECT
+	    		  ROWNUM RNUM
+	    		 ,B.SB_NO
+                 ,B.SB_NAME
+	    		 ,B.SB_PRICE
+                 ,B.MEMBER_NAME
+	        FROM (SELECT
+	                     C.SB_NO,
+                         C.SB_NAME,
+	                     C.SB_PRICE,
+	                     M.MEMBER_NAME
+	                FROM SHOPPINGBASCKET C
+					JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+                    WHERE PROD_CATEGORY_NO = 3
+                     AND SB_STATUS = '판매중'
+	                ORDER BY C.SB_NO DESC
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
+<select id="selectMyHerb" parameterType="com.water.Mulbburi.store.m.MStoreDTO" resultMap="storeResultMap">
+	SELECT
+		  A.SB_NO,
+          A.SB_NAME,
+		  A.SB_PRICE,
+          A.MEMBER_NAME
+	 FROM (SELECT
+	    		  ROWNUM RNUM
+	    		 ,B.SB_NO
+                 ,B.SB_NAME
+	    		 ,B.SB_PRICE
+                 ,B.MEMBER_NAME
+	        FROM (SELECT
+	                     C.SB_NO,
+                         C.SB_NAME,
+	                     C.SB_PRICE,
+	                     M.MEMBER_NAME
+	                FROM SHOPPINGBASCKET C
+					JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+                    WHERE PROD_CATEGORY_NO = 2
+                      AND SB_STATUS = '판매중'
+	                ORDER BY C.SB_NO DESC
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
+</select>
+
+<select id="selectMyETC" parameterType="com.water.Mulbburi.store.m.MStoreDTO" resultMap="storeResultMap">
+	SELECT
+		  A.SB_NO,
+          A.SB_NAME,
+		  A.SB_PRICE,
+          A.MEMBER_NAME
+	 FROM (SELECT
+	    		  ROWNUM RNUM
+	    		 ,B.SB_NO
+                 ,B.SB_NAME
+	    		 ,B.SB_PRICE
+                 ,B.MEMBER_NAME
+	        FROM (SELECT
+	                     C.SB_NO,
+                         C.SB_NAME,
+	                     C.SB_PRICE,
+	                     M.MEMBER_NAME
+	                FROM SHOPPINGBASCKET C
+					JOIN MEMBER M ON (M.MEMBER_NO = C.MEMBER_NO)
+                    WHERE PROD_CATEGORY_NO = 5
+                      AND SB_STATUS = '판매중'
+	                ORDER BY C.SB_NO DESC
+        ) B
+        <![CDATA[
+                  WHERE ROWNUM <= #{ endRow }
+                  ]]>
+	    )A
+	    WHERE A.RNUM >= #{ startRow }
+        ORDER BY 1 ASC
 </select>
 
 <select id="selectTotalCount" resultType="_int" parameterType="hashmap">

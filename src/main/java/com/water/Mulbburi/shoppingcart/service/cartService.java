@@ -37,8 +37,8 @@ public class cartService {
 	
 	
 	
-	public void deleteCart(cartDTO deletesbNo) {
-		cartDAO.deleteCart(deletesbNo);
+	public int deleteCart(int pcNo) {
+		return cartDAO.deleteCart(pcNo);
 	}
 
 	
@@ -51,12 +51,6 @@ public class cartService {
 		
 		return cart;
 	}
-
-	public void modifyCount(cartDTO updateCartPost) {
-		cartDAO.modifyCount(updateCartPost);
-	}
-	
-	
 
 	
 }

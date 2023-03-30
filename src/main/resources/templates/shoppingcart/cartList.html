@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+<<<<<<< HEAD
 <script type="text/javascript" src=/js/shoppingcart/cart.js></script>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,18 @@
 <link href="/css/font.css" rel="stylesheet" type="text/css">
 <link href="/css/shoppingcart/shoppingcart.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+=======
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link href="/css/font.css" rel="stylesheet" type="text/css">
+<link href="/css/shoppingcart/shoppingcart.css" rel="stylesheet"
+	type="text/css">
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 </head>
 <body>
 	<div th:replace="/common/j.header2.html"></div>
-	<form action="/cart/checkout" method="post">
 	<div class="contentsWrap">
 		<div class="wishList">
 			<div class="pageTitle">장바구니</div>
@@ -34,22 +43,27 @@
 					</table>
 					<table class="basketT cartCell">
 						<tbody>
+<<<<<<< HEAD:target/classes/templates/shoppingcart/shoppingcart.html
+<<<<<<< HEAD
+							<tr th:each="ci : ${ cartInfo }">
+=======
 							<tr th:each="ci : ${cartInfo}">
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73:src/main/resources/templates/shoppingcart/cartList.html
 								<td class="contents"><span class="chkbox"> <input
-										type="checkbox" id="oneCheck" name="checkbox_input" th:value="${ci.totalPrice}"><label for=""
+										type="checkbox" id="oneCheck" name="checkbox_input"><label for=""
 										class="chkTitle20 checkText tailCheck"></label>
-
-										<input type="hidden" class="individual_totalPrice_input" th:value="${ci.sbPrice * ci.pcAmount}">
-								<input type="hidden" class="individual_sbAmount_input" th:value="${ci.pcAmount}">
-								</span> <span class="close deleteProductButton"><i
-										class="xi-close-min-reClose" th:onclick="deletesbNo([[${ci.pcNo}]])"></i>
-                    
+<<<<<<< HEAD:target/classes/templates/shoppingcart/shoppingcart.html
 								</span> <span class="close deleteProductButton" th:data-id="${ci.pcNo}" onclick="deleteCartItem(this)"><i
+=======
 							<tr>
 								<td class="contents"><span class="chkbox"> <input
 										type="checkbox" id="" name="" value=""> <label for=""
 										class="chkTitle20 checkText tailCheck"></label>
+								</span> <span class="close deleteProductButton"> <i
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
 								</span> <span class="close deleteProductButton" onclick="deleteCartItem(this)"><i
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73:src/main/resources/templates/shoppingcart/cartList.html
 										class="xi-close-min-reClose"></i>
 								</span>
 									<div class="wishBoxArea">
@@ -57,28 +71,40 @@
 											<img src="/img/배너1.jpg">
 										</div>
 										<div class="con">
+<<<<<<< HEAD:target/classes/templates/shoppingcart/shoppingcart.html
+<<<<<<< HEAD
 											<span th:text="${ci.sbName}"></span><br><span th:text="${sbPrice}"> <br> 합계 : 0원 <br>
+=======
 											무우안우나움나이ㅓㄴ미아ㅓㄴ미아ㅓㅁㄴ이ㅏㅓㄴ미아ㅓ <br> <span> 상품기본가격 :
 												0원 <br> 합계 : 0원 <br>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 											</span>
+=======
 											<span th:text="${ci.sbName}"></span><br><span class="sbPrice" th:text="${ci.sbPrice}"><br><br>											
 											</span>원
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73:src/main/resources/templates/shoppingcart/cartList.html
 										</div>
 										<div class="grayBox amountSet">
 											<div class="closeButton">
 												<i class="xi-close"></i>
 											</div>
 											<div class="quantityPrice">수량 : 
-												<input type="number" th:value="${ci.pcAmount}" class="quantity_input" name="pcAmount" min="0"> 개
-												<a class="quantity_modify_btn" th:attr="data-sbno=${ci.sbNo}">변경</a>
+												<input type="text" th:value="${ci.pcAmount}" class="quantity_input"> 개
+												<a class="quantity_modify_btn">변경</a>
 												<div class="priceSum">
+<<<<<<< HEAD:target/classes/templates/shoppingcart/shoppingcart.html
+<<<<<<< HEAD
 													<span></span> 원
+=======
+													<span>0</span> 원
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
+=======
 													<span class="sbtotalPrice" th:text="${ci.totalPrice}"></span>원
-
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73:src/main/resources/templates/shoppingcart/cartList.html
 												</div>
 											</div>
 										</div>
-								</div></td>
+									</div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -91,80 +117,68 @@
 							</tr>
 							<tr class="firstChild">
 								<td>선택 상품 수</td>
-
+<<<<<<< HEAD
+								<td class="txtRight"><span class="quantity"></span> 개</td>
+							</tr>
+							<tr>
+								<td>총 상품금액</td>
+<<<<<<< HEAD:target/classes/templates/shoppingcart/shoppingcart.html
+								<td class="txtRight"><span class="totalPrice"></span>
+=======
 								<td class="txtRight"><span class="quantity">0</span> 개</td>
 							</tr>
 							<tr>
 								<td>총 상품금액</td>
 								<td class="txtRight"><span class="orderAmountSum">0</span>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 									원</td>
 							</tr>
 							<tr>
 								<td>배송비</td>
+<<<<<<< HEAD
+								<td class="txtRight"><span class="orderAmountSum"></span>
+=======
 								<td class="txtRight"><span class="orderAmountSum">0</span>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 									원</td>
 							</tr>
 							<tr>
 								<td class="finalPrice fl">결제 예정 금액</td>
+<<<<<<< HEAD
+								<td class="txtRight finalPrice"><span class="payAmountSum"></span>
+=======
 								<td class="txtRight finalPrice"><span class="payAmountSum">0</span>
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 									원</td>
+=======
+								<td class="txtRight"><span class="totalPrice"></span> 원</td>
+							</tr>
+							<tr>
+								<td>배송비</td>
+								<td class="txtRight"><span class="orderAmountSum"></span> 원</td>
+							</tr>
+							<tr>
+								<td class="finalPrice fl">결제 예정 금액</td>
+								<td class="txtRight finalPrice"><span class="payAmountSum"></span> 원</td>
+>>>>>>> ce09bbe31cfebfbd80b3806620d27b7662545e73:src/main/resources/templates/shoppingcart/cartList.html
 							</tr>
 						</tbody>
 					</table>
-					<button class="button default full green mt10 buyButton" type="submit">주문하기</button>
+					<a href="order/order.html"
+						class="button default full green mt10 buyButton">주문하기</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	</form>
 	<div th:replace="/common/j.footer2.html"></div>
+<<<<<<< HEAD
 	<script>
-function deletesbNo(pcNo){
+		let pcAmout = $("select[pcAmount=qttyInputBox]").val();
 		
-		fetch("/cart/list/deletesbNo", {
-			method : 'POST',
-			headers : {
-				'Content-Type' : 'application/json; charset=UTF-8'
-			},
-			body : JSON.stringify({pcNo : pcNo})
-		})
-		.then(result =>{
-			alert("상품이 삭제되었습니다.");
-			location.href = '/cart/list';
-		})
-};
-
-function updateCount(pcAmount,sbNo){
-   
-		if(pcAmount < 0){
-			alert("수량은 음수로 변경할 수 없습니다.")
-			return;
-		}
-        fetch("/cart/list/updateCart", {
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json; charset=UTF-8'
-            },
-            body : JSON.stringify({
-				pcAmount : pcAmount,
-            	sbNo : sbNo
-            	})
-        })
-        .then(result => {
-        	alert("수량변경이 완료되었습니다.");
-        	location.href='/cart/list';
-        })
-};
-
-document.querySelectorAll('.quantity_modify_btn').forEach(function(btn) {
-	  btn.addEventListener('click', function(e) {
-	    e.preventDefault();
-	    const sbNo = e.target.getAttribute('data-sbno');
-	    const pcAmount = e.target.parentNode.querySelector('.quantity_input').value;
-	    updateCount(pcAmount, sbNo);
-	  });
-});
+		
 	</script>
+=======
+>>>>>>> d4d2e193517ba0a5342894b3e67a892cac5ba8f6
 </body>
 
 </html>

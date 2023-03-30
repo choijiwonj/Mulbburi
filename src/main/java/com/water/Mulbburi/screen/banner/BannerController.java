@@ -76,7 +76,7 @@ public class BannerController {
 						FileDTO fileInfo = new FileDTO();
 						fileInfo.setFileOriginalName(originalFileName);
 						fileInfo.setFileSavedName(savedFileName);
-						fileInfo.setFilePath("/upload/original");
+						fileInfo.setFilePath("/upload/original/" + savedFileName);
 						
 						attachmentList.add(fileInfo);
 					}
@@ -113,7 +113,9 @@ public class BannerController {
 		
 		Map<String, Object> bnListAndPaging = bnService.selectAllBanner(page);
 		model.addAttribute("paging", bnListAndPaging.get("paging"));
-		model.addAttribute("bannerList", bnListAndPaging.get("bannerList"));		
+		model.addAttribute("bannerList", bnListAndPaging.get("bannerList"));
+		
+		log.info("bannerList {]", bnListAndPaging.get("bannerList"));
 		
 		return "screen/08-4. bannerList";
 	}
