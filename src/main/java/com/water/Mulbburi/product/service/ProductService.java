@@ -1,27 +1,28 @@
 package com.water.Mulbburi.product.service;
-​
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-​
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-​
+
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.product.dao.ProductMapper;
 import com.water.Mulbburi.product.dto.ProductDTO;
-​
+
 import lombok.extern.slf4j.Slf4j;
-​
+
+
 @Slf4j
 @Service
 @Transactional
 public class ProductService {
-​
+	
 	private final ProductMapper productMapper;
-​
+	
 	public ProductService(ProductMapper productMapper) {
 		this.productMapper = productMapper;
 	}
@@ -34,7 +35,7 @@ public class ProductService {
 		productMapper.insertFile(attachment); 
 		} 
 	}
-​
+	
 	public Map<String, Object> checkProducList(int page) {
 		
 		int totalCount = productMapper.checkProdTotalCount();
@@ -54,5 +55,5 @@ public class ProductService {
 		
 		return StoreAndPaging;
 	}
-​
+	
 }
