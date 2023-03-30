@@ -220,6 +220,10 @@ img {
     display: flex;
 }
 
+.page3 {
+    margin-top: 10%;
+}
+
 .prImg {
     margin-top: 20px;
     margin-left: 5px;
@@ -403,6 +407,7 @@ img {
     color: #7E7171;
     opacity: 0.8;
     font-size: 16px;
+    margin-top: 10%;
 }
 
 .sp {
@@ -444,3 +449,13 @@ img {
     cursor: pointer;
     border-radius: 80px;
 }
+
+.excQty {
+    margin-left: 70%;
+    padding-bottom: 3%;
+}
+
+.spsp {
+    margin-bottom: 5%;
+} 
+

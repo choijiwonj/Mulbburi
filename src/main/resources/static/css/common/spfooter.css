@@ -99,3 +99,13 @@ body {
     color: rgba(118, 141, 131, 0.8);
     display: block;
 }
+
+.access {
+    margin-left: 70%;
+    margin-top: 5%;
+    font-size: 26px;
+}
+
+.selM {
+    margin-right: 3%;
+}

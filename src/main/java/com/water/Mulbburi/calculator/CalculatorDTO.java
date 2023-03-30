@@ -1,6 +1,6 @@
 package com.water.Mulbburi.calculator;
 
-import com.water.Mulbburi.order.OrderDTO;
+import com.water.Mulbburi.order.DTO.OrderDTO;
 
 import lombok.Data;
 

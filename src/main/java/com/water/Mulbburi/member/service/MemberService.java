@@ -1,11 +1,18 @@
 package com.water.Mulbburi.member.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 
+import com.water.Mulbburi.common.paging.Pagenation;
+import com.water.Mulbburi.common.paging.SelectCriteria;
+import com.water.Mulbburi.file.FileDTO;
 import com.water.Mulbburi.member.dao.MemberMapper;
 import com.water.Mulbburi.member.dto.MemberDTO;
+import com.water.Mulbburi.member.dto.MemberOrderDTO;
 import com.water.Mulbburi.member.exception.MemberModifyException;
 import com.water.Mulbburi.member.exception.MemberRegistException;
 import com.water.Mulbburi.member.exception.MemberRemoveException;
@@ -38,10 +45,11 @@ public class MemberService {
         }
     }
     
-    public void registSelMember(MemberDTO member) throws MemberRegistException{
+    public void registSelMember(MemberDTO member, FileDTO fileDTO) throws MemberRegistException{
 
-        int result1 = mapper.insertConMember(member);
-        int result2 = mapper.insertConMemberRole();
+        int result1 = mapper.insertSelMember(member);
+        int result2 = mapper.insertSelMemberRole();
+        int result3 = mapper.insertFile(fileDTO);
 
         if(!(result1 > 0 && result2 > 0)){
             throw new MemberRegistException("회원 가입에 실패하였습니다.");
@@ -93,7 +101,5 @@ public class MemberService {
 		return mapper.findPwd(member);
 		
 	}
-
-
 	
 }

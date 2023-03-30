@@ -20,7 +20,7 @@
                 홍길동 회원님의 아이디는 아래와 같습니다
             </div>
             <div class="successId">
-                <p th:text="${ memberId }"></p>
+                <p th:text="${#strings.substring(memberId, 0, 4)} + ${#strings.repeat('*', #strings.length(memberId) - 4)}"></p>
             </div>
             <div>
                 <a href="/member/login/login">로그인</a>
