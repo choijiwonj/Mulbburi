@@ -12,48 +12,51 @@ $(function(){
 	})
 })
 $(document).ready(function(){
-	 $("input[type=checkbox]").change(function(){
+	 $("input:checkbox[name='checkbox_input']").change(function(){
 			selTotalInfo();
 	})
 });
 
 function selTotalInfo(){
 	
-	if($("input:checkbox[name='checkbox_input']").is(":checked") == true){
-	
-	const totalPrice = parseInt($(".sbtotalPrice").text());
-	const totalAmount = parseInt($(".quantity_input").val());
-	var deliveryPrice = 0;
+	var totalPrice = 0;
+	var totalCount = 0;
 	var finalTotalPrice = 0;
+	var deliveryPrice = 0;
 	
+	$("input:checkbox[name='checkbox_input']").each(function(index, element){
 	
-	finalTotalPrice = totalPrice * totalAmount + deliveryPrice;
+	console.log($(this));
+	if($(this).is(":checked") === true){
+	 var parentElem = $(element).parent();
+            totalPrice += parseInt(parentElem.find(".individual_totalPrice_input").val());
+            console.log(totalPrice);
+            totalCount += parseInt(parentElem.find(".individual_sbAmount_input").val());
+	}
+});
+	finalTotalPrice = totalPrice;
 	$(".totalPrice").text(totalPrice.toLocaleString());
 	$(".orderAmountSum").text(deliveryPrice);
-	$(".quantity").text(totalAmount.toLocaleString());
+	$(".quantity").text($("input:checkbox[name='checkbox_input']:checked").length);
 	$(".payAmountSum").text(finalTotalPrice.toLocaleString());
-	} else {
-	$(".totalPrice").text(0);
-	$(".orderAmountSum").text(0);
-	$(".quantity").text(0);
-	$(".payAmountSum").text(0);
+
+
+}
+
+$(".buyButton").click(function(){
+	
+	var checkedItems = [];
+	
+	$("input:checkbox[name='checkbox_input']").each(function(){
+		
+		console.log(this);
+		if($(this).is(":checked") ===true){
+			checkedItems.push($(this).val());
+		}
+	})
+	
+	if(checkedItems.length === 0){
+		alert("상품을 선택해주세요");
+		return false;
 	}
-}
-
-function deleteCartItem(pcNo){
-	
-	fetch("/cart/deleteCartItem", {
-		method : 'POST',
-		headers : {
-			'Content-Type' : 'application/json; charset=UTF-8'
-		},
-		body : JSON.stringify({pcNo : pcNo})
-	})
-	.then(result =>{
-		alert("상품이 삭제되었습니다.");
-	})
-	
-}
-
-
-}
+})

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.water.Mulbburi.productpage.DAO.ProductPageMapper">
+<resultMap id="productMap" type="com.water.Mulbburi.productpage.DTO.ProductPageDTO">
+<id property="sbNo" column="SB_NO"/>
+<result property="sbName" column="SB_NAME"/>
+<result property="sbPrice" column="SB_PRICE"/>
+<result property="prodCategoryNo" column="PROD_CATEGORY_NO"/>
+<result property="sbStatus" column="SB_STATUS"/>
+<result property="memberNo" column="MEMBER_NO"/>
+<result property="sellerName" column="BUSINESS_NAME"/>
+<result property="memberName" column="MEMBER_NAME"/>
+<result property="phone" column="PHONE"/>
+<result property="postCode" column="POSTCODE"/>
+<result property="dtAddress" column="DT_ADDRESS"/>
+<result property="bsAddress" column="BS_ADDRESS"/>
+<result property="businessNo" column="BUSINESS_NO"/>
+<result property="email" column="EMAIL"/>
+</resultMap>
+<select id="selectProductPageDetail" resultMap="productMap">
+SELECT
+	A.SB_NO,
+	A.SB_NAME,
+	A.SB_PRICE,
+	B.BUSINESS_NAME,
+	B.MEMBER_NAME,
+	B.PHONE,
+	B.POSTCODE,
+	B.DT_ADDRESS,
+	B.BS_ADDRESS,
+	B.BUSINESS_NO,
+	EMAIL
+	FROM SHOPPINGBASCKET A
+	JOIN MEMBER B ON(A.MEMBER_NO = B.MEMBER_NO)
+	WHERE A.SB_NO = #{sbNo}
+</select>
+<select id="selectProductPageList" resultMap="productMap">
+
+SELECT
+	A.SB_NO,
+	A.SB_NAME,
+	A.SB_PRICE
+	FROM SHOPPINGBASCKET A
+	WHERE SB_NO = 1
+</select>
+
+</mapper>

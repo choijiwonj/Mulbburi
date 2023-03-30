@@ -1,25 +1,26 @@
-package com.water.Mulbburi.order;
+package com.water.Mulbburi.order.DTO;
 
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
 @Data
 public class OrderDTO {
 
-	/* 상품 가격 */
-	private int sbNo;
+	/* 주문 번호 */
+	private long orderNo;
 	/* 상품 이름 */
 	private String sbName;
+	/* 상품 번호 */
+	private int sbNo;
 	/* 상품 가격 */
-	private int sbPrice;
+	private int orderAmountMoney;
 	/* 회원 번호 */
 	private long memberNo;
 	/* 회원 이름 */
 	private String memberName;
-	/* 회원 이메일 */
-	private String eamil;
 	/* 회원 전화번호 */
 	private String phone;
 	/* 회원 상세주소 */
@@ -35,5 +36,11 @@ public class OrderDTO {
 	/* 주문 수량 */
 	private int orderAmount;
 	
+	private List<OrderItemDTO> orderDetail;
+	
+	 public void addOrderItem(OrderItemDTO orderItem) {
+	        orderDetail.add(orderItem);
+	        orderItem.setOrderNo(orderNo);
+	    }
 	
 }
