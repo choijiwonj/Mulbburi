@@ -53,7 +53,7 @@ public class MailService implements MailServiceInter {
 		msgg += "</div>";
 		message.setText(msgg, "UTF-8", "html");// 내용, charset 타입, subtype
 		// 보내는 사람의 이메일 주소, 보내는 사람 이름
-		message.setFrom(new InternetAddress("yeob0310@naver.com", "Admin"));// 보내는 사람
+		message.setFrom(new InternetAddress("tkdduq717@naver.com", "Admin"));// 보내는 사람
 
 		return message;
 	}

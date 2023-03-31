@@ -22,7 +22,6 @@ a {
     align-items: center;
     justify-content: center;
     position: absolute;
-   left: 450px;
     flex-shrink: 0;
     transition: left 0.15s;
     width: 1000px;

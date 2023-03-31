@@ -158,7 +158,7 @@ public class MemberController {
 //		System.out.println("email :" + email);
 		
 		String code = mailService.sendSimpleMessage(email);
-//		System.out.println("인증코드 : " + code);
+		System.out.println("인증코드 : " + code);
 		
 		
 		

@@ -7,13 +7,16 @@
 
     
 <script type="text/javascript" src="/js/event.js"></script>
-<link rel="stylesheet" type="text/css" th:href="@{/css/font.css}">
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/community/community.css}">   
     <link rel="stylesheet" type="text/css" th:href="@{/css/font.css}">   
 </head>
 <body>
 
-	<div th:replace="common/j.header2.html"></div>
+	<div th:replace="common/mheaderLogin.html"></div>
+	
+	
+	<div class="banner-com"></div>
 	
 	
 	
@@ -49,7 +52,7 @@
 						</th:block>
 					</div>
 					
-					<p>
+					<p class="name-ba">
 						 <label th:text="${ thumbnail.memberNo }"></label> 
 						<span th:text="${ thumbnail.communityTitle }"></span><br> 
 					
@@ -98,10 +101,10 @@
 		
 		
 			<div align="center" style="margin-top: 20px;">
-				<button id="writeThumbnail">작성하기</button>
+				<button id="writeThumbnail"></button>
 			</div>
 		</div>
 	
-
+<div th:replace="common/j.footer2.html"></div>
 </body>
 </html>

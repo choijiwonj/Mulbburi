@@ -1,4 +1,3 @@
-
 @charset "UTF-8"; /* 인코딩 문자 깨짐 방지*/
 
 
@@ -43,8 +42,10 @@ a {
 
 
 .wrapper {
-    min-height: calc(100%-160px);
-    position: relative;
+     width:1040px;
+  
+    margin:1px auto;
+    padding-top : 10px;
 } 
 
 .btm-holder {
@@ -110,12 +111,29 @@ bottom: -200%;
     border-radius: 20px;
 
     margin: 80px 25%;
-    display: flex;
+   
 }
 
 #contentArea{
 	
-	 margin-top: 20px;   
+	 margin-top: 40px;   
     color: rgba(118, 141, 131, 0.7);
     font-size: 22px;
+}
+table{
+	
+	
+	
+	
+}
+
+#title{
+	
+	width:699px;
+	
+}
+
+
+textarea {
+    width: 701px;
 }

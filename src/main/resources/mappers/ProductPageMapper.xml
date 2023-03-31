@@ -17,6 +17,21 @@
 <result property="businessNo" column="BUSINESS_NO"/>
 <result property="email" column="EMAIL"/>
 </resultMap>
+<resultMap type="com.water.Mulbburi.file.FileDTO" id="fileResultMap">
+<id property="fileNo" column="FILE_NO"/>
+<result property="fileoriginalName" column="FILE_ORIGINAL_NAME"/>
+<result property="filePath" column="FILE_PATH"/>
+<result property="fileSize" column="FILE_SIZE"/>
+<result property="fileSavedName" column="FILE_SAVED_NAME"/>
+<result property="custom" column="CUSTOM"/>
+<result property="sbNo" column="SB_NO"/>
+<result property="memberNo" column="memberNo"/>
+<result property="communityNo" column="COMMUNITY_NO"/>
+<result property="reviewNo" column="REVIEW_NO"/>
+<result property="bannerNo" column="BANNER_NO"/>
+<result property="ytNo" column="YT_NO"/>
+<result property="fileType" column="FILE_TYPE"/>
+</resultMap>
 <select id="selectProductPageDetail" resultMap="productMap">
 SELECT
 	A.SB_NO,
@@ -43,5 +58,13 @@ SELECT
 	FROM SHOPPINGBASCKET A
 	WHERE SB_NO = 1
 </select>
-
+<select id="checkAllFile" parameterType="com.water.Mulbburi.file.FileDTO" resultMap="fileResultMap">
+SELECT
+FILE_NO
+,FILE_PATH
+,FILE_TYPE
+FROM TBL_FILE
+WHERE SB_NO = #{sbNo}
+ORDER BY FILE_NO DESC
+</select>
 </mapper>

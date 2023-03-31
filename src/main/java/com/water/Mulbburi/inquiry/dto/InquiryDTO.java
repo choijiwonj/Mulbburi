@@ -2,7 +2,6 @@ package com.water.Mulbburi.inquiry.dto;
 
 import java.util.Date;
 
-
 import com.water.Mulbburi.member.dto.MemberDTO;
 
 import lombok.Data;
@@ -24,5 +23,3 @@ public class InquiryDTO{
 	public void setWriter(MemberDTO member) {		
 	} 
 }
-
-

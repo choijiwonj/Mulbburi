@@ -74,4 +74,5 @@
     </if>
     GROUP BY A.PC_NO, B.SB_NO, B.SB_NAME, A.MEMBER_NO, B.SB_PRICE, A.PC_AMOUNT
 </select>
+
 </mapper>

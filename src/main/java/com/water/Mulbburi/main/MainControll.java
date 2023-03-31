@@ -94,6 +94,10 @@ public class MainControll {
 		Map<String, Object> noticeListAndPaging = mainService.selectMyNotice(searchMap, page);
 		model.addAttribute("paging", noticeListAndPaging.get("paging"));
 		model.addAttribute("noticeList", noticeListAndPaging.get("noticeList"));
+		
+		Map<String, Object> bannerListAndPaging = mainService.selectMyBanner(searchMap, page);
+		model.addAttribute("paging", bannerListAndPaging.get("paging"));
+		model.addAttribute("fileList", bannerListAndPaging.get("fileList"));
 
 		return "/main/01-1.purchaseLogin";
 	}

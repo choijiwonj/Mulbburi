@@ -100,15 +100,20 @@ public class ProductController {
 					fileInfo.setFileoriginalName(originalFileName);
 					fileInfo.setFileSavedName(savedFileName);
 					fileInfo.setFilePath("/upload/original/");
+					
+					
 
 					if(i == 0) {
 						fileInfo.setFileType("MAIN");
 						/* 대표 사진에 대한 썸네일을 가공해서 저장한다. */
-						Thumbnails.of(fileUploadDir + "/" + savedFileName).size(300, 300)
+						Thumbnails.of(fileUploadDir + "/" + savedFileName).size(600, 600)
 						.toFile(productDir + "/product_" + savedFileName);
 						fileInfo.setFilePath("/upload/product/product_" + savedFileName);
 					} else {
 						fileInfo.setFileType("DETAIL");
+						Thumbnails.of(fileUploadDir + "/" + savedFileName).size(1000, 13410)
+						.toFile(productDir + "/product_" + savedFileName);
+						fileInfo.setFilePath("/upload/product/product_" + savedFileName);
 					}
 					
 					attachmentList.add(fileInfo);

@@ -8,16 +8,29 @@ a {
    text-decoration: none;  /* 모든 하이퍼링크 밑줄 삭제 */
 }
 
+img{
+	border-radius: 10px;
+	
+}
+
 /* 배너 */
 .wrapper
 {
-    width:1080px;
-    border:1px solid red;
-    margin:0 auto;
+    width:1040px;
+  
+    margin:1px auto;
     padding-top : 10px;
     
 	
-   }	
+   }	p{
+   
+   
+   margin:10px 65px;
+    font-weight: 500;
+    
+   
+   }
+  
 #thumbnailArea{
 	
 	
@@ -57,6 +70,38 @@ a {
     font-weight: bold;
     font-family: 'TAEBAEKmilkyway';
  }
-
-
  
+ #writeThumbnail{
+ 	    margin-right: 450px;
+ 	background:rgba(169, 197, 185, 0.7);
+ 	border-radius: 10px;
+ 	width:40px;
+ 	height: 34px;
+    float: right;
+    background-image: url(/upload/original/20230331_093438.png);
+	background-size: cover;
+	border: 1px solid;
+
+margin-block: 31px;
+    margin-top: -26px
+ }
+.banner-com{
+	margin-left: 23.4%;
+	    height: 398px;
+	width:1000px;
+	background-size: cover;
+	background-image: url(/upload/original/20230331_095013_1.png);
+    margin-top: 40px;
+	
+}
+
+
+.name-ba{
+	
+	text-aligin: center;
+	
+}
+td{
+	
+	display:flex;
+}

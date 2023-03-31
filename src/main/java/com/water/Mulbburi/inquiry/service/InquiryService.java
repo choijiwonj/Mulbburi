@@ -1,33 +1,22 @@
 package com.water.Mulbburi.inquiry.service;
-
 import java.util.HashMap;
-
-
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.water.Mulbburi.common.paging.Pagenation;
 import com.water.Mulbburi.common.paging.SelectCriteria;
-
 import com.water.Mulbburi.faq.dao.FaqMapper;
 import com.water.Mulbburi.faq.dto.FaqDTO;
 import com.water.Mulbburi.inquiry.dao.InquiryMapper;
 import com.water.Mulbburi.inquiry.dto.InquiryDTO;
-
 import lombok.extern.slf4j.Slf4j;
-
 @Slf4j
 @Service
 @Transactional
-
 public class InquiryService {
-
 	private final InquiryMapper inquiryMapper;
-
 	public InquiryService(InquiryMapper inquiryMapper) {
 		this.inquiryMapper = inquiryMapper;
 		
@@ -58,23 +47,12 @@ public Map<String, Object> selectInquiryList(Map<String, String> searchMap, int 
 		
 		return inquiryListAndPaging;
 	}
-
 public InquiryDTO selectInquiryDetail(int no) {
 	/* 2. 게시글 상세 내용 조회 후 리턴 */
 	return inquiryMapper.selectInquiryDetail(no);
 }
-
 public void registInquiry(InquiryDTO inquiry) {
 	
 	inquiryMapper.insertInquiry(inquiry);
 }
-
-
-
-
-
 }
-	
-	
-	
-

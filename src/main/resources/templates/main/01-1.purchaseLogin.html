@@ -16,15 +16,14 @@
 
     <!-- banner -->
     
-    <div>
-	<th:block th:each="file : ${fileList}"><img th:src="${file.filePath}"  class="banner"></th:block>
-</div>
-    <!-- <div class="wrapper">
-        <div>
-        <div class="banner 1"><img src="/upload/original/460cb5c7-3335-4a18-8039-bfa0946553fe.png"></div>
-        <div class="banner 2"><img src="/upload/original/ca1f6943-2bb8-436e-9811-b58e3d5935f9.png"></div>
-        <div class="banner 3"><img src="/upload/original/e4002469-298c-4fe2-bb6d-f19412d02d02.png"></div>
-    </div> -->
+    <!-- <div>
+	<th:block th:if="${ file.fileType == 'BANNER'}" th:each="file : ${fileList}"><img th:src="${file.filePath}"  class="banner"></th:block>
+</div> -->
+    <div class="wrapper">
+            <div class="banner 1"><img src="/img/배너 1.png"></div>
+            <div class="banner 2"><img src="/img/배너 2.png"></div>
+            <div class="banner 3"><img src="/img/배너 3.png"></div>
+    </div>
 
     <!-- new product -->
     <div class="newProduct">
@@ -34,7 +33,7 @@
 
         <div class="pictures">
     <div class="newProductPicture" th:each="prod:${prodList}">
-            <img src="/upload/original/0fc28c23-b745-4c43-a06b-0cca19334081.png"><br>
+            <img src="/img/상품3.png"><br>
             <div class="s1" th:text="|[${prod.memberName}]|"></div><br>
             <div class="s2" th:text="${prod.sbName}"></div><br>
             <div class="s5" th:text="${prod.sbPrice}"></div>

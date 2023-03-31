@@ -17,7 +17,7 @@
         <div class="goodsInfo">
         <div class="detailLeft">
             <div class="goodsPic">
-                <img src="/img/상품.png" alt="">
+                <th:block th:each="prod : ${productList}"><img th:if="${ prod.fileType == 'MAIN'}" th:src="${prod.filePath}"></th:block>
             </div>
         </div>
         <div class="detailRight">
@@ -72,7 +72,7 @@
     <div class="editorStyleWrapper detailComentSection" id="detailComentSection">
         <div class="text" id="editorContent1">
             <p style="text-align: center;">
-                <img src="/upload/product/KakaoTalk_20230330_181302115_01.jpg" class="fr-fic fr-dii">
+                <th:block th:each="prod : ${productList}"><img th:if="${ prod.fileType == 'DETAIL'}" th:src="${prod.filePath}"></th:block>
             </p>
             <p style="text-align: center;">
                 <img src="" class="fr-fic fr-dii">

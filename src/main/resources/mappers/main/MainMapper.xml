@@ -26,6 +26,7 @@
 	<result property="reviewNo" column="REVIEW_NO"/>
 	<result property="bannerNo" column="BANNER_NO"/>
 	<result property="ytNo" column="YT_NO"/>
+	<result property="fileType" column="FILE_TYPE"/>
 </resultMap>
 
 <resultMap id="cartInfoMap" type="com.water.Mulbburi.shoppingcart.DTO.cartDTO">
@@ -217,14 +218,17 @@ SELECT
 <select id="selectMyFile" parameterType="com.water.Mulbburi.file.FileDTO" resultMap="fileResultMap">
 	SELECT
 		  A.FILE_NO,
-		  A.FILE_PATH
+		  A.FILE_PATH,
+		  A.FILE_TYPE
 	 FROM (SELECT
 	    		  ROWNUM RNUM,
 		  		  B.FILE_NO,
-		  		  B.FILE_PATH
+		  		  B.FILE_PATH,
+		  		  B.FILE_TYPE
 	        FROM (SELECT
 		  				 C.FILE_NO,
-		  				 C.FILE_PATH
+		  				 C.FILE_PATH,
+		  				 C.FILE_TYPE
 	                FROM TBL_FILE C
 	          ORDER BY C.FILE_NO DESC
         ) B

@@ -4,47 +4,50 @@
 <head>
 <meta charset="UTF-8" />
 <script type="text/javascript" src="/js/event.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/community/communitydetail.css}">   
 </head>
 <body>
-	<div th:replace="common/j.header2.html"></div>
+	
+	<div th:replace="common/mheaderLogin.html"></div>
+
 	<div style="margin-top: 100px;">
-		<h1 align="center">사진게시판 작성</h1>
+		<h1 align="left"></h1>
 		<form id="thumbnailRegistForm" action="/thumbnail/regist" method="post" enctype="multipart/form-data">
 			<div>
-				<table align="center">
+				<table align="center" style="margin: 0 auto">
 					<tr>
-						<td style="width: 100px">제목</td>
-						<td colspan="3"><input type="text" size="45" name="communityTitle"></td>
+						<td style="width: 100px;">제목</td>
+						<td colspan="3"><input type="text" size="45" name="communityTitle" id="title"></td>
 					</tr>
 					<tr>
-						<td>대표 이미지</td>
+						<td class="td">대표 이미지</td>
 						<td colspan="3">
 							<div class="image-area">
-								<img style="width: 350px; height: 200px;">
+								<img style="width: 702px; height: 400px;">
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td>내용 사진</td>
+						<td class="td">내용 사진</td>
 						<td>
 							<div class="image-area">
-								<img style="width: 120px; height: 100px;">
+								<img style="width: 182px; height: 159px;">
 							</div>
 						</td>
 						<td>
 							<div class="image-area">
-								<img style="width: 120px; height: 100px;">
+								<img style="width: 182px; height: 159px;">
 							</div>
 						</td>
 						<td>
 							<div class="image-area">
-								<img style="width: 120px; height: 100px;">
+								<img style="width: 182px; height: 159px;">
 							</div>
 						</td>
 
 					</tr>
 					<tr>
-						<td style="width: 100px">사진 메모</td>
+						<td style="width: 100px">내용</td>
 						<td colspan="3"><textarea name="communityStory" rows="5" cols="50" style="resize: none;"></textarea></td>
 					</tr>
 				</table>
@@ -115,4 +118,3 @@
 	
 </body>
 </html>
-

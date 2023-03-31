@@ -24,6 +24,7 @@
 <result property="reviewNo" column="REVIEW_NO"/>
 <result property="bannerNo" column="BANNER_NO"/>
 <result property="ytNo" column="YT_NO"/>
+<result property="fileType" column="FILE_TYPE"/>
 </resultMap>
 <resultMap type="com.water.Mulbburi.product.dto.CategoryDTO" id="categoryResultMap">
 <id property="code" column="CATEGORY_CODE"/>
@@ -49,7 +50,7 @@ SEQ_SB_NO.NEXTVAL
 , #{ memberNo }
 , #{ prodCategory.code }
 , #{ sbIventory }
-, 'Y'
+, '판매중'
 <!-- , #{ sbStatus } -->
 )
 </insert>
@@ -98,7 +99,7 @@ ORDER BY SB_NO DESC
 <select id="checkAllFile" parameterType="com.water.Mulbburi.file.FileDTO" resultMap="fileResultMap">
 SELECT
 FILE_NO
-, FILE_PATH
+, FILE_PATH, FILE_TYPE
 FROM TBL_FILE
 ORDER BY FILE_NO DESC
 </select>

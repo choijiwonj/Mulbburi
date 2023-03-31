@@ -10,7 +10,7 @@
 </head>
 <body>
 	
-	<div th:replace="common/hheader.html"></div>
+	<div th:replace="common/msellerLoginHeader.html"></div>
 ​
     <div class="wrapper">
 ​
@@ -82,8 +82,15 @@
 			</th:block> -->
 			
 			<th:block th:each="attachment : ${ attachmentList }">
-			<img th:src="${ attachment.filePath }">
+			<img th:if="${ attachment.fileType == 'MAIN'}" th:src="${ attachment.filePath }">
 			</th:block>
+			<th:block th:each="product : ${ productList }">
+               <p>
+                  <span th:text="${ product.sbName }"></span>
+                  <span th:text="${ product.sbPrice }"></span>원
+                  <span th:text="${ product.sbIventory }"></span>개
+               </p>
+            </th:block>
 ​
         </div>
 ​

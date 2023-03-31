@@ -15,16 +15,13 @@
 	<div th:replace="/common/madminLoginHeader.html"></div>
 	
     <!-- banner -->
-    <!-- <div class="wrapper">
+    <div class="wrapper">
             <div class="banner 1"><img src="/img/배너 1.png"></div>
             <div class="banner 2"><img src="/img/배너 2.png"></div>
             <div class="banner 3"><img src="/img/배너 3.png"></div>
-    </div> -->    
+    </div>    
     
-    <div>
-	<th:block th:each="file : ${fileList}"><img th:src="${file.filePath}"  class="banner"></th:block>
-</div>
-    
-    <div th:replace="/common/spfooter.html"></div>
+
+    <!-- <div class="footer" th:replace="/common/spfooter.html" style="display:fixed"></div> -->
 </body>
 </html>

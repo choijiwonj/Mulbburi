@@ -10,19 +10,16 @@ import com.water.Mulbburi.common.paging.SelectCriteria;
 import com.water.Mulbburi.inquiry.dto.InquiryDTO;
 
 @Mapper
-
 public interface InquiryMapper {
 
 	int selectTotalCount(Map<String, String> searchMap);
 
 	List<InquiryDTO> selectInquiryList(SelectCriteria selectCriteria);
 
-	com.water.Mulbburi.inquiry.dto.InquiryDTO selectInquiryDetail(int no);
+	InquiryDTO selectInquiryDetail(int no);
 
 	void insertInquiry(InquiryDTO inquiry);
 
+
 	
-
-
-
 }

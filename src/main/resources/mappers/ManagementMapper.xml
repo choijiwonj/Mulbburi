@@ -176,7 +176,7 @@
 		  JOIN MEMBER USING (MEMBER_NO)
 		  JOIN SHOPPINGBASCKET USING (SB_NO)
 		  JOIN TBL_DELIVERY USING (ORDER_NO)
-		 WHERE DEL_STATUS = '준비중'		
+		 WHERE DEL_STATUS = 'N'		
 	</select>
 	
    <select id="RcheckTotalCount" resultType="_int">

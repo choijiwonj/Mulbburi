@@ -117,7 +117,7 @@ WHERE RNUM >= #{ startRow }
         , #{ email }
         , #{ content }
         , 1
-        , #{ memberNo }
+        , 3
         , SYSDATE
         , 2 
         )
