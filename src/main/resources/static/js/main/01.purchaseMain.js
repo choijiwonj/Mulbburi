@@ -17,3 +17,13 @@ function showSlides() {
 
 showSlides();
 
+<<<<<<< HEAD
+=======
+/*
+function home(){
+	document.querySelector(".home").addEventListener("click", () => {location.href="/Mulbburi"});
+	document.querySelector(".login").addEventListener("click", ()=>{location.href="/member/login/login"});
+}
+
+home();*/
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git

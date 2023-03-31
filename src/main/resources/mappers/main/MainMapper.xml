@@ -218,17 +218,29 @@ SELECT
 <select id="selectMyFile" parameterType="com.water.Mulbburi.file.FileDTO" resultMap="fileResultMap">
 	SELECT
 		  A.FILE_NO,
+<<<<<<< HEAD
 		  A.FILE_PATH,
 		  A.FILE_TYPE
+=======
+		  A.FILE_PATH
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 	 FROM (SELECT
 	    		  ROWNUM RNUM,
 		  		  B.FILE_NO,
+<<<<<<< HEAD
 		  		  B.FILE_PATH,
 		  		  B.FILE_TYPE
+=======
+		  		  B.FILE_PATH
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 	        FROM (SELECT
 		  				 C.FILE_NO,
+<<<<<<< HEAD
 		  				 C.FILE_PATH,
 		  				 C.FILE_TYPE
+=======
+		  				 C.FILE_PATH
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 	                FROM TBL_FILE C
 	          ORDER BY C.FILE_NO DESC
         ) B

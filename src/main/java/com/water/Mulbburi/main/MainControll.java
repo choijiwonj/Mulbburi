@@ -47,6 +47,12 @@ public class MainControll {
 		Map<String, Object> cmListAndPaging = mainService.selectMyCom(searchMap, page);
 		model.addAttribute("paging", cmListAndPaging.get("paging"));
 		model.addAttribute("cmList", cmListAndPaging.get("cmList"));
+		
+		Map<String, Object> bannerListAndPaging = mainService.selectMyBanner(searchMap, page);
+		model.addAttribute("paging", bannerListAndPaging.get("paging"));
+		model.addAttribute("fileList", bannerListAndPaging.get("fileList"));
+		
+		log.info("fileList{}", bannerListAndPaging.get("fileList"));
 
 		Map<String, Object> bannerListAndPaging = mainService.selectMyBanner(searchMap, page);
 		model.addAttribute("paging", bannerListAndPaging.get("paging"));

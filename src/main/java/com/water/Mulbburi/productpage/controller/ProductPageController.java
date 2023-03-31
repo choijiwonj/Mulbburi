@@ -15,6 +15,7 @@ import com.water.Mulbburi.product.dto.ProductDTO;
 import com.water.Mulbburi.productpage.DTO.ProductPageDTO;
 import com.water.Mulbburi.productpage.service.ProductPageService;
 
+<<<<<<< HEAD
 
 @Controller
 @RequestMapping("/product")
@@ -55,3 +56,37 @@ public class ProductPageController {
 	
 
 }
+=======
+@Controller
+@RequestMapping("/product")
+public class ProductPageController {
+
+	private final ProductPageService productService;
+	
+	public ProductPageController(ProductPageService productService) {
+		this.productService = productService;
+	}
+	
+	@GetMapping("/list")
+	public String productList(Model model) {
+		
+		
+		model.addAttribute("pro",productService.selectProductList());
+		System.out.println(model);
+		return "productpage/productPage";
+	}
+	
+	
+	@GetMapping("/productPage")
+	public String selectProductPage(@RequestParam int sbNo, Model model) {
+		
+		ProductPageDTO product = productService.selectProductPageDetail(sbNo);
+		
+		model.addAttribute("product", product);
+		
+		
+		return "productpage/productpage";
+	}
+	
+}
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git

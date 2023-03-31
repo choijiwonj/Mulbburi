@@ -469,4 +469,8 @@ public class MemberController {
 	
 	
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git

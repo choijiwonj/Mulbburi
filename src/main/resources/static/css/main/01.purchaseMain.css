@@ -22,6 +22,10 @@ a {
     align-items: center;
     justify-content: center;
     position: absolute;
+<<<<<<< HEAD
+=======
+   left: 450px;
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
     flex-shrink: 0;
     transition: left 0.15s;
     width: 1000px;

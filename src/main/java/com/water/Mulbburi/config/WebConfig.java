@@ -15,8 +15,16 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
 		/* upload 경로를 추가하여 업로드 된 이미지를 정적 리소스로 요청할 수 있게 한다. */
+<<<<<<< HEAD
 		registry.addResourceHandler("/upload/**")
 		.addResourceLocations("classpath:/upload/");
+=======
+//		registry.addResourceHandler("/img/**")
+//			.addResourceLocations("classpath:/img/");
+
+			registry.addResourceHandler("/upload/**")
+			        .addResourceLocations("classpath:/upload/");
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 		
 	}
 

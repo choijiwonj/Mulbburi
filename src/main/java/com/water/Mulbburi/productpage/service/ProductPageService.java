@@ -27,6 +27,7 @@ public class ProductPageService {
 	public ProductPageDTO selectProductList() {
 		
 		return productMapper.selectProductPageList();
+<<<<<<< HEAD
 	}
 
 	public Map<String, Object> attachmentList(int sbNo) {
@@ -35,6 +36,8 @@ public class ProductPageService {
 		Map<String, Object> StoreAndPaging = new HashMap<>();
 		StoreAndPaging.put("attachmentList", attachmentList);
 		return StoreAndPaging;
+=======
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 	}
 
 

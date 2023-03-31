@@ -15,12 +15,24 @@ import com.water.Mulbburi.product.dto.ProductDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 @Slf4j
 @Service
 @Transactional
 public class ProductService {
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 	private final ProductMapper productMapper;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 
 	public ProductService(ProductMapper productMapper) {
 		this.productMapper = productMapper;
@@ -36,7 +48,13 @@ public class ProductService {
 		
 	}
 
+<<<<<<< HEAD
 	public Map<String, Object> checkProductList(int page) {
+=======
+	
+	public Map<String, Object> checkProducList(int page) {
+
+>>>>>>> branch 'origin' of https://github.com/choijiwonj/Mulbburi.git
 		
 		int totalCount = productMapper.checkProdTotalCount();
 		log.info("[ProductService] totalCount : {}", totalCount);
